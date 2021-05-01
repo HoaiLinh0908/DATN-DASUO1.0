@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>up bài kiểm tra</title>
+</head>
+<body>
+    <div style="background-color: #f7f7f7;" class="wrapper">
+        <div id="header">
+            <script src="/js/web/components/header_web.js"></script>
+        </div>
+        <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
+            <div class="left-content">
+                <ul id="accordion">
+                    <li>
+                        <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Tất cả lớp đã đăng</a></li>
+                            <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                    <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Đã đăng</a></li>
+                            <li><a href="#">Đang soạn</a></li>
+                            <li><a href="#">Đã gửi</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                            <li><a href="#">Giáo viên</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Sửa thông tin cá nhân</a></li>
+                            <li><a href="#">Thay đổi email, mật khẩu</a></li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+             <div style="height: 500px;" class="right-content">
+                <div class="head-block">
+                    <h4 style="padding: 10px 8px;width: 182px;color: #fff;background-color: #069d86;font-weight: bold;">SOẠN BÀI KIỂM TRA</h4>
+                    <hr style="width: 80.2%;opacity: 0.8;float: right;" color="#069d86">
+                 </div>
+                 <div class="body-block">
+                    <form id="update-profile-form" action="" method="POST" enctype="multipart/form-data">
+                        <div  class="info-step-1">
+                        
+                                <div style="width: 100%;" class="col-md-1">
+                                    <label for="">TIÊU ĐỀ</label>
+                                    <span class="teacher-alert">*</span><br>
+                                    <input type="text" name="hotendaydu">
+                                </div>
+                        
+                                <div style="width: 100%;" class="col-md-1">
+                                    <label for="hannap">HẠN NẠP</label>
+                                    <span class="teacher-alert">*</span><br>
+                                    <input type="datetime-local" id="hannap" name="hannap">
+                                    
+                                </div>
+
+                                <div style="width: 100%;" class="col-md-1">
+                                    <label for="">NHẬP BÀI KIỂM TRA</label>
+                                    <span class="teacher-alert">*</span><br>
+                                    <textarea placeholder="Vui lòng nhập đề bài kiểm tra..." name="" id="mo-ta-ban-than" cols="30" rows="6 auto"></textarea>
+                                    
+                                </div>
+                                <div style="width: 100%;" class="col-md-1">
+                                    <label for="">OR</label>
+                                    <span class="teacher-alert">*</span><br>
+                                    <input style="color: #069d86; padding: 10px 0;" type="file" id="" name="">
+                                 </div>
+                                 <hr>
+                                 <!-- Style lai button gui  -->
+                                 <input  type="submit" class="submit-de-kt">
+                        </div>
+                    </form>
+             </div>
+        </div>
+       
+    </div>
+</body>
+</html>

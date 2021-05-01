@@ -2,7 +2,6 @@ var popularTeacherList = []
 var allAccountList = []
 var taiKhoanCaNhan = {}
 
-
 //FUNCTION HIEN THI GIAO VIEN NOI BAT
 function loadPopularTeacherList() {
 	$.ajax({

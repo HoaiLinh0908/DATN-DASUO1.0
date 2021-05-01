@@ -16,7 +16,7 @@
 <!-- css -->
 <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
 <link href="/css/style.css" rel='stylesheet' type='text/css' media="all" />
-<script src="/js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- /css -->
 </head>
 <body>
@@ -24,29 +24,18 @@
     <div id="header">
         <div class="logo">
             <a href="#">
-                <img src="/img/logo.PNG" alt="dasuo-logo">
+                
+                    <h2 style=" height: 54px;
+                    border: black;
+                    padding-left: 50px;
+                    float: left;" class="text-logo">Dasuo</h2>
+                
              </a>
  
         </div>
-        <div class="menu-top">
-         <ul style="height: 58px;" id="nav">
-             <li><a href="#">Đăng yêu cầu</a></li>
-             <li><a href="#">Lớp mới</a></li>
-            
-             <li>
-                 <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
-                 <ul class="subnav">
-                     <li><a href="#">Yêu cầu tìm gia sư</a></li>
-                     <li><a href="#">Gia sư online</a></li>
-                     <li><a href="#">Trở thành gia sư </a></li>
-                     
-                 </ul>
-             </li>
-         </ul>
-         </div>
      <div class="btn-dk-dn">
-         <a href="#" id="btn-dn">Đăng nhập</a>
-         <a style="border: 1px solid white;padding: 6px 12px ;border-radius: 3px; color: yellow;" href="#" id="btn-dk">Đăng ký</a>
+         <a href="/dangnhap" id="btn-dn">Đăng nhập</a>
+         <a style="border: 1px solid white;padding: 6px 12px ;border-radius: 3px; color: yellow;" href="/dangky" id="btn-dk">Đăng ký</a>
      </div>
      
         
@@ -69,18 +58,18 @@
 			</div>
 
 			<div class="form-control agileinfo">	
-				<input type="text" class="lock" name="password" placeholder="Số điện thoại" id="password1" required="">
+				<input type="password" class="lock" name="password" placeholder="Số điện thoại" id="sodienthoai" required="">
 			</div>	
 
 			<div class="form-control agileinfo">	
-				<input type="password" class="lock" name="confirm-password" placeholder="Mật khẩu" id="password2" required="">
+				<input type="password" class="lock" name="confirm-password" placeholder="Mật khẩu" id="password1" required="">
 			</div>	
             
             <div class="form-control agileinfo">	
-				<input type="password" class="lock" name="confirm-password" placeholder=" Nhập lại mật khẩu" id="password3" required="">
+				<input type="password" class="lock" name="confirm-password" placeholder=" Nhập lại mật khẩu" id="password2" required="">
 			</div>
 			
-			<input type="submit" id="submit" class="register" value="Đăng ký">
+			<input type="submit" class="register" value="Đăng ký">
 		</form>
 		
 		
@@ -88,7 +77,7 @@
 	
     
 </div>
-<script src="/js/web/taikhoan.js"></script>
+
 </body>
 
 </html>

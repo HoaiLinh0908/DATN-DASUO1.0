@@ -1,102 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <script src="/js/jquery.min.js"></script>
-    <title>dasuo hasaghi masenjo</title>
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>dasuo hasaghi masenjo</title>
 </head>
+
 <body>
-    <script src="/js/index_scripts.js"></script>
+    <script src="/js/script.js"></script>
     <div id="wrapper">
         <div id="header">
-           <div class="logo">
-               <a href="#">
-                   <img src="/img/logo.PNG" alt="dasuo-logo">
+            <div class="logo">
+                <a style="text-decoration: none;" href="#">
+                    <h2 class="text-logo">Dasuo</h2>
                 </a>
-    
-           </div>
-           <div class="menu-top">
-            <ul id="nav">
-                <li><a href="#">Đăng yêu cầu</a></li>
-                <li><a href="#">Lớp mới</a></li>
-               
-                <li>
-                    <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
-                    <ul class="subnav">
-                        <li><a href="#">Yêu cầu tìm gia sư</a></li>
-                        <li><a href="#">Gia sư online</a></li>
-                        <li><a href="#">Trở thành gia sư </a></li>
-                        
-                    </ul>
-                </li>
-            </ul>
-            </div>
-        <div class="btn-dk-dn">
-            <a href="#" id="btn-dn">Đăng nhập</a>
-            <a href="#" id="btn-dk">Đăng ký</a>
-        </div>
-        
-           
-        </div>
-        
-        <div class="slidershow">
-            <div class="slides">
-                <div class="slide active">
-                    <img src="/img/sliderimg0.jpg" >
-                </div>
-                <div class="slide">
-                    <img src="/img/slideimg1.jpg" >
-                </div>
-                <div class="slide">
-                    <img src="/img/slideimg2.jpg" >
-                </div>
-                <div class="slide">
-                    <img src="/img/slideimg03.jpg" >
-                </div>
 
             </div>
-            <div class="btn-slide">
-                <span id="btn-pre"><i class="fas fa-chevron-left"></i></span>
-                <span id="btn-next"><i class="fas fa-chevron-right"></i></span>
-               <ul>
-                   <li></li>
-                   <li></li>
-                   <li></li>
-                   <li></li>
-               </ul>
+            <div class="menu-top">
+                <ul style="height: 58px;" id="nav">
+                    <li><a href="http://127.0.0.1:5500/taobaidang.html">Đăng yêu cầu</a></li>
+                    <li><a href="#">Lớp mới</a></li>
+
+                    <li>
+                        <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
+                        <ul class="subnav">
+                            <li><a href="#">Yêu cầu tìm gia sư</a></li>
+                            <li><a href="#">Gia sư online</a></li>
+                            <li><a href="#">Trở thành gia sư </a></li>
+
+                        </ul>
+                    </li>
+                </ul>
             </div>
 
+            <div style="margin-left: 560px;" class="btn-dk-dn">
+                <a href="/dangnhap" id="btn-dn">Đăng nhập</a>
+                <a href="/dangky" id="btn-dk">Đăng ký</a>
+            </div>
+
+
         </div>
+
+        <div style="max-width: 1200px;" class="slideshow-container">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="/img/slideimg1.jpg" style="width:100%;height: 450px;">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="/img/slideimg2.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="/img/slideimg03.jpg" style="width:100%">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="/img/sliderimg0.jpg" style="width:100%">
+
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+        <br>
+
+        <div style="text-align:center;margin-top: -60px;z-index: 100;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+
+
+
+
+
         <div class="container">
             <div id="content1">
                 <div class="thong-ke">
                     <a href="#" class="thongke">
-                        <i class="fas fa-graduation-cap tk-icon"></i>  
+                        <i class="fas fa-graduation-cap tk-icon"></i>
                         <span>
                             <strong>10.000+ gia sư</strong>
                             <br>
-                                     
-                                    <p id="kcn">khắp cả nước</p>
+                            <p id="kcn">khắp cả nước</p>
                         </span>
-                       </a>
+                    </a>
                 </div>
-               
+
                 <div class="thong-ke">
                     <a href="#" class="thongke">
                         <i class="fas fa-user-circle tk-icon"></i>
                         <span class="user-text">
                             <strong>100.000+ lượt truy cập</strong>
                             <br>
-                                  
-                                    <p>hàng quý</p> 
+
+                            <p>hàng quý</p>
                         </span>
-                       </a>
-                       
+                    </a>
+
                 </div>
 
                 <div class="thong-ke">
@@ -105,15 +153,15 @@
                         <span class="handshake-text">
                             <strong>5.000+ yêu cầu tìm gia sư</strong>
                             <br>
-                                   
-                                    <p>Tỷ lệ hài lòng 97%</p> 
+
+                            <p>Tỷ lệ hài lòng 97%</p>
                         </span>
-                       </a>
-                       
+                    </a>
+
                 </div>
-               </div>
+            </div>
             <div class="main-content">
-                <h3 class="heading">GIA SƯ NỔI BẬT</h3>
+                <h3 class="heading">GIA SƯ NỖI BẬT</h3>
                 <hr class="hr-hr">
                 <p class="sub-heading">Nền tảng tìm gia sư lớn nhất Việt Nam – 20,000 gia sư trên khắp cả nước</p>
                 <div class="menu-monhoc">
@@ -127,154 +175,189 @@
                         <li><a href="#">Công nghệ thông tin</a></li>
                         <li><a href="#">Các môn khác</a></li>
                     </ul>
-                    
+
                 </div>
                 <div class="inf-giasu">
-                    <!-- hien thi gia su noi bat o day -->
+                    <div class="gia-su">
+                        <a href="#"><img src="/img/user1.png"></a>
+                        <p class="name-gia-su">Phạm Thị Như Quỳnh</p>
+                        <p class="address">Hà Nội | Toán, Tiếng anh</p>
+                        <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 800 điểm </p>
+                        <button href="#" class="btn-md">Mời dạy</button>
+                    </div>
+                    <div class="gia-su">
+                        <a href="#"><img src="/img/user1.png"></a>
+                        <p class="name-gia-su">Phạm Thị Như Quỳnh</p>
+                        <p class="address">Hà Nội | Toán, Tiếng anh</p>
+                        <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 800 điểm </p>
+                        <button href="#" class="btn-md">Mời dạy</button>
+                    </div>
+                    <div class="gia-su">
+                        <a href="#"><img src="/img/user1.png"></a>
+                        <p class="name-gia-su">Phạm Thị Như Quỳnh</p>
+                        <p class="address">Hà Nội | Toán, Tiếng anh</p>
+                        <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 800 điểm </p>
+                        <button href="#" class="btn-md">Mời dạy</button>
 
+                    </div>
+                    <div class="gia-su">
+                        <a href="#"><img src="/img/user1.png"></a>
+                        <p class="name-gia-su">Phạm Thị Như Quỳnh</p>
+                        <p class="address">Hà Nội | Toán, Tiếng anh</p>
+                        <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 800 điểm </p>
+                        <button href="#" class="btn-md">Mời dạy</button>
+                    </div>
+                    <a href="#" class="see-more"> Xem thêm </a>
 
-
-                    <a href="#" class="see-more"> Xem thêm</a> 
                 </div>
-            
                 <div class="sub-content">
-                <div class="request">
-                    <h3 class="h3-sub-content">TÌM GIA SƯ, TÌM GIÁO VIÊN</h3>
-                    <p>Thật đơn giản, bạn chỉ cần gửi yêu cầu học, các giáo viên sẽ gửi đề nghị dạy tới bạn cùng với mức học phí mong muốn. Bạn sẽ chủ động chọn lựa giáo viên phù hợp với bạn nhất.</p>
-                    <div class="btn-request">
-                        <a href="">Yêu cầu tìm gia sư</a>
+                    <div class="request">
+                        <h3 class="h3-sub-content">TÌM GIA SƯ, TÌM GIÁO VIÊN</h3>
+                        <p>Thật đơn giản, bạn chỉ cần gửi yêu cầu học, các giáo viên sẽ gửi đề nghị dạy tới bạn cùng với
+                            mức học phí mong muốn. Bạn sẽ chủ động chọn lựa giáo viên phù hợp với bạn nhất.</p>
+                        <div class="btn-request">
+                            <a href="">Yêu cầu tìm gia sư</a>
+                        </div>
+                    </div>
+                    <div class="become">
+                        <h3 class="h3-sub-content">TRỞ THÀNH GIA SƯ</h3>
+                        <p>Nếu bạn có một khả năng nào đó, hãy đăng ký trở thành gia sư trên hệ thống Dasuo, bạn sẽ được
+                            tiếp cận với hàng ngàn học viên và có cơ hội được truyền đạt kiến thức của mình</p>
+                        <div class="btn-request">
+                            <a href="">Trở thành gia sư</a>
+                        </div>
                     </div>
                 </div>
-                <div class="become">
-                    <h3 class="h3-sub-content">TRỞ THÀNH GIA SƯ</h3>
-                    <p>Nếu bạn có một khả năng nào đó, hãy đăng ký trở thành gia sư trên hệ thống Dasuo, bạn sẽ được tiếp cận với hàng ngàn học viên và có cơ hội được truyền đạt kiến thức của mình</p>
-                   <div class="btn-request">
-                    <a href="">Trở thành gia sư</a>
-                   </div> 
+                <hr>
+                <div class="last-content">
+                    <h2>Hỗ trợ & tư vấn</h2>
+                    <div class="btn-last-content">
+                        <a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>
+                        <a href="" class="support2 "><i class="fas fa-envelope"></i> nguyenminhtan2340@gmail.com</a>
+                        <a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>
+                    </div>
+                    <h2>Đăng ký nhận tin & kết nối</h2>
+                    <div class="email-dk">
+                        <p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>
+                        <input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"
+                            maxlength="128" class="form-text required">
+                        <a href="#" class="btn-email">Đăng ký</a>
+                    </div>
+                    <div class="public">
+                        <p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>
+                        <a href="#" target="_blank" class="facebook" rel="nofollow"><i
+                                class="fab fa-facebook-square"></i></a>
+                        <a href="#" target="_blank" class="twitter" rel="nofollow"><i
+                                class="fab fa-twitter-square"></i></a>
+                        <a href="#" target="_blank" class="youtube" rel="nofollow"><i
+                                class="fab fa-youtube-square"></i></a>
+                        <a href="#" target="_blank" class="google-plus" rel="nofollow"><i
+                                class="fab fa-google-plus-square"></i></a>
+                    </div>
                 </div>
-            </div>
-           <hr>
-           <div class="last-content">
-               <h2 >Hỗ trợ & tư vấn</h2>
-               <div class="btn-last-content">
-                   <a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>
-                   <a href="" class="support2 "><i class="fas fa-envelope"></i> nguyenminhtan2340@gmail.com</a>
-                   <a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>
-               </div>
-               <h2>Đăng ký nhận tin & kết nối</h2>
-               <div class="email-dk">
-                   <p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>
-                   <input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"  maxlength="128" class="form-text required">
-                   <a href="#" class="btn-email">Đăng ký</a>
-               </div>
-               <div class="public">
-                   <p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>
-                   <a href="#" target="_blank" class="facebook" rel="nofollow"><i class="fab fa-facebook-square"></i></a>
-                   <a href="#" target="_blank" class="twitter" rel="nofollow"><i class="fab fa-twitter-square"></i></a>
-                   <a href="#" target="_blank" class="youtube" rel="nofollow"><i class="fab fa-youtube-square"></i></a>
-                   <a href="#" target="_blank" class="google-plus" rel="nofollow"><i class="fab fa-google-plus-square"></i></a>
-               </div>
-           </div>
-           <div id="footer">
-            <div class="footer-tke">
-                <h3>Thống kê</h3>
-                <ul>
-                    <li>
-                        <strong>5000+</strong>
-                        "gia sư"
-                    </li>
-                    <li>
-                        <strong>15000+</strong>
-                        "người dùng"
-                    </li>
-                    <li>
-                        <strong>9.500+</strong>
-                        "yêu cầu tìm gia sư"
-                    </li>
-                    <li>
-                        <strong>97%</strong>
-                        "Người dùng hài lòng"
-                    </li>
-                </ul>
+                <div id="footer" class="footer-color">
+                    <div class="footer-tke">
+                        <h3>Thống kê</h3>
+                        <ul>
+                            <li>
+                                <strong>5000+</strong>
+                                "gia sư"
+                            </li>
+                            <li>
+                                <strong>15000+</strong>
+                                "người dùng"
+                            </li>
+                            <li>
+                                <strong>9.500+</strong>
+                                "yêu cầu tìm gia sư"
+                            </li>
+                            <li>
+                                <strong>97%</strong>
+                                "Người dùng hài lòng"
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="mxh">
+                        <h3>Mạng xã hội</h3>
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+                            <li><a href="#"><i class="fab fa-youtube-square"></i>Youtube</a></li>
+                            <li><a href="#"><i class="fab fa-google-plus"></i>Google +</a></li>
+                        </ul>
+                    </div>
+                    <div class="fan">
+                        <h3>Fanpage</h3>
+                        <a href="https://www.facebook.com/Dasuo-Li%C3%AAn-k%E1%BA%BFt-gia-s%C6%B0-tr%E1%BB%B1c-tuy%E1%BA%BFn-103659921831108"
+                            target="_blank"><img src="/img/fanpage.PNG" alt=""></a>
+                    </div>
+                    <div class="mmm">
+                        <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+                        <div>
+                            <h4>Bạn đang muốn</h4>
+                            <ul>
+                                <li><a href="#">Đăng yêu cầu tìm gia sư</a></li>
+                                <li><a href="#">Xem danh sách gia sư</a></li>
+                                <li><a href="#">Góp ý cho Dasuo</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Danh mục gia sư</h4>
+                            <ul>
+                                <li><a href="#">Gia sư toán</a></li>
+                                <li><a href="#">Gia sư tiếng anh</a></li>
+                                <li><a href="#">Gia sư online</a></li>
+                                <li><a href="#">Gia sư ngoại ngữ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Dasuo</h4>
+                            <ul>
+                                <li><a href="#">Về chúng tôi</a></li>
+                                <li><a href="#">Quy định MXH Dasuo</a></li>
+                                <li><a href="#">CC bảo mật thông tin</a></li>
+                                <li><a href="#">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Hỗ trợ</h4>
+                            <ul>
+                                <li><a href="#">Hướng dẫn sử dụng</a></li>
+                                <li><a href="#">Mời bạn bè</a></li>
+                                <li><a href="#">Khiếu nại</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Dành cho gia sư</h4>
+                            <ul>
+                                <li><a href="#">Trở thành gia sư</a></li>
+                                <li><a href="#">Danh sách lớp mới</a></li>
+                                <li><a href="#">Hướng dẫn cho gia sư</a></li>
+                                <li><a href="#">Chính sách phí</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="home-last-footer">
+                        <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+                        <div class="information">
+                            <p>© 2020 - 2021 Tổ chức giáo dục Dasuo Việt Nam <br>
+
+                                Trụ sở: Số 78 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng <br>
+                                Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Đà Nẵng cấp ngày
+                                09/02/2021</p>
+                        </div>
+                    </div>
+
+
+                </div>
+
 
             </div>
-            <div class="mxh">
-                <h3>Mạng xã hội</h3>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-youtube-square"></i>Youtube</a></li>
-                    <li><a href="#"><i class="fab fa-google-plus"></i>Google +</a></li>
-                </ul>
-            </div>
-            <div class="fan">
-                <h3>Fanpage</h3>
-                <a href="https://www.facebook.com/Dasuo-Li%C3%AAn-k%E1%BA%BFt-gia-s%C6%B0-tr%E1%BB%B1c-tuy%E1%BA%BFn-103659921831108"  target="_blank"><img src="/img/fanpage.PNG" alt=""></a>
-            </div>
-            <div class="mmm">
-                <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
-                <div>
-                    <h4 >Bạn đang muốn</h4>
-                    <ul>
-                        <li><a href="#">Đăng yêu cầu tìm gia sư</a></li>
-                        <li><a href="#">Xem danh sách gia sư</a></li>
-                        <li><a href="#">Góp ý cho Dasuo</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Danh mục gia sư</h4>
-                    <ul>
-                        <li><a href="#">Gia sư toán</a></li>
-                        <li><a href="#">Gia sư tiếng anh</a></li>
-                        <li><a href="#">Gia sư online</a></li>
-                        <li><a href="#">Gia sư ngoại ngữ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Dasuo</h4>
-                    <ul>
-                        <li><a href="#">Về chúng tôi</a></li>
-                        <li><a href="#">Quy định MXH Dasuo</a></li>
-                        <li><a href="#">CC bảo mật thông tin</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Hỗ trợ</h4>
-                    <ul>
-                        <li><a href="#">Hướng dẫn sử dụng</a></li>
-                        <li><a href="#">Mời bạn bè</a></li>
-                        <li><a href="#">Khiếu nại</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Dành cho gia sư</h4>
-                    <ul>
-                        <li><a href="#">Trở thành gia sư</a></li>
-                        <li><a href="#">Danh sách lớp mới</a></li>
-                        <li><a href="#">Hướng dẫn cho gia sư</a></li>
-                        <li><a href="#">Chính sách phí</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="home-last-footer">
-                <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
-                <div class="information">
-                    <p>© 2020 - 2021 Tổ chức giáo dục Dasuo Việt Nam <br>
 
-                        Trụ sở: Số 78 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng <br>
-                        Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Đà Nẵng cấp ngày 09/02/2021</p>
-                </div>
-            </div>
-            
-        
-            </div>
-           
-            
+
+
         </div>
 
-        
-        
-    </div>
-        <script src="/js/web/taikhoan.js"></script>
 </body>
+
 </html>
