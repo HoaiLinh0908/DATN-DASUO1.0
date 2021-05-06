@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-import com.dasuo.entity.TaiKhoan;
-
 public class BaiDangDTO {
 	private Integer baiDang_Id;
 	
