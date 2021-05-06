@@ -59,7 +59,12 @@ public class TaiKhoanConverter {
 		LoaiDTO loaiDTO = loaiConverter.toDTO(taiKhoan.getLoai());
 		taiKhoanDTO.setLoai(loaiDTO);
 		taiKhoanDTO.setSdt(taiKhoan.getSdt());
-		TinhThanhDTO tinhthanh = tinhThanhConverter.toDTO(taiKhoan.getTinhThanh());
+		TinhThanhDTO tinhthanh;
+		if(taiKhoan.getTinhThanh() != null) {
+			tinhthanh = tinhThanhConverter.toDTO(taiKhoan.getTinhThanh());
+		}else {
+			tinhthanh = null;
+		}
 		taiKhoanDTO.setTinhThanh(tinhthanh);
 		taiKhoanDTO.setSoDu(taiKhoan.getSoDu());
 		taiKhoanDTO.setMoTa(taiKhoan.getMoTa());
