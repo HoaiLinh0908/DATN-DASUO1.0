@@ -62,7 +62,7 @@ public class BaiDangAPI {
 	
 	@PostMapping("/baidangs")
 	public ResponseEntity<BaiDangDTO> addBaiDang(@RequestBody BaiDangDTO baiDangDTO) {
-		if(baiDangDTO != null && baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null && baiDangDTO.getTaiKhoan() != null)
+		if(baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null && baiDangDTO.getTaiKhoan() != null)
 		{
 			baiDangService.save(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO, HttpStatus.OK);

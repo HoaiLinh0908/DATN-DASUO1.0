@@ -1,77 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
-    <title>hiển thị bài đăng</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Bài đăng tìm lớp</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div id="header">
-            <div class="logo">
-                <a href="#">
-                    <img src="./assets/img/logo.PNG" alt="dasuo-logo">
-                 </a>
-     
-            </div>
-            <div class="menu-top">
-             <ul id="nav">
-                 <li><a href="#">Đăng yêu cầu</a></li>
-                 <li><a href="#">Lớp mới</a></li>
-                 
-                 <li>
-                     <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
-                     <ul class="subnav">
-                         <li><a href="http://127.0.0.1:5500/taobaidang.html">Yêu cầu tìm gia sư</a></li>
-                         <li><a href="#">Gia sư online</a></li>
-                         <li><a href="#">Trở thành gia sư</a></li>
-                     </ul>
-                 </li>
-             </ul>
-             </div>
+            <script src="/js/web/components/header_web.js"></script>
         </div>
-        <div style="margin-top: 62px; width: 98%;height: 1000px; padding: 0 120px;" class="main-wrapper">
-            <div style="background-color:#fff; padding-bottom: 10px;height: 1000px;" class="view">
+    </div>
+    <div style="margin-top: 62px; width: 98%;height: 700px; padding: 0 120px;" class="main-wrapper">
+        <div style="background: color #f7f7f7;; padding-bottom: 10px;height: auto;" class="view">
             <div class="view-header">
                 <h4 style="background-color: #069d86;padding: 8px 8px;width: 20%;color: #fff;">LỚP PHÙ HỢP VỚI BẠN</h4>
-                <hr style="width: 80.2%;opacity: 0.8;;float: right;" >
+                <hr style="width: 80.2%;opacity: 0.8;;float: right;">
             </div>
-            <div  class="bg-gradient-pink">
-                <div  class="page-classes-filters">
-                    <form action="/class" method="get" id="views-exposed-form-nhom-hoc-chung-page-3" accept-charset="UTF-8"><div><div class="views-exposed-form">
-                        <div style="float: left; padding: 16px 8px;width: 100%;" class="views-exposed-widgets clearfix">
-                                
-                                <div  style="float: left;" id="edit-subject-wrapper" class="views-exposed-widget views-widget-filter-field_subject_tid">
-                                    <div class="views-widget">
-                                <div class="form-item form-type-select form-item-subject">
-                       <select style="padding: 6px 12px;" id="edit-subject" name="subject" class="form-select"><option value="All" selected="selected">- Chọn môn học -</option><optgroup label="Môn học phổ thông"><option value="72">Toán</option><option value="73">Lý</option><option value="74">Hóa</option><option value="76">Văn</option></optgroup></select>
-                      </div>
+            <div class="bg-gradient-pink">
+                <div class="page-classes-filters">
+                    <form action="/class" method="get" id="views-exposed-form-nhom-hoc-chung-page-3"
+                        accept-charset="UTF-8">
+                        <div>
+                            <div class="views-exposed-form">
+                                <div style="float: left; padding: 16px 8px;width: 100%;"
+                                    class="views-exposed-widgets clearfix">
+
+                                    <div style="float: left;" id="edit-subject-wrapper"
+                                        class="views-exposed-widget views-widget-filter-field_subject_tid">
+                                        <div class="views-widget">
+                                            <div class="form-item form-type-select form-item-subject">
+                                                <select style="padding: 6px 12px;" id="edit-subject" name="subject"
+                                                    class="form-select">
+                                                    <option value="All" selected="selected">- Chọn môn học -</option>
+                                                    <optgroup label="Môn học phổ thông">
+                                                        <option value="72">Toán</option>
+                                                        <option value="73">Lý</option>
+                                                        <option value="74">Hóa</option>
+                                                        <option value="76">Văn</option>
+                                                    </optgroup>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div style="float: left; padding: 0px 8px;"
+                                        class="views-exposed-widget views-submit-button">
+                                        <input
+                                            style=" border-radius: 4px;padding: 6px 12px;background-color: #069d86;color: #fff;"
+                                            type="submit" id="edit-submit-nhom-hoc-chung" name="" value="Áp dụng"
+                                            class="form-submit">
+                                    </div>
+                                </div>
+                                <div class="hien-thi-ket-qua">
+                                    <p style="font-size: 14px; margin-left: 8px; color: #970218;">Có 2 kết quả hiển thị
+                                    </p>
+                                </div>
                             </div>
-                         <div style="float: left; padding: 0px 8px;" class="views-exposed-widget views-submit-button">
-                            <input style=" border-radius: 4px;padding: 6px 12px;background-color: #069d86;color: #fff;" type="submit" id="edit-submit-nhom-hoc-chung" name="" value="Áp dụng" class="form-submit">
                         </div>
-                            </div>
-                      </div>
-                      </div>
                     </form>
 
                 </div>
-                <hr style="width: 100%;opacity: 0.8;;float: right;" >
+                <hr style="width: 100%;opacity: 0.8;float: right;">
             </div>
-           <div class="view-content">
-               <div class="row-tittle">
-                   <div  class="row">
-                       <div style="float: left;" class="col-md-2 col-sm-2">
+            <div class="view-content">
+                <div style="margin-bottom: 16px;" class="row-tittle">
+                    <div class="row">
+                        <div style="float: left;" class="col-md-2 col-sm-2">
                             <div class="row-request-1">
                                 <h3>NGƯỜI ĐĂNG</h3>
                             </div>
                         </div>
-                        <div style="float: left;" class="col-md-6 col-sm-6">
+                        <div style="float: left ;margin-left: 30px;" class="col-md-6 col-sm-6">
                             <div class="row-request-2">
                                 <h3>NỘI DUNG LỚP HỌC TÌM GIA SƯ</h3>
                             </div>
@@ -86,75 +94,36 @@
                                 <h3>PHÍ NHẬN LỚP</h3>
                             </div>
                         </div>
-                   </div>
-                   <hr>
-               </div>
-               <div class="row-request bla-common-shadow">
-                <div class="one-row-class ">
-              <div class="bla-ribbon ribbon-top-left">
-                <span class="ribbon-vip-class" title="Trả phí sau">Trả phí sau</span>
-              </div>
-            <div class="row">
-              <div class="col-md-2 col-sm-2">
-                <div class="row-request-1">     
-                 <p style="height:50px;">
-                     <img typeof="foaf:Image" src="https://d1plicc6iqzi9y.cloudfront.net/sites/default/files/styles/baiviet_50_50/public/image/201902/28/-10-15-3179a112474562662d794bda4de790efbb.JPEG" width="50" height="50" alt="">		 </p>
-                     
-                   <p class="creator-name"><a href="/blacasa-cskh-02">Blacasa CSKH Thảo</a></p>
-                 <p class="created-date">17/04/2021</p>
+                    </div>
+                    <hr style="width: 100%;opacity: 0.8;;float: right;">
                 </div>
-              </div>
-              <div class="col-md-6 col-sm-6">
-                <div class="row-request-2">
-                  <h2 class="row-request-title"> 
-                                                <i class="fa fa-check" aria-hidden="true" style="font-size: 18px;color: #03ad03;margin-right: 2px;" title="Đã xác thực thông tin">
-                                </i>
-                                    <a href="/class/lop-tro-ly-hoc-tap-bmentor-tieng-anh-lop-2-van-phuc-ha-dong-7620" target="_blank">Lớp Trợ lý học tập Bmentor Tiếng Anh  lớp 2 Vạn Phúc Hà Đông</a>			</h2>
-                   
-                  <p style="font-style: italic;">Học viên là nữ đang học trường tư, học lực bình thường,  còn lười, mất tập trung, chểnh mảng hơn sau đợt dịch.
-            Cần gia sư GIỎI chuyên môn tốt, giọng miền Bắc, phát âm chuẩn, đúng...</p>    
-                  <span class="group-span">Tiếng Anh</span>
-                  <span class="group-span">(Offline) Gặp mặt</span>
-                                        <span class="group-span">Hà Nội</span>
-                                              <span class="showMap" title="Khoảng cách từ bạn tới lớp này, bấm để xem.">
-                         
-                  <i class="fa fa-map-marker"> 20+ km</i> 
-                          </span>
-            
-                        <!--<span class="show-when-hover">
-                                  </span>-->
+                <div class="baidang-container">
+                    <script src="/js/web/baidang/hienthibaidang.js"></script>
                 </div>
-              </div>
-              <div class="col-md-2 col-sm-2">
-                <div class="row-request-3">
-                  <span class="green-text" style="color:#FF961E;"><span style="font-size: 18px;font-weight:bold;color:#FF961E;">
-                  2,560,000</span> vnđ/tháng</span>
-                  <p class="class-offer-number">0/6 đề nghị</p>
-                </div>  
-              </div>
-              <div class="col-md-2 col-sm-2">
-                <div class="row-request-4">
-                          <p class="connect-fee connect-fee-price" style="color:#069D86;">
-                      <span style="color: #4e4d4b;">Phí: </span>640,000 <span style="font-weight:normal!important;font-size:14px;"> vnđ</span>
-                    </p>
-                    <span class="connect-fee-note">(Chỉ thu khi nhận được lớp 
-                                <a href="/chinh-sach-phi" target="_blank"><i class="fa fa-exclamation-circle fa-first"></i></a>)
-                            </span>
-                        <div class="action-group text-right show-when-hover">
-                                
-                      <!--<div class="btn-data" data-object="" data-type="object">
-                                </div>-->
-                      <a href="/lop-hoc-user/7620/dang-ky-day" class="btn-yellow btn ctools-use-modal ctools-use-modal-processed">Đề Nghị Dạy</a>      </div>
-                </div>
-              </div>
             </div>
-            
-            
-            </div>
-            </div>
-               
-           </div>
+        </div>
+
+    </div>
+    <div style="margin-top: 10px;margin-bottom: 30px; text-align: center;" class="Pagination">
+        <div class="pagination">
+            <a href="#">&laquo;</a>
+            <a class="active" href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">&raquo;</a>
         </div>
     </div>
+    <hr>
+    <div class="last-content">
+        <script src="/js/web/components/httv.js"></script>
+    </div>
+    <div id="footer">
+        <script src="/js/web/components/footer_web.js"></script>
+    </div>
+
 </body>
+
 </html>

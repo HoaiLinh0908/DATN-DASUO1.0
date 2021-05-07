@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.dasuo.converter.TaiKhoanConverter;
@@ -44,14 +42,10 @@ public class TaiKhoanService implements ITaiKhoanService{
 
 	@Override
 	public void save(TaiKhoanDTO taiKhoanDTO) {
-		if(taiKhoanDTO.getLoai() != null && taiKhoanDTO.getNgheNghiep()!=null )
-		{
+		if(taiKhoanRepository.findByEmail(taiKhoanDTO.getEmail()) == null) {
 			TaiKhoan taiKhoan = taiKhoanConverter.toEntity(taiKhoanDTO);
-			
 			taiKhoanRepository.save(taiKhoan);
 		}
-		
-		
 	}
 
 	@Override

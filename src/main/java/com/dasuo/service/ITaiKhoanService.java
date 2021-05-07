@@ -3,7 +3,6 @@ package com.dasuo.service;
 import java.util.List;
 
 import com.dasuo.dto.TaiKhoanDTO;
-import com.dasuo.entity.TaiKhoan;
 
 public interface ITaiKhoanService {
 	List<TaiKhoanDTO> getListTaiKhoan();

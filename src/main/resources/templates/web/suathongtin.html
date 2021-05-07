@@ -1,423 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index_style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-    <script src="/js/jquery.min.js"></script>
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <script src="/js/index_scripts.js"></script>
     <div class="wrapper">
         <div id="header">
-            <div class="logo">
-                <a href="#">
-                    <img src="/img/logo.PNG" alt="dasuo-logo">
-                 </a>
-     
-            </div>
-            <div class="menu-top">
-             <ul id="nav">
-                 <li><a href="#">Đăng yêu cầu</a></li>
-                 <li><a href="#">Lớp mới</a></li>
-                 
-                 <li>
-                     <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
-                     <ul class="subnav">
-                         <li><a href="#">Yêu cầu tìm gia sư</a></li>
-                         <li><a href="#">Gia sư online</a></li>
-                         <li><a href="#">Trở thành gia sư</a></li>
-                     </ul>
-                 </li>
-             </ul>
-             </div>
-             <div style="width: 35%; display: flex;line-height: 54px;" class="navbar-form">
-                <div class="search-header">
-                    <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm gia sư theo môn học " class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
-                </div>
-                <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;
-                height: 31px;width: 42px;" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
-         </div>
-            
-                 
-                 <div class="home-logged">
-                    
-                 </div>
-                 
-             </div>
-             <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
-                 <div class="left-content">
-                    <ul id="accordion">
-                        <li>
-                            <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Tất cả lớp đã đăng</a></li>
-                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
-                        <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
-                        <li>
-                            <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Đã đăng</a></li>
-                                <li><a href="#">Đang soạn</a></li>
-                                <li><a href="#">Đã gửi</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
-                                <li><a href="#">Giáo viên</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
-                        <li>
-                            <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Sửa thông tin cá nhân</a></li>
-                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                 </div>
+            <script src="/js/web/components/header_web.js"></script>
+        </div>
+        <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
+            <div class="left-content">
+                <ul id="accordion">
+                    <li><a href="#"><i class="fas fa-home icon-menu"></i> Trang chủ</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i> Quản lý yêu cầu <i
+                                class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Tất cả lớp đã đăng</a></li>
+                            <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                    <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i
+                                class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Đã đăng</a></li>
+                            <li><a href="#">Đang soạn</a></li>
+                            <li><a href="#">Đã gửi</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i
+                                class="fas fa-chevron-right show-right"></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                            <li><a href="#">Giáo viên</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                    <li>
+                        <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i
+                                class="fas fa-chevron-right show-right"></i></i></a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Sửa thông tin cá nhân</a></li>
+                            <li><a href="#">Thay đổi mật khẩu</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fad fa-users-class icon-menu"></i> Lớp <i
+                                class="fas fa-chevron-right show-right"></i></a>
 
-                 <div class="right-content">
-                     <div class="head-block">
-                        <h4 style="padding: 10px 8px;width: 182px;color: #fff;background-color: #069d86;font-weight: bold;">HỒ SƠ NGƯỜI DÙNG</h4>
-                        <hr style="width: 80.2%;opacity: 0.8;float: right;" color="#069d86">
-                     </div>
-                     
-                     <div class="body-block">
-                         <form id="update-profile-form" action="" method="POST" enctype="multipart/form-data">
-                            <div class="info-step-1">
-                                <h3 style="padding: 20px 8px;color: #069d86;">Thông tin cá nhân</h3>
-                                <div class="col-md-1">
-                                    <label for="">HỌ TÊN ĐẦY ĐỦ</label>
-                                    <span class="teacher-alert">*</span><br>
-                                    <input type="text" name="hotendaydu">
-                                </div>
-                                <div class="col-md-1">
-                                    <label for="">ĐIỆN THOẠI</label>
-                                    <span class="teacher-alert">*</span><br>
-                                    <input type="text" name="dienthoai">
-                                </div>
-                                <div class="col-md-1">
-                                    <label for="">TỈNH, THÀNH PHỐ ĐANG SỐNG</label>
-                                    <span class="teacher-alert">*</span><br>
-                                    <input type="text" name="noisong">
-                                </div>
-                                <div class="col-md-1">
-                                    <label for="">ĐỊA CHỈ CỤ THỂ</label>
-                                    <span class="teacher-alert">*</span><br>
-                                    <input type="text" name="diachicuthe">
-                                </div>
-                            </div>
-                        </form>
-                     </div>
-                     <div class="mo-ta">
-                         <div class="col-md-12">
-                                <label for="">MÔ TẢ BẢN THÂN, KINH NGHIỆM & BẰNG CẤP </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="right-content">
+                <div class="head-block">
+                    <h4 style="padding: 10px 8px;width: 182px;color: #fff;background-color: #069d86;font-weight: bold;">
+                        HỒ SƠ NGƯỜI DÙNG</h4>
+                    <hr style="width: 80.2%;opacity: 0.8;float: right;" color="#069d86">
+                </div>
+
+                <div class="body-block">
+                    <form id="update-profile-form" action="" method="POST" enctype="multipart/form-data">
+                        <div class="info-step-1">
+                            <h3 style="padding: 20px 8px;color: #069d86;">Thông tin cá nhân</h3>
+                            <div class="col-md-1">
+                                <label for="">HỌ TÊN ĐẦY ĐỦ</label>
                                 <span class="teacher-alert">*</span><br>
-                                <i>(Bạn cần ghi đầy đủ ưu điểm của bản thân để được nhận lớp trong thời gian sớm nhất)</i>
-                                <textarea placeholder="Mô tả bản thân, bằng cấp và kinh nghiệm của bạn (nên dài hơn 150 chữ cái)..." name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
-                         </div>
-                     </div>
-                     <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
-                        <div class="col-md-12">
-                            <h3 style="padding: 20px 8px;color: #069d86;">Hồ sơ chuyên môn</h3>
-                                <div class="kieu-giao-vien">
-                                    <label style="border:none;background-color:#fff; padding:0 8px;margin:0">BẠN ĐANG LÀ? (Bấm để chọn) <span class="teacher-alert">*</span> </label>
-                                    <div>
-                                        <select name="type_teacher_field" id="type_teacher_field" style="max-width: 300px" class="missing-value">
-                                            <option selected="" disabled="" value="">Lựa chọn</option>
-                                                        <option value="1">Sinh viên</option>
-                                                        <option value="3">Giáo viên</option>
-                                                        <option value="9">Người nước ngoài</option>
-                                                        <option value="2">Người đi làm</option>
-                                                        <option value="8">Chuyên gia</option>
-                                                        <option value="0">Học sinh</option>
-                                                                        
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <div class="hoc-phi">
-                                    <label>HỌC PHÍ 1 GIỜ (VNĐ) <span class="teacher-alert">*</span> </label><br>
-                                    <input  type="text" class="numberOnly missing-value" autocomplete="off" oninput="changeStatusInput()" onkeypress="changeStatusInput()" placeholder="Ví dụ:100,000" maxlength="14" name="price_cost" id="price_cost" value="" data-original-title="" title="">
-                                </div>
-                                <div class="mon-hoc">
-                                    <label>MÔN HỌC SẼ DẠY</label>
-                                    <br>
-                                </div>
+                                <input type="text" name="hotendaydu">
+                            </div>
+                            <div class="col-md-1">
+                                <label for="">ĐIỆN THOẠI</label>
+                                <span class="teacher-alert">*</span><br>
+                                <input type="text" name="dienthoai">
+                            </div>
+                            <div class="col-md-1">
+                                <label for="">TỈNH, THÀNH PHỐ ĐANG SỐNG</label>
+                                <span class="teacher-alert">*</span><br>
+                                <input type="text" name="noisong">
+                            </div>
+                            <div class="col-md-1">
+                                <label for="">ĐỊA CHỈ CỤ THỂ</label>
+                                <span class="teacher-alert">*</span><br>
+                                <input type="text" name="diachicuthe">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="mo-ta">
+                    <div class="col-md-12">
+                        <label for="">MÔ TẢ BẢN THÂN, KINH NGHIỆM & BẰNG CẤP </label>
+                        <span class="teacher-alert">*</span><br>
+                        <i>(Bạn cần ghi đầy đủ ưu điểm của bản thân để được nhận lớp trong thời gian sớm nhất)</i>
+                        <textarea
+                            placeholder="Mô tả bản thân, bằng cấp và kinh nghiệm của bạn (nên dài hơn 150 chữ cái)..."
+                            name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
+                    <div class="col-md-12">
+                        <h3 style="padding: 20px 8px;color: #069d86;">Hồ sơ chuyên môn</h3>
+                        <div class="kieu-giao-vien">
+                            <label style="border:none;background-color:#fff; padding:0 8px;margin:0">BẠN ĐANG LÀ? (Bấm
+                                để chọn) <span class="teacher-alert">*</span> </label>
+                            <div>
+                                <select name="type_teacher_field" id="type_teacher_field" style="max-width: 300px"
+                                    class="missing-value">
+                                    <option selected="" disabled="" value="">Lựa chọn</option>
+                                    <option value="1">Sinh viên</option>
+                                    <option value="3">Giáo viên</option>
+                                    <option value="9">Người nước ngoài</option>
+                                    <option value="2">Người đi làm</option>
+                                    <option value="8">Chuyên gia</option>
+                                    <option value="0">Học sinh</option>
 
-                                <div class="group-tag">
-                                    <span class="multiselect-native-select">
-                                        <select name="subject[]" id="select-subject">
-                                            <option selected="" disabled="" value="">chọn môn học</option>
-                                            <option value="toan">Toán</option>
-                                                                        
-                                            <option value="ly">Lý</option>
+                                </select>
+                            </div>
+                        </div>
 
-                                            <option value="hóa">Hóa</option>
+                        <div class="hoc-phi">
+                            <label>HỌC PHÍ 1 GIỜ (VNĐ) <span class="teacher-alert">*</span> </label><br>
+                            <input type="text" class="numberOnly missing-value" autocomplete="off"
+                                oninput="changeStatusInput()" onkeypress="changeStatusInput()"
+                                placeholder="Ví dụ:100,000" maxlength="14" name="price_cost" id="price_cost" value=""
+                                data-original-title="" title="">
+                        </div>
+                        <div class="mon-hoc">
+                            <label>MÔN HỌC SẼ DẠY</label>
+                            <br>
+                        </div>
 
-                                        </select>
-                                        
-                                    </span>
-                                </div>
+                        <div class="group-tag">
+                            <span class="multiselect-native-select">
+                                <select name="subject[]" id="select-subject">
+                                    <option selected="" disabled="" value="">chọn môn học</option>
+                                    <option value="toan">Toán</option>
+
+                                    <option value="ly">Lý</option>
+
+                                    <option value="hóa">Hóa</option>
+
+                                </select>
+
+                            </span>
                         </div>
                     </div>
-                    <div class="info-step2">
-                        <label style="margin-top: 24px;">LỊCH CÓ THỂ NHẬN LỚP <span class="teacher-alert">*</span> </label>
-                        <div style="text-align: center; height: 200PX;margin-left: 35px;" class="schedule-detail">
-                            <div class="row-calendar-check">
-                                <h3>Thứ 2</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Thứ 3</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Thứ 4</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Thứ 5</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Thứ 6</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Thứ 7</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            <div  class="row-calendar-check">
-                                <h3>Chủ nhật</h3>
-                                <ul>
-                                    <li>
-                                        <label for="morning-calendar-2">Sáng</label>
-                                        <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
-                                    </li>
-                                    <li>
-                                        <label for="afternoon-calendar-2">Chiều</label>
-                                        <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
-                                    </li>
-                                    <li>
-                                        <label for="evening-calendar-2">Tối</label>
-                                        <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                        <p class="note-calender">Bấm để chọn lịch. <span style="color: blue;">Tích xanh</span> là những buổi có thể nhận dạy.</p>
-                        <div class="action-form">
-                            <input name="submit-info" type="submit" value="Cập nhật" class="bnt-cap-nhat">
-                        </div>
+                </div>
+                <div class="info-step2">
+                    <p style="margin-left: 20px;" class="p-create-class-title"><i class="fa fa-calendar"
+                            aria-hidden="true"></i> Thời gian có thể học</p>
+                    <div style="text-align: center; height: 200PX; margin-left: 32px;" class="schedule-detail">
+                        <script src="/js/web/components/chonlich.js"></script>
                     </div>
-                    
-                 </div>
-                
-             </div>
-             <hr style="margin-top: 30px;color: #069d86; width: 100%;">
-           <div class="last-content">
-               <h2 >Hỗ trợ & tư vấn</h2>
-               <div class="btn-last-content">
-                   <a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>
-                   <a href="" class="support2 "><i class="fas fa-envelope"></i> nguyenminhtan2340@gmail.com</a>
-                   <a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>
-               </div>
-               <h2>Đăng ký nhận tin & kết nối</h2>
-               <div class="email-dk">
-                   <p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>
-                   <input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"  maxlength="128" class="form-text required">
-                   <a href="#" class="btn-email">Đăng ký</a>
-               </div>
-               <div class="public">
-                   <p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>
-                   <a href="#" target="_blank" class="facebook" rel="nofollow"><i class="fab fa-facebook-square"></i></a>
-                   <a href="#" target="_blank" class="twitter" rel="nofollow"><i class="fab fa-twitter-square"></i></a>
-                   <a href="#" target="_blank" class="youtube" rel="nofollow"><i class="fab fa-youtube-square"></i></a>
-                   <a href="#" target="_blank" class="google-plus" rel="nofollow"><i class="fab fa-google-plus-square"></i></a>
-               </div>
-           </div>
-           <div id="footer">
-            <div class="footer-tke">
-                <h3>Thống kê</h3>
-                <ul>
-                    <li>
-                        <strong>5000+</strong>
-                        "gia sư"
-                    </li>
-                    <li>
-                        <strong>15000+</strong>
-                        "người dùng"
-                    </li>
-                    <li>
-                        <strong>9.500+</strong>
-                        "yêu cầu tìm gia sư"
-                    </li>
-                    <li>
-                        <strong>97%</strong>
-                        "Người dùng hài lòng"
-                    </li>
-                </ul>
+                    <p class="note-calender">Bấm để chọn lịch. <span style="color:#008000">Màu xanh</span> là những buổi
+                        có thể nhận dạy.</p>
+
+                </div>
 
             </div>
-            <div class="mxh">
-                <h3>Mạng xã hội</h3>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
-                    <li><a href="#"><i class="fab fa-youtube-square"></i>Youtube</a></li>
-                    <li><a href="#"><i class="fab fa-google-plus"></i>Google +</a></li>
-                </ul>
-            </div>
-            <div class="fan">
-                <h3>Fanpage</h3>
-                <a href="https://www.facebook.com/Dasuo-Li%C3%AAn-k%E1%BA%BFt-gia-s%C6%B0-tr%E1%BB%B1c-tuy%E1%BA%BFn-103659921831108"  target="_blank"><img src="./assets/img/fanpage.PNG" alt=""></a>
-            </div>
-            <div class="mmm">
-                <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
-                <div>
-                    <h4 >Bạn đang muốn</h4>
-                    <ul>
-                        <li><a href="#">Đăng yêu cầu tìm gia sư</a></li>
-                        <li><a href="#">Xem danh sách gia sư</a></li>
-                        <li><a href="#">Góp ý cho Dasuo</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Danh mục gia sư</h4>
-                    <ul>
-                        <li><a href="#">Gia sư toán</a></li>
-                        <li><a href="#">Gia sư tiếng anh</a></li>
-                        <li><a href="#">Gia sư online</a></li>
-                        <li><a href="#">Gia sư ngoại ngữ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Dasuo</h4>
-                    <ul>
-                        <li><a href="#">Về chúng tôi</a></li>
-                        <li><a href="#">Quy định MXH Dasuo</a></li>
-                        <li><a href="#">CC bảo mật thông tin</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Hỗ trợ</h4>
-                    <ul>
-                        <li><a href="#">Hướng dẫn sử dụng</a></li>
-                        <li><a href="#">Mời bạn bè</a></li>
-                        <li><a href="#">Khiếu nại</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 >Dành cho gia sư</h4>
-                    <ul>
-                        <li><a href="#">Trở thành gia sư</a></li>
-                        <li><a href="#">Danh sách lớp mới</a></li>
-                        <li><a href="#">Hướng dẫn cho gia sư</a></li>
-                        <li><a href="#">Chính sách phí</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="home-last-footer">
-                <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
-                <div class="information">
-                    <p>© 2020 - 2021 Tổ chức giáo dục Dasuo Việt Nam <br>
 
-                        Trụ sở: Số 78 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng <br>
-                        Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Đà Nẵng cấp ngày 09/02/2021</p>
-                </div>
-            </div>
-    </div>
-    
+        </div>
+        <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+
+        <div class="last-content">
+            <script src="/js/web/components/httv.js"></script>
+        </div>
+        <div id="footer">
+            <script src="/js/web/components/footer_web.js"></script>
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                $('.buoihoc, .bh').click(function () {
+                    var $this = $(this);
+                    if ($this.hasClass('buoihoc')) {
+                        if ($(this).css("background-color") == "rgb(0, 128, 0)") {
+                            $(this).css("background-color", "#fff");
+                            $(this).find("input").attr("checked", false)
+                        } else {
+                            $(this).css("background-color", "#008000");
+                            $(this).find("input").attr("checked", true)
+                        }
+                    }else {
+                        if ($(this).parent().css("background-color") == "rgb(0, 128, 0)") {
+                            $(this).parent().css("background-color", "#fff");
+                            $(this).parent().find("input").attr("checked", false)
+                        } else {
+                            $(this).parent().css("background-color", "#008000");
+                            $(this).parent().find("input").attr("checked", true)
+                        }
+                    }
+                });
+            });
+        </script>
 </body>
+
 </html>

@@ -1,117 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div id="header">
-            <div class="logo">
-                <a href="#">
-                    <img src="./assets/img/logo.PNG" alt="dasuo-logo">
-                 </a>
-     
+            <script src="/js/web/components/header_web.js"></script>
+        </div>
+        <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
+            <div class="left-content">
+                <script src="/js/web/components/leftmenu.js"></script>
             </div>
-            <div class="menu-top">
-             <ul id="nav">
-                 <li><a href="#">Đăng yêu cầu</a></li>
-                 <li><a href="#">Lớp mới</a></li>
-                 
-                 <li>
-                     <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
-                     <ul class="subnav">
-                         <li><a href="#">Yêu cầu tìm gia sư</a></li>
-                         <li><a href="#">Gia sư online</a></li>
-                         <li><a href="#">Trở thành gia sư</a></li>
-                     </ul>
-                 </li>
-             </ul>
-             </div>
-            
-             <div style="width: 35%; display: flex;line-height: 54px;" class="navbar-form">
-                <div class="search-header">
-                    <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm gia sư theo môn học" class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
-                </div>
-                <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;
-                height: 31px;width: 42px;" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
-         </div>
-                 <div class="home-logged">
-                    
-                 </div>
-                 
-             </div>
-             <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
-                 <div class="left-content">
-                    <ul id="accordion">
-                        <li>
-                            <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Tất cả lớp đã đăng</a></li>
-                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
-                            </ul>
-                        </li>
-                        <li><a style="color: orange;" href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
-                        <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
-                        <li>
-                            <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Đã đăng</a></li>
-                                <li><a href="#">Đang soạn</a></li>
-                                <li><a href="#">Đã gửi</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
-                                <li><a href="#">Giáo viên</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
-                        <li>
-                            <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Sửa thông tin cá nhân</a></li>
-                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                 </div>
 
-                 <div class="right-content">
-                     <div class="head-block">
-                        <h4 style="padding: 10px 8px;width: 222px;color: #fff;background-color: #069d86;font-weight: bold;">HỘI THOẠI VÀ TIN NHẮN</h4>
-                        <hr style="width: 75.8%;opacity: 0.8;float: right;" color="#069d86">
-                     </div>
-                     <div class="right-conttent1">
+            <div class="right-content">
+                <div class="head-block">
+                    <h4 style="padding: 10px 8px;width: 222px;color: #fff;background-color: #069d86;font-weight: bold;">
+                        HỘI THOẠI VÀ TIN NHẮN</h4>
+                    <hr style="width: 75.8%;opacity: 0.8;float: right;" color="#069d86">
+                </div>
+                <div class="right-conttent1">
                     <h4 style="padding: 12px;">Tất cả các tin nhắn trò chuyện </h4>
                     <hr>
-                    <p style="margin-left: 8px;">Chưa có tin nhắn để hiển thị</p>
+                    <!-- Chat box hien thi cac tin nhan -->
+                    <div class="show-chat">
+                        <!-- hien thi tin nhan cua tai khoan dang dang nhap -->
+                        <div class="tin-nhan nguoi-gui">
+                            <p>linhhhh</p>
+                        </div>
+                        <!-- hien thi tin nhan cua tro chuyen -->
+                        <div class="tin-nhan nguoi-nhan">
+                            <p>tannn</p>
+                        </div>
+                        <!-- hien thi khi khong co tin nhan (su dung js) -->
+                        <p style="margin-left: 8px;">Chưa có tin nhắn để hiển thị</p>
+                    </div>
+
                     <div class="col-md-12">
-                        
-                        <textarea style="width: 95%;padding: 8px 8px;margin-top:240px ;margin-left: 13px;" placeholder="Nhập tin nhắn..." name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
-                        <button style="padding: 5px 10px;border-radius: 5px;background-color: #e9edf0;margin-left: 13px;margin-top:8px;" type="submit">Gửi</button>
-                        
+
+                        <textarea style="width: 95%;padding: 8px 8px;margin-top:240px ;margin-left: 13px;"
+                            placeholder="Nhập tin nhắn..." name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
+                        <!-- Style lai cho button dep hon -->
+                        <button
+                            style="color: #fff;padding: 8px 24px;border-radius: 5px;background-color: #069d86;margin-left: 13px;margin-top:8px;"
+                            type="submit">Gửi</button>
+
                     </div>
 
-                     </div>
+                </div>
 
-                     <div class="right-conttent2">
-                         <h4 style="padding: 12px;">Người dùng trong trò chuyện</h4>
-                         
-                         <hr>
-                         <p style="margin-left: 8px ; font-size: 12px;font-weight: 600;">Nguyễn Minh Tân</p>
-                    </div>
-                 </div>    
-             </div>
-          
+                <div class="right-conttent2">
+                    <h4 style="padding: 12px;">Người dùng trong trò chuyện</h4>
+
+                    <hr>
+                    <p style="margin-left: 8px ; font-size: 12px;font-weight: 600;">Nguyễn Minh Tân</p>
+                </div>
+            </div>
+        </div>
+
     </div>
-    
+    <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+    <div class="last-content">
+        <script src="/js/web/components/httv.js"></script>
+    </div>
+    <div id="footer">
+        <script src="/js/web/components/footer_web.js"></script>
+    </div>
 </body>
+
 </html>

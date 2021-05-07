@@ -9,12 +9,12 @@ public class DasuoController {
 	public String demo() {
 		return "index";
 	}
-	@RequestMapping("/login")
+	@RequestMapping("/dangnhap")
 	public String Login() {
-		return "login";
+		return "web/loggin";
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping("/dangky")
 	public String signUp() {
 		return "web/register";
 	}
@@ -24,14 +24,58 @@ public class DasuoController {
 		return "admin/homeadmin";
 	}
 	
-	@RequestMapping("/city")
-	public String viewCity() {
-		return "web/addcity";
-	}
-	
-	@RequestMapping("/account/userprofile")
+	@RequestMapping("/taikhoan/trangcanhan")
 	public String viewProfile() {
 		return "web/userinformation";
 	}
 
+	@RequestMapping("/trochuyen")
+	public String viewChat() {
+		return "web/chat";
+	}
+
+	@RequestMapping("/hienthibaidang")
+	public String viewBaiDang() {
+		return "web/hienthibaidang";
+	}
+	
+	@RequestMapping("/hienthilichlop")
+	public String viewLichHoc() {
+		return "web/hienthilichlop";
+	}
+	
+	@RequestMapping("/suathongtin")
+	public String viewSuaThonTin() {
+		return "web/suathongtin";
+	}
+	
+	@RequestMapping("/taobaidang")
+	public String viewTaoBaiDang() {
+		return "web/taobaidang";
+	}
+	
+	@RequestMapping("/timkiem")
+	public String viewTimKiem() {
+		return "web/timkiem";
+	}
+	
+	@RequestMapping("/trangchu")
+	public String viewTrangChu() {
+		return "web/trangchu";
+	}
+	
+	@RequestMapping("/upbaikt")
+	public String viewUpBaiKT() {
+		return "web/upbaikt";
+	}
+	
+	@RequestMapping("/doimatkhau")
+	public String viewDoiMatKhau() {
+		return "web/doimatkhau";
+	}
+	
+	@RequestMapping("/quenmatkhau")
+	public String viewQuenMatKhau() {
+		return "forgot_password_form";
+	}
 }

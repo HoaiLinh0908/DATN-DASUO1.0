@@ -1,0 +1,22 @@
+$(document).ready(function(){
+    var httv = '<h2 >Hỗ trợ & tư vấn</h2>'
+                + '<div class="btn-last-content">'
+                    + '<a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>'
+                    + '<a href="" class="support2 "><i class="fas fa-envelope"></i> nguyenminhtan2340@gmail.com</a>'
+                    + '<a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>'
+                + '</div>'
+                + '<h2>Đăng ký nhận tin & kết nối</h2>'
+                + '<div class="email-dk">'
+                    + '<p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>'
+                    + '<input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"  maxlength="128" class="form-text required">'
+                    + '<a href="#" class="btn-email">Đăng ký</a>'
+                + '</div>'
+                + '<div class="public">'
+                    + '<p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>'
+                    + '<a href="#" target="_blank" class="facebook" rel="nofollow"><i class="fab fa-facebook-square"></i></a>'
+                    + '<a href="#" target="_blank" class="twitter" rel="nofollow"><i class="fab fa-twitter-square"></i></a>'
+                    + '<a href="#" target="_blank" class="youtube" rel="nofollow"><i class="fab fa-youtube-square"></i></a>'
+                    + '<a href="#" target="_blank" class="google-plus" rel="nofollow"><i class="fab fa-google-plus-square"></i></a>'
+                + '</div>'
+    $(".last-content").html(httv);
+});
