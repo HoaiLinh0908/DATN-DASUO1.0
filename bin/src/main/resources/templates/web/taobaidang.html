@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <title>Document</title>
+</head>
+<body>
+    <div style="background-color: #f7f7f7;" class="wrapper">
+        <div id="header">
+            <div class="logo">
+                <a href="#">
+                    <img src="./assets/img/logo.PNG" alt="dasuo-logo">
+                 </a>
+     
+            </div>
+            <div class="menu-top">
+             <ul id="nav">
+                 <li><a href="#">Đăng yêu cầu</a></li>
+                 <li><a href="#">Lớp mới</a></li>
+                 
+                 <li>
+                     <a href="#">Gia sư <i class="fas fa-caret-down icon-down"></i></a>
+                     <ul class="subnav">
+                         <li><a href="#">Yêu cầu tìm gia sư</a></li>
+                         <li><a href="#">Gia sư online</a></li>
+                         <li><a href="#">Trở thành gia sư</a></li>
+                     </ul>
+                 </li>
+             </ul>
+             </div>
+             <div style="width: 35%; display: flex;line-height: 54px;" class="navbar-form">
+                <div class="search-header">
+                    <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm gia sư theo môn học " class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
+                </div>
+                <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;
+                height: 31px;width: 42px;" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
+         </div>
+         <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1" style=" padding:0px; width: 30%;">		
+				
+            <ul style="display: flex;" class="nav navbar-nav navbar-right"> 
+                
+                 
+                    <li style="border-right: 1px solid #fff;width: 35%;line-height: 54px;" class="avatar hidden-xs flex-row-nowrap common-tooltip">
+                        <a style="color: #fff;text-decoration: none;" href="#" class="active">Tân nguyễn <img typeof="foaf:Image" src="./assets/img/infor.png" width="24" height="24" alt=""></a>											
+                                
+                        
+                    </li>
+            
+                             
+                    <li style="line-height: 54px;width: 60%;" class="dropdown notification message-info common-tooltip"> 									
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-type="view_message">
+                            <i style="color: #fff;font-size: 20px;margin-left: 3px;" class="fa fa-comments header-main-icon" aria-hidden="true"></i>	<h4 style="visibility: hidden;" class="title-drop"><span>Tin nhắn</span></h4>
+                            <div class="count"></div>
+                        </a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-type="view_message">
+                            <i style="color: #fff;font-size: 20px;margin-left: 3px;" class="fa fa-comments header-main-icon" aria-hidden="true"></i>	<h4 style="visibility: hidden;" class="title-drop"><span>Tin nhắn</span></h4>
+                            <div class="count"></div>
+                        </a>
+
+                    </li>
+            
+        </div>
+            
+    </div>
+   
+    <div style="margin-bottom: 20px;margin-left: 60px;" class="container p-create-class-body">
+        <div style="margin-top: 74px;" class="form-nhom-hoc">
+            <div class="left-form">
+                <div class="header-form">
+                    <h2 style="margin: 0;font-size: 24px;">Mô tả yêu cầu tìm gia sư</h2>
+                </div>
+                <div style="margin-left: -5px;margin-right: -5px;" class="group-row">
+                    <div class="row">
+                                  <!--Hướng dẫn & mời gia sư-->
+                        <div class="col-md-12">
+                            <div class="class-field-1 class-field">
+                                <input type="hidden" name="nid" value="">
+                                    <p style="text-align: justify;line-height:1.8;font-size:15px;">												
+                                    Xin chào, bạn chỉ cần <strong>đăng yêu cầu học</strong>, các gia sư sẽ <strong>gửi đề nghị dạy</strong> 
+                                    tới bạn với mức học phí phù hợp để bạn lựa chọn. Nếu bạn cần tư vấn, xin vui lòng gọi điện tới chúng tôi: 
+                                    <a style="color:#069d86;text-decoration: none;" href="#">0353312340 </a> hoặc  
+                                    <a class="btn-border-only" href="#;" style="padding:4px 5px;">
+                                    <i class="fa fa-comment-alt"></i> CHAT trực tuyến</a><br>
+                                    </p>
+                            </div>  
+                            <hr style="opacity: 0.3;">            
+                                          
+                        </div>								
+                    </div>
+                    <div class="group-row">
+                        <div style="padding: 0 16px;" class="col-md-12 class-field">
+                            <p class="p-create-class-title">
+                                Tóm tắt yêu cầu tìm gia sư (1 câu, tối đa 100 ký tự) <span class="teacher-alert">*</span>
+                            </p>
+                  <input type="text" name="name_class" id="name_class" placeholder="Ví dụ: Tìm gia sư tiếng anh lớp 7 Đà Nẵng" maxlength="100" value="">					                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="class-field-4 class-field">
+                                  <p class="p-create-class-title">Môn học <span class="teacher-alert">*</span></p>
+                                  <select name="subject_class" id="subject-class">
+                                      <option value="">Lựa chọn môn học</option>
+                                      <optgroup label="Môn học phổ thông"><option value="72">Toán</option><option value="73">Lý</option><option value="74">Hóa</option><option value="76">Văn</option><option value="677">Tiếng Việt</option><option value="406">Lịch sử</option><option value="407">Địa lý</option><option value="81">Sinh</option><option value="410">Môn phổ thông khác</option></optgroup><optgroup label="Ngoại ngữ"><option value="71">Tiếng Anh</option><option value="82">Tiếng Nhật</option><option value="83">Tiếng Hàn</option><option value="85">Tiếng Đức</option><option value="84">Tiếng Pháp</option><option value="409">Tiếng Trung</option><option value="86">Ngoại ngữ khác</option></optgroup><optgroup label="Học nghề"><option value="77">Kỹ năng mềm</option><option value="404">Nuôi dạy trẻ</option><option value="411">Công nghệ thông tin</option><option value="412">Thiết kế - Đồ họa - Video</option><option value="90">Sales - Marketing</option><option value="682">Ẩm thực</option><option value="95">Ngành nghề khác</option></optgroup><optgroup label="Thể thao - Nghệ thuật"><option value="97">Âm nhạc</option><option value="99">Hội họa</option><option value="101">Dance (nhảy)</option><option value="78">Gyms, yoga, fitness</option><option value="102">Thể thao khác</option><option value="103">Nghệ thuật khác</option></optgroup>					                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 99%;opacity: 0.3; margin-left: 4px;">
+                    <div class="group-row">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="class-field-6 class-field">
+                                    <p class="p-create-class-title">Học phí dự kiến (vnđ/buổi) <span class="teacher-alert">*</span></p>
+                                    <input type="text" class="numberOnly" autocomplete="off" maxlength="13" placeholder="Ví dụ:250,000" name="price_cost" id="price_cost" value="" data-original-title="" title="">
+                                </div>  					              
+                            </div>
+                            <div class="col-md-6">
+                                <div class="class-field-6 class-field class-time">
+                                    <p class="p-create-class-title">Số giờ học 1 buổi <span class="teacher-alert">*</span></p>
+                                       <input type="radio" name="duration" value="1"><label>1h</label>
+                                       <input type="radio" name="duration" value="1.5"><label>1.5h</label>
+                                       <input type="radio" name="duration" value="2" checked=""><label>2h</label>
+                                       <input type="radio" name="duration" value="2.5"><label>2.5h</label>
+                                </div>  					              
+                            </div>
+                            <div style="left: 0;" class="col-md-6">
+                                
+                                    <div style="left: 0px;" class="class-field-5 class-field">
+                                        <p class="p-create-class-title">Điện thoại liên hệ <span class="teacher-alert">*</span></p>
+                                        <input class="numberOnly" type="text" name="phone_class" id="phone_class" placeholder="Ví dụ: 091234567"  value="0353312340">
+                                    </div>
+                                
+                            </div>
+                            </div>
+                            
+                            </div>	
+                            <div class="info-step2">
+                                <p style="margin-left: 20px;" class="p-create-class-title"><i class="fa fa-calendar" aria-hidden="true"></i> Thời gian có thể học</p>
+                                <div style="text-align: center; height: 200PX; margin-left: 32px;" class="schedule-detail">
+                                    <div class="row-calendar-check">
+                                        <h3>Thứ 2</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Thứ 3</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Thứ 4</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Thứ 5</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Thứ 6</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Thứ 7</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div  class="row-calendar-check">
+                                        <h3>Chủ nhật</h3>
+                                        <ul>
+                                            <li>
+                                                <label for="morning-calendar-2">Sáng</label>
+                                                <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                            </li>
+                                            <li>
+                                                <label for="afternoon-calendar-2">Chiều</label>
+                                                <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                            </li>
+                                            <li>
+                                                <label for="evening-calendar-2">Tối</label>
+                                                <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                                <p class="note-calender">Bấm để chọn lịch. <span style="color: blue;">Tích xanh</span> là những buổi có thể nhận dạy.</p>
+                                
+                            </div>
+                            <div style="width: 100%;" class="col-md-12">
+                                <div class="class-field-12 class-field">
+                                  <p style="margin-left: 12px;" class="p-create-class-title"><i style="margin-right: 6px;" class="fa fa-quote-right" aria-hidden="true"></i>Mô tả chi tiết nội dung muốn học <span class="class-field-alert">*</span></p>
+                                  <textarea style="width: 95%;padding: 8px 10px;margin-left: 20px;" name="introduce_class" id="introduce-class" placeholder="Mô tả các nội dung muốn học tại đây... " cols="38" rows="8"></textarea>
+                                </div>              
+                        </div>
+                        </div>
+                        <div class="group-row">	
+                            <fieldset style="border: 1px solid #8a8a8a;"><legend style="text-align: center;  color: #8a8a8a;font-weight: bold; font-size: 16px">THÔNG TIN THÊM</legend>
+                    <div class="row-read-more read-more-wrap">
+                      <div class="read-more-target">
+                                
+                                    <!--Số buổi học 1 tuần-->
+                            <div class="col-md-6">
+                              <div class="class-field-6 class-field class-sum-day">
+                                  <p class="p-create-class-title">Số buổi học trong tuần</p>
+                                  <input type="radio" name="times_per_week" value="1"><label> 1 buổi</label>
+                                  <input type="radio" name="times_per_week" value="2" checked="checked"><label> 2 buổi</label>
+                                  <input type="radio" name="times_per_week" value="3"><label> 3 buổi</label>
+                                  <input type="radio" name="times_per_week" value="4"><label> từ 4 buổi</label>
+                                </div>  					              
+                            </div>
+                    
+                                    <!--Số học viên-->											
+                            <div class="col-md-6">
+                              <div class="class-field-8 class-field">
+                                <p class="p-create-class-title">Số học viên</p>
+                                <input style="padding: 8px 5px; padding-right: 220px;" type="text" name="number_student" id="number_student" value="1">
+                              </div>
+                            </div>
+                            
+                                    <!--Giới tính gia sư-->
+                                                                                
+                            <div class="col-md-6">
+                              <div class="class-field-8 class-field">
+                                <p class="p-create-class-title">Giới tính gia sư</p>
+                                            <span style="padding-right:15px; min-width:60px;">
+                                            <input type="checkbox" name="teacher_male" id="teacher_male" value="1" checked=""> Nam
+                                            </span>
+                                            <span>
+                                            <input type="checkbox" name="teacher_female" id="teacher_female" value="0" checked=""> Nữ
+                                            </span>
+                                </div>
+                            </div>
+                                    
+                                    <!--Ngày học dự kiến-->
+                          <div class="col-md-6">
+                              <div class="class-field-9 class-field">
+                                <p class="p-create-class-title">Ngày dự kiến học</p>
+                                <input style="padding: 8px 5px; padding-right: 220px;" type="text" name="day-start" id="day-start" value="" class="hasDatepicker">
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                    
+                </fieldset>		
+                <div class="group-row">
+                    <!--Cam kết khi tạo mới-->
+                        <div class="row" style="font-size: 14px;max-width:500px;text-align:center;margin:auto; padding-bottom:10px;margin-top: 16px;">
+                        <input type="checkbox" name="term_of_user" id="term-of-user" value="1"> 
+                            <span id="text-term-of-use">Tôi cam kết thông tin tạo lớp là thật và  
+                            chấp nhận <a href="#" target="_blank" style="color:unset; text-decoration: none;"><i>các quy định</i></a>  của Dasuo.</span>		
+                        </div>
+                                                
+                    <!--Button đăng, cập nhật-->
+    <div class="row" style="text-align:center;padding:10px 0;">
+        <input name="submit-info" type="submit" class="btn-bla-big btn-yellowblacasa" style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;" value="Đăng yêu cầu">
+              </div>
+  </div>		          	
+              </div>
+            </div>
+
+            <div class="right-form">
+                    <div class="right-class-new-top">
+                        <i class="far fa-check-square checked-icon"></i>
+                        <div class="right-class-new-top-content">
+                            <h4>Tại sao bạn nên tìm gia sư trên Dasuo ?</h4>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Gia sư được sàng lọc, đào tạo kỹ năng và chuyên môn nghiệp vụ. </p>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Gia sư được sàng lọc, đào tạo kỹ năng và chuyên môn nghiệp vụ. </p>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Có chuyên gia tư vấn, định hướng học tập.</p>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Lộ trình học rõ ràng, được thiết kế cho sát với trình độ học viên.</p>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Hỗ trợ nhiệt tình, thân thiện.</p>
+                            <p><i class="fa fa-check" aria-hidden="true"></i> Hoàn toàn miễn phí</p>
+                        </div>
+
+                    </div>
+                    <div class="right-class-new-content">
+                        <h3>Tìm gia sư <span>chỉ với 3 bước</span></h3>
+                        <div class="right-class-step2">
+                            <img style="width: 160px;height: 110px;padding: 10px 0;margin-top: 12px;" src="./assets/img/Capture1.PNG">
+                            <h4>Học thử với gia sư</h4>
+                            <p>Khi nhận được yêu cầu, chăm sóc viên của Dasuo sẽ gọi lại cho bạn để xác nhận yêu cầu và sắp xếp buổi học thử miễn phí với gia sư phù hợp nhất. Đó là những gia sư TOP 1 trên hệ thống, không chỉ có hồ sơ tốt mà còn được đánh giá cao bởi học viên, phụ huynh trên Dasuo.</p>
+                        </div>
+                        <div class="right-class-step1">
+                            <img src="./assets/img/Capture.PNG">
+                            <h4>Đăng yêu cầu tìm gia sư</h4>
+                            <p>Form nhập yêu cầu rất đơn giản, chỉ mất hơn một phút để hoàn thành.</p>
+                        </div>
+                        <div class="right-class-step3">
+                            <img src="./assets/img/Capture2.PNG">
+                            <h4>Đăng ký khóa học gia sư theo lộ trình phù hợp</h4>
+                            <p>Toàn bộ khóa học sẽ được kiểm soát , bạn có thể theo dõi thời gian học, nội dung mỗi buổi học, nhận xét của gia sư, có chuyên gia tư vấn và hỗ trợ.</p>
+                            <h3 style="color: #069d86;">GIA SƯ TỐT NHẤT CỦA BẠN !</h3>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+        
+    </div> 
+    <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+    <div class="last-content">
+        <h2 >Hỗ trợ & tư vấn</h2>
+        <div class="btn-last-content">
+            <a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>
+            <a href="" class="support2 "><i class="fas fa-envelope"></i> nguyenminhtan2340@gmail.com</a>
+            <a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>
+        </div>
+        <h2>Đăng ký nhận tin & kết nối</h2>
+        <div class="email-dk">
+            <p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>
+            <input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"  maxlength="128" class="form-text required">
+            <a href="#" class="btn-email">Đăng ký</a>
+        </div>
+        <div class="public">
+            <p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>
+            <a href="#" target="_blank" class="facebook" rel="nofollow"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" target="_blank" class="twitter" rel="nofollow"><i class="fab fa-twitter-square"></i></a>
+            <a href="#" target="_blank" class="youtube" rel="nofollow"><i class="fab fa-youtube-square"></i></a>
+            <a href="#" target="_blank" class="google-plus" rel="nofollow"><i class="fab fa-google-plus-square"></i></a>
+        </div>
+    </div>
+    <div id="footer">
+     <div class="footer-tke">
+         <h3>Thống kê</h3>
+         <ul>
+             <li>
+                 <strong>5000+</strong>
+                 "gia sư"
+             </li>
+             <li>
+                 <strong>15000+</strong>
+                 "người dùng"
+             </li>
+             <li>
+                 <strong>9.500+</strong>
+                 "yêu cầu tìm gia sư"
+             </li>
+             <li>
+                 <strong>97%</strong>
+                 "Người dùng hài lòng"
+             </li>
+         </ul>
+
+     </div>
+     <div class="mxh">
+         <h3>Mạng xã hội</h3>
+         <ul>
+             <li><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+             <li><a href="#"><i class="fab fa-youtube-square"></i>Youtube</a></li>
+             <li><a href="#"><i class="fab fa-google-plus"></i>Google +</a></li>
+         </ul>
+     </div>
+     <div class="fan">
+         <h3>Fanpage</h3>
+         <a href="https://www.facebook.com/Dasuo-Li%C3%AAn-k%E1%BA%BFt-gia-s%C6%B0-tr%E1%BB%B1c-tuy%E1%BA%BFn-103659921831108"  target="_blank"><img src="./assets/img/fanpage.PNG" alt=""></a>
+     </div>
+     <div class="mmm">
+         <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+         <div>
+             <h4 >Bạn đang muốn</h4>
+             <ul>
+                 <li><a href="#">Đăng yêu cầu tìm gia sư</a></li>
+                 <li><a href="#">Xem danh sách gia sư</a></li>
+                 <li><a href="#">Góp ý cho Dasuo</a></li>
+             </ul>
+         </div>
+         <div>
+             <h4 >Danh mục gia sư</h4>
+             <ul>
+                 <li><a href="#">Gia sư toán</a></li>
+                 <li><a href="#">Gia sư tiếng anh</a></li>
+                 <li><a href="#">Gia sư online</a></li>
+                 <li><a href="#">Gia sư ngoại ngữ</a></li>
+             </ul>
+         </div>
+         <div>
+             <h4 >Dasuo</h4>
+             <ul>
+                 <li><a href="#">Về chúng tôi</a></li>
+                 <li><a href="#">Quy định MXH Dasuo</a></li>
+                 <li><a href="#">CC bảo mật thông tin</a></li>
+                 <li><a href="#">Liên hệ</a></li>
+             </ul>
+         </div>
+         <div>
+             <h4 >Hỗ trợ</h4>
+             <ul>
+                 <li><a href="#">Hướng dẫn sử dụng</a></li>
+                 <li><a href="#">Mời bạn bè</a></li>
+                 <li><a href="#">Khiếu nại</a></li>
+             </ul>
+         </div>
+         <div>
+             <h4 >Dành cho gia sư</h4>
+             <ul>
+                 <li><a href="#">Trở thành gia sư</a></li>
+                 <li><a href="#">Danh sách lớp mới</a></li>
+                 <li><a href="#">Hướng dẫn cho gia sư</a></li>
+                 <li><a href="#">Chính sách phí</a></li>
+             </ul>
+         </div>
+     </div>
+     <div class="home-last-footer">
+         <hr style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+         <div class="information">
+             <p>© 2020 - 2021 Tổ chức giáo dục Dasuo Việt Nam <br>
+
+                 Trụ sở: Số 78 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng <br>
+                 Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Đà Nẵng cấp ngày 09/02/2021</p>
+         </div>
+     </div>
+    </div>
+    
+</body>
+</html>

@@ -44,7 +44,7 @@ public class TaiKhoanService implements ITaiKhoanService{
 
 	@Override
 	public void save(TaiKhoanDTO taiKhoanDTO) {
-		if(taiKhoanDTO.getLoai() != null && taiKhoanDTO.getNgheNghiep()!=null && taiKhoanDTO.getTinhThanh() !=null)
+		if(taiKhoanDTO.getLoai() != null && taiKhoanDTO.getNgheNghiep()!=null )
 		{
 			TaiKhoan taiKhoan = taiKhoanConverter.toEntity(taiKhoanDTO);
 			

@@ -75,7 +75,7 @@ public class TaiKhoanAPI {
 	
 	@PostMapping("/taikhoans")
 	public ResponseEntity<TaiKhoanDTO> addTaiKhoan (@RequestBody TaiKhoanDTO taiKhoanDTO) {
-		if(taiKhoanDTO!=null && taiKhoanDTO.getLoai() != null && taiKhoanDTO.getNgheNghiep()!=null && taiKhoanDTO.getTinhThanh() !=null)
+		if(taiKhoanDTO!=null && taiKhoanDTO.getLoai() != null && taiKhoanDTO.getNgheNghiep()!=null )
 		{
 			taiKhoanService.save(taiKhoanDTO);
 			return new ResponseEntity<>(taiKhoanDTO,HttpStatus.OK);

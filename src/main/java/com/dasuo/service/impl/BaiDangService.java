@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,12 +22,13 @@ public class BaiDangService implements IBaiDangService{
 
 	@Override
 	@Transactional
-	public List<BaiDangDTO> getListBaiDang() {
-		List<BaiDang> baiDangs = baiDangRepository.findAll();
+	public List<BaiDangDTO> getListBaiDang(Pageable pageable) {
+		List<BaiDang> baiDangs = baiDangRepository.findAll(pageable).getContent();
 		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
 		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
 		return baiDangDTOs;
 	}
+	
 
 	@Override
 	@Transactional
@@ -45,6 +47,12 @@ public class BaiDangService implements IBaiDangService{
 	public void delete(Integer id) {
 		baiDangRepository.deleteById(id);
 		
+	}
+
+
+	@Override
+	public int totalItem() {
+		return (int) baiDangRepository.count();
 	}
 
 }

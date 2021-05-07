@@ -3,6 +3,8 @@ package com.dasuo.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,10 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.dto.BaiDangDTO;
-import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.service.IBaiDangService;
 
 @RestController
@@ -23,18 +26,27 @@ import com.dasuo.service.IBaiDangService;
 public class BaiDangAPI {
 	@Autowired
 	IBaiDangService baiDangService;
-	
 	@GetMapping("/baidangs")
-	public ResponseEntity<List<BaiDangDTO>> getListBaiDangs (){
-		List<BaiDangDTO> baiDangDTOs = baiDangService.getListBaiDang();
-		if(baiDangDTOs!=null)
-		{
-			return new ResponseEntity<>(baiDangDTOs,HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<BaiDangOutput> getListBaiDangs (@RequestParam("page") int page,@RequestParam("limit") int limit){
+		BaiDangOutput baiDangOutput = new BaiDangOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		baiDangOutput.setPage(page);
+		baiDangOutput.setBaiDangDTOs(baiDangService.getListBaiDang(pageable));
+		baiDangOutput.setTotalItem(baiDangService.totalItem()/limit);
+			return new ResponseEntity<>(baiDangOutput,HttpStatus.OK);
 	}
+	
+//	@GetMapping("/baidangs")
+//	public ResponseEntity<List<BaiDangDTO>> getListBaiDangs (){
+//		List<BaiDangDTO> baiDangDTOs = baiDangService.getListBaiDang();
+//		if(baiDangDTOs!=null)
+//		{
+//			return new ResponseEntity<>(baiDangDTOs,HttpStatus.OK);
+//		}
+//		else {
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		}
+//	}
 	
 	@GetMapping("/baidangs/{id}")
 	public ResponseEntity<BaiDangDTO> getBaiDang(@PathVariable("id") Integer id){
