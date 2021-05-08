@@ -7,7 +7,7 @@ import com.dasuo.dto.BaiDangDTO;
 
 public class BaiDangOutput {
 	private int page;
-	private int totalItem;
+	private int totalPage;
 	private List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
 	public int getPage() {
 		return page;
@@ -15,11 +15,11 @@ public class BaiDangOutput {
 	public void setPage(int page) {
 		this.page = page;
 	}
-	public int getTotalItem() {
-		return totalItem;
+	public int getTotalPage() {
+		return totalPage;
 	}
-	public void setTotalItem(int totalItem) {
-		this.totalItem = totalItem;
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
 	}
 	public List<BaiDangDTO> getBaiDangDTOs() {
 		return baiDangDTOs;

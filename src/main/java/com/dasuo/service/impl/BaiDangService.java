@@ -51,8 +51,12 @@ public class BaiDangService implements IBaiDangService{
 
 
 	@Override
-	public int totalItem() {
-		return (int) baiDangRepository.count();
+	public int getTotalPage(int limit) {
+		int totalItem = (int) baiDangRepository.count();
+		if(totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
 	}
 
 }

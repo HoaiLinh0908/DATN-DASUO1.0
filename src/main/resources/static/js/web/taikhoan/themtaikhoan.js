@@ -4,7 +4,7 @@ $('#submit-btn').click( function () {
 		$("#cf-password-msg").show();
 	}else {
 		$.ajax({
-			url: "http://localhost:8081/api/taikhoans",
+			url: "http://localhost:8083/api/taikhoans",
 			type: "post",
 			contentType: "application/json; charset=utf-8",
 			async: false,

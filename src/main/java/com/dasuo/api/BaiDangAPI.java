@@ -1,7 +1,5 @@
 package com.dasuo.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +30,7 @@ public class BaiDangAPI {
 		Pageable pageable = PageRequest.of(page-1, limit);
 		baiDangOutput.setPage(page);
 		baiDangOutput.setBaiDangDTOs(baiDangService.getListBaiDang(pageable));
-		baiDangOutput.setTotalItem(baiDangService.totalItem()/limit);
+		baiDangOutput.setTotalPage(baiDangService.getTotalPage(limit));
 			return new ResponseEntity<>(baiDangOutput,HttpStatus.OK);
 	}
 	

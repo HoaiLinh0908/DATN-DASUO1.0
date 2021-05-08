@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var popularTeacherList = []
 	$.ajax({
-		url: "http://localhost:8081/api/taikhoanuutus",
+		url: "http://localhost:8083/api/taikhoanuutus",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",

@@ -11,6 +11,5 @@ public interface IBaiDangService {
 	BaiDangDTO getBaiDang(Integer id);
 	public void save (BaiDangDTO baiDangDTO);
 	public void delete(Integer id);
-	public int totalItem();
-
+	public int getTotalPage(int limit);
 }

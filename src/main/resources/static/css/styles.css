@@ -823,7 +823,7 @@ body{
     color: #069d86;
     font-size: 20px;
 }
-#name_class{
+#tomtatyc{
     width: 100%;
     height: 35px;
     border: .5px solid #ccc;
@@ -834,7 +834,7 @@ body{
     width: 50%;
     padding: 0 10px;
 }
-#subject-class{
+#monhoclinh{
     margin-top: 16px;
     padding: 10px 0;
     padding-right: 220px;
@@ -1115,6 +1115,10 @@ textarea{
 
 
 /* css cho hiện bài đăng */
+.baidang-container {
+    width: 100%;
+}
+
 .creator-name{
     margin-top: -6px;
 }
@@ -1129,11 +1133,15 @@ textarea{
 .mota-baidang{
     width: 48%;
 }
+.mota-soluoc {
+    width: 100%;
+}
 .bai-dang{
     background-color: #fff;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     padding-bottom: 15px;
+    width: 100%;
 }
 .mota-baidang h2{
     margin-top: 14px;
@@ -1152,6 +1160,13 @@ textarea{
     line-height: 20px;
 }
 
+.hocphidenghi {
+    width: 18%;
+}
+
+.phinhanlop {
+    width: 19%;
+}
 
 /* nháp */
 

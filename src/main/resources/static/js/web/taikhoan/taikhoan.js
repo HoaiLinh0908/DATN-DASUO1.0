@@ -4,7 +4,7 @@ var taiKhoanCaNhan = {}
 //FUNCTION HIEN THI TAT CA TAI KHOAN
 function loadAllAccountList() {
 	$.ajax({
-		url: "http://localhost:8081/api/taikhoans",
+		url: "http://localhost:8083/api/taikhoans",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -39,7 +39,7 @@ function loadAllAccountList() {
 //FUNCTION HIEN THI TAI KHOAN CA NHAN
 function loadTaiKhoan(id) {
 	$.ajax({
-		url: "http://localhost:8081/api/taikhoans/" + id,
+		url: "http://localhost:8083/api/taikhoans/" + id,
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -70,7 +70,7 @@ function loadTaiKhoan(id) {
 //FUNCTION CHINH SUA THONG TIN TAI KHOAN
 function loadTaiKhoan(id) {
 	$.ajax({
-		url: "http://localhost:8081/api/taikhoans/" + id,
+		url: "http://localhost:8083/api/taikhoans/" + id,
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "put",
