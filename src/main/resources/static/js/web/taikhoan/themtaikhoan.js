@@ -16,14 +16,10 @@ $('#submit-btn').click( function () {
 									"matKhau": $("#password1").val(),
 									"tinhThanh": null,
 									"loai": {
-										"loai_Id": 1,
-										"tenLoai": "Học Sinh",
-										"taiKhoan": null
+										"loai_Id": 1
 									},
 									"ngheNghiep": {
-										"ngheNghiep_Id": 1,
-										"tenNgheNghiep": "Sinh Viên",
-										"taiKhoan": null
+										"ngheNghiep_Id": 1
 									}}),
 			success: function (response) {
 				$("#firstname").val("");
