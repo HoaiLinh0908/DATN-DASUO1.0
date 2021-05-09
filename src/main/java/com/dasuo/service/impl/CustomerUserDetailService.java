@@ -4,7 +4,6 @@ package com.dasuo.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.omg.CORBA.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.dasuo.dto.MyUser;
 import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.TaiKhoanRepository;
 
@@ -32,8 +32,12 @@ public class CustomerUserDetailService implements UserDetailsService {
 			List<GrantedAuthority> graList = new ArrayList<GrantedAuthority>();
 			GrantedAuthority authrity = new SimpleGrantedAuthority(taiKhoan.getLoai().getTenLoai());
 			graList.add(authrity);
-			UserDetails userDetail = new User(taiKhoan.getEmail(), taiKhoan.getMatKhau(), graList);
-			return userDetail;
+			MyUser myUser = new MyUser(taiKhoan.getHoTen(), taiKhoan.getMatKhau(), graList);
+			myUser.setEmail(taiKhoan.getEmail());
+			myUser.setUser_Id(taiKhoan.getTaiKhoan_Id());
+			myUser.setHinhDaiDien(taiKhoan.getHinhDaiDien());
+			myUser.setMoTa(taiKhoan.getMoTa());
+			return myUser;
 		}
 
 	}
