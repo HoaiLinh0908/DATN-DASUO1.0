@@ -12,5 +12,5 @@ public interface ITaiKhoanService {
 	List<TaiKhoanDTO> getListGSNoiBat();
 	List<TaiKhoanDTO> getTimListTaiKhoan(String id);
 	public void doiMatKhau(int id, TaiKhoanDTO taiKhoanDTO);
-
+	TaiKhoanDTO getTaiKhoan(String email);
 }

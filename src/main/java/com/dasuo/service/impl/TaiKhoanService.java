@@ -107,4 +107,10 @@ public class TaiKhoanService implements ITaiKhoanService{
 		
 	}
 
+	@Override
+	public TaiKhoanDTO getTaiKhoan(String email) {
+		
+		return taiKhoanConverter.toDTO(taiKhoanRepository.findByEmail(email));
+	}
+
 }

@@ -1,10 +1,36 @@
 package com.dasuo.controller;
 
+import java.security.Principal;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Action;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.dasuo.dto.LoaiDTO;
+import com.dasuo.dto.NgheNghiepDTO;
+import com.dasuo.dto.TaiKhoanDTO;
+import com.dasuo.entity.TinhThanh;
+import com.dasuo.repository.TaiKhoanRepository;
+import com.dasuo.service.ITaiKhoanService;
+import com.dasuo.utils.SecurityUtils;
 
 @Controller
 public class DasuoController {
+	@Autowired
+	ITaiKhoanService taiKhoanService;
+	@Autowired
+	TaiKhoanRepository taiKhoanRepository;
+
 	@RequestMapping("/index")
 	public String demo() {
 		return "index";
@@ -18,6 +44,34 @@ public class DasuoController {
 	public String signUp() {
 		return "web/register";
 	}
+	@PostMapping("/dangky")
+	public String addUser(HttpServletRequest request, HttpServletResponse response,
+			  @ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model) {
+		String matKhau = taiKhoanDTO.getMatKhau();
+		if(taiKhoanRepository.findByEmail(taiKhoanDTO.getEmail()) == null) {
+			if(taiKhoanDTO.getSdt()!= "" && taiKhoanDTO.getMatKhau()!= "" && taiKhoanDTO.getEmail()!= "" && taiKhoanDTO.getHoTen()!= "" )
+			{
+				LoaiDTO loaiDTO = new LoaiDTO();
+				loaiDTO.setLoai_Id(1);
+				taiKhoanDTO.setLoai(loaiDTO);
+				NgheNghiepDTO ngheNghiepDTO = new NgheNghiepDTO();
+				ngheNghiepDTO.setNgheNghiep_Id(1);
+				taiKhoanDTO.setNgheNghiep(ngheNghiepDTO);
+				PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+				taiKhoanDTO.setMatKhau(passwordEncoder.encode(matKhau));
+				
+				taiKhoanService.save(taiKhoanDTO);
+				model.addAttribute("message", "Đăng nhập thành công!");
+			}
+			else
+				model.addAttribute("message", "Đăng nhập thất bại");
+		}
+		else
+			model.addAttribute("message", "Email đã tồn tại!");
+		
+		
+		return "web/register";
+	}
 	
 	@RequestMapping("/admin")
 	public String HomeAdmin() {
@@ -25,7 +79,10 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/taikhoan/trangcanhan")
-	public String viewProfile() {
+	public String viewProfile(Principal principal) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(principal.getName());
+		System.out.println(taiKhoanDTO.getHoTen());
+		
 		return "web/userinformation";
 	}
 
@@ -60,7 +117,9 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/trangchu")
-	public String viewTrangChu() {
+	public String viewTrangChu(Principal principal,Model model) {
+		System.out.println("User Name: " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+		model.addAttribute("ten", SecurityUtils.getPrincipal().getUser_Id());
 		return "web/trangchu";
 	}
 	

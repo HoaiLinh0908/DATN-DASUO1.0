@@ -18,7 +18,7 @@ $(document).ready(function(){
          	 	  + '<div class="flex-row-nowrap" id="bs-example-navbar-collapse-1" style=" padding:0px; width: 30%; height: 54px;">'		
 					+ '<ul style="display: flex; height: 54px; margin-left: 60px;" class="nav navbar-nav navbar-right">'
                       + '<li style="border-right: 1px solid #fff;" class="avatar hidden-xs flex-row-nowrap common-tooltip">'
-                        +  '<a style="color: #fff;text-decoration: none; " href="/taikhoan/trangcanhan" class="active">Tân nguyễn <img style="vertical-align: middle;" typeof="foaf:Image" src="/img/infor.png" width="24" height="24" alt=""></a>'										
+                        +  '<a style="color: #fff;text-decoration: none; " href="/taikhoan/trangcanhan" class="active"> [[${ten}]] <img style="vertical-align: middle;" typeof="foaf:Image" src="/img/infor.png" width="24" height="24" alt=""></a>'										
                       + '</li>'           
                       + '<li style="line-height: 54px;width: 20%;list-style: none;margin-left: 8px;" class="dropdown notification message-info common-tooltip">'								
                         + '<a href="/trochuyen" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" data-type="view_message">'
