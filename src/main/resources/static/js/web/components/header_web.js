@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var header = '<div class="logo"><a style="text-decoration: none;" href="/trangchu">'
+	var header = '<div class="logo"><a style="text-decoration: none;" href="/trang-chu">'
 					+ '<h2 class="text-logo">Dasuo</h2>'
 				  + '</a></div>'
 				  +'<div class="menu-top"><ul id="nav">'

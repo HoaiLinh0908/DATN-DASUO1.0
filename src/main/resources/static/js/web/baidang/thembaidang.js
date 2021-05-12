@@ -1,4 +1,4 @@
-$('#submit-btn').click( function () {
+$('#dangyc-btn').click( function () {
     $.ajax({
         url: "http://localhost:8083/api/baidangs",
         type: "post",
@@ -7,41 +7,39 @@ $('#submit-btn').click( function () {
         dataType: "json",
         // du lieu truyen vao dang json 
         data: JSON.stringify({ "tomTatYeuCau": $("#tomtatyc").val(),
-                                "hocPhi": $("#email").val(),
-                                "sdt": $("#sodienthoai").val(),
-                                "moTa": $("#password1").val(),
-                                "hocPhi": $(""),
-                                "gioiTinh": $(""),
-                                "soBuoi": $(""),
-                                "ngayBatDau": $(""),
-                                "buois": null,
+                                "sdt": $("#phone_class").val(),
+                                "moTa": $("#introduce-class").val(),
+                                "hocPhi": $("#phone_class").val(),
+                                "gioiTinh": false,
+                                "soBuoi": 2,
                                 "mon": {
-                                    "mon_Id": $("monhoclinh").val()
+                                    "mon_Id": $("#monhoclinh").val()
                                 },
                                 "chuDe": {
                                     "chuDe_Id": 1
                                 },
                                 "taiKhoan": {
-                                    "taiKhoan_Id": 36
+                                    "taiKhoan_Id": $("#tkid").html()
                                 }}),
         success: function (response) {
-            $("#firstname").val("");
-            $("#email").val("");
-            $("#sodienthoai").val("");
-            $("#password1").val("");
-            $("#password2").val("");
+            $("#tomtatyc").val("");
+            $("#phone_class").val("");
+            $("#introduce-class").val("");
+            $("#price_cost").val("");
+            $("#monhoclinh").val("");
             console.log(response);
             $('.success-alert-linh').show();
             $('.error-alert-linh').hide();
-            $("#cf-password-msg").hide();
         },
         error: function (response) {
             console.log(response)
-            $("#password1").val("");
-            $("#password2").val("");
+            // $("#tomtatyc").val("");
+            // $("#phone_class").val("");
+            // $("#introduce-class").val("");
+            // $("#price_cost").val("");
+            // $("#monhoclinh").val("");
             $('.error-alert-linh').show();
             $('.success-alert-linh').hide();
-            $("#cf-password-msg").hide();
         }
     });
 });

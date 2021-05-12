@@ -3,7 +3,6 @@ package com.dasuo.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -28,10 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/dangky").permitAll()
-		.antMatchers(HttpMethod.GET,"/api/taikhoans").permitAll().antMatchers(HttpMethod.POST,"/api/taikhoans").permitAll()
+		.antMatchers("/api/**").permitAll()
 		.anyRequest()
 		.authenticated().and().formLogin().loginPage("/dangnhap").permitAll()
-		.defaultSuccessUrl("/trangchu").failureUrl("/dangnhap")
+		.defaultSuccessUrl("/trang-chu").failureUrl("/dangnhap")
 		.loginProcessingUrl("/j_spring_security_check");
 	}
 
@@ -44,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img/**","/vendor/**","/font/**");
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img/**","/vendor/**","/font/**", "/error", "/api/**");
     }
 
 }

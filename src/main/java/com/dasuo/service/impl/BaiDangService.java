@@ -13,6 +13,7 @@ import com.dasuo.dto.BaiDangDTO;
 import com.dasuo.entity.BaiDang;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.service.IBaiDangService;
+import com.dasuo.utils.SecurityUtils;
 @Service
 public class BaiDangService implements IBaiDangService{
 	@Autowired

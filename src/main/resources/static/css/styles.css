@@ -1298,3 +1298,38 @@ img {vertical-align: middle;}
 .option1{
     padding: 20px 79px ;
 }
+
+.error-alert-linh {
+    padding: 20px;
+    background-color: #eb7168;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: none;
+  }
+
+  .success-alert-linh {
+    padding: 20px;
+    background-color: #04AA6D;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: none;
+  }
+  
+  .closebtn-linh {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn-linh:hover {
+    color: black;
+  }

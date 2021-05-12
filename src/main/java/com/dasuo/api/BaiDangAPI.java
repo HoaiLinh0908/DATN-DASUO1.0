@@ -1,13 +1,10 @@
 package com.dasuo.api;
 
-import java.security.Principal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,9 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.dto.BaiDangDTO;
-import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.service.IBaiDangService;
-import com.dasuo.utils.SecurityUtils;
 
 @RestController
 @RequestMapping("/api")
@@ -67,9 +62,9 @@ public class BaiDangAPI {
 	public ResponseEntity<BaiDangDTO> addBaiDang(@RequestBody BaiDangDTO baiDangDTO) {
 		if(baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null)
 		{
-			TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
-			taiKhoanDTO.setTaiKhoan_Id(SecurityUtils.getPrincipal().getUser_Id());
-			baiDangDTO.setTaiKhoan(taiKhoanDTO);
+//			TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+//			taiKhoanDTO.setTaiKhoan_Id(SecurityUtils.getPrincipal().getUser_Id());
+//			baiDangDTO.setTaiKhoan(taiKhoanDTO);
 			baiDangService.save(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO, HttpStatus.OK);
 		}
