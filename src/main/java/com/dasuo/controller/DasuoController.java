@@ -74,15 +74,18 @@ public class DasuoController {
 				taiKhoanDTO.setMatKhau(passwordEncoder.encode(matKhau));
 				
 				taiKhoanService.save(taiKhoanDTO);
-				model.addAttribute("message", "Đăng nhập thành công!");
+				model.addAttribute("message", "Đăng ký tài khoản thành công!");
+				model.addAttribute("alert", "success");
 			}
-			else
-				model.addAttribute("message", "Đăng nhập thất bại");
+			else {
+				model.addAttribute("message", "Đăng ký tài khoản thất bại");
+				model.addAttribute("alert", "error");
+			}
 		}
-		else
+		else {
 			model.addAttribute("message", "Email đã tồn tại!");
-		
-		
+			model.addAttribute("alert", "error");
+		}
 		return "web/register";
 	}
 	
@@ -133,8 +136,7 @@ public class DasuoController {
 	
 	@RequestMapping("/trang-chu")
 	public String viewTrangChu(Principal principal,Model model) {
-		System.out.println("User Name: " + SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-		model.addAttribute("ten", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("ten", principal.getName());
 		return "web/trangchu";
 	}
 	

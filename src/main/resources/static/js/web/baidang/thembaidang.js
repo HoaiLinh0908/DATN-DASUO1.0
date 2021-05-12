@@ -19,27 +19,13 @@ $('#dangyc-btn').click( function () {
                                     "chuDe_Id": 1
                                 },
                                 "taiKhoan": {
-                                    "taiKhoan_Id": $("#tkid").html()
+                                    "taiKhoan_Id": $("#tkid").val()
                                 }}),
         success: function (response) {
-            $("#tomtatyc").val("");
-            $("#phone_class").val("");
-            $("#introduce-class").val("");
-            $("#price_cost").val("");
-            $("#monhoclinh").val("");
-            console.log(response);
-            $('.success-alert-linh').show();
-            $('.error-alert-linh').hide();
+            window.location.href = "http://localhost:8083/taobaidang?uploadMsg=success";
         },
         error: function (response) {
-            console.log(response)
-            // $("#tomtatyc").val("");
-            // $("#phone_class").val("");
-            // $("#introduce-class").val("");
-            // $("#price_cost").val("");
-            // $("#monhoclinh").val("");
-            $('.error-alert-linh').show();
-            $('.success-alert-linh').hide();
+            window.location.href = "http://localhost:8083/taobaidang?uploadMsg=failed";
         }
     });
 });

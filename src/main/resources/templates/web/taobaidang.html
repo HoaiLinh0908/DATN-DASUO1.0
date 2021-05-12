@@ -23,15 +23,15 @@
 
         <div style="margin-bottom: 20px;margin-left: 60px;" class="container p-create-class-body">
             <div style="margin-top: 74px;" class="form-nhom-hoc">
-                <div class="error-alert-linh">
-                    <span class="closebtn-linh"
-                        onclick="this.parentElement.style.display='none';">&times;</span> <strong>Thêm bài đăng thất bại!</strong>
-                </div>
-                <div class="success-alert-linh">
-                    <span class="closebtn-linh"
-                        onclick="this.parentElement.style.display='none';">&times;</span> <strong>Thêm bài đăng thành công!</strong>
-                </div>
                 <div class="left-form">
+                    <div class="error-alert-linh">
+                        <span class="closebtn-linh"
+                            onclick="this.parentElement.style.display='none';">&times;</span> <strong>Thêm bài đăng thất bại!</strong>
+                    </div>
+                    <div class="success-alert-linh">
+                        <span class="closebtn-linh"
+                            onclick="this.parentElement.style.display='none';">&times;</span> <strong>Thêm bài đăng thành công!</strong>
+                    </div>
                     <div class="header-form">
                         <h2 style="margin: 0;font-size: 24px;">Mô tả yêu cầu tìm gia sư</h2>
                     </div>
@@ -200,11 +200,11 @@
                                     Dasuo.</span>
                             </div>
                             
-                            <p id="tkid" style="display: none;">[[${tkid}]]</p>
+                            <input type="hidden" id="tkid" th:value="${tkid}">
 
                             <!--Button đăng, cập nhật-->
                             <div class="row" style="text-align:center;padding:10px 0;">
-                                <input name="submit-info" type="button" data-id="${tkid}" id="dangyc-btn" class="btn-bla-big btn-yellowblacasa"
+                                <input name="submit-info" type="button" id="dangyc-btn" class="btn-bla-big btn-yellowblacasa"
                                     style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
                                     value="Đăng yêu cầu">
                             </div>
@@ -289,6 +289,29 @@
                     }
                 });
             });
+        </script>
+        <script>
+            $(document).ready(function () {
+                if(window.location.search.substring(1)!=""){
+                    if(getURLParameter("uploadMsg") == "success") {
+                        $('.success-alert-linh').show();
+                        $('.error-alert-linh').hide();
+                    }else {
+                        $('.error-alert-linh').show();
+                        $('.success-alert-linh').hide();
+                    }
+                }
+            });
+            function getURLParameter(sParam) {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++) {
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam) {
+                        return sParameterName[1];
+                    }
+                }
+            }
         </script>
         <script src="/js/web/baidang/thembaidang.js"></script>
 </body>
