@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.NgheNghiepDTO;
 import com.dasuo.dto.TaiKhoanDTO;
+import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.utils.SecurityUtils;
@@ -95,10 +96,13 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/taikhoan/trangcanhan")
-	public String viewProfile(Principal principal) {
-		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(principal.getName());
-		System.out.println(taiKhoanDTO.getHoTen());
-		
+	public String viewProfile(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		if(taiKhoanDTO.getTinhThanh() == null) {
+			taiKhoanDTO.setTinhThanh(new TinhThanhDTO());
+			taiKhoanDTO.getTinhThanh().setTenTinh("Chưa cập nhật");
+		}
+		model.addAttribute("taiKhoan", taiKhoanDTO);
 		return "web/userinformation";
 	}
 
