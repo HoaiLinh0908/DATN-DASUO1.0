@@ -158,4 +158,34 @@ public class DasuoController {
 	public String viewQuenMatKhau() {
 		return "forgot_password_form";
 	}
+	
+	@RequestMapping("/chitietbaidang")
+	public String chiTietBaiDang() {
+		return "web/chi-tiet-bai-dang";
+	}
+	
+	@RequestMapping("/dangkitrothanhgiasu")
+	public String dkLamGiaSu() {
+		return "web/dk-gia-su";
+	}
+	
+	@RequestMapping("/giasuonline")
+	public String giaSuOnline() {
+		return "web/gia-su-online";
+	}
+	
+	@RequestMapping("/danggiaotrinh")
+	public String dangGiaoTrinh() {
+		return "web/up-giao-trinh";
+	}
+	
+	@RequestMapping("/xemgiaotrinh")
+	public String xemGiaoTrinh() {
+		return "web/xem-giao-trinh";
+	}
+	
+	@RequestMapping("/xemthongbao")
+	public String xemThongBao() {
+		return "web/xem-thong-bao";
+	}
 }

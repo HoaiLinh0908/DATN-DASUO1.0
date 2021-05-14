@@ -67,7 +67,7 @@ $(document).ready(function () {
                         </div>
                         <div style="margin-top: 20px; " class="xemchitiet-btn">
                             <a style="text-decoration: none;border-radius: 3px;color: #fff;padding: 8px 30px; background-color: #ff961e;"
-                                href="#" class="xemchitiet">
+                                href="/chitietbaidang" class="xemchitiet">
                                 Xem chi tiết
                             </a>
                         </div>
