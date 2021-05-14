@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers(HttpMethod.GET,"/api/taikhoans").permitAll().antMatchers(HttpMethod.POST,"/api/taikhoans").permitAll()
 		.anyRequest()
 		.authenticated().and().formLogin().loginPage("/dangnhap").permitAll()
-		.defaultSuccessUrl("/trangchu").failureUrl("/dangnhap")
+		.defaultSuccessUrl("/trang-chu").failureUrl("/dangnhap")
 		.loginProcessingUrl("/j_spring_security_check");
 	}
 
@@ -44,7 +44,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img/**","/vendor/**","/font/**");
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/img/**","/vendor/**","/font/**","/error","/api/**");
     }
 
 }
