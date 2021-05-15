@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    var idtk = $("#tkid").val();
     if(window.location.search.substring(1)==""){
         var currentPage = 1;
     }else {
@@ -6,7 +7,7 @@ $(document).ready(function () {
     }
     var baiDangList = []
 	    $.ajax({
-		url: "http://localhost:8083/api/baidangs?page=" + currentPage + "&limit=4",
+		url: "http://localhost:8083/api/baidangfindbytaikhoan/" + idtk + "?page=" + currentPage + "&limit=4",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -83,7 +84,7 @@ $(document).ready(function () {
                 if(index == page) {
                     htmlPgn = htmlPgn + `<a class="active">${index}</a>`;
                 }else {
-                    htmlPgn = htmlPgn + `<a href="/hienthibaidang?page=${index}">${index}</a>`;
+                    htmlPgn = htmlPgn + `<a href="/baidangcuatoi?page=${index}">${index}</a>`;
                 }
             }
             htmlPgn = htmlPgn + `<a href="#">&raquo;</a>`;

@@ -1,7 +1,5 @@
 package com.dasuo.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.dto.BaiDangDTO;
-import com.dasuo.entity.BaiDang;
 import com.dasuo.service.IBaiDangService;
 
 @RestController
@@ -65,9 +62,6 @@ public class BaiDangAPI {
 	public ResponseEntity<BaiDangDTO> addBaiDang(@RequestBody BaiDangDTO baiDangDTO) {
 		if(baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null)
 		{
-//			TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
-//			taiKhoanDTO.setTaiKhoan_Id(SecurityUtils.getPrincipal().getUser_Id());
-//			baiDangDTO.setTaiKhoan(taiKhoanDTO);
 			baiDangService.save(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO, HttpStatus.OK);
 		}
@@ -127,15 +121,13 @@ public class BaiDangAPI {
 	}
 	
 	@GetMapping("/baidangfindbytaikhoan/{id}")
-	public ResponseEntity<List<BaiDangDTO>> getBaiDangFindByTaiKhoan(@PathVariable("id") Integer id){
-		List<BaiDangDTO> baiDangDTO = baiDangService.getListBaiDangFindByTaiKhoan(id);
-		if (baiDangDTO!=null) {
-			return new ResponseEntity<>(baiDangDTO,HttpStatus.OK);
-			
-		}
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<BaiDangOutput> getBaiDangFindByTaiKhoan(@PathVariable("id") Integer id, @RequestParam("page") int page,@RequestParam("limit") int limit){
+		BaiDangOutput baiDangOutput = new BaiDangOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		baiDangOutput.setPage(page);
+		baiDangOutput.setBaiDangDTOs(baiDangService.getListBaiDangFindByTaiKhoan(id, pageable));
+		baiDangOutput.setTotalPage(baiDangService.getTotalPageByTaiKhoan(id, limit));
+			return new ResponseEntity<>(baiDangOutput,HttpStatus.OK);
 	}
 
 }

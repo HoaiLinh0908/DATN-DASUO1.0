@@ -129,7 +129,6 @@ public class DasuoController {
 	@RequestMapping("/taobaidang")
 	public String viewTaoBaiDang(Model model) {
 		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
-		System.out.println(SecurityUtils.getPrincipal().getUser_Id());
 		return "web/taobaidang";
 	}
 	
@@ -188,5 +187,11 @@ public class DasuoController {
 	@RequestMapping("/xemthongbao")
 	public String xemThongBao() {
 		return "web/xem-thong-bao";
+	}
+	
+	@RequestMapping("/baidangcuatoi")
+	public String hienThiBaiDangCaNhan(Model model) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		return "web/baidangcanhan";
 	}
 }
