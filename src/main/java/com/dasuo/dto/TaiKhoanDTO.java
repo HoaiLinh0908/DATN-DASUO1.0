@@ -24,7 +24,7 @@ public class TaiKhoanDTO {
 	
 	private LoaiDTO loai;
 	
-	private boolean gioiTinh;
+	private Boolean gioiTinh;
 	
 	private String hinhDaiDien;
 	
@@ -32,13 +32,13 @@ public class TaiKhoanDTO {
 	
 	private NgheNghiepDTO ngheNghiep;
 	
-	private double hocPhi;
+	private Double hocPhi;
 	
 	private String bangCap;
 	
 	private String cmnd;
 	
-	private double soDu;
+	private Double soDu;
 	
 	private Set<BaiDangDTO> baiDangs;
 	
@@ -54,7 +54,7 @@ public class TaiKhoanDTO {
 	
 	private Set<MonDTO> mons;
 	
-	private boolean enable;
+	private Boolean enable;
 	
 	private String code;
 	
@@ -92,12 +92,12 @@ public class TaiKhoanDTO {
 	}
 	
 
-	public boolean isEnable() {
+	public Boolean isEnable() {
 		return enable;
 	}
 
 
-	public void setEnable(boolean enable) {
+	public void setEnable(Boolean enable) {
 		this.enable = enable;
 	}
 
@@ -178,11 +178,11 @@ public class TaiKhoanDTO {
 		this.loai = loai;
 	}
 
-	public boolean isGioiTinh() {
+	public Boolean isGioiTinh() {
 		return gioiTinh;
 	}
 
-	public void setGioiTinh(boolean gioiTinh) {
+	public void setGioiTinh(Boolean gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 
@@ -210,11 +210,11 @@ public class TaiKhoanDTO {
 		this.ngheNghiep = ngheNghiep;
 	}
 
-	public double getHocPhi() {
+	public Double getHocPhi() {
 		return hocPhi;
 	}
 
-	public void setHocPhi(double hocPhi) {
+	public void setHocPhi(Double hocPhi) {
 		this.hocPhi = hocPhi;
 	}
 
@@ -234,11 +234,11 @@ public class TaiKhoanDTO {
 		this.cmnd = cmnd;
 	}
 
-	public double getSoDu() {
+	public Double getSoDu() {
 		return soDu;
 	}
 
-	public void setSoDu(double soDu) {
+	public void setSoDu(Double soDu) {
 		this.soDu = soDu;
 	}
 

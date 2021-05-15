@@ -159,16 +159,6 @@ public class DasuoController {
 		return "forgot_password_form";
 	}
 
-	@RequestMapping(value = "/thoat", method = RequestMethod.GET)
-	public ModelAndView logout1(HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		//Check user info, if there is info then delete it
-		if (auth != null) {
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		//return to home page
-		return new ModelAndView("redirect:/trang-chu");
-	}
 	
 	@RequestMapping("/chitietbaidang")
 	public String chiTietBaiDang() {

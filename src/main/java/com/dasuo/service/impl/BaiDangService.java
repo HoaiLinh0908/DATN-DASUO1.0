@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dasuo.converter.BaiDangConverter;
 import com.dasuo.dto.BaiDangDTO;
 import com.dasuo.entity.BaiDang;
+import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.service.IBaiDangService;
 import com.dasuo.utils.SecurityUtils;
@@ -58,6 +59,14 @@ public class BaiDangService implements IBaiDangService{
 			return (totalItem / limit) + 1;
 		}
 		return totalItem / limit;
+	}
+	
+	@Override
+	public List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id) {
+		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(new TaiKhoan(id));
+		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
+		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
+		return baiDangDTOs;
 	}
 
 }

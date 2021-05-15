@@ -1,5 +1,7 @@
 package com.dasuo.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -96,6 +98,18 @@ public class BaiDangAPI {
 		}
 		else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	@GetMapping("/baidangfindbytaikhoan/{id}")
+	public ResponseEntity<List<BaiDangDTO>> getBaiDangFindByTaiKhoan(@PathVariable("id") Integer id){
+		List<BaiDangDTO> baiDangDTO = baiDangService.getListBaiDangFindByTaiKhoan(id);
+		if (baiDangDTO!=null) {
+			return new ResponseEntity<>(baiDangDTO,HttpStatus.OK);
+			
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 

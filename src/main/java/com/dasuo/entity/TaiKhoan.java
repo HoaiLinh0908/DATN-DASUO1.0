@@ -37,7 +37,7 @@ public class TaiKhoan {
 	@JoinColumn(name = "loai_id")
 	private Loai loai;
 	@Column
-	private boolean gioiTinh;
+	private Boolean gioiTinh;
 	@Column
 	private String hinhDaiDien;
 	@Column
@@ -94,7 +94,9 @@ public class TaiKhoan {
 	}
 	
 
-
+	public TaiKhoan(Integer id) {
+		this.taiKhoan_Id = id;
+	}
 	public boolean isEnable() {
 		return enable;
 	}
@@ -201,12 +203,12 @@ public class TaiKhoan {
 	}
 
 
-	public boolean isGioiTinh() {
+	public Boolean isGioiTinh() {
 		return gioiTinh;
 	}
 
 
-	public void setGioiTinh(boolean gioiTinh) {
+	public void setGioiTinh(Boolean gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 

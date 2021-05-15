@@ -12,4 +12,5 @@ public interface IBaiDangService {
 	public void save (BaiDangDTO baiDangDTO);
 	public void delete(Integer id);
 	public int getTotalPage(int limit);
+	List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id);
 }
