@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Xem giáo trình</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <div id="header">
+            <script src="/js/web/components/header_web.js"></script>
+        </div>
+        <!-- header -->
+
+        <!-- content -->
+            <div class="container" style="margin-top: 55px;">
+                <!-- left-content -->
+                <div class="left-content hide-on-mobile-tablet">
+                    <ul id="accordion">
+                        <li>
+                            <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Tất cả lớp đã đăng</a></li>
+                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                            </ul>
+                        </li>
+                        <li><a style="color: orange;" href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                        <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Tất cả thông báo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Đã đăng</a></li>
+                                <li><a href="#">Đang soạn</a></li>
+                                <li><a href="#">Đã gửi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                                <li><a href="#">Giáo viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                        <li>
+                            <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Sửa thông tin cá nhân</a></li>
+                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                 </div>
+                <!-- left-content -->
+                 <div style="max-height: 560px;" class="right-content right-contents right-contentt">
+
+                    <!-- phần menu cho tablet -->
+            <div class="hide-on-desktop">
+                <label for="nav_mobile_input" style="margin-bottom: 10px;" class="bar-left-menu ">
+                    <i style="font-size: 27px;" class="fas fa-bars"></i>
+                 </label>
+            </div> 
+           
+             <input type="checkbox" hidden name="" class="nav-input" id="nav_mobile_input">
+             <div class="mobile_tablet_menu">
+                <nav  class="nav_mobile_Tablet">
+                    <label for="nav_mobile_input">
+                        <i style="margin-left: 207px;
+                        font-size: 26px;" class="fas fa-times"></i>
+                    </label>
+                    
+                    <ul id="nav-mobile-tablet-list">
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Tất cả lớp đã đăng</a></li>
+                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-mobile-tablet-link" style="color: orange;" href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                        <li><a class="nav-mobile-tablet-link" href="#"><i class="fas fa-bell icon-menu"></i> Thông báo <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Tất cả thông báo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Đã đăng</a></li>
+                                <li><a href="#">Đang soạn</a></li>
+                                <li><a href="#">Đã gửi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                                <li><a href="#">Giáo viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-mobile-tablet-link" href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Sửa thông tin cá nhân</a></li>
+                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                 </nav>
+             </div>
+            <!-- phần menu cho tablet -->
+                    <div class="head-block">
+                        <h4 style="padding: 10px 8px;width: 222px;color: #fff;background-color: #069d86;font-weight: bold;">XEM GIÁO TRÌNH</h4>
+                        <hr style="width: 76.8%;opacity: 0.8;float: right;" color="#069d86">
+                     </div>
+                     <div class="body-block">
+                            <div  class="info-step-1">
+                            
+                                    <div style="width: 100%;" class="col-md-1">
+                                        <label for="">GIÁO TRÌNH MÔN TOÁN LỚP 12</label>
+                                    </div>
+                            
+                                    <div style="width: 100%;" class="mo-ta-giao-trinh">
+                                        <div>
+                                            <strong>Tên Lớp:</strong> <span>Toán lớp 12</span>
+                                        </div>
+                                        
+                                       <div><strong>Học sinh:</strong> <span>Nguyễn Minh Tân</span></div>
+                                        
+                                       <div><strong>Lời nhắc:</strong>
+                                        <p style="padding: 0px 38px;line-height: 26px;">Chào các em, đây là giáo trình của môn học này. Tài liệu bao gồm các kiến thức đáp ứng cho nhu cầu kiến thức của các bạn. Các bạn có thể tải file tài liệu về để tham khảo và học tập. Chúc các bạn học tốt và thành công!</p> 
+                                         </div>
+                                        
+                                    </div>
+    
+                                    <div style="width: 100%;" class="file-tai-lieu">
+                                        <strong style="padding: 0px 38px;line-height: 26px;">File tài liệu môn học</strong>
+                                        <ul class="file-giao-trinh">
+                                            <li>
+                                                <a  class="file-goc" href="#">GIAOTRINH_MON_TOAN_LOP_12.docx</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                   
+                                     
+                                     
+                            </div>
+                    </div>
+                <!-- right-content -->
+
+                <!-- right-content -->
+            </div>
+        <!-- content -->
+
+        <!-- footer -->
+        <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+        <div class="last-content last-contents">
+            <h2 >Hỗ trợ & tư vấn</h2>
+            <div class="btn-last-content">
+                <a href="" class="support1"><i class="fas fa-phone-alt"></i> Hotline: 0353312340</a>
+                <a href="" class="support2 "><i class="fas fa-envelope"></i> Dasuo@gmail.com</a>
+                <a href="" class="support3"><i class="fas fa-comment-dots"></i> Tư vấn trực tuyến</a>
+            </div>
+            <h2>Đăng ký nhận tin & kết nối</h2>
+            <div class="email-dk">
+                <p>Đăng ký email để nhận tin mới nhất từ Dasuo.</p>
+                <input placeholder="Email" type="text" id="edit-mail" name="mail" value="" size="20"  maxlength="128" class="form-text required">
+                <a href="#" class="btn-email">Đăng ký</a>
+            </div>
+            <div class="public">
+                <p>Cộng đồng hơn 15,000 thành viên đang chờ bạn</p>
+                <a href="#" target="_blank" class="facebook" rel="nofollow"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" target="_blank" class="twitter" rel="nofollow"><i class="fab fa-twitter-square"></i></a>
+                <a href="#" target="_blank" class="youtube" rel="nofollow"><i class="fab fa-youtube-square"></i></a>
+                <a href="#" target="_blank" class="google-plus" rel="nofollow"><i class="fab fa-google-plus-square"></i></a>
+            </div>
+        </div>
+        <div id="footer">
+         <div class="footer-tke">
+             <h3>Thống kê</h3>
+             <ul>
+                 <li>
+                     <strong>5000+</strong>
+                     "gia sư"
+                 </li>
+                 <li>
+                     <strong>15000+</strong>
+                     "người dùng"
+                 </li>
+                 <li>
+                     <strong>9.500+</strong>
+                     "yêu cầu tìm gia sư"
+                 </li>
+                 <li>
+                     <strong>97%</strong>
+                     "Người dùng hài lòng"
+                 </li>
+             </ul>
+    
+         </div>
+         <div class="mxh">
+             <h3>Mạng xã hội</h3>
+             <ul>
+                 <li><a href="#"><i class="fab fa-facebook"></i>Facebook</a></li>
+                 <li><a href="#"><i class="fab fa-youtube-square"></i>Youtube</a></li>
+                 <li><a href="#"><i class="fab fa-google-plus"></i>Google +</a></li>
+             </ul>
+         </div>
+         <div class="fan">
+             <h3>Fanpage</h3>
+             <a href="https://www.facebook.com/Dasuo-Li%C3%AAn-k%E1%BA%BFt-gia-s%C6%B0-tr%E1%BB%B1c-tuy%E1%BA%BFn-103659921831108"  target="_blank"><img src="./assets/img/fanpage.PNG" alt=""></a>
+         </div>
+         <div class="mmm">
+             <hr class="last_hr_footer" style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+             <div>
+                 <h4 >Bạn đang muốn</h4>
+                 <ul>
+                     <li><a href="#">Đăng yêu cầu tìm gia sư</a></li>
+                     <li><a href="#">Xem danh sách gia sư</a></li>
+                     <li><a href="#">Góp ý cho Dasuo</a></li>
+                 </ul>
+             </div>
+             <div>
+                 <h4 >Danh mục gia sư</h4>
+                 <ul>
+                     <li><a href="#">Gia sư toán</a></li>
+                     <li><a href="#">Gia sư tiếng anh</a></li>
+                     <li><a href="#">Gia sư online</a></li>
+                     <li><a href="#">Gia sư ngoại ngữ</a></li>
+                 </ul>
+             </div>
+             <div>
+                 <h4 >Dasuo</h4>
+                 <ul>
+                     <li><a href="#">Về chúng tôi</a></li>
+                     <li><a href="#">Quy định MXH Dasuo</a></li>
+                     <li><a href="#">CC bảo mật thông tin</a></li>
+                     <li><a href="#">Liên hệ</a></li>
+                 </ul>
+             </div>
+             <div>
+                 <h4 >Hỗ trợ</h4>
+                 <ul>
+                     <li><a href="#">Hướng dẫn sử dụng</a></li>
+                     <li><a href="#">Mời bạn bè</a></li>
+                     <li><a href="#">Khiếu nại</a></li>
+                 </ul>
+             </div>
+             <div>
+                 <h4 >Dành cho gia sư</h4>
+                 <ul>
+                     <li><a href="#">Trở thành gia sư</a></li>
+                     <li><a href="#">Danh sách lớp mới</a></li>
+                     <li><a href="#">Hướng dẫn cho gia sư</a></li>
+                     <li><a href="#">Chính sách phí</a></li>
+                 </ul>
+             </div>
+         </div>
+         <div class="home-last-footer">
+             <hr class="last_hr_footer" style="width: 92%;border-width: 1px; margin-left: 55px;margin-top: 2px;">
+             <div class="information">
+                 <p>© 2020 - 2021 Tổ chức giáo dục Dasuo Việt Nam <br>
+    
+                     Trụ sở: Số 78 Điện Biên Phủ, Quận Thanh Khê, Đà Nẵng <br>
+                     Giấy phép ĐKKD số 0107721396 do Sở kế hoạch và đầu tư thành phố Đà Nẵng cấp ngày 09/02/2021</p>
+             </div>
+         </div>
+        <!-- footer -->
+    </div>
+</body>
+</html>
