@@ -61,8 +61,22 @@ public class LichHocAPI {
 	@PutMapping("/lichhocs/{id}")
 	public ResponseEntity<LichHocDTO> updateLichHoc(@RequestBody LichHocDTO lichHocDTO,@PathVariable("id") Integer id) {
 		LichHocDTO _lichHocDTO = lichHocService.getLichHoc(id);
-		if(_lichHocDTO!= null && lichHocDTO.getLop() != null)
+		if(_lichHocDTO!= null )
 		{
+			if(lichHocDTO.getLop() == null)
+				lichHocDTO.setLop(_lichHocDTO.getLop());
+			if(lichHocDTO.getThoiGianBatDau() == null)
+				lichHocDTO.setThoiGianBatDau(_lichHocDTO.getThoiGianBatDau());
+			if(lichHocDTO.getThoiGianKetThuc()==null)
+				lichHocDTO.setThoiGianKetThuc(_lichHocDTO.getThoiGianKetThuc());
+			if(lichHocDTO.getLichHoc_Id()==null)
+				lichHocDTO.setLichHoc_Id(_lichHocDTO.getLichHoc_Id());
+			if(lichHocDTO.getIdZoom()==null)
+				lichHocDTO.setIdZoom(_lichHocDTO.getIdZoom());
+			if(lichHocDTO.getMatKhauZoom()==null)
+				lichHocDTO.setMatKhauZoom(_lichHocDTO.getMatKhauZoom());
+			if(lichHocDTO.getLinkZoom()==null)
+				lichHocDTO.setLinkZoom(_lichHocDTO.getLinkZoom());
 			lichHocService.save(lichHocDTO);
 			return new ResponseEntity<>(lichHocDTO,HttpStatus.OK);
 		}

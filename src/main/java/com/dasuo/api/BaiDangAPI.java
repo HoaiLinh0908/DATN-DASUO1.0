@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.dto.BaiDangDTO;
+import com.dasuo.entity.BaiDang;
 import com.dasuo.service.IBaiDangService;
 
 @RestController
@@ -78,8 +79,32 @@ public class BaiDangAPI {
 	@PutMapping("/baidangs/{id}")
 	public ResponseEntity<BaiDangDTO> updateBaiDang(@RequestBody BaiDangDTO baiDangDTO,@PathVariable("id") Integer id) {
 		BaiDangDTO _baiDangDTO = baiDangService.getBaiDang(id);
-		if(_baiDangDTO!= null && baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null && baiDangDTO.getTaiKhoan() != null)
+		if(_baiDangDTO!= null)
 		{
+			if(baiDangDTO.getChuDe() == null)
+				baiDangDTO.setChuDe(_baiDangDTO.getChuDe());
+			if(baiDangDTO.getMon() == null)
+				baiDangDTO.setMon(_baiDangDTO.getMon());
+			if(baiDangDTO.getTaiKhoan() == null)
+				baiDangDTO.setTaiKhoan(_baiDangDTO.getTaiKhoan());
+			if(baiDangDTO.getBaiDang_Id()==null)
+				baiDangDTO.setBaiDang_Id(_baiDangDTO.getBaiDang_Id());
+			if(baiDangDTO.getTomTatYeuCau()==null)
+				baiDangDTO.setTomTatYeuCau(_baiDangDTO.getTomTatYeuCau());
+			if(baiDangDTO.getHocPhi()==null)
+				baiDangDTO.setHocPhi(_baiDangDTO.getHocPhi());
+			if(baiDangDTO.getSdt()==null)
+				baiDangDTO.setSdt(_baiDangDTO.getSdt());
+			if(baiDangDTO.getMoTa()==null)
+				baiDangDTO.setMoTa(_baiDangDTO.getMoTa());
+			if(baiDangDTO.isGioiTinh()== null)
+				baiDangDTO.setGioiTinh(_baiDangDTO.isGioiTinh());
+			if(baiDangDTO.getSoBuoi()==null)
+				baiDangDTO.setSoBuoi(_baiDangDTO.getSoBuoi());
+			if(baiDangDTO.getNgayBatDau()==null)
+				baiDangDTO.setNgayBatDau(_baiDangDTO.getNgayBatDau());
+			if(baiDangDTO.getThoiGianDayTheoThang()==null)
+				baiDangDTO.setThoiGianDayTheoThang(_baiDangDTO.getThoiGianDayTheoThang());
 			baiDangService.save(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO,HttpStatus.OK);
 		}

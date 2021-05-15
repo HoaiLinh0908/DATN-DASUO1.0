@@ -17,6 +17,9 @@ public class LichHocConverter {
 		lichHocDTO.setLichHoc_Id(lichHoc.getLichHoc_Id());
 		lichHocDTO.setThoiGianBatDau(lichHoc.getThoiGianBatDau());
 		lichHocDTO.setThoiGianKetThuc(lichHoc.getThoiGianKetThuc());
+		lichHocDTO.setIdZoom(lichHoc.getIdZoom());
+		lichHocDTO.setMatKhauZoom(lichHoc.getMatKhauZoom());
+		lichHocDTO.setLinkZoom(lichHoc.getLinkZoom());
 		LopDTO lopDTO = lopConverter.toDTO(lichHoc.getLop());
 		lichHocDTO.setLop(lopDTO);
 		return lichHocDTO;

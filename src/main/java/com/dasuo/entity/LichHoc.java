@@ -21,6 +21,12 @@ public class LichHoc {
 	private Date thoiGianBatDau;
 	@Column
 	private Date thoiGianKetThuc;
+	@Column
+	private int  idZoom;
+	@Column
+	private int  matKhauZoom;
+	@Column
+	private String linkZoom;
 	@ManyToOne
 	@JoinColumn(name = "lop_id")
 	private Lop lop;
@@ -60,6 +66,32 @@ public class LichHoc {
 	public void setLop(Lop lop) {
 		this.lop = lop;
 	}
+
+	public int getIdZoom() {
+		return idZoom;
+	}
+
+	public void setIdZoom(int idZoom) {
+		this.idZoom = idZoom;
+	}
+
+	public int getMatKhauZoom() {
+		return matKhauZoom;
+	}
+
+	public void setMatKhauZoom(int matKhauZoom) {
+		this.matKhauZoom = matKhauZoom;
+	}
+
+	public String getLinkZoom() {
+		return linkZoom;
+	}
+
+	public void setLinkZoom(String linkZoom) {
+		this.linkZoom = linkZoom;
+	}
+	
+	
 	
 	
 

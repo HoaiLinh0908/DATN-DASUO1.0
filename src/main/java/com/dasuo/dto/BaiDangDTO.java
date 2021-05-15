@@ -11,13 +11,13 @@ public class BaiDangDTO {
 	
 	private MonDTO mon;
 	
-	private double hocPhi;
+	private Double hocPhi;
 	
 	private String sdt;
 	
 	private String moTa;
 	
-	private boolean gioiTinh;
+	private Boolean gioiTinh;
 	
 	private Integer soBuoi;
 	
@@ -74,11 +74,11 @@ public class BaiDangDTO {
 		this.mon = mon;
 	}
 
-	public double getHocPhi() {
+	public Double getHocPhi() {
 		return hocPhi;
 	}
 
-	public void setHocPhi(double hocPhi) {
+	public void setHocPhi(Double hocPhi) {
 		this.hocPhi = hocPhi;
 	}
 
@@ -98,11 +98,11 @@ public class BaiDangDTO {
 		this.moTa = moTa;
 	}
 
-	public boolean isGioiTinh() {
+	public Boolean isGioiTinh() {
 		return gioiTinh;
 	}
 
-	public void setGioiTinh(boolean gioiTinh) {
+	public void setGioiTinh(Boolean gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
 
