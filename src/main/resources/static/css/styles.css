@@ -6,6 +6,7 @@
 }
 
 #header{
+    width: 100%;
     height: 54px;
     background-color: #069d86;
     position: fixed;
@@ -24,6 +25,17 @@ h2.text-logo {
     margin-left: 47px;
     line-height: 54px;
 }
+/* css cho header-menu-icon */
+.header-menu-icon{
+    line-height: 54px;
+    margin-left: 20px;
+}
+
+.icon-bar{
+    color: #fff;
+    font-size: 30px;
+}
+/* css cho header-menu-icon */
 .flex-row-nowrap ul li{
     width: 43%;
     line-height: 54px ;
@@ -31,7 +43,7 @@ h2.text-logo {
     list-style: none;
 }
 .menu-top{
-    display: inline-block;
+   
     width: 450px;
 }
 #nav > li >a{
@@ -54,10 +66,12 @@ h2.text-logo {
     display: block;
 }
 .btn-dk-dn {
+    margin-left: 560px;
     width: 220px;
     float: right;
     line-height: 54px;
     padding-right: 40px;
+    
 }
 .btn-dk-dn a{
     color: white;
@@ -83,6 +97,11 @@ h2.text-logo {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     
 
+}
+.container{
+    width: 100%;
+    margin-top: 54px;
+    padding: 0px 40px;
 }
 #nav .subnav a {
     color: black;
@@ -229,7 +248,7 @@ h2.text-logo {
 }
 .inf-giasu .gia-su{
     margin-top: 20px;
-    margin-left:45px;
+    margin-left:20px;
     width: 280px;
     height: 430px;
     background-color:white;
@@ -328,7 +347,11 @@ h2.text-logo {
  .btn-last-content{
     padding: 15px 120px;
 }
- .btn-last-content .support1,.support2,.support3{
+
+ .btn-last-content .support1,
+ .support2,
+ .support3{
+     margin-right: 40px;
     padding: 0 30px;
     font-size: 25px;
     text-decoration: none;
@@ -341,7 +364,7 @@ h2.text-logo {
     color: blue;
 }
  .btn-last-content .support1:hover{
-    background-color:black ;
+    background-color:#069d86 ;
     border-radius: 5px;
     padding: 15px 32px;
     
@@ -360,12 +383,12 @@ h2.text-logo {
 }
 .last-content {
     width: 100%;
-    height: 280px;
+    height: 314px;
 }
 .last-content .email-dk{
     width: 35%;
     float: left;
-    margin-left: 115px;
+    margin-left: 114px;
 }
 .last-content .public{
     width: 50%;
@@ -410,7 +433,7 @@ h2.text-logo {
     background-color: #069d86;
 }
 #footer .footer-tke{
-    width: 18%;
+    width: 26%;
     margin-left: 65px;
     float: left;
     height: 200px;
@@ -591,17 +614,18 @@ body{
     background-color: #f7f7f7;
 }
 .container .left-content{
-    width: 25%;
+    width: 23%;
     float: left;
     margin-top: 20px;
     border-radius: 4px;
     background-color:#fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-left: 31px;
 }
 .container .left-content ul{
     text-decoration: none;
     list-style: none;
-   
+    position: relative;
 }
 
 .container .left-content a{
@@ -619,30 +643,167 @@ body{
 .left-content #accordion ul li  {
     position: relative;
 }
-
+.left-content ul li:hover{
+    background-color: #b2b2b2;
+}
 .container .left-content .sub-menu{
     position: absolute;
     background-color: #fff;
     height: auto;
-    left: 357px;
+    left: 309px;
     padding: 8px 0;
     width: 300px;
     border-bottom:1px solid rgba(0, 0, 0, 0.3);
-    margin-top: -56eqqpx;
+    margin-top: -56px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 4px ;
+    z-index: 10;
    display: none;
 }
-.left-content #accordion ul li:hover .sub-menu  {
+.left-content ul li:hover .sub-menu  {
     display: block;
 }
 
 .icon-menu{
     margin-right: 8px;
     font-size: 20px;
+    padding: 0 0;
 }
 .show-right{
     font-size: 20px;
     float: right;
 }
+
+/* css cho nav-mobile-tablet */
+.nav_mobile_Tablet{
+    position: fixed;
+    background-color: #fff;
+    padding: 12px 12px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    z-index: 10;
+   
+}
+
+.mobile_tablet_menu{
+    display: none;
+}
+#nav-mobile-tablet-list{
+    list-style: none;
+    
+}   
+.nav-mobile-tablet-link{
+   
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: block;
+    padding: 15px 15px 15px 0px;
+    font-weight: 700;
+    color: black;
+}
+#nav-mobile-tablet-list li{
+    position: relative;
+}
+.sub-menu-mobile-tablet{
+    position: absolute;
+    display: none   ;
+    background-color: #fff;
+    padding: 12px 12px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    z-index: 10;
+    margin-left: 247px;
+    width: 236px;
+    margin-top: -50px;
+}
+ #nav-mobile-tablet-list li :hover .sub-menu-mobile-tablet{
+    display: block;
+}
+.sub-menu-mobile-tablet li{
+     list-style: none;
+     padding:10px 0;
+}
+.nav-input:checked ~ .mobile_tablet_menu{
+    display: block;
+}
+.nav-input:checked ~ .closed_item{
+    display: none;
+}
+
+/* css cho nav-mobile-tablet */
+
+/* css cho menu-top-mobile-tablet */
+.menu-header-moblie-tablet{
+    width: 156px;
+    height: 110px;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-left: -45px;
+    padding: 0px 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    display: none;
+    margin-top: 54px;
+}
+#nav_header_mobile_tablet_list{
+    list-style: none;
+}
+#nav_header_mobile_tablet_list li{
+    padding: 10px 0;
+}
+.nav-input:checked ~ .menu-header-moblie-tablet{
+    display: block;
+}
+
+/* css cho menu-top-mobile-tablet */
+
+/* css cho menu-top-dkgs-mobile-tablet */
+.nav__overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+.menu-top-mobile-tablet{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 90%);
+    height: 1024px;
+    width: 350px;
+    text-align: center;
+    display: none;
+}
+#nav_dkgs_mobile_Tablet_list{
+    list-style: none;
+    margin-top: 40px;
+
+}
+#nav_dkgs_mobile_Tablet_list li{
+    font-weight: 700;
+    padding: 20px 0;
+}
+.dkgs_mobile_link{
+    color: #069d86;
+}
+.color_btn{
+    background-color: #fca40d;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #fff;
+}
+.nav-input:checked ~ .menu-top-mobile-tablet{
+    display: block;
+}
+.nav-input:checked ~ .nav__overlay{
+    display: block;
+}
+
+/* css cho menu-top-dkgs-mobile-tablet */
+
 
 
 
@@ -788,15 +949,16 @@ body{
 
 
 /* css cho tạo bài đăng */
+
 .p-create-class-body .left-form{
-    width: 70%;
+    width: 67%;
     height: auto;
     background-color: #fff;
     float: left;
 }
 
 .p-create-class-body .right-form{
-    width: 25%;
+    width: 22%;
     height: 1000px;
    background-color: #f7f7f7;
     float: left;
@@ -823,7 +985,7 @@ body{
     color: #069d86;
     font-size: 20px;
 }
-#tomtatyc{
+#name_class{
     width: 100%;
     height: 35px;
     border: .5px solid #ccc;
@@ -834,7 +996,7 @@ body{
     width: 50%;
     padding: 0 10px;
 }
-#monhoclinh{
+#subject-class{
     margin-top: 16px;
     padding: 10px 0;
     padding-right: 220px;
@@ -932,7 +1094,7 @@ body{
 
 .right-content .right-conttent1{
     width: 70%;
-    height: 500px;
+    height: 614px;
     background-color: #fff;
     margin-top: 24px;
     float: left;
@@ -950,6 +1112,12 @@ body{
 .view-content h3{
     font-size: 14px;
     padding: 8px 20px;
+}
+.enter-chat{
+    width: 95%;
+    padding: 8px 8px;
+    margin-top:240px ;
+    margin-left: 13px;
 }
 
 
@@ -1028,6 +1196,7 @@ label {
 
 /* css cho trang tìm kiếm */
 .home-category {
+    height: 1300px;
     clear: both;
     overflow: hidden;
     margin-top: 54px;
@@ -1115,10 +1284,6 @@ textarea{
 
 
 /* css cho hiện bài đăng */
-.baidang-container {
-    width: 100%;
-}
-
 .creator-name{
     margin-top: -6px;
 }
@@ -1133,16 +1298,13 @@ textarea{
 .mota-baidang{
     width: 48%;
 }
-.mota-soluoc {
-    width: 100%;
-}
+
 .bai-dang{
     background-color: #fff;
     margin-top: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding-bottom: 15px;
-    width: 100%;
 }
+
 .mota-baidang h2{
     margin-top: 14px;
     font-size: 16px;
@@ -1160,15 +1322,7 @@ textarea{
     line-height: 20px;
 }
 
-.hocphidenghi {
-    width: 18%;
-}
-
-.phinhanlop {
-    width: 19%;
-}
-
-/* nháp */
+/* slider */
 
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
@@ -1264,8 +1418,41 @@ img {vertical-align: middle;}
 }
 
 /* css cho trang hiện lịch lớp học online */
+.container{
+    width: 100%;
+    margin-top: 54px; 
+    padding: 0px 40px;
+}
 .menu-tren{
     margin-left: 36px;
+}
+.right-content .head-block h4{
+    padding: 10px 8px;
+    width: 182px;
+    color: #fff;
+    background-color: #069d86;
+    font-weight: bold;
+}
+.right-content .head-block hr{
+    width: 80.2%;
+    opacity: 0.8;
+    float: right;
+    color:#069d86;
+}
+.right-content .title-top{
+    text-align: center;
+    margin: 30px 0; 
+    background-color: #fff;    
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.title-top .text-logo{
+    color: #ff961e;
+}
+.right-content .row-tittle{
+    margin-bottom: 16px;
+    margin-top: 50px; 
+    margin-left: 36px; 
+    height: auto;
 }
 .cuochop{
     text-decoration: none;
@@ -1288,6 +1475,25 @@ img {vertical-align: middle;}
     float: left;
     padding: 30px 10px;
 }
+.suluachon{
+    width: 90%;
+    background-color: #FFF;
+    height: 300px;
+    margin-left: 44px;
+    margin-top: 30px;
+    text-align: center;
+}
+.flex-row-nowrap{
+    padding: 0px;
+    width: 30%;
+
+    height: 54px;
+}
+.flex-row-nowrap ul{
+    display: flex; 
+    height: 54px; 
+    margin-left: 60px;
+}
 
 .suluachon .luachon .option , .option1{
     text-decoration: none;
@@ -1299,42 +1505,7 @@ img {vertical-align: middle;}
     padding: 20px 79px ;
 }
 
-.error-alert-linh {
-    padding: 20px;
-    background-color: #eb7168;
-    color: white;
-    margin-left: 25px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    display: none;
-  }
-
-  .success-alert-linh {
-    padding: 20px;
-    background-color: #04AA6D;
-    color: white;
-    margin-left: 25px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    display: none;
-  }
-  
-  .closebtn-linh {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .closebtn-linh:hover {
-    color: black;
-  }
-
-  /* css nháp phần list chat */
+/* css nháp phần list chat */
 .wrapper-dkgs{
     background-color: #fff;
     width: 100%;
@@ -1871,3 +2042,44 @@ a {
 .right-contents{
     height: auto;
 }
+
+#monhoclinh{
+    margin-top: 16px;
+    padding: 10px 0;
+    padding-right: 220px;
+}
+
+.error-alert-linh {
+    padding: 20px;
+    background-color: #eb7168;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: none;
+  }
+
+  .success-alert-linh {
+    padding: 20px;
+    background-color: #04AA6D;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: none;
+  }
+  
+  .closebtn-linh {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn-linh:hover {
+    color: black;
+  }
