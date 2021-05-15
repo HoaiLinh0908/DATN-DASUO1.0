@@ -4,7 +4,6 @@ import java.security.Principal;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.Action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -23,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.NgheNghiepDTO;
 import com.dasuo.dto.TaiKhoanDTO;
-import com.dasuo.entity.TinhThanh;
+import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.utils.SecurityUtils;
@@ -42,6 +41,17 @@ public class DasuoController {
 	@RequestMapping("/dangnhap")
 	public String Login() {
 		return "web/loggin";
+	}
+	
+	@RequestMapping(value = "/thoat", method = RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		//Check user info, if there is info then delete it
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		//return to home page
+		return new ModelAndView("redirect:/dangnhap");
 	}
 	
 	@RequestMapping("/dangky")
@@ -65,15 +75,18 @@ public class DasuoController {
 				taiKhoanDTO.setMatKhau(passwordEncoder.encode(matKhau));
 				
 				taiKhoanService.save(taiKhoanDTO);
-				model.addAttribute("message", "Đăng nhập thành công!");
+				model.addAttribute("message", "Đăng ký tài khoản thành công!");
+				model.addAttribute("alert", "success");
 			}
-			else
-				model.addAttribute("message", "Đăng nhập thất bại");
+			else {
+				model.addAttribute("message", "Đăng ký tài khoản thất bại");
+				model.addAttribute("alert", "error");
+			}
 		}
-		else
+		else {
 			model.addAttribute("message", "Email đã tồn tại!");
-		
-		
+			model.addAttribute("alert", "error");
+		}
 		return "web/register";
 	}
 	
@@ -83,10 +96,13 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/taikhoan/trangcanhan")
-	public String viewProfile(Principal principal) {
-		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(principal.getName());
-		System.out.println(taiKhoanDTO.getHoTen());
-		
+	public String viewProfile(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		if(taiKhoanDTO.getTinhThanh() == null) {
+			taiKhoanDTO.setTinhThanh(new TinhThanhDTO());
+			taiKhoanDTO.getTinhThanh().setTenTinh("Chưa cập nhật");
+		}
+		model.addAttribute("taiKhoan", taiKhoanDTO);
 		return "web/userinformation";
 	}
 
@@ -111,7 +127,9 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/taobaidang")
-	public String viewTaoBaiDang() {
+	public String viewTaoBaiDang(Model model) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		System.out.println(SecurityUtils.getPrincipal().getUser_Id());
 		return "web/taobaidang";
 	}
 	
@@ -141,7 +159,7 @@ public class DasuoController {
 		return "forgot_password_form";
 	}
 	@RequestMapping(value = "/thoat", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView logout1(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		//Check user info, if there is info then delete it
 		if (auth != null) {

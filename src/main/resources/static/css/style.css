@@ -594,7 +594,6 @@ input#firstname, input#email,input#sodienthoai, input#password1, input#password2
     margin-left: 25px;
     margin-bottom: 10px;
     border-radius: 3px;
-    display: none;
   }
 
   .success-alert-linh {
@@ -604,7 +603,6 @@ input#firstname, input#email,input#sodienthoai, input#password1, input#password2
     margin-left: 25px;
     margin-bottom: 10px;
     border-radius: 3px;
-    display: none;
   }
   
   .closebtn-linh {
@@ -621,3 +619,4 @@ input#firstname, input#email,input#sodienthoai, input#password1, input#password2
   .closebtn-linh:hover {
     color: black;
   }
+  

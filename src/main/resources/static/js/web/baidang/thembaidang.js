@@ -9,7 +9,8 @@ $('#dangyc-btn').click( function () {
         data: JSON.stringify({ "tomTatYeuCau": $("#tomtatyc").val(),
                                 "sdt": $("#phone_class").val(),
                                 "moTa": $("#introduce-class").val(),
-                                "hocPhi": 200000,
+                                "hocPhi": $("#phone_class").val(),
+
                                 "gioiTinh": false,
                                 "soBuoi": 2,
                                 "mon": {
@@ -19,6 +20,7 @@ $('#dangyc-btn').click( function () {
                                     "chuDe_Id": 1
                                 },
                                 "taiKhoan": {
+<<<<<<< HEAD
                                     "taiKhoan_Id": $("p#tkid").val()
                                 }}),
         success: function (response) {
@@ -40,6 +42,15 @@ $('#dangyc-btn').click( function () {
             // $("#monhoclinh").val("");
             $('.error-alert-linh').show();
             $('.success-alert-linh').hide();
+=======
+                                    "taiKhoan_Id": $("#tkid").val()
+                                }}),
+        success: function (response) {
+            window.location.href = "http://localhost:8083/taobaidang?uploadMsg=success";
+        },
+        error: function (response) {
+            window.location.href = "http://localhost:8083/taobaidang?uploadMsg=failed";
+>>>>>>> a2981e9b70eadd818aa404fcca7ad2616917905c
         }
     });
 });

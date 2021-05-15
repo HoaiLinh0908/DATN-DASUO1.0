@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<title>Register</title>
+<title>Đăng Ký</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -49,21 +49,15 @@
 			<p class="agileits2">Kết nối gia sư dạy và học trực tuyến .</p>
 		</div>
 		<div class="content-agile2">
-			<div class="error-alert-linh">
+			<div class="error-alert-linh" th:if="${message != null and alert == 'error'}">
 				<span class="closebtn-linh"
-					onclick="this.parentElement.style.display='none';">&times;</span> <strong>Đăng
-					ký tài khoản thất bại!</strong>
+					onclick="this.parentElement.style.display='none';">&times;</span> <strong>[[${message}]]</strong>
 			</div>
-			<div class="success-alert-linh">
+			<div class="success-alert-linh" th:if="${message != null and alert == 'success'}">
 				<span class="closebtn-linh"
-					onclick="this.parentElement.style.display='none';">&times;</span> <strong>Đăng
-					ký tài khoản thành công!</strong>
+					onclick="this.parentElement.style.display='none';">&times;</span> <strong>[[${message}]]</strong>
 			</div>
 			<form th:action="@{/dangky}" method="post" modelattribute="taikhoan">
-				
-				<div th:if="${message != null}">
-					<p class="text-warning">[[${message}]]</p>
-				</div>
 				<div class="form-control w3layouts">
 					<input type="text" id="firstname" name="hoTen" placeholder="Tên"
 						title="Please enter your First Name" required="">
@@ -96,6 +90,21 @@
 			</form>
 		</div>
 	</div>
+	<script>
+		var password = document.getElementById("password1")
+  			, confirm_password = document.getElementById("password2");
+
+		function validatePassword(){
+  			if(password.value != confirm_password.value) {
+    			confirm_password.setCustomValidity("Mật khẩu nhập lại không khớp!");
+  			} else {
+    			confirm_password.setCustomValidity('');
+  			}
+		}
+
+		password.onchange = validatePassword;
+		confirm_password.onkeyup = validatePassword;
+	</script>
 	<!-- <script src="\js\web\taikhoan\themtaikhoan.js"></script> -->
 </body>
 
