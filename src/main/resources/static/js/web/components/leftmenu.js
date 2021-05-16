@@ -9,15 +9,14 @@ $(document).ready(function(){
                             <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
-                    <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
+                    <li><a href="#"><i class="fas fa-comments icon-menu"></i> Tin nhắn</a></li>
+                    <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thông báo</a></li>
                     <li>
                         <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i
                                 class="fas fa-chevron-right show-right"></i></a>
                         <ul class="sub-menu">
-                            <li><a href="#">Đã đăng</a></li>
+                            <li><a href="/baidangcuatoi">Đã đăng</a></li>
                             <li><a href="#">Đang soạn</a></li>
-                            <li><a href="#">Đã gửi</a></li>
                         </ul>
                     </li>
                     <li>
@@ -40,12 +39,6 @@ $(document).ready(function(){
                     <li>
                         <a href="/hienthilichlop"><i class="fa fa-pencil-square icon-menu"></i> Lớp <i
                                 class="fas fa-chevron-right show-right"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="" id="classname"></a></li>
-                            <li><a href="" id="classname"></a></li>
-                            <li><a href="" id="classname"></a></li>
-                            <li><a href="" id="classname"></a></li>
-                        </ul>
                     </li>
                 </ul>`
     $(".left-content").html(leftMenu);

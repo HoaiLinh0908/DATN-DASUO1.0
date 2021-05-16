@@ -2,6 +2,7 @@ package com.dasuo.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,4 +17,7 @@ public interface BaiDangRepository extends JpaRepository<BaiDang, Integer>{
 	@Query(value="SELECT * FROM dasuo.baidang where enable =1 order by bai_dang_id desc"
 			,nativeQuery=true)
 	public List<Object[]> getBaiDangs(Pageable pageable);
+
+	Page<BaiDang> findByTaiKhoan(TaiKhoan taiKhoan, Pageable pageable);
+	int countByTaiKhoan(TaiKhoan taiKhoan);
 }

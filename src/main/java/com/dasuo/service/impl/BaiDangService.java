@@ -14,7 +14,6 @@ import com.dasuo.entity.BaiDang;
 import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.service.IBaiDangService;
-import com.dasuo.utils.SecurityUtils;
 @Service
 public class BaiDangService implements IBaiDangService{
 	@Autowired
@@ -63,11 +62,21 @@ public class BaiDangService implements IBaiDangService{
 	}
 	
 	@Override
-	public List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id) {
-		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(new TaiKhoan(id));
+	public List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id, Pageable pageable) {
+		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(new TaiKhoan(id), pageable).getContent();
 		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
 		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
 		return baiDangDTOs;
+	}
+
+
+	@Override
+	public int getTotalPageByTaiKhoan(Integer id, int limit) {
+		int totalItem = baiDangRepository.countByTaiKhoan(new TaiKhoan(id));
+		if(totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
 	}
 
 }
