@@ -3,6 +3,8 @@ package com.dasuo.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,8 +14,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dasuo.api.output.LopOutput;
+import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.service.ILopService;
 
@@ -23,15 +28,13 @@ public class LopAPI {
 	@Autowired
 	ILopService lopService;
 	@GetMapping("/lops")
-	public ResponseEntity<List<LopDTO>> getListLops (){
-		List<LopDTO> lopDTOs = lopService.getListLop();
-		if(lopDTOs!=null)
-		{
-			return new ResponseEntity<>(lopDTOs,HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<LopOutput> getListLops (@RequestParam("page") int page,@RequestParam("limit") int limit){
+		LopOutput lopOutput = new LopOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		lopOutput.setPage(page);
+		lopOutput.setLopDTO(lopService.getListLop(pageable));
+		lopOutput.setTotalPage(lopService.getTotalPage(limit));
+			return new ResponseEntity<>(lopOutput,HttpStatus.OK);
 	}
 	
 	@GetMapping("/lops/{id}")

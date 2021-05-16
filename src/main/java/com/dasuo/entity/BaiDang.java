@@ -50,11 +50,24 @@ public class BaiDang {
 	@ManyToOne
 	@JoinColumn(name = "taiKhoan_Id")
 	private TaiKhoan taiKhoan;
+	
+	@Column
+	private boolean enable;
 
 	public BaiDang() {
 		super();
 	}
 	
+
+	public boolean isEnable() {
+		return enable;
+	}
+
+
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+
 
 	public TaiKhoan getTaiKhoan() {
 		return taiKhoan;

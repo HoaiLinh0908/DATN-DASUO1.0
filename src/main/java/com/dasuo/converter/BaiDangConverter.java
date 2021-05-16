@@ -1,5 +1,6 @@
 package com.dasuo.converter;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,8 @@ import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.entity.BaiDang;
 import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.TaiKhoanRepository;
+import com.dasuo.service.IChuDeService;
+import com.dasuo.service.IMonService;
 import com.dasuo.service.ITaiKhoanService;
 import com.google.common.collect.Lists;
 
@@ -24,6 +27,10 @@ public class BaiDangConverter {
 	ChuDeConverter chuDeConverter;
 	@Autowired
 	MonConverter monConverter;
+	@Autowired
+	IChuDeService chuDeService;
+	@Autowired
+	IMonService monService;
 	@Autowired
 	TaiKhoanRepository taiKhoanRepository;
 	@Autowired
@@ -87,6 +94,25 @@ public class BaiDangConverter {
 			listBaiDangDTO.add(baiDangDTO);
 		});
 		return listBaiDangDTO;
+	}
+	
+	public BaiDangDTO toDTO(Object[] obj) {
+		BaiDangDTO baiDangDTO = new BaiDangDTO();
+		baiDangDTO.setBaiDang_Id(Integer.valueOf(String.valueOf(obj[0])));
+		baiDangDTO.setGioiTinh(Boolean.valueOf(String.valueOf(obj[1])));
+		baiDangDTO.setHocPhi(Double.valueOf(String.valueOf(obj[2])));
+		baiDangDTO.setMoTa(String.valueOf(obj[3]));
+		baiDangDTO.setNgayBatDau((Date) obj[4]);
+		baiDangDTO.setSdt(String.valueOf(obj[5]));
+		baiDangDTO.setSoBuoi(Integer.valueOf(String.valueOf(obj[6])));
+		baiDangDTO.setThoiGianDayTheoThang(Integer.valueOf(String.valueOf(obj[7])));
+		baiDangDTO.setTomTatYeuCau(String.valueOf(obj[8]));
+		ChuDeDTO chuDe = chuDeService.getChuDe(Integer.valueOf(String.valueOf(obj[9])));
+		baiDangDTO.setChuDe(chuDe);
+		MonDTO mon = monService.getMon(Integer.valueOf(String.valueOf(obj[10])));
+		baiDangDTO.setMon(mon);
+		
+		return baiDangDTO;
 	}
 
 

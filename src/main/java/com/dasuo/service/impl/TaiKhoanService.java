@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dasuo.converter.TaiKhoanConverter;
@@ -22,8 +23,8 @@ public class TaiKhoanService implements ITaiKhoanService{
 	TaiKhoanConverter taiKhoanConverter;
 
 	@Override
-	public List<TaiKhoanDTO> getListTaiKhoan() {
-		List<TaiKhoan> taiKhoans = taiKhoanRepository.findAll();
+	public List<TaiKhoanDTO> getListTaiKhoan(Pageable pageable) {
+		List<TaiKhoan> taiKhoans = taiKhoanRepository.findAll(pageable).getContent();
 		List<TaiKhoanDTO> taiKhoanDTO = new ArrayList<>();
 		taiKhoans.forEach(taiKhoan -> taiKhoanDTO.add(taiKhoanConverter.toDTO(taiKhoan)));
 		return taiKhoanDTO;
@@ -111,6 +112,14 @@ public class TaiKhoanService implements ITaiKhoanService{
 	public TaiKhoanDTO getTaiKhoan(String email) {
 		
 		return taiKhoanConverter.toDTO(taiKhoanRepository.findByEmail(email));
+	}
+	@Override
+	public int getTotalPage(int limit) {
+		int totalItem = (int) taiKhoanRepository.count();
+		if(totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
 	}
 
 }

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.dasuo.api.output.BaiDangOutput;
+import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.service.impl.UploadFile;
@@ -30,13 +34,13 @@ public class TaiKhoanAPI {
 	ITaiKhoanService taiKhoanService;
 
 	@GetMapping("/taikhoans")
-	public ResponseEntity<List<TaiKhoanDTO>> getListTaiKhoan() {
-		List<TaiKhoanDTO> _taiKhoans = taiKhoanService.getListTaiKhoan();
-		if (_taiKhoans != null) {
-			return new ResponseEntity<>(_taiKhoans, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<TaiKhoanOutput> getListTaiKhoan(@RequestParam("page") int page,@RequestParam("limit") int limit) {
+		TaiKhoanOutput taiKhoanOutput = new TaiKhoanOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		taiKhoanOutput.setPage(page);
+		taiKhoanOutput.setTaiKhoanDTO(taiKhoanService.getListTaiKhoan(pageable));
+		taiKhoanOutput.setTotalPage(taiKhoanService.getTotalPage(limit));
+			return new ResponseEntity<>(taiKhoanOutput,HttpStatus.OK);
 	}
 
 	@GetMapping("/timtaikhoans/{id}")

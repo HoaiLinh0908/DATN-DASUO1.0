@@ -25,7 +25,8 @@ public class BaiDangService implements IBaiDangService{
 	@Override
 	@Transactional
 	public List<BaiDangDTO> getListBaiDang(Pageable pageable) {
-		List<BaiDang> baiDangs = baiDangRepository.findAll(pageable).getContent();
+		List<Object[]> baiDangs = baiDangRepository.getBaiDangs(pageable);
+		
 		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
 		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
 		return baiDangDTOs;

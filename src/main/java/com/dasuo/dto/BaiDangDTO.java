@@ -32,10 +32,24 @@ public class BaiDangDTO {
 	private List<BuoiDTO> buois ;
 	private TaiKhoanDTO taiKhoan;
 	
+	private Boolean enable;
 	public BaiDangDTO() {
 		super();
 	}
 	
+	
+
+	public Boolean getEnable() {
+		return enable;
+	}
+
+
+
+	public void setEnable(Boolean enable) {
+		this.enable = enable;
+	}
+
+
 
 
 	public TaiKhoanDTO getTaiKhoan() {

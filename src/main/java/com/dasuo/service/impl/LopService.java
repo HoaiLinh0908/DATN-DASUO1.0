@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +23,8 @@ public class LopService implements ILopService{
 
 	@Override
 	@Transactional
-	public List<LopDTO> getListLop() {
-		List<Lop> lops = lopRepository.findAll();
+	public List<LopDTO> getListLop(Pageable pageable) {
+		List<Lop> lops = lopRepository.findAll(pageable).getContent();
 		List<LopDTO> lopDTOs = new ArrayList<>();
 		lops.forEach(lop -> lopDTOs.add(lopConverter.toDTO(lop)));
 		return lopDTOs;
@@ -58,6 +59,15 @@ public class LopService implements ILopService{
 		lopRepository.deleteById(id);
 		
 	}
+	@Override
+	public int getTotalPage(int limit) {
+		int totalItem = (int) lopRepository.count();
+		if(totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
+	}
+
 	
 
 }
