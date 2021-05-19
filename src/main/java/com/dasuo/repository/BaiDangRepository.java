@@ -16,8 +16,10 @@ public interface BaiDangRepository extends JpaRepository<BaiDang, Integer>{
 	List<BaiDang> findByTaiKhoan(TaiKhoan taiKhoan);
 	@Query(value="SELECT * FROM dasuo.baidang where enable =1 order by bai_dang_id desc"
 			,nativeQuery=true)
-	public List<Object[]> getBaiDangs(Pageable pageable);
+	public List<BaiDang> getBaiDangs(Pageable pageable);
 
-	Page<BaiDang> findByTaiKhoan(TaiKhoan taiKhoan, Pageable pageable);
+	@Query(value="SELECT * FROM dasuo.baidang where tai_khoan_id = ?1 order by bai_dang_id desc"
+			,nativeQuery=true)
+	Page<BaiDang> findByTaiKhoan(Integer id, Pageable pageable);
 	int countByTaiKhoan(TaiKhoan taiKhoan);
 }

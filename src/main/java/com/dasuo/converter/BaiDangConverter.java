@@ -1,5 +1,6 @@
 package com.dasuo.converter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -74,7 +75,29 @@ public class BaiDangConverter {
 		return baiDang;
 	}
 	
-	public Set<BaiDangDTO> toBaiDangDTO(List<BaiDang> listBaiDang) {
+	public List<BaiDangDTO> toBaiDangDTO(List<BaiDang> listBaiDang) {
+		List<BaiDangDTO> listBaiDangDTO = new ArrayList<BaiDangDTO>();
+		listBaiDang.forEach(baiDang -> {
+			BaiDangDTO baiDangDTO = new BaiDangDTO();
+			baiDangDTO.setBaiDang_Id(baiDang.getBaiDang_Id());
+			baiDangDTO.setGioiTinh(baiDang.isGioiTinh());
+			baiDangDTO.setHocPhi(baiDang.getHocPhi());
+			baiDangDTO.setMoTa(baiDang.getMoTa());
+			baiDangDTO.setNgayBatDau(baiDang.getNgayBatDau());
+			baiDangDTO.setSdt(baiDang.getSdt());
+			baiDangDTO.setSoBuoi(baiDang.getSoBuoi());
+			baiDangDTO.setTomTatYeuCau(baiDang.getTomTatYeuCau());
+			baiDangDTO.setThoiGianDayTheoThang(baiDang.getThoiGianDayTheoThang());
+			ChuDeDTO chuDeDTO = chuDeConverter.toDTO(baiDang.getChuDe());
+			baiDangDTO.setChuDe(chuDeDTO);
+			MonDTO monDTO = monConverter.toDTO(baiDang.getMon());
+			baiDangDTO.setMon(monDTO);
+			listBaiDangDTO.add(baiDangDTO);
+		});
+		return listBaiDangDTO;
+	}
+	
+	public Set<BaiDangDTO> toBaiDangDTOAsSet(List<BaiDang> listBaiDang) {
 		Set<BaiDangDTO> listBaiDangDTO = new HashSet<BaiDangDTO>();
 		listBaiDang.forEach(baiDang -> {
 			BaiDangDTO baiDangDTO = new BaiDangDTO();
