@@ -9,10 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dasuo.converter.BaiDangConverter;
+import com.dasuo.converter.BuoiConverter;
 import com.dasuo.dto.BaiDangDTO;
+import com.dasuo.dto.BuoiDTO;
 import com.dasuo.entity.BaiDang;
+import com.dasuo.entity.Buoi;
 import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.BaiDangRepository;
+import com.dasuo.repository.BuoiRepository;
 import com.dasuo.service.IBaiDangService;
 @Service
 public class BaiDangService implements IBaiDangService{
@@ -20,18 +24,20 @@ public class BaiDangService implements IBaiDangService{
 	BaiDangRepository baiDangRepository;
 	@Autowired
 	BaiDangConverter baiDangConverter;
-
+	@Autowired
+	BuoiRepository buoiRepository;
+	@Autowired
+	BuoiConverter buoiConverter;
+	
 	@Override
 	@Transactional
 	public List<BaiDangDTO> getListBaiDang(Pageable pageable) {
-		List<Object[]> baiDangs = baiDangRepository.getBaiDangs(pageable);
+		List<BaiDang> baiDangs = baiDangRepository.getBaiDangs(pageable);
 		
-		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
-		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
+		List<BaiDangDTO> baiDangDTOs = baiDangConverter.toBaiDangDTO(baiDangs);
 		return baiDangDTOs;
 	}
 	
-
 	@Override
 	@Transactional
 	public BaiDangDTO getBaiDang(Integer id) {
@@ -41,8 +47,13 @@ public class BaiDangService implements IBaiDangService{
 
 	@Override
 	public void save(BaiDangDTO baiDangDTO) {
-		baiDangRepository.save(baiDangConverter.toEntity(baiDangDTO));
-		
+		BaiDang baidang = baiDangRepository.save(baiDangConverter.toEntity(baiDangDTO));
+		System.out.println(baidang.getBaiDang_Id());
+		List<Buoi> buois = baidang.getBuois();
+		buois.forEach((buoi) -> {
+			buoi.setBaiDang(baidang);
+			buoiRepository.save(buoi);
+        });
 	}
 
 	@Override
@@ -63,7 +74,7 @@ public class BaiDangService implements IBaiDangService{
 	
 	@Override
 	public List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id, Pageable pageable) {
-		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(new TaiKhoan(id), pageable).getContent();
+		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(id, pageable).getContent();
 		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
 		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
 		return baiDangDTOs;

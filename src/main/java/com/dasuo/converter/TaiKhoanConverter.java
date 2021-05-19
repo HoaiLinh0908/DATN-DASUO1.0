@@ -68,7 +68,7 @@ public class TaiKhoanConverter {
 		taiKhoanDTO.setTinhThanh(tinhthanh);
 		taiKhoanDTO.setSoDu(taiKhoan.getSoDu());
 		taiKhoanDTO.setMoTa(taiKhoan.getMoTa());
-		taiKhoanDTO.setBaiDangs(baiDangConverter.toBaiDangDTO(Lists.newArrayList(taiKhoan.getBaiDangs())));
+		taiKhoanDTO.setBaiDangs(baiDangConverter.toBaiDangDTOAsSet(Lists.newArrayList(taiKhoan.getBaiDangs())));
 		taiKhoanDTO.setMons(monConverter.toMonDTO(Lists.newArrayList(taiKhoan.getMons())));
 		NgheNghiepDTO nghenghiep = ngheNghiepConverter.toDTO(taiKhoan.getNgheNghiep());
 		taiKhoanDTO.setNgheNghiep(nghenghiep);
