@@ -2,14 +2,23 @@ package com.dasuo.dto;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+
 public class GiaoTrinhDTO {
-private Integer giaoTrinh_Id;
+private Integer id;
 	
 	private LopDTO lop;
 	
 	private String giaoTrinh;
 	
 	private Date thoiGian;
+	
+	
+	private byte[] content;
+	
+	private String tieuDe;
+	
+	private String fileName;
 
 	public GiaoTrinhDTO() {
 		super();
@@ -26,13 +35,17 @@ private Integer giaoTrinh_Id;
 	}
 
 
-	public Integer getGiaoTrinh_Id() {
-		return giaoTrinh_Id;
+	
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setGiaoTrinh_Id(Integer giaoTrinh_Id) {
-		this.giaoTrinh_Id = giaoTrinh_Id;
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
+
 
 	public LopDTO getLop() {
 		return lop;
@@ -50,5 +63,35 @@ private Integer giaoTrinh_Id;
 		this.giaoTrinh = giaoTrinh;
 	}
 
+
+	public byte[] getContent() {
+		return content;
+	}
+
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+
+
+	public String getFileName() {
+		return fileName;
+	}
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
 	
 }

@@ -30,6 +30,12 @@ public class BaiKiemTra {
 	private Date thoiGianNop;
 	@OneToMany(mappedBy = "baiKiemTra")
 	private List<BaiLam> baiLam;
+	@Column
+	private byte[] content;
+	@Column
+	private String tieuDe;
+	@Column
+	private String fileName;
 
 	public BaiKiemTra() {
 		super();
@@ -83,6 +89,32 @@ public class BaiKiemTra {
 	public void setBaiLam(List<BaiLam> baiLam) {
 		this.baiLam = baiLam;
 	}
+
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	
 	
 	
 

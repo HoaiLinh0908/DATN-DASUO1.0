@@ -15,11 +15,14 @@ public class GiaoTrinhConverter {
 	LopConverter lopConverter;
 	public GiaoTrinhDTO toDTO (GiaoTrinh giaoTrinh) {
 		GiaoTrinhDTO giaoTrinhDTO = new GiaoTrinhDTO();
-		giaoTrinhDTO.setGiaoTrinh_Id(giaoTrinh.getGiaoTrinh_Id());
+		giaoTrinhDTO.setId(giaoTrinh.getGiaoTrinh_Id());
 		giaoTrinhDTO.setGiaoTrinh(giaoTrinh.getGiaoTrinh());
 		giaoTrinhDTO.setThoiGian(giaoTrinh.getThoiGian());
 		LopDTO lopDTO = lopConverter.toDTO(giaoTrinh.getLop());
 		giaoTrinhDTO.setLop(lopDTO);
+		giaoTrinhDTO.setFileName(giaoTrinh.getFileName());
+		giaoTrinhDTO.setContent(giaoTrinh.getContent());
+		giaoTrinhDTO.setTieuDe(giaoTrinh.getTieuDe());
 		return giaoTrinhDTO;
 	}
 	

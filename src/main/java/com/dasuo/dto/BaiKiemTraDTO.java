@@ -3,6 +3,8 @@ package com.dasuo.dto;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+
 public class BaiKiemTraDTO {
 
 	private Integer baiKiemTra_Id;
@@ -16,6 +18,10 @@ public class BaiKiemTraDTO {
 	private Date thoiGianNop;
 	
 	private List<BaiLamDTO> baiLam;
+	private String fileName;
+
+	private byte[] content;
+	private String tieuDe;
 
 	public BaiKiemTraDTO() {
 		super();
@@ -69,6 +75,30 @@ public class BaiKiemTraDTO {
 
 	public void setBaiLam(List<BaiLamDTO> baiLam) {
 		this.baiLam = baiLam;
+	}
+
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	

@@ -128,14 +128,17 @@
                 <h4 style="padding: 10px 8px;width: 222px;color: #fff;background-color: #069d86;font-weight: bold;">SOẠN GIÁO TRÌNH</h4>
                 <hr style="width: 75.8%;opacity: 0.8;float: right;" color="#069d86">
              </div>
+             <div class="text-success">
+					<h3>[[${message}]]</h3>
+				</div>
              <div class="body-block body-blocks">
-                <form id="update-profile-form" action="" method="POST" enctype="multipart/form-data">
+                <form th:action="@{/danggiaotrinh?id=1}" id="update-profile-form" action="" method="POST" modelattribute="giaotrinh" enctype="multipart/form-data">
                     <div  class="info-step-1">
                     
                             <div style="width: 100%;" class="col-md-1">
-                                <label for="">TÊN LỚP</label>
+                                <label for="">TIÊU ĐỀ</label>
                                 <span class="teacher-alert">*</span><br>
-                                <input type="text" name="tieude">
+                                <input type="text" name="tieuDe">
                             </div>
                     
                             <div style="width: 100%;" class="col-md-1">
@@ -148,13 +151,13 @@
                             <div style="width: 100%;" class="col-md-1">
                                 <label for="">NHẬP NỘI DUNG GIÁO TRÌNH</label>
                                 <span class="teacher-alert">*</span><br>
-                                <textarea placeholder="Vui lòng nhập nội dung giáo trình..." name="" id="noi-dung-giao-trinh" cols="30" rows="6 auto"></textarea>
+                                <textarea placeholder="Vui lòng nhập nội dung giáo trình..." name="giaoTrinh" id="noi-dung-giao-trinh" cols="30" rows="6 auto"></textarea>
                                 
                             </div>
                             <div style="width: 100%;" class="col-md-1">
                                 <label for="">OR</label>
                                 <span class="teacher-alert">*</span><br>
-                                <input style="color: #069d86; padding: 10px 0;" type="file" id="" name="">
+                                <input style="color: #069d86; padding: 10px 0;" type="file" id="" name="document">
                              </div>
                              <hr>
                              <!-- Style lai button gui  -->

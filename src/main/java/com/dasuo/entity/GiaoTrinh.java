@@ -25,6 +25,12 @@ public class GiaoTrinh {
 	private String giaoTrinh;
 	@Column
 	private Date thoiGian;
+	@Column
+	private byte[] content;
+	@Column
+	private String tieuDe;
+	@Column
+	private String fileName;
 
 	public GiaoTrinh() {
 		super();
@@ -67,6 +73,43 @@ public class GiaoTrinh {
 	public void setGiaoTrinh(String giaoTrinh) {
 		this.giaoTrinh = giaoTrinh;
 	}
+
+
+
+	public byte[] getContent() {
+		return content;
+	}
+
+
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+
+
+
+	public String getFileName() {
+		return fileName;
+	}
+
+
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
 	
 	
 

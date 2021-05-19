@@ -8,8 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dasuo.converter.GiaoTrinhConverter;
+import com.dasuo.converter.LopConverter;
 import com.dasuo.dto.GiaoTrinhDTO;
+import com.dasuo.dto.LopDTO;
 import com.dasuo.entity.GiaoTrinh;
+import com.dasuo.entity.Lop;
 import com.dasuo.repository.GiaoTrinhRepository;
 import com.dasuo.service.IGiaoTrinhService;
 
@@ -19,6 +22,8 @@ public class GiaoTrinhService implements IGiaoTrinhService{
 	GiaoTrinhRepository giaoTrinhRepository;
 	@Autowired
 	GiaoTrinhConverter giaoTrinhConverter;
+	@Autowired
+	LopConverter lopConverter;
 
 	@Override
 	@Transactional
@@ -57,6 +62,21 @@ public class GiaoTrinhService implements IGiaoTrinhService{
 	public void delete(Integer id) {
 		giaoTrinhRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public List<GiaoTrinhDTO> getGiaoTrinhFindByLop(LopDTO lopDTO) {
+		Lop lop = lopConverter.toEntity(lopDTO);
+		List<GiaoTrinh> giaoTrinhs = giaoTrinhRepository.findByLop(lop);
+		List<GiaoTrinhDTO> giaoTrinhDTOs = new ArrayList<>();
+		giaoTrinhs.forEach(giaoTrinh -> giaoTrinhDTOs.add(giaoTrinhConverter.toDTO(giaoTrinh)));
+		if(giaoTrinhs!= null)
+		{
+			return giaoTrinhDTOs;
+		}
+		else {
+			return null;
+		}
 	}
 
 }
