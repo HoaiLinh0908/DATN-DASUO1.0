@@ -227,14 +227,14 @@ public class DasuoController {
 	// xử lý upload file giao trình
 	@PostMapping("/danggiaotrinh")
 	public String uploadfileGiaoTrinh(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
-			@ModelAttribute("giaotrinh") GiaoTrinhDTO giaoTrinhDTO, @RequestParam("id") Integer id) throws IOException {
+			@ModelAttribute("giaotrinh") GiaoTrinhDTO giaoTrinhDTO, @RequestParam("idlop") Integer idlop) throws IOException {
 		// lấy ra tên file
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 		
 		GiaoTrinhDTO giaoTrinh = new GiaoTrinhDTO();
 		giaoTrinh.setContent(file.getBytes());
 		giaoTrinh.setFileName(filename);
-		LopDTO lopDTO = lopService.getLop(id);
+		LopDTO lopDTO = lopService.getLop(idlop);
 		giaoTrinh.setLop(lopDTO);
 		giaoTrinh.setGiaoTrinh(giaoTrinhDTO.getGiaoTrinh());
 		giaoTrinh.setTieuDe(giaoTrinhDTO.getTieuDe());

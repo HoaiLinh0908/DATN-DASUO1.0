@@ -15,7 +15,7 @@ public class GiaoTrinhConverter {
 	LopConverter lopConverter;
 	public GiaoTrinhDTO toDTO (GiaoTrinh giaoTrinh) {
 		GiaoTrinhDTO giaoTrinhDTO = new GiaoTrinhDTO();
-		giaoTrinhDTO.setId(giaoTrinh.getGiaoTrinh_Id());
+		giaoTrinhDTO.setGiaoTrinh_Id(giaoTrinh.getGiaoTrinh_Id());
 		giaoTrinhDTO.setGiaoTrinh(giaoTrinh.getGiaoTrinh());
 		giaoTrinhDTO.setThoiGian(giaoTrinh.getThoiGian());
 		LopDTO lopDTO = lopConverter.toDTO(giaoTrinh.getLop());
