@@ -281,4 +281,9 @@ public class DasuoController {
 		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
 		return "web/baidangcanhan";
 	}
+	
+	@RequestMapping("/baikiemtra")
+	public String hienThiBaiKiemTran(Model model) {
+		return "web/hienthibaikt";
+	}
 }
