@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Hiển thị bài kiểm tra</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- header -->
+        <div id="header">
+            <script src="/js/web/components/header_web.js"></script>     
+        </div>
+        <!-- header -->
+
+        <!-- content -->
+            <div class="container">
+                <!-- left-content -->
+                <div class="left-content hide-on-mobile-tablet">
+                    <ul id="accordion">
+                        <li>
+                            <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Tất cả lớp đã đăng</a></li>
+                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                            </ul>
+                        </li>
+                        <li><a style="color: orange;" href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                        <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Tất cả thông báo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Đã đăng</a></li>
+                                <li><a href="#">Đang soạn</a></li>
+                                <li><a href="#">Đã gửi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                                <li><a href="#">Giáo viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                        <li>
+                            <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="#">Sửa thông tin cá nhân</a></li>
+                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                 </div>
+                <!-- left-content -->
+                 <div style="max-height: 560px;" class="right-content right-contents right-contentt">
+
+                    <!-- phần menu cho tablet -->
+            <div class="hide-on-desktop">
+                <label for="nav_mobile_input" style="margin-bottom: 10px;" class="bar-left-menu ">
+                    <i style="font-size: 27px;" class="fas fa-bars"></i>
+                 </label>
+            </div> 
+           
+             <input type="checkbox" hidden name="" class="nav-input" id="nav_mobile_input">
+             <div class="mobile_tablet_menu">
+                <nav  class="nav_mobile_Tablet">
+                    <label for="nav_mobile_input">
+                        <i style="margin-left: 207px;
+                        font-size: 26px;" class="fas fa-times"></i>
+                    </label>
+                    
+                    <ul id="nav-mobile-tablet-list">
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i>  Quản lý yêu cầu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Tất cả lớp đã đăng</a></li>
+                                <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-mobile-tablet-link" style="color: orange;" href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
+                        <li><a class="nav-mobile-tablet-link" href="#"><i class="fas fa-bell icon-menu"></i> Thông báo <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Tất cả thông báo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Đã đăng</a></li>
+                                <li><a href="#">Đang soạn</a></li>
+                                <li><a href="#">Đã gửi</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i class="fas fa-chevron-right show-right"></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Yêu cầu tìm giáo viên</a></li>
+                                <li><a href="#">Giáo viên</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-mobile-tablet-link" href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                        <li>
+                            <a class="nav-mobile-tablet-link" href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i class="fas fa-chevron-right show-right"></i></i></a>
+                            <ul class="sub-menu-mobile-tablet">
+                                <li><a href="#">Sửa thông tin cá nhân</a></li>
+                                <li><a href="#">Thay đổi email, mật khẩu</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                 </nav>
+             </div>
+            <!-- phần menu cho tablet -->
+                    <div class="head-block">
+                        <h4 style="padding: 10px 8px;width: 222px;color: #fff;background-color: #069d86;font-weight: bold;">ĐỀ BÀI KIỂM TRA</h4>
+                        <hr style="width: 76.8%;opacity: 0.8;float: right;" color="#069d86">
+                     </div>
+                     <div class="body-block">
+                            <div  class="info-step-1">
+                                    <div style="width: 100%;" class="mo-ta-giao-trinh">
+                                        <div>
+                                            <strong>Tên Lớp:</strong> <span>Toán lớp 12</span>
+                                        </div>
+                                        <div>
+                                            <strong>Tiêu đề:</strong> <span>Bài kiểm tra 1</span>
+                                        </div>
+                                        
+                                       <div><strong>Thời gian bắt đầu:</strong> <span>19/05/2021  11:20:17</span></div>
+                                        
+                                       <div><strong>Thời gian nạp bài:</strong> <span>21/05/2021  11:20:17</span> </div>
+                                        
+                                    </div>
+    
+                                    <div style="width: 100%;" class="file-tai-lieu">
+                                        <strong style="padding: 0px 12px;line-height: 26px;">File nội dung đề bài kiểm tra</strong>
+                                        <ul class="file-giao-trinh">
+                                            <li>
+                                                <a  class="file-goc" href="#">Bai_kiem_tra_1.docx</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <hr  style="margin-top: 8px">
+                                    <div  class="nop-bai">
+                                        <strong style="padding: 4px 12px;line-height: 26px;">Bài Nộp</strong>
+                                        <br>
+                                        <input style="padding: 8px 8px;" type="file"> <br>
+                                        <input style="margin-top:12px;margin-bottom: 12px;padding: 4px 12px; margin-left: 8px; background-color: #069d86;border-radius: 4px;" type="submit" value="Nộp bài">
+                                    </div>
+                                   
+                                     
+                                     
+                            </div>
+                    </div>
+                <!-- right-content -->
+
+                <!-- right-content -->
+            </div>
+        <!-- content -->
+
+        <!-- footer -->
+        <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+        <div class="last-content">
+            <script src="/js/web/components/httv.js"></script>
+        </div>
+        <div id="footer">
+            <script src="/js/web/components/footer_web.js"></script>
+        </div>
+        <!-- footer -->
+    </div>
+    </div>
+</body>
+</html>
