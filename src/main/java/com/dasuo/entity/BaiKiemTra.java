@@ -41,13 +41,25 @@ public class BaiKiemTra {
 		super();
 	}
 
+	
+
+
+
 	public Integer getBaiKiemTra_Id() {
 		return baiKiemTra_Id;
 	}
 
+
+
+
+
 	public void setBaiKiemTra_Id(Integer baiKiemTra_Id) {
 		this.baiKiemTra_Id = baiKiemTra_Id;
 	}
+
+
+
+
 
 	public Lop getLop() {
 		return lop;

@@ -5,7 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 
 public class GiaoTrinhDTO {
-private Integer giaoTrinh_Id;
+	private Integer Id;
+	private Integer giaoTrinh_Id;
 	
 	private LopDTO lop;
 	
@@ -35,18 +36,16 @@ private Integer giaoTrinh_Id;
 	}
 
 
-	
-
-	
 
 
-	public Integer getGiaoTrinh_Id() {
-		return giaoTrinh_Id;
+
+	public Integer getId() {
+		return Id;
 	}
 
 
-	public void setGiaoTrinh_Id(Integer giaoTrinh_Id) {
-		this.giaoTrinh_Id = giaoTrinh_Id;
+	public void setId(Integer id) {
+		Id = id;
 	}
 
 
@@ -95,6 +94,17 @@ private Integer giaoTrinh_Id;
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
+
+
+	public Integer getGiaoTrinh_Id() {
+		return giaoTrinh_Id;
+	}
+
+
+	public void setGiaoTrinh_Id(Integer giaoTrinh_Id) {
+		this.giaoTrinh_Id = giaoTrinh_Id;
+	}
+	
 	
 	
 }

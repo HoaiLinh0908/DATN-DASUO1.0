@@ -8,8 +8,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dasuo.converter.BaiKiemTraConverter;
+import com.dasuo.converter.LopConverter;
 import com.dasuo.dto.BaiKiemTraDTO;
+import com.dasuo.dto.GiaoTrinhDTO;
+import com.dasuo.dto.LopDTO;
 import com.dasuo.entity.BaiKiemTra;
+import com.dasuo.entity.GiaoTrinh;
+import com.dasuo.entity.Lop;
 import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.service.IBaiKiemTraService;
 
@@ -19,6 +24,8 @@ public class BaiKiemTraService implements IBaiKiemTraService{
 	BaiKiemTraRepository baiKiemTraRepository;
 	@Autowired
 	BaiKiemTraConverter baiKiemTraConverter;
+	@Autowired
+	LopConverter lopConverter;
 
 	@Override
 	@Transactional
@@ -46,6 +53,21 @@ public class BaiKiemTraService implements IBaiKiemTraService{
 	public void delete(Integer id) {
 		baiKiemTraRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public List<BaiKiemTraDTO> getBaiKiemTraFindByLop(LopDTO lopDTO) {
+		Lop lop = lopConverter.toEntity(lopDTO);
+		List<BaiKiemTra> baiKiemTras = baiKiemTraRepository.findByLop(lop);
+		List<BaiKiemTraDTO> baiKiemTraDTOs = new ArrayList<>();
+		baiKiemTras.forEach(baiKiemTra -> baiKiemTraDTOs.add(baiKiemTraConverter.toDTO(baiKiemTra)));
+		if(baiKiemTras!= null)
+		{
+			return baiKiemTraDTOs;
+		}
+		else {
+			return null;
+		}
 	}
 
 }

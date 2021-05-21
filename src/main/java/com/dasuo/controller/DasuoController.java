@@ -2,6 +2,7 @@ package com.dasuo.controller;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -31,16 +32,20 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dasuo.dto.BaiKiemTraDTO;
+import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.dto.GiaoTrinhDTO;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.NgheNghiepDTO;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.dto.TinhThanhDTO;
+import com.dasuo.entity.BaiKiemTra;
 import com.dasuo.entity.GiaoTrinh;
+import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.repository.GiaoTrinhRepository;
 import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.IBaiKiemTraService;
+import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.ITaiKhoanService;
@@ -60,6 +65,12 @@ public class DasuoController {
 	IGiaoTrinhService giaoTrinhService;
 	@Autowired
 	GiaoTrinhRepository giaoTrinhRepository;
+	
+	@Autowired
+	BaiKiemTraRepository baiKiemTraRepository;
+	@Autowired
+	IBaiLamService baiLamService;
+	
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -283,7 +294,52 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/baikiemtra")
-	public String hienThiBaiKiemTran(Model model) {
+	public String hienThiBaiKiemTran(Model model,@RequestParam("id") Integer id) {
+		LopDTO lopDTO = lopService.getLop(id);
+		List<BaiKiemTraDTO> baiKiemTraDTO = baiKiemTraService.getBaiKiemTraFindByLop(lopDTO);
+		model.addAttribute("lop", lopDTO);
+		model.addAttribute("listDoc", baiKiemTraDTO);
 		return "web/hienthibaikt";
+	}
+	@RequestMapping("/chitietbaikiemtra")
+	public String hienThiBaiKiemChiTiet(Model model,@RequestParam("id") Integer id) {
+		BaiKiemTraDTO baiKiemTraDTO = baiKiemTraService.getBaiKiemTra(id);
+		List<BaiLamDTO> baiLamDTOs = baiLamService.getBaiLamFindByBaiKiemTra(baiKiemTraDTO);
+		model.addAttribute("listLam", baiLamDTOs);
+		model.addAttribute("listDoc", baiKiemTraDTO);
+		return "web/chitietbaikiemtra";
+	}
+	@PostMapping("/chitietbaikiemtra")
+	public String uploadfileBaiLam(@RequestParam("document") MultipartFile file, @RequestParam("id") Integer id,RedirectAttributes ra) throws IOException {
+		
+		String filename = StringUtils.cleanPath(file.getOriginalFilename());
+		
+		BaiLamDTO baiLamDTO = new BaiLamDTO();
+		baiLamDTO.setContent(file.getBytes());
+		baiLamDTO.setFileName(filename);
+		BaiKiemTraDTO baiKiemTraDTO = baiKiemTraService.getBaiKiemTra(id);
+		baiLamDTO.setBaiKiemTra(baiKiemTraDTO);
+		baiLamDTO.setThoiGian(new Date());
+		baiLamService.save(baiLamDTO);
+		ra.addFlashAttribute("message", "Thêm bài làm thành công");
+		String a ="redirect:/chitietbaikiemtra?id="+id;
+		return a;
+	}
+	@GetMapping("/downloadbaikiemtra")
+	public void downloadFileBaiKiemTra(@Param("id") Integer id, HttpServletResponse response) throws Exception
+	{
+		Optional<BaiKiemTra> resul = baiKiemTraRepository.findById(id);
+		if(!resul.isPresent())
+		{
+			throw new Exception("Không tìm thấy ID" + id);
+		}
+		BaiKiemTra baiKiemTraEntity = resul.get();
+		response.setContentType("application/octet-stream");
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachment; filename=" + baiKiemTraEntity.getFileName();
+		response.setHeader(headerKey, headerValue);
+		ServletOutputStream outputStream =response.getOutputStream();
+		outputStream.write(baiKiemTraEntity.getContent());
+		outputStream.close();
 	}
 }

@@ -141,25 +141,48 @@
 					<hr style="width: 76.8%; opacity: 0.8; float: right;"
 						color="#069d86">
 				</div>
+				 <div class="text-success">
+					<h3>[[${message}]]</h3>
+				</div>
 				<div class="body-block">
 					<div class="info-step-1">
 						<div style="width: 100%;" class="mo-ta-giao-trinh">
 							<div>
-								<strong>Tên Lớp:</strong> <span>[[${lop.tenLop}]]</span>
+								<strong>Tên Lớp:</strong> <span>	</span>
+							</div>
+							<div>
+								<strong>Tiêu đề:</strong> <span>Bài kiểm tra 1</span>
+							</div>
+
+							<div>
+								<strong>Thời gian bắt đầu:</strong> <span>[[${listDoc.thoiGianBatDau}]]</span>
+							</div>
+
+							<div>
+								<strong>Thời gian nạp bài:</strong> <span>[[${listDoc.thoiGianNop}]]</span>
 							</div>
 
 						</div>
 
 						<div style="width: 100%;" class="file-tai-lieu">
-							<strong style="padding: 0px 12px; line-height: 26px;">
-								Nội dung đề bài kiểm tra</strong>
-							<th:block th:each="doc: ${listDoc}">
-							</br>
-							<div><strong>Tiêu đề:</strong> <span>[[${doc.tieuDe}]]</span></div>
-							
+							<strong style="padding: 0px 12px; line-height: 26px;">File
+								nội dung đề bài kiểm tra</strong>
 								<ul class="file-giao-trinh">
 									<li><a class="file-goc"
-										th:href="@{'/chitietbaikiemtra?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>
+										th:href="@{'/downloadbaikiemtra?id=' + ${listDoc.Id}}">[[${listDoc.fileName}]]</a>
+										</br></li>
+
+								</ul>
+
+					
+						</div>
+						<div style="width: 100%;" class="file-tai-lieu">
+							<strong style="padding: 0px 12px; line-height: 26px;">File
+								nội dung đề bài kiểm tra</strong>
+							<th:block th:each="doc: ${listLam}">
+								<ul class="file-giao-trinh">
+									<li><a class="file-goc"
+										href="@{'/chitietbaikiemtra?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>
 										</br></li>
 
 								</ul>
@@ -168,8 +191,17 @@
 						</div>
 						
 						
-						
-
+						<hr style="margin-top: 8px">
+						<form th:action="@{'/chitietbaikiemtra?id=' + ${listDoc.Id} }" id="update-profile-form" action="" method="POST"  enctype="multipart/form-data">
+						<div class="nop-bai">
+							<strong style="padding: 4px 12px; line-height: 26px;">Bài
+								Nộp</strong> <br> <input style="padding: 8px 8px;" type="file" name="document">
+							<br> <!-- <input
+								style="margin-top: 12px; margin-bottom: 12px; padding: 4px 12px; margin-left: 8px; background-color: #069d86; border-radius: 4px;"
+								type="submit" value="Nộp bài"> -->
+								<input  type="submit" class="submit-de-kt">
+						</div>
+						</form>
 
 					</div>
 				</div>
