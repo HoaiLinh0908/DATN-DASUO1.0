@@ -27,7 +27,7 @@ public class BaiKiemTra {
 	@Column
 	private Date thoiGianBatDau;
 	@Column
-	private Date thoiGianNop;
+	private String thoiGianNop;
 	@OneToMany(mappedBy = "baiKiemTra")
 	private List<BaiLam> baiLam;
 	@Column
@@ -86,13 +86,30 @@ public class BaiKiemTra {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
 
-	public Date getThoiGianNop() {
+	
+//	public Date getThoiGianNop() {
+//		return thoiGianNop;
+//	}
+//
+//	public void setThoiGianNop(Date thoiGianNop) {
+//		this.thoiGianNop = thoiGianNop;
+//	}
+
+	public String getThoiGianNop() {
 		return thoiGianNop;
 	}
 
-	public void setThoiGianNop(Date thoiGianNop) {
+
+
+
+
+	public void setThoiGianNop(String thoiGianNop) {
 		this.thoiGianNop = thoiGianNop;
 	}
+
+
+
+
 
 	public List<BaiLam> getBaiLam() {
 		return baiLam;

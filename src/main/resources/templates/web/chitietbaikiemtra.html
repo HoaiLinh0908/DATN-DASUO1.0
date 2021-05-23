@@ -178,12 +178,14 @@
 						</div>
 						<div style="width: 100%;" class="file-tai-lieu">
 							<strong style="padding: 0px 12px; line-height: 26px;">File
-								nội dung đề bài kiểm tra</strong>
+								nội dung bài làm</strong>
 							<th:block th:each="doc: ${listLam}">
 								<ul class="file-giao-trinh">
 									<li><a class="file-goc"
-										href="@{'/chitietbaikiemtra?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>
+										href="@{'/chitietbaikiemtra?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>  
+										<strong>Thời gian nạp bài:</strong> <span>[[${doc.thoiGian}]]</span>
 										</br></li>
+										
 
 								</ul>
 

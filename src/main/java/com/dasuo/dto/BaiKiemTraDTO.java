@@ -16,7 +16,7 @@ public class BaiKiemTraDTO {
 	
 	private Date thoiGianBatDau;
 	
-	private Date thoiGianNop;
+	private String thoiGianNop;
 	
 	private List<BaiLamDTO> baiLam;
 	private String fileName;
@@ -87,14 +87,31 @@ public class BaiKiemTraDTO {
 	public void setThoiGianBatDau(Date thoiGianBatDau) {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
+	
 
-	public Date getThoiGianNop() {
+//	public Date getThoiGianNop() {
+//		return thoiGianNop;
+//	}
+//
+//	public void setThoiGianNop(Date thoiGianNop) {
+//		this.thoiGianNop = thoiGianNop;
+//	}
+
+	public String getThoiGianNop() {
 		return thoiGianNop;
 	}
 
-	public void setThoiGianNop(Date thoiGianNop) {
+
+
+
+
+	public void setThoiGianNop(String thoiGianNop) {
 		this.thoiGianNop = thoiGianNop;
 	}
+
+
+
+
 
 	public List<BaiLamDTO> getBaiLam() {
 		return baiLam;
