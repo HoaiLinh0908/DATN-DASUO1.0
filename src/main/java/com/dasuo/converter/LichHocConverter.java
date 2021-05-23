@@ -15,8 +15,8 @@ public class LichHocConverter {
 	public LichHocDTO toDTO (LichHoc lichHoc) {
 		LichHocDTO lichHocDTO = new LichHocDTO();
 		lichHocDTO.setLichHoc_Id(lichHoc.getLichHoc_Id());
-		lichHocDTO.setThoiGianBatDau(lichHoc.getThoiGianBatDau());
-		lichHocDTO.setThoiGianKetThuc(lichHoc.getThoiGianKetThuc());
+		lichHocDTO.setThoiGianBatDau(lichHoc.getThoiGianBatDau().toString());
+		lichHocDTO.setThoiGianKetThuc(lichHoc.getThoiGianKetThuc().toString());
 		lichHocDTO.setIdZoom(lichHoc.getIdZoom());
 		lichHocDTO.setMatKhauZoom(lichHoc.getMatKhauZoom());
 		lichHocDTO.setLinkZoom(lichHoc.getLinkZoom());

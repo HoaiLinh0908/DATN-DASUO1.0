@@ -205,7 +205,8 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/chitietbaidang")
-	public String chiTietBaiDang() {
+	public String chiTietBaiDang(Model model) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
 		return "web/chi-tiet-bai-dang";
 	}
 

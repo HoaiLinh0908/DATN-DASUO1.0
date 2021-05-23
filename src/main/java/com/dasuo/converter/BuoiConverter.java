@@ -11,6 +11,7 @@ public class BuoiConverter {
 	public BuoiDTO toDTO(Buoi buoi) {
 		BuoiDTO buoiDTO = new BuoiDTO();
 		buoiDTO.setBuoi_Id(buoi.getBuoi_Id());
+		buoiDTO.setBuoi(buoi.getBuoi());
 		buoiDTO.setNgayTrongTuan(buoi.getNgayTrongTuan());
 		return buoiDTO;
 	}

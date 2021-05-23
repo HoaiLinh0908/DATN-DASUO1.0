@@ -4,7 +4,7 @@ $(document).ready(function () {
     }else {
         var bdid = getURLParameter("id");
     }
-    var baiDangList = []
+    var baiDangList = [];
 	    $.ajax({
 		url: "http://localhost:8083/api/baidangs/" + bdid,
 		contentType: "application/json; charset=utf-8",
@@ -19,6 +19,7 @@ $(document).ready(function () {
 				var moTa = response.moTa;
                 var hocPhi = response.hocPhi;
                 var mon = response.mon.tenMon;
+                var buois = response.buois;
 				htmlStr = htmlStr + `<div  class="row">
                 <h1>
            
@@ -95,15 +96,15 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-2">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-2" type="checkbox" name="sang_2" value="sang_2">
+                                    <input class="radio-calendar" id="sang2" type="checkbox" name="sang_2" value="sang_2">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-2">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_2" value="chieu_2">
+                                    <input class="radio-calendar" id="chieu2" type="checkbox" name="chieu_2" value="chieu_2">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-2">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-2" type="checkbox" name="toi_2" value="toi_2">
+                                    <input class="radio-calendar" id="toi2" type="checkbox" name="toi_2" value="toi_2">
                                 </li>
                             </ul>
                         </div>
@@ -111,16 +112,16 @@ $(document).ready(function () {
                             <h3>Thứ 3</h3>
                             <ul>
                                 <li class="buoihoc">
-                                    <label for="morning-calendar-2">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-3" type="checkbox" name="sang_3" value="sang_3">
+                                    <label for="morning-calendar-3">Sáng</label>
+                                    <input class="radio-calendar" id="sang3" type="checkbox" name="sang_3" value="sang_3">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-3">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-3" type="checkbox" name="chieu_3" value="chieu_3">
+                                    <input class="radio-calendar" id="chieu3" type="checkbox" name="chieu_3" value="chieu_3">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-3">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-3" type="checkbox" name="toi_3" value="toi_3">
+                                    <input class="radio-calendar" id="toi3" type="checkbox" name="toi_3" value="toi_3">
                                 </li>
                             </ul>
                         </div>
@@ -129,15 +130,15 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-4">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-4" type="checkbox" name="sang_4" value="sang_4">
+                                    <input class="radio-calendar" id="sang4" type="checkbox" name="sang_4" value="sang_4">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-4">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-4" type="checkbox" name="chieu_4" value="chieu_4">
+                                    <input class="radio-calendar" id="chieu4" type="checkbox" name="chieu_4" value="chieu_4">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-4">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-4" type="checkbox" name="toi_4" value="toi_4">
+                                    <input class="radio-calendar" id="toi4" type="checkbox" name="toi_4" value="toi_4">
                                 </li>
                             </ul>
                         </div>
@@ -146,15 +147,15 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-5">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-5" type="checkbox" name="sang_5" value="sang_5">
+                                    <input class="radio-calendar" id="sang5" type="checkbox" name="sang_5" value="sang_5">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-5">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-2" type="checkbox" name="chieu_5" value="chieu_5">
+                                    <input class="radio-calendar" id="chieu5" type="checkbox" name="chieu_5" value="chieu_5">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-5">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-5" type="checkbox" name="toi_5" value="toi_5">
+                                    <input class="radio-calendar" id="toi5" type="checkbox" name="toi_5" value="toi_5">
                                 </li>
                             </ul>
                         </div>
@@ -163,15 +164,15 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-6">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-6" type="checkbox" name="sang_6" value="sang_6">
+                                    <input class="radio-calendar" id="sang6" type="checkbox" name="sang_6" value="sang_6">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-6">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-6" type="checkbox" name="chieu_6" value="chieu_6">
+                                    <input class="radio-calendar" id="chieu6" type="checkbox" name="chieu_6" value="chieu_6">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-6">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-6" type="checkbox" name="toi_6" value="toi_6">
+                                    <input class="radio-calendar" id="toi6" type="checkbox" name="toi_6" value="toi_6">
                                 </li>
                             </ul>
                         </div>
@@ -180,15 +181,15 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-7">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-7" type="checkbox" name="sang_7" value="sang_7">
+                                    <input class="radio-calendar" id="sang7" type="checkbox" name="sang_7" value="sang_7">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-2">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-7" type="checkbox" name="chieu_7" value="chieu_7">
+                                    <input class="radio-calendar" id="chieu7" type="checkbox" name="chieu_7" value="chieu_7">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-2">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-7" type="checkbox" name="toi_7" value="toi_7">
+                                    <input class="radio-calendar" id="toi7" type="checkbox" name="toi_7" value="toi_7">
                                 </li>
                             </ul>
                         </div>
@@ -197,26 +198,33 @@ $(document).ready(function () {
                             <ul>
                                 <li class="buoihoc">
                                     <label for="morning-calendar-8">Sáng</label>
-                                    <input class="radio-calendar" id="morning-calendar-8" type="checkbox" name="sang_8" value="sang_8">
+                                    <input class="radio-calendar" id="sang8" type="checkbox" name="sang_8" value="sang_8">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="afternoon-calendar-8">Chiều</label>
-                                    <input class="radio-calendar" id="afternoon-calendar-8" type="checkbox" name="chieu_8" value="chieu_8">
+                                    <input class="radio-calendar" id="chieu8" type="checkbox" name="chieu_8" value="chieu_8">
                                 </li>
                                 <li class="buoihoc">
                                     <label for="evening-calendar-8">Tối</label>
-                                    <input class="radio-calendar" id="evening-calendar-8" type="checkbox" name="toi_8" value="toi_8">
+                                    <input class="radio-calendar" id="toi8" type="checkbox" name="toi_8" value="toi_8">
                                 </li>
                             </ul>
                         </div>
-                        
+                        <input type="hidden" value="${baiDang_Id}" id="bdid">
                     </div>
                     <p class="note-calender"><span style="color: #007e00">Màu xanh</span> là những buổi có thể học.</p>
-                    
+                    <div class="row" style="text-align:center;padding:10px 0;">
+                        <input type="button" id="taolop-btn" class="btn-bla-big btn-yellowblacasa"
+                            style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
+                            value="Tạo lớp">
+                    </div>
                 </div>
                 </div>`;
+                $(".container").html(htmlStr);
 			 console.log(baiDangList)
-			$(".container").html(htmlStr);
+			 buois.forEach(value => {
+                $("#" + value.buoi + value.ngayTrongTuan).parent().css("background-color", "#008000");
+             });
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(textStatus, errorThrown);

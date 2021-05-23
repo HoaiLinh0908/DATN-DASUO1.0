@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <title>Hiển thị chi tiết bài đăng</title>
+    <title>Chi tiết bài đăng</title>
 </head>
 <body>
     <div class="wrapper">
@@ -20,15 +20,14 @@
             <script src="/js/web/components/header_web.js"></script>         
         </div>
         <!-- header -->
-        
         <!-- content -->
         <section class="header-study-group bg-gradient-blue">
             <div style="width: 1164px;" class="container">
                 <script src="/js/web/baidang/chitietbaidang.js"></script>
             </div>
+            <input type="hidden" th:value="${tkid}" id="tkid">
         </section>
         <!-- content -->
-
         <!-- footer -->
         <hr style="margin-top: 30px;color: #069d86; width: 100%;">
         <div class="last-content">
@@ -39,19 +38,6 @@
         </div>
         <!-- footer -->
     </div>
-    <script>
-        $(document).ready(function(){
-            $('.buoihoc').click(function(){
-                if($(this).css("background-color") == "rgb(0, 128, 0)"){
-                    $(this).css("background-color","#fff");
-                    $(this).find("input").attr("checked",false)
-                }else{
-                    $(this).css("background-color","#008000");
-                    $(this).find("input").attr("checked",true)
-                }
-                
-            });
-        });
-    </script>
+    <script src="/js/web/lop/taolop.js"></script>
 </body>
 </html>

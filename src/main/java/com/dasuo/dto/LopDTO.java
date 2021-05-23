@@ -23,6 +23,8 @@ public class LopDTO {
 	private List<BaiKiemTraDTO> baiKiemTra;
 	
 	private List<GiaoTrinhDTO> giaoTrinh;
+	
+	private Integer baiDangId;
 
 	public LopDTO() {
 		super();
@@ -106,6 +108,14 @@ public class LopDTO {
 
 	public void setTenLop(String tenLop) {
 		this.tenLop = tenLop;
+	}
+
+	public Integer getBaiDangId() {
+		return baiDangId;
+	}
+
+	public void setBaiDangId(Integer baiDangId) {
+		this.baiDangId = baiDangId;
 	}
 	
 	

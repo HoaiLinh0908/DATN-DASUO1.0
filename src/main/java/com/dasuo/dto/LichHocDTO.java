@@ -1,15 +1,11 @@
 package com.dasuo.dto;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-
 public class LichHocDTO {
 	private Integer lichHoc_Id;
 
 	
-	private Date thoiGianBatDau;
-	private Date thoiGianKetThuc;
+	private String thoiGianBatDau;
+	private String thoiGianKetThuc;
 	private Integer  idZoom;
 	private Integer  matKhauZoom;
 	private String linkZoom;
@@ -28,19 +24,19 @@ public class LichHocDTO {
 		this.lichHoc_Id = lichHoc_Id;
 	}
 
-	public Date getThoiGianBatDau() {
+	public String getThoiGianBatDau() {
 		return thoiGianBatDau;
 	}
 
-	public void setThoiGianBatDau(Date thoiGianBatDau) {
+	public void setThoiGianBatDau(String thoiGianBatDau) {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
 
-	public Date getThoiGianKetThuc() {
+	public String getThoiGianKetThuc() {
 		return thoiGianKetThuc;
 	}
 
-	public void setThoiGianKetThuc(Date thoiGianKetThuc) {
+	public void setThoiGianKetThuc(String thoiGianKetThuc) {
 		this.thoiGianKetThuc = thoiGianKetThuc;
 	}
 

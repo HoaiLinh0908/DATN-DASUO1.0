@@ -1,7 +1,5 @@
 package com.dasuo.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dasuo.api.output.LopOutput;
-import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.service.ILopService;
 

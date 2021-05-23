@@ -38,8 +38,6 @@ public class LichHocService implements ILichHocService{
 		else {
 			return null;
 		}
-		
-		
 	}
 
 	@Override

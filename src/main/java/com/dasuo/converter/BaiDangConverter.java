@@ -5,12 +5,14 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dasuo.dto.BaiDangDTO;
+import com.dasuo.dto.BuoiDTO;
 import com.dasuo.dto.ChuDeDTO;
 import com.dasuo.dto.MonDTO;
 import com.dasuo.dto.TaiKhoanDTO;
@@ -40,6 +42,9 @@ public class BaiDangConverter {
 	@Autowired
 	TaiKhoanConverter taiKhoanConverter;
 	
+	@Autowired
+	BuoiConverter buoiConverter;
+	
 	public BaiDangDTO toDTO (BaiDang baiDang) {
 		BaiDangDTO baiDangDTO = new BaiDangDTO();
 		baiDangDTO.setBaiDang_Id(baiDang.getBaiDang_Id());
@@ -56,6 +61,10 @@ public class BaiDangConverter {
 		baiDangDTO.setChuDe(chuDeDTO);
 		MonDTO monDTO = monConverter.toDTO(baiDang.getMon());
 		baiDangDTO.setMon(monDTO);
+		
+		List<BuoiDTO> buoiDTOs = baiDang.getBuois().stream().map(buoi -> buoiConverter.toDTO(buoi)).collect(Collectors.toList());
+		baiDangDTO.setBuois(buoiDTOs);
+		
 		TaiKhoanDTO taiKhoanDTO = taiKhoanConverter.toDTO(baiDang.getTaiKhoan());
 		baiDangDTO.setTaiKhoan(taiKhoanDTO);
 		return baiDangDTO;

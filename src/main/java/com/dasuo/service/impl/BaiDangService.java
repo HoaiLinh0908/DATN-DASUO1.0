@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dasuo.converter.BaiDangConverter;
 import com.dasuo.converter.BuoiConverter;
 import com.dasuo.dto.BaiDangDTO;
-import com.dasuo.dto.BuoiDTO;
 import com.dasuo.entity.BaiDang;
 import com.dasuo.entity.Buoi;
 import com.dasuo.entity.TaiKhoan;
@@ -48,7 +47,7 @@ public class BaiDangService implements IBaiDangService{
 	@Override
 	public void save(BaiDangDTO baiDangDTO) {
 		BaiDang baidang = baiDangRepository.save(baiDangConverter.toEntity(baiDangDTO));
-		System.out.println(baidang.getBaiDang_Id());
+		System.out.println(baidang.getBuois());
 		List<Buoi> buois = baidang.getBuois();
 		buois.forEach((buoi) -> {
 			buoi.setBaiDang(baidang);

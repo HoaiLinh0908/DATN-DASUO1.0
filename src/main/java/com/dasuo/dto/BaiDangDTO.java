@@ -29,7 +29,7 @@ public class BaiDangDTO {
 	
 	private Set<TaiKhoanDTO> taiKhoans;
 	
-	private List<BuoiDTO> buois ;
+	private List<BuoiDTO> buois;
 	private TaiKhoanDTO taiKhoan;
 	
 	private Boolean enable;
