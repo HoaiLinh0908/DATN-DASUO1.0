@@ -14,10 +14,14 @@ public class BaiKiemTraConverter {
 	LopConverter lopConverter;
 	public BaiKiemTraDTO toDTO (BaiKiemTra baiKiemTra) {
 		BaiKiemTraDTO baiKiemTraDTO = new BaiKiemTraDTO();
-		baiKiemTraDTO.setBaiKiemTra_Id(baiKiemTra.getBaiKiemTra_Id());
+		baiKiemTraDTO.setId(baiKiemTra.getBaiKiemTra_Id());
+		baiKiemTraDTO.setBaiKiemTra_id(baiKiemTra.getBaiKiemTra_Id());
 		baiKiemTraDTO.setNoiDung(baiKiemTra.getNoiDung());
 		baiKiemTraDTO.setThoiGianBatDau(baiKiemTra.getThoiGianBatDau());
 		baiKiemTraDTO.setThoiGianNop(baiKiemTra.getThoiGianNop());
+		baiKiemTraDTO.setContent(baiKiemTra.getContent());
+		baiKiemTraDTO.setTieuDe(baiKiemTra.getTieuDe());
+		baiKiemTraDTO.setFileName(baiKiemTra.getFileName());
 		baiKiemTraDTO.setBaiLam(null);
 		LopDTO lopDTO = lopConverter.toDTO(baiKiemTra.getLop());
 		baiKiemTraDTO.setLop(lopDTO);

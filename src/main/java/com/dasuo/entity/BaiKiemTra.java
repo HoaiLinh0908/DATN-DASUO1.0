@@ -27,7 +27,7 @@ public class BaiKiemTra {
 	@Column
 	private Date thoiGianBatDau;
 	@Column
-	private Date thoiGianNop;
+	private String thoiGianNop;
 	@OneToMany(mappedBy = "baiKiemTra")
 	private List<BaiLam> baiLam;
 	@Column
@@ -41,13 +41,25 @@ public class BaiKiemTra {
 		super();
 	}
 
+	
+
+
+
 	public Integer getBaiKiemTra_Id() {
 		return baiKiemTra_Id;
 	}
 
+
+
+
+
 	public void setBaiKiemTra_Id(Integer baiKiemTra_Id) {
 		this.baiKiemTra_Id = baiKiemTra_Id;
 	}
+
+
+
+
 
 	public Lop getLop() {
 		return lop;
@@ -74,13 +86,30 @@ public class BaiKiemTra {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
 
-	public Date getThoiGianNop() {
+	
+//	public Date getThoiGianNop() {
+//		return thoiGianNop;
+//	}
+//
+//	public void setThoiGianNop(Date thoiGianNop) {
+//		this.thoiGianNop = thoiGianNop;
+//	}
+
+	public String getThoiGianNop() {
 		return thoiGianNop;
 	}
 
-	public void setThoiGianNop(Date thoiGianNop) {
+
+
+
+
+	public void setThoiGianNop(String thoiGianNop) {
 		this.thoiGianNop = thoiGianNop;
 	}
+
+
+
+
 
 	public List<BaiLam> getBaiLam() {
 		return baiLam;

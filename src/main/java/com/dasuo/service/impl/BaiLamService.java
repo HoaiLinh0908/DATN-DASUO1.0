@@ -9,9 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dasuo.converter.BaiKiemTraConverter;
 import com.dasuo.converter.BaiLamConverter;
+import com.dasuo.dto.BaiKiemTraDTO;
 import com.dasuo.dto.BaiLamDTO;
+import com.dasuo.entity.BaiKiemTra;
 import com.dasuo.entity.BaiLam;
+import com.dasuo.entity.Lop;
 import com.dasuo.repository.BaiLamRepository;
 import com.dasuo.service.IBaiLamService;
 @Service
@@ -21,6 +25,8 @@ public class BaiLamService implements IBaiLamService{
 	BaiLamRepository baiLamRepository;
 	@Autowired
 	BaiLamConverter baiLamConverter;
+	@Autowired
+	BaiKiemTraConverter baiKiemTraConverter;
 
 	@Override
 	@Transactional
@@ -55,6 +61,22 @@ public class BaiLamService implements IBaiLamService{
 	public void delete(Integer id) {
 		baiLamRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public List<BaiLamDTO> getBaiLamFindByBaiKiemTra(BaiKiemTraDTO baiKiemTraDTO) {
+		BaiKiemTra baiKiemTra = baiKiemTraConverter.totEntity(baiKiemTraDTO);
+		
+		List<BaiLam> baiLams = baiLamRepository.findByBaiKiemTra(baiKiemTra);
+		List<BaiLamDTO> baiLamDTOs = new ArrayList<>();
+		baiLams.forEach(baiLam -> baiLamDTOs.add(baiLamConverter.toDTO(baiLam)));
+		if(baiLams!= null)
+		{
+			return baiLamDTOs;
+		}
+		else {
+			return null;
+		}
 	}
 	
 

@@ -15,11 +15,16 @@ public class BaiLamConverter {
 	
 	public BaiLamDTO toDTO (BaiLam baiLam) {
 		BaiLamDTO baiLamDTO = new BaiLamDTO();
+		baiLamDTO.setId(baiLam.getBaiLam_Id());
 		baiLamDTO.setBaiLam_Id(baiLam.getBaiLam_Id());
 		baiLamDTO.setNoiDung(baiLam.getNoiDung());
 		baiLamDTO.setThoiGian(baiLam.getThoiGian());
 		BaiKiemTraDTO baiKiemTraDTO = baiKiemTraConverter.toDTO(baiLam.getBaiKiemTra());
+		
 		baiLamDTO.setBaiKiemTra(baiKiemTraDTO);
+		baiLamDTO.setContent(baiLam.getContent());
+		baiLamDTO.setFileName(baiLam.getFileName());
+		baiLamDTO.setTieuDe(baiLam.getTieuDe());
 		return baiLamDTO;
 	}
 	

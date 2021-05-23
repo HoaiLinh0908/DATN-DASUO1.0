@@ -6,8 +6,9 @@ import java.util.List;
 import javax.persistence.Column;
 
 public class BaiKiemTraDTO {
+	private Integer baiKiemTra_id;
 
-	private Integer baiKiemTra_Id;
+	private Integer Id;
 	
 	private LopDTO lop;
 	
@@ -15,7 +16,7 @@ public class BaiKiemTraDTO {
 	
 	private Date thoiGianBatDau;
 	
-	private Date thoiGianNop;
+	private String thoiGianNop;
 	
 	private List<BaiLamDTO> baiLam;
 	private String fileName;
@@ -27,15 +28,41 @@ public class BaiKiemTraDTO {
 		super();
 	}
 
-	public Integer getBaiKiemTra_Id() {
-		return baiKiemTra_Id;
-	}
-
-	public void setBaiKiemTra_Id(Integer baiKiemTra_Id) {
-		this.baiKiemTra_Id = baiKiemTra_Id;
-	}
+	
 
 	
+
+	public Integer getBaiKiemTra_id() {
+		return baiKiemTra_id;
+	}
+
+
+
+
+
+	public void setBaiKiemTra_id(Integer baiKiemTra_id) {
+		this.baiKiemTra_id = baiKiemTra_id;
+	}
+
+
+
+
+
+	public Integer getId() {
+		return Id;
+	}
+
+
+
+
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
+
+
+
 
 	public LopDTO getLop() {
 		return lop;
@@ -60,14 +87,31 @@ public class BaiKiemTraDTO {
 	public void setThoiGianBatDau(Date thoiGianBatDau) {
 		this.thoiGianBatDau = thoiGianBatDau;
 	}
+	
 
-	public Date getThoiGianNop() {
+//	public Date getThoiGianNop() {
+//		return thoiGianNop;
+//	}
+//
+//	public void setThoiGianNop(Date thoiGianNop) {
+//		this.thoiGianNop = thoiGianNop;
+//	}
+
+	public String getThoiGianNop() {
 		return thoiGianNop;
 	}
 
-	public void setThoiGianNop(Date thoiGianNop) {
+
+
+
+
+	public void setThoiGianNop(String thoiGianNop) {
 		this.thoiGianNop = thoiGianNop;
 	}
+
+
+
+
 
 	public List<BaiLamDTO> getBaiLam() {
 		return baiLam;

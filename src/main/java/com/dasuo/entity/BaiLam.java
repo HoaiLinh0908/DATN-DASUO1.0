@@ -24,6 +24,12 @@ public class BaiLam {
 	@ManyToOne
 	@JoinColumn(name = "baikiemtra_id")
 	private BaiKiemTra baiKiemTra;
+	@Column
+	private byte[] content;
+	@Column
+	private String tieuDe;
+	@Column
+	private String fileName;
 
 	public BaiLam() {
 		super();
@@ -59,6 +65,30 @@ public class BaiLam {
 
 	public void setBaiKiemTra(BaiKiemTra baiKiemTra) {
 		this.baiKiemTra = baiKiemTra;
+	}
+
+	public byte[] getContent() {
+		return content;
+	}
+
+	public void setContent(byte[] content) {
+		this.content = content;
+	}
+
+	public String getTieuDe() {
+		return tieuDe;
+	}
+
+	public void setTieuDe(String tieuDe) {
+		this.tieuDe = tieuDe;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	
