@@ -57,14 +57,13 @@ public class BaiDangConverter {
 		baiDangDTO.setTomTatYeuCau(baiDang.getTomTatYeuCau());
 		baiDangDTO.setThoiGianDayTheoThang(baiDang.getThoiGianDayTheoThang());
 		baiDangDTO.setTaiKhoans(taiKhoanConverter.toTaiKhoanDTO(Lists.newArrayList(baiDang.getTaiKhoans())));
+		baiDangDTO.setEnable(baiDang.isEnable());
 		ChuDeDTO chuDeDTO = chuDeConverter.toDTO(baiDang.getChuDe());
 		baiDangDTO.setChuDe(chuDeDTO);
 		MonDTO monDTO = monConverter.toDTO(baiDang.getMon());
 		baiDangDTO.setMon(monDTO);
-		
 		List<BuoiDTO> buoiDTOs = baiDang.getBuois().stream().map(buoi -> buoiConverter.toDTO(buoi)).collect(Collectors.toList());
 		baiDangDTO.setBuois(buoiDTOs);
-		
 		TaiKhoanDTO taiKhoanDTO = taiKhoanConverter.toDTO(baiDang.getTaiKhoan());
 		baiDangDTO.setTaiKhoan(taiKhoanDTO);
 		return baiDangDTO;

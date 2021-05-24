@@ -181,7 +181,7 @@ public class DasuoController {
 
 	@RequestMapping("/trang-chu")
 	public String viewTrangChu(Principal principal, Model model) {
-		model.addAttribute("ten", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("ten", principal.getName());
 		return "web/trangchu";
 	}
 
