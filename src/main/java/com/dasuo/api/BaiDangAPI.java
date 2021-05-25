@@ -25,6 +25,7 @@ import com.dasuo.service.IBaiDangService;
 public class BaiDangAPI {
 	@Autowired
 	IBaiDangService baiDangService;
+	
 	@GetMapping("/baidangs")
 	public ResponseEntity<BaiDangOutput> getListBaiDangs (@RequestParam("page") int page,@RequestParam("limit") int limit){
 		BaiDangOutput baiDangOutput = new BaiDangOutput();

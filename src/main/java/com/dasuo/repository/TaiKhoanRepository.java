@@ -21,4 +21,8 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Integer>{
 	public TaiKhoan findByEmail(String email);
 	public TaiKhoan findByCode(String code);
 	
+	@Query(value="SELECT count(1) FROM dasuo.taikhoan ;"
+			,nativeQuery=true)
+	int countTaiKhoan();
+	
 }

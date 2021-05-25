@@ -18,11 +18,11 @@ $(document).ready(function () {
                                 }}),
         success: function (response) {
             alert("Đã tạo lớp thành công!!!");
-            $("#taolop-btn").val("Đã tạo lớp");
             $("#taolop-btn").css({"display":"none"});
         },
         error: function (response) {
             alert("Tạo lớp thất bại!!!");
+            $("#taolop-btn").disabled = false;
         }
     });
  });

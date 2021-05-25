@@ -13,6 +13,7 @@ import com.dasuo.converter.LopConverter;
 import com.dasuo.dto.BaiDangDTO;
 import com.dasuo.dto.LichHocDTO;
 import com.dasuo.dto.LopDTO;
+import com.dasuo.entity.BaiDang;
 import com.dasuo.entity.Lop;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.LopRepository;
@@ -84,6 +85,9 @@ public class LopService implements ILopService{
 			lich.setMatKhauZoom(33333);
 			lichHocService.save(lich);
 		}
+		BaiDang bd = baiDangRepository.findById(baiDangDTO.getBaiDang_Id()).orElse(null);
+		bd.setEnable(false);
+		baiDangRepository.save(bd);
 	}
 
 	@Override

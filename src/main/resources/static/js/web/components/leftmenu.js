@@ -37,8 +37,7 @@ $(document).ready(function(){
                         </ul>
                     </li>
                     <li>
-                        <a href="/hienthilichlop"><i class="fa fa-pencil-square icon-menu"></i> Lớp <i
-                                class="fas fa-chevron-right show-right"></i></a>
+                        <a href="/hienthilichlop"><i class="fa fa-pencil-square icon-menu"></i> Lớp</a>
                     </li>
                 </ul>`
     $(".left-content").html(leftMenu);

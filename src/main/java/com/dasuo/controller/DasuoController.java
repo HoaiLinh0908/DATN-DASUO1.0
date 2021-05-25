@@ -2,11 +2,7 @@ package com.dasuo.controller;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +41,11 @@ import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.entity.BaiKiemTra;
 import com.dasuo.entity.GiaoTrinh;
+import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.repository.GiaoTrinhRepository;
+import com.dasuo.repository.LopRepository;
+import com.dasuo.repository.MonRepository;
 import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
@@ -54,7 +53,6 @@ import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.utils.SecurityUtils;
-import com.sun.el.parser.ParseException;
 
 @Controller
 public class DasuoController {
@@ -75,6 +73,12 @@ public class DasuoController {
 	BaiKiemTraRepository baiKiemTraRepository;
 	@Autowired
 	IBaiLamService baiLamService;
+	@Autowired
+	BaiDangRepository baiDangRepository;
+	@Autowired
+	LopRepository lopRepository;
+	@Autowired
+	MonRepository monRepository;
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -133,7 +137,16 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/admin")
-	public String HomeAdmin() {
+	public String HomeAdmin(Model model) {
+		// hiển thị tổng số bài đăng, tài khoản, lớp, môn
+		int soBaiDang = baiDangRepository.countByBaiDang();
+		int soTaiKhoan = taiKhoanRepository.countTaiKhoan();
+		int soLop = lopRepository.countLop();
+		int soMon = monRepository.countMon();
+		model.addAttribute("soBaiDang", soBaiDang);
+		model.addAttribute("soTaiKhoan", soTaiKhoan);
+		model.addAttribute("soLop", soLop);
+		model.addAttribute("soMon", soMon);
 		return "admin/homeadmin";
 	}
 
@@ -181,7 +194,7 @@ public class DasuoController {
 
 	@RequestMapping("/trang-chu")
 	public String viewTrangChu(Principal principal, Model model) {
-		model.addAttribute("ten", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("ten", principal.getName());
 		return "web/trangchu";
 	}
 
@@ -365,5 +378,25 @@ public class DasuoController {
 		ServletOutputStream outputStream = response.getOutputStream();
 		outputStream.write(baiKiemTraEntity.getContent());
 		outputStream.close();
+	}
+	@RequestMapping("/admin/quanlytaikhoan")
+	public String QLTaiKhoanAdmin() {
+		return "admin/qltaikhoan";
+	}
+	@RequestMapping("/admin/quanlybaidang")
+	public String QLBaiDangAdmin() {
+		return "admin/qlbaidang";
+	}
+	@RequestMapping("/admin/quanlygiaodich")
+	public String QLGiaoDichAdmin() {
+		return "admin/qlgiaodich";
+	}
+	@RequestMapping("/admin/quanlymonhoc")
+	public String QLMonHocAdmin() {
+		return "admin/qlmonhoc";
+	}
+	@RequestMapping("/admin/quanlylophoc")
+	public String QLLopHocAdmin() {
+		return "admin/qllophoc";
 	}
 }

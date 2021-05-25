@@ -12,7 +12,11 @@ $(document).ready(function () {
 		type: "get",
 		dataType: "json",
 		success: function (response) {
-			var htmlStr = ``;			
+            if(!response.enable) {
+                window.location.href = "http://localhost:8083/hienthibaidang";
+            }else {
+                var htmlStr = ``;
+                var htmlTaoLopBtn = ``;			
 				baiDangList.push(response)
                 var baiDang_Id = response.baiDang_Id;
 				var tomTatYeuCau = response.tomTatYeuCau;
@@ -20,6 +24,7 @@ $(document).ready(function () {
                 var hocPhi = response.hocPhi;
                 var mon = response.mon.tenMon;
                 var buois = response.buois;
+                var nguoiDangId = response.taiKhoan.taiKhoan_Id;
 				htmlStr = htmlStr + `<div  class="row">
                 <h1>
            
@@ -213,18 +218,24 @@ $(document).ready(function () {
                         <input type="hidden" value="${baiDang_Id}" id="bdid">
                     </div>
                     <p class="note-calender"><span style="color: #007e00">Màu xanh</span> là những buổi có thể học.</p>
-                    <div class="row" style="text-align:center;padding:10px 0;">
-                        <input type="button" id="taolop-btn" class="btn-bla-big btn-yellowblacasa"
-                            style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
-                            value="Tạo lớp">
+                    <div class="row" style="text-align:center;padding:10px 0;" id="taolop-div">
+                        
                     </div>
                 </div>
                 </div>`;
-                $(".container").html(htmlStr);
-			 console.log(baiDangList)
-			 buois.forEach(value => {
+            $(".container").html(htmlStr);
+			console.log(baiDangList)
+			buois.forEach(value => {
                 $("#" + value.buoi + value.ngayTrongTuan).parent().css("background-color", "#008000");
-             });
+            });
+
+            if($("#tkid").val() == nguoiDangId) {
+                htmlTaoLopBtn = `<input type="button" id="taolop-btn" class="btn-bla-big btn-yellowblacasa"
+                                    style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
+                                    value="Tạo lớp">`
+                $("#taolop-div").html(htmlTaoLopBtn);
+            }
+            }
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(textStatus, errorThrown);

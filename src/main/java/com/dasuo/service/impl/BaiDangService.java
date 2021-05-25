@@ -82,7 +82,7 @@ public class BaiDangService implements IBaiDangService{
 
 	@Override
 	public int getTotalPageByTaiKhoan(Integer id, int limit) {
-		int totalItem = baiDangRepository.countByTaiKhoan(new TaiKhoan(id));
+		int totalItem = baiDangRepository.countByTaiKhoan(id);
 		if(totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}
