@@ -132,6 +132,30 @@ public class BaiDangAPI {
 			return new ResponseEntity<>(baiDangOutput,HttpStatus.OK);
 	}
 	
+	@GetMapping("/tcbaidangs")
+	public ResponseEntity<BaiDangOutput> getTCListBaiDangs (@RequestParam("page") int page,@RequestParam("limit") int limit){
+		BaiDangOutput baiDangOutput = new BaiDangOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		baiDangOutput.setPage(page);
+		baiDangOutput.setBaiDangDTOs(baiDangService.getListBaiDangs(pageable));
+		baiDangOutput.setTotalPage(baiDangService.getTotalPage(limit));
+			return new ResponseEntity<>(baiDangOutput,HttpStatus.OK);
+	}
+	
+	@PutMapping("/enablebaidangs/{id}")
+	public ResponseEntity<BaiDangDTO> updateBaiDangs(@PathVariable("id") Integer id) {
+		BaiDangDTO _baiDangDTO = baiDangService.getBaiDang(id);
+		if(_baiDangDTO!= null)
+		{
+			_baiDangDTO.setEnable(false);
+			baiDangService.save(_baiDangDTO);
+			return new ResponseEntity<>(_baiDangDTO,HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
 	
 
 }

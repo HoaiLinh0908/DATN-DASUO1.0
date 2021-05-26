@@ -17,8 +17,9 @@ import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BuoiRepository;
 import com.dasuo.service.IBaiDangService;
+
 @Service
-public class BaiDangService implements IBaiDangService{
+public class BaiDangService implements IBaiDangService {
 	@Autowired
 	BaiDangRepository baiDangRepository;
 	@Autowired
@@ -27,16 +28,16 @@ public class BaiDangService implements IBaiDangService{
 	BuoiRepository buoiRepository;
 	@Autowired
 	BuoiConverter buoiConverter;
-	
+
 	@Override
 	@Transactional
 	public List<BaiDangDTO> getListBaiDang(Pageable pageable) {
 		List<BaiDang> baiDangs = baiDangRepository.getBaiDangs(pageable);
-		
+
 		List<BaiDangDTO> baiDangDTOs = baiDangConverter.toBaiDangDTO(baiDangs);
 		return baiDangDTOs;
 	}
-	
+
 	@Override
 	@Transactional
 	public BaiDangDTO getBaiDang(Integer id) {
@@ -52,25 +53,24 @@ public class BaiDangService implements IBaiDangService{
 		buois.forEach((buoi) -> {
 			buoi.setBaiDang(baidang);
 			buoiRepository.save(buoi);
-        });
+		});
 	}
 
 	@Override
 	public void delete(Integer id) {
 		baiDangRepository.deleteById(id);
-		
-	}
 
+	}
 
 	@Override
 	public int getTotalPage(int limit) {
 		int totalItem = (int) baiDangRepository.count();
-		if(totalItem % limit != 0) {
+		if (totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}
 		return totalItem / limit;
 	}
-	
+
 	@Override
 	public List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id, Pageable pageable) {
 		List<BaiDang> baiDangs = baiDangRepository.findByTaiKhoan(id, pageable).getContent();
@@ -79,14 +79,22 @@ public class BaiDangService implements IBaiDangService{
 		return baiDangDTOs;
 	}
 
-
 	@Override
 	public int getTotalPageByTaiKhoan(Integer id, int limit) {
 		int totalItem = baiDangRepository.countByTaiKhoan(id);
-		if(totalItem % limit != 0) {
+		if (totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}
 		return totalItem / limit;
+	}
+
+	@Override
+	public List<BaiDangDTO> getListBaiDangs(Pageable pageable) {
+		List<BaiDang> baiDangs = baiDangRepository.findAll(pageable).getContent();
+
+		List<BaiDangDTO> baiDangDTOs = new ArrayList<>();
+		baiDangs.forEach(baiDang -> baiDangDTOs.add(baiDangConverter.toDTO(baiDang)));
+		return baiDangDTOs;
 	}
 
 }

@@ -14,4 +14,5 @@ public interface IBaiDangService {
 	public int getTotalPage(int limit);
 	public int getTotalPageByTaiKhoan(Integer id, int limit);
 	List<BaiDangDTO> getListBaiDangFindByTaiKhoan(Integer id, Pageable pageable);
+	List<BaiDangDTO> getListBaiDangs(Pageable pageable);
 }
