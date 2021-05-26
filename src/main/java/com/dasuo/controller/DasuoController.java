@@ -172,7 +172,8 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/hienthilichlop")
-	public String viewLichHoc() {
+	public String viewLichHoc(Model model) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
 		return "web/hienthilichlop";
 	}
 

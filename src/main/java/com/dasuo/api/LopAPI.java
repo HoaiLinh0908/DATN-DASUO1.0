@@ -1,5 +1,7 @@
 package com.dasuo.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -34,8 +36,19 @@ public class LopAPI {
 			return new ResponseEntity<>(lopOutput,HttpStatus.OK);
 	}
 	
+	@GetMapping("/lopstheonguoihoc/{id}")
+	public ResponseEntity<List<LopDTO>> getLop(@PathVariable("id") Integer id){
+		 List<LopDTO> lops = lopService.getLopByNguoiHoc(id);
+		if (lops != null) {
+			return new ResponseEntity<>(lops,HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
 	@GetMapping("/lops/{id}")
-	public ResponseEntity<LopDTO> getLop(@PathVariable("id") Integer id){
+	public ResponseEntity<LopDTO> getLopByNguoiHoc(@PathVariable("id") Integer id){
 		LopDTO lopDTO = lopService.getLop(id);
 		if (lopDTO!=null) {
 			return new ResponseEntity<>(lopDTO,HttpStatus.OK);

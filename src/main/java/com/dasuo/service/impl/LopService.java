@@ -1,8 +1,8 @@
 package com.dasuo.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -60,7 +60,6 @@ public class LopService implements ILopService{
 		else {
 			return null;
 		}
-		
 	}
 
 	@Override
@@ -104,6 +103,16 @@ public class LopService implements ILopService{
 		return totalItem / limit;
 	}
 
-	
-
+	@Override
+	public List<LopDTO> getLopByNguoiHoc(Integer nguoiHocId) {
+		if(nguoiHocId != 0 )
+		{
+			List<Lop> lops = lopRepository.findByNguoiHoc(nguoiHocId);
+			List<LopDTO> lopDTOs = lops.stream().map(l -> lopConverter.toDTO(l)).collect(Collectors.toList());
+			return lopDTOs;
+		}
+		else {
+			return null;
+		}
+	}
 }

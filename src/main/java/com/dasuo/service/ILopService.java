@@ -12,6 +12,6 @@ public interface ILopService {
 	void save(LopDTO lopDTO);
 	void delete(Integer id);
 	public int getTotalPage(int limit);
-	
+	public List<LopDTO> getLopByNguoiHoc(Integer nguoiHocId);
 
 }
