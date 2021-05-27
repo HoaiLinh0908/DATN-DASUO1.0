@@ -1,7 +1,5 @@
 package com.dasuo.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,14 +35,14 @@ public class LopAPI {
 	}
 	
 	@GetMapping("/lopstheonguoihoc/{id}")
-	public ResponseEntity<List<LopDTO>> getLop(@PathVariable("id") Integer id){
-		 List<LopDTO> lops = lopService.getLopByNguoiHoc(id);
-		if (lops != null) {
-			return new ResponseEntity<>(lops,HttpStatus.OK);
-		}
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<LopOutput> getLop(@PathVariable("id") Integer id,
+												@RequestParam("page") int page,@RequestParam("limit") int limit){
+		LopOutput lopOutput = new LopOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		lopOutput.setPage(page);
+		lopOutput.setLopDTO(lopService.getLopByNguoiHoc(id, pageable));
+		lopOutput.setTotalPage(lopService.countByNguoiHoc(id, limit));
+			return new ResponseEntity<>(lopOutput,HttpStatus.OK);
 	}
 	
 	@GetMapping("/lops/{id}")

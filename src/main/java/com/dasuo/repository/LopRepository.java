@@ -2,6 +2,7 @@ package com.dasuo.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -15,5 +16,9 @@ public interface LopRepository extends JpaRepository<Lop, Integer>{
 	
 	@Query(value="SELECT * FROM dasuo.lop where nguoihoc_id = ?1 order by lop_id desc"
 			,nativeQuery=true)
-	public List<Lop> findByNguoiHoc(Integer nguoiHocID);
+	public List<Lop> findByNguoiHoc(Integer nguoiHocID, Pageable pageable);
+	
+	@Query(value="SELECT count(1) FROM dasuo.lop where nguoihoc_id = ?1"
+			,nativeQuery=true)
+	int countByNguoiHoc(Integer id);
 }

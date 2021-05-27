@@ -13,7 +13,6 @@ import com.dasuo.converter.BuoiConverter;
 import com.dasuo.dto.BaiDangDTO;
 import com.dasuo.entity.BaiDang;
 import com.dasuo.entity.Buoi;
-import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BuoiRepository;
 import com.dasuo.service.IBaiDangService;
@@ -64,7 +63,7 @@ public class BaiDangService implements IBaiDangService {
 
 	@Override
 	public int getTotalPage(int limit) {
-		int totalItem = (int) baiDangRepository.count();
+		int totalItem = (int) baiDangRepository.countByEnable();
 		if (totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}

@@ -27,10 +27,4 @@ public interface BaiDangRepository extends JpaRepository<BaiDang, Integer>{
 	@Query(value="SELECT count(1) FROM dasuo.baidang where enable=1;"
 			,nativeQuery=true)
 	int countByEnable();
-	
-	@Query(value="SELECT count(1) FROM dasuo.baidang ;"
-			,nativeQuery=true)
-	int countByBaiDang();
-	
-	
 }

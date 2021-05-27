@@ -14,7 +14,7 @@ $(document).ready(function () {
                                     "taiKhoan_Id": $("#tkid").val()
                                 },
                                 "nguoiDay": {
-                                    "taiKhoan_Id": 5
+                                    "taiKhoan_Id": 17
                                 }}),
         success: function (response) {
             alert("Đã tạo lớp thành công!!!");

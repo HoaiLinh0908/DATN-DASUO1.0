@@ -9,8 +9,8 @@ $('#dangyc-btn').click( function () {
         data: JSON.stringify({ "tomTatYeuCau": $("#tomtatyc").val(),
                                 "sdt": $("#phone_class").val(),
                                 "moTa": $("#introduce-class").val(),
-                                "hocPhi": $("#phone_class").val(),
-
+                                "hocPhi": $("#price_cost").val(),
+                                "ngayBatDau": $("#day-start").val(),
                                 "gioiTinh": false,
                                 "soBuoi": 2,
                                 "enable": 1,
