@@ -40,7 +40,7 @@ $(document).ready(function () {
                     </div>
                     <div style="margin-left: 30px;" class="mota-baidang">
                         <div class="mota-soluoc">
-                            <a style="text-decoration: none;" href="#">
+                            <a style="text-decoration: none;" href="/chitietbaidang?id=${baiDang_Id}">
 
                                 <h2><i style="padding-right: 6px; color: chartreuse;"
                                         class="fas fa-check"></i>${tomTatYeuCau}</h2>
@@ -53,15 +53,15 @@ $(document).ready(function () {
                     </div>
                     <div class="hocphidenghi">
                         <div class="tienhoc">
-                            <p style="margin-left: 38px;color: #ff961e;font-weight: 700;">${hocPhi} vnđ/tháng</p>
+                            <p style="margin-left: 20px;color: #ff961e;font-weight: 700;">${hocPhi} vnđ/buổi</p>
                         </div>
                     </div>
 
-                    <div style="margin-left: 20px; text-align: center;" class="phinhanlop">
+                    <div style="margin-left: 35px; text-align: center;" class="phinhanlop">
                         <div style=" text-align: center; line-height: 5px;" class="phinhanlop-ctiet">
                             <p>
                                 <span ma>Phí:</span>
-                                360.000
+                                ${hocPhi * 2}
                                 <span>vnđ</span>
                             </p>
                             <span style="font-size: 14px;font-style: italic;">(Chỉ thu khi nhận lớp)</span>

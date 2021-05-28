@@ -89,7 +89,7 @@ public class DasuoAdminController {
 		@RequestMapping("/admin")
 		public String HomeAdmin(Model model) {
 			// hiển thị tổng số bài đăng, tài khoản, lớp, môn
-			int soBaiDang = baiDangRepository.countByBaiDang();
+			int soBaiDang = (int) baiDangRepository.count();
 			int soTaiKhoan = taiKhoanRepository.countTaiKhoan();
 			int soLop = lopRepository.countLop();
 			int soMon = monRepository.countMon();

@@ -81,7 +81,7 @@ $(document).ready(function () {
                                 
                                 <p height="30px"></p>
                                 
-                                <a href="#">Đề Nghị Dạy</a>              														</div>
+                                              														</div>
                             </div>
                         </div>			
                 </div>
@@ -233,6 +233,11 @@ $(document).ready(function () {
                 htmlTaoLopBtn = `<input type="button" id="taolop-btn" class="btn-bla-big btn-yellowblacasa"
                                     style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
                                     value="Tạo lớp">`
+                $("#taolop-div").html(htmlTaoLopBtn);
+            } else {
+                htmlTaoLopBtn = `<input type="button" id="dangkyday-btn" class="btn-bla-big btn-yellowblacasa"
+                                    style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
+                                    value="Đăng ký dạy">`
                 $("#taolop-div").html(htmlTaoLopBtn);
             }
             }

@@ -65,7 +65,7 @@ public class LopService implements ILopService{
 	@Override
 	public void save(LopDTO lopDTO) {
 		BaiDangDTO baiDangDTO = baiDangService.getBaiDang(lopDTO.getBaiDangId());
-		lopDTO.setTenLop("Lop" + lopDTO.getNguoiDay().getTaiKhoan_Id() + "-" + lopDTO.getNguoiHoc().getTaiKhoan_Id());
+		lopDTO.setTenLop("Lop" + baiDangDTO.getMon().getTenMon() + lopDTO.getNguoiDay().getTaiKhoan_Id() + "-" + lopDTO.getNguoiHoc().getTaiKhoan_Id());
 		lopDTO.setTienHoc(baiDangDTO.getHocPhi());
 		Lop lop = lopRepository.save(lopConverter.toEntity(lopDTO));
 		
@@ -104,15 +104,24 @@ public class LopService implements ILopService{
 	}
 
 	@Override
-	public List<LopDTO> getLopByNguoiHoc(Integer nguoiHocId) {
+	public List<LopDTO> getLopByNguoiHoc(Integer nguoiHocId, Pageable pageable) {
 		if(nguoiHocId != 0 )
 		{
-			List<Lop> lops = lopRepository.findByNguoiHoc(nguoiHocId);
+			List<Lop> lops = lopRepository.findByNguoiHoc(nguoiHocId, pageable);
 			List<LopDTO> lopDTOs = lops.stream().map(l -> lopConverter.toDTO(l)).collect(Collectors.toList());
 			return lopDTOs;
 		}
 		else {
 			return null;
 		}
+	}
+
+	@Override
+	public int countByNguoiHoc(Integer id, int limit) {
+		int totalItem = lopRepository.countByNguoiHoc(id);
+		if (totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
 	}
 }

@@ -136,8 +136,6 @@ public class DasuoController {
 		return "web/register";
 	}
 
-	
-
 	@RequestMapping("/taikhoan/trangcanhan")
 	public String viewProfile(Model model) {
 		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
@@ -369,4 +367,8 @@ public class DasuoController {
 		outputStream.close();
 	}
 	
+	@RequestMapping("/chitietlophoc")
+	public String chiTietLopHoc() {
+		return "web/chitietlophoc";
+	}
 }
