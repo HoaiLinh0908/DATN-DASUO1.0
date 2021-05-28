@@ -136,19 +136,7 @@ public class DasuoController {
 		return "web/register";
 	}
 
-	@RequestMapping("/admin")
-	public String HomeAdmin(Model model) {
-		// hiển thị tổng số bài đăng, tài khoản, lớp, môn
-		int soBaiDang = baiDangRepository.countByBaiDang();
-		int soTaiKhoan = taiKhoanRepository.countTaiKhoan();
-		int soLop = lopRepository.countLop();
-		int soMon = monRepository.countMon();
-		model.addAttribute("soBaiDang", soBaiDang);
-		model.addAttribute("soTaiKhoan", soTaiKhoan);
-		model.addAttribute("soLop", soLop);
-		model.addAttribute("soMon", soMon);
-		return "admin/homeadmin";
-	}
+	
 
 	@RequestMapping("/taikhoan/trangcanhan")
 	public String viewProfile(Model model) {
@@ -380,24 +368,5 @@ public class DasuoController {
 		outputStream.write(baiKiemTraEntity.getContent());
 		outputStream.close();
 	}
-	@RequestMapping("/admin/quanlytaikhoan")
-	public String QLTaiKhoanAdmin() {
-		return "admin/qltaikhoan";
-	}
-	@RequestMapping("/admin/quanlybaidang")
-	public String QLBaiDangAdmin() {
-		return "admin/qlbaidang";
-	}
-	@RequestMapping("/admin/quanlygiaodich")
-	public String QLGiaoDichAdmin() {
-		return "admin/qlgiaodich";
-	}
-	@RequestMapping("/admin/quanlymonhoc")
-	public String QLMonHocAdmin() {
-		return "admin/qlmonhoc";
-	}
-	@RequestMapping("/admin/quanlylophoc")
-	public String QLLopHocAdmin() {
-		return "admin/qllophoc";
-	}
+	
 }

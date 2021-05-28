@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.TaiKhoanDTO;
+import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.service.impl.UploadFile;
 
@@ -32,6 +33,8 @@ public class TaiKhoanAPI {
 	UploadFile uploadFile;
 	@Autowired
 	ITaiKhoanService taiKhoanService;
+	@Autowired
+	TaiKhoanRepository taiKhoanRepository;
 
 	@GetMapping("/taikhoans")
 	public ResponseEntity<TaiKhoanOutput> getListTaiKhoan(@RequestParam("page") int page,@RequestParam("limit") int limit) {
@@ -66,6 +69,7 @@ public class TaiKhoanAPI {
 	@GetMapping("/taikhoans/{id}")
 	public ResponseEntity<TaiKhoanDTO> getTaiKhoan(@PathVariable("id") Integer id) {
 		TaiKhoanDTO _taiKhoan = taiKhoanService.getTaiKhoan(id);
+		
 		if (_taiKhoan != null) {
 			return new ResponseEntity<>(_taiKhoan, HttpStatus.OK);
 		} else {
@@ -77,9 +81,11 @@ public class TaiKhoanAPI {
 	public ResponseEntity<TaiKhoanDTO> addTaiKhoan(@RequestBody TaiKhoanDTO taiKhoanDTO) {
 		if (taiKhoanDTO.getSdt() != "" && taiKhoanDTO.getMatKhau() != "" && taiKhoanDTO.getEmail() != ""
 				&& taiKhoanDTO.getHoTen() != "" && taiKhoanDTO.getLoai() != null
-				&& taiKhoanDTO.getNgheNghiep() != null) {
+				&& taiKhoanDTO.getNgheNghiep() != null && taiKhoanRepository.findByEmail(taiKhoanDTO.getEmail()) == null) {
+			
 			taiKhoanService.save(taiKhoanDTO);
 			return new ResponseEntity<>(taiKhoanDTO, HttpStatus.OK);
+			
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
@@ -193,4 +199,20 @@ public class TaiKhoanAPI {
 	public void uploadFile(@RequestParam("file") MultipartFile file) throws IllegalStateException, IOException {
 		uploadFile.uploadFile(file);
 	}
+	
+	@PutMapping("/khoataikhoan/{id}")
+	public ResponseEntity<TaiKhoanDTO> khoaTaiKhoan(@PathVariable("id") Integer id){
+		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
+		if(_taiKhoanDTO != null)
+		{
+			
+			_taiKhoanDTO.setEnable(true);	
+			taiKhoanService.save(_taiKhoanDTO);
+			return new ResponseEntity<>(_taiKhoanDTO,HttpStatus.OK);
+		}
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		
+	}
+
 }

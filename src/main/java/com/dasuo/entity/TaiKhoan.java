@@ -82,7 +82,7 @@ public class TaiKhoan {
 				@JoinColumn(name="Mon_Id", referencedColumnName="mon_Id")})
 	private Set<Mon> mons;
 	@Column
-	private boolean enable;
+	private Boolean enable;
 	@Column
 	private String code;
 	
@@ -97,13 +97,13 @@ public class TaiKhoan {
 	public TaiKhoan(Integer id) {
 		this.taiKhoan_Id = id;
 	}
-	public boolean isEnable() {
+	public Boolean isEnable() {
 		return enable;
 	}
 
 
 
-	public void setEnable(boolean enable) {
+	public void setEnable(Boolean enable) {
 		this.enable = enable;
 	}
 

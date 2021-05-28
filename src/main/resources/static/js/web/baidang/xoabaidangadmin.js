@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	$('#btnDelete').click( function () {
 	// console.log($(this).data('id'));
-	if (confirm(`You want to delete booking with id = ${$(this).data('id')}?`)) {
+	if (confirm(`Bạn có muốn khóa bài đăng = ${$(this).data('id')}?`)) {
 		let tr = $(this).closest('tr');
 		$.ajax({
 			method: "PUT",
