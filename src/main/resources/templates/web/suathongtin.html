@@ -21,58 +21,15 @@
         <div id="header">
             <script src="/js/web/components/header_web.js"></script>
         </div>
-        <div style="width: 100%;margin-top: 54px; padding: 0px 40px;" class="container">
+        <div style="width: 100%;height: auto;margin-top: 54px; padding: 0px 40px;" class="container">
             <div class="left-content">
-                <ul id="accordion">
-                    <li><a href="#"><i class="fas fa-home icon-menu"></i> Trang chủ</a></li>
-                    <li>
-                        <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i> Quản lý yêu cầu <i
-                                class="fas fa-chevron-right show-right"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Tất cả lớp đã đăng</a></li>
-                            <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fas fa-comments icon-menu"></i> Hội thoại và tin nhắn</a></li>
-                    <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thống báo</a></li>
-                    <li>
-                        <a href="#"><i class="fas fa-pen-square icon-menu"></i> Bài viết <i
-                                class="fas fa-chevron-right show-right"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Đã đăng</a></li>
-                            <li><a href="#">Đang soạn</a></li>
-                            <li><a href="#">Đã gửi</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"> <i class="fas fa-heart icon-menu"></i>Đã lưu <i
-                                class="fas fa-chevron-right show-right"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Yêu cầu tìm giáo viên</a></li>
-                            <li><a href="#">Giáo viên</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
-                    <li>
-                        <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i
-                                class="fas fa-chevron-right show-right"></i></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Sửa thông tin cá nhân</a></li>
-                            <li><a href="#">Thay đổi mật khẩu</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fad fa-users-class icon-menu"></i> Lớp <i
-                                class="fas fa-chevron-right show-right"></i></a>
-
-                    </li>
-                </ul>
+                <script src="/js/web/components/leftmenu.js"></script>
             </div>
 
             <div class="right-content">
                 <div class="head-block">
-                    <h4 style="padding: 10px 8px;width: 182px;color: #fff;background-color: #069d86;font-weight: bold;">
-                        HỒ SƠ NGƯỜI DÙNG</h4>
+                    <h4 style="padding: 10px 8px;width: 200px;color: #fff;background-color: #069d86;font-weight: bold;">
+                        CHỈNH SỬA THÔNG TIN</h4>
                     <hr style="width: 80.2%;opacity: 0.8;float: right;" color="#069d86">
                 </div>
 
@@ -113,7 +70,7 @@
                             name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
                     </div>
                 </div>
-                <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
+                <!-- <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
                     <div class="col-md-12">
                         <h3 style="padding: 20px 8px;color: #069d86;">Hồ sơ chuyên môn</h3>
                         <div class="kieu-giao-vien">
@@ -168,11 +125,12 @@
                     <div style="text-align: center; height: 200PX; margin-left: 32px;" class="schedule-detail">
                         <script src="/js/web/components/chonlich.js"></script>
                     </div>
-                    <p class="note-calender">Bấm để chọn lịch. <span style="color:#008000">Màu xanh</span> là những buổi
-                        có thể nhận dạy.</p>
-
+                </div> -->
+                <div class="row" style="text-align:center;padding:10px 0;">
+                    <input name="submit-info" type="button" id="dangyc-btn" class="btn-bla-big btn-yellowblacasa"
+                        style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
+                        value="Lưu chỉnh sửa">
                 </div>
-
             </div>
 
         </div>

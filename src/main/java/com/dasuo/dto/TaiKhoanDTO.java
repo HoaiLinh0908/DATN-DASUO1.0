@@ -3,11 +3,6 @@ package com.dasuo.dto;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
-
-import com.dasuo.entity.BaiDang;
-
 public class TaiKhoanDTO {
 	
 	private Integer taiKhoan_Id;

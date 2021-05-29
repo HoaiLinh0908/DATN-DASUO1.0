@@ -101,7 +101,20 @@ public class BaiDangAPI {
 				baiDangDTO.setNgayBatDau(_baiDangDTO.getNgayBatDau());
 			if(baiDangDTO.getThoiGianDayTheoThang()==null)
 				baiDangDTO.setThoiGianDayTheoThang(_baiDangDTO.getThoiGianDayTheoThang());
-			baiDangService.save(baiDangDTO);
+			baiDangService.update(baiDangDTO);
+			return new ResponseEntity<>(baiDangDTO,HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
+	@PutMapping("/baidangs/yeucauday/{id}")
+	public ResponseEntity<BaiDangDTO> yeuCauDay(@RequestBody BaiDangDTO baiDangDTO,@PathVariable("id") Integer id) {
+		BaiDangDTO _baiDangDTO = baiDangService.getBaiDang(id);
+		if(_baiDangDTO!= null)
+		{
+			baiDangDTO = baiDangService.yeuCauDay(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO,HttpStatus.OK);
 		}
 		else {

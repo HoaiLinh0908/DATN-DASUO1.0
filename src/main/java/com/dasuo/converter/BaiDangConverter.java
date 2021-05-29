@@ -71,7 +71,7 @@ public class BaiDangConverter {
 	
 	public BaiDang toEntity (BaiDangDTO baiDangDTO) {
 		ModelMapper modelMapper = new ModelMapper();
-		BaiDang baiDang =modelMapper.map(baiDangDTO, BaiDang.class);
+		BaiDang baiDang = modelMapper.map(baiDangDTO, BaiDang.class);
 		Set<TaiKhoan> taiKhoans = new HashSet<TaiKhoan>();
 		if (baiDangDTO.getTaiKhoans() != null && baiDangDTO.getTaiKhoans().size() > 0) {
 			baiDangDTO.getTaiKhoans().forEach(taiKhoan_Id -> taiKhoans.add(taiKhoanRepository.findById(Integer.valueOf(taiKhoan_Id.getTaiKhoan_Id())).orElse(null)));

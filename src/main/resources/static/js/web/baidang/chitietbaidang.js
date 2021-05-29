@@ -16,7 +16,8 @@ $(document).ready(function () {
                 window.location.href = "http://localhost:8083/hienthibaidang";
             }else {
                 var htmlStr = ``;
-                var htmlTaoLopBtn = ``;			
+                var htmlTaoLopBtn = ``;
+                var htmlDSYC = ``;	
 				baiDangList.push(response)
                 var baiDang_Id = response.baiDang_Id;
 				var tomTatYeuCau = response.tomTatYeuCau;
@@ -25,6 +26,7 @@ $(document).ready(function () {
                 var mon = response.mon.tenMon;
                 var buois = response.buois;
                 var nguoiDangId = response.taiKhoan.taiKhoan_Id;
+                var nguoiYeuCauDays = response.taiKhoans;
 				htmlStr = htmlStr + `<div  class="row">
                 <h1>
            
@@ -74,16 +76,13 @@ $(document).ready(function () {
                     <div class="col-md-4 col-sm-4">
                         <div class="header-study-group-right">
                             <p>Phí nhận lớp:<span class="connection-fee"> 240,000 vnđ</span></p>
-    
-                                (<strong style="color: #FF961E">Chuyển khoản </strong> )
-                                            
-                                <div class="class-actions">
-                                
-                                <p height="30px"></p>
-                                
-                                              														</div>
+                                (<strong style="color: #FF961E">Chuyển khoản </strong> )              
+                            <div class="class-actions">
+                                <p height="30px">Người đăng ký:</p>
+                                <div id="dsyeucau"></div>
                             </div>
-                        </div>			
+                        </div>
+                    </div>			
                 </div>
                 <div class="gblock-v2 detail-content">
                     <div class="text">
@@ -225,19 +224,39 @@ $(document).ready(function () {
                 </div>`;
             $(".container").html(htmlStr);
 			console.log(baiDangList)
+            console.log(nguoiYeuCauDays)
 			buois.forEach(value => {
                 $("#" + value.buoi + value.ngayTrongTuan).parent().css("background-color", "#008000");
             });
+            htmlDSYC = htmlDSYC + `<ul style="list-style-type: none;">`;
+            nguoiYeuCauDays.forEach(value => {
+                htmlDSYC = htmlDSYC + `<li><input id="nguoiyc" type="radio" name="dsyc" value="${value.taiKhoan_Id}"><label for="nguoiyc">&nbsp;&nbsp;${value.hoTen}</label></li>`;
+            });
+            htmlDSYC = htmlDSYC + `</ul>`;
+            $("#dsyeucau").html(htmlDSYC);
 
             if($("#tkid").val() == nguoiDangId) {
                 htmlTaoLopBtn = `<input type="button" id="taolop-btn" class="btn-bla-big btn-yellowblacasa"
                                     style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
                                     value="Tạo lớp">`
                 $("#taolop-div").html(htmlTaoLopBtn);
+
             } else {
-                htmlTaoLopBtn = `<input type="button" id="dangkyday-btn" class="btn-bla-big btn-yellowblacasa"
+                var flag = true;
+                nguoiYeuCauDays.forEach(value => {
+                    if(value.taiKhoan_Id == $("#tkid").val()) {
+                        flag = false;
+                    }
+                });
+                if(flag) {
+                    htmlTaoLopBtn = `<input type="button" id="dangkyday-btn" class="btn-bla-big btn-yellowblacasa"
                                     style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
                                     value="Đăng ký dạy">`
+                } else {
+                    htmlTaoLopBtn = `<input type="button" id="huyyeucau-btn" class="btn-bla-big btn-yellowblacasa"
+                                    style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: gray;padding: 16px 20px;border-radius: 5px;"
+                                    value="Đã yêu cầu" disabled>`
+                }
                 $("#taolop-div").html(htmlTaoLopBtn);
             }
             }

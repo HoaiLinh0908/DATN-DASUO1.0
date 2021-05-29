@@ -1,14 +1,6 @@
 $(document).ready(function(){
     var leftMenu = `<ul id="accordion">
-                    <li><a style="color: #ff961e;" href="#"><i class="fas fa-home icon-menu"></i> Trang chủ</a></li>
-                    <li>
-                        <a href="#"><i class="fas fa-graduation-cap tk-icon icon-menu"></i> Quản lý yêu cầu <i
-                                class="fas fa-chevron-right show-right"></i></a>
-                        <ul class="sub-menu">
-                            <li><a href="#">Tất cả lớp đã đăng</a></li>
-                            <li><a href="#">Đăng yêu cầu tìm gia sư mới</a></li>
-                        </ul>
-                    </li>
+                    <li><a style="color: #ff961e;" href="/trang-chu"><i class="fas fa-home icon-menu"></i> Trang chủ</a></li>
                     <li><a href="#"><i class="fas fa-comments icon-menu"></i> Tin nhắn</a></li>
                     <li><a href="#"><i class="fas fa-bell icon-menu"></i> Thông báo</a></li>
                     <li>
@@ -32,7 +24,7 @@ $(document).ready(function(){
                         <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i
                                 class="fas fa-chevron-right show-right"></i></a>
                         <ul class="sub-menu">
-                            <li><a href="#">Sửa thông tin cá nhân</a></li>
+                            <li><a href="/suathongtin">Sửa thông tin cá nhân</a></li>
                             <li><a href="#">Thay đổi mật khẩu</a></li>
                         </ul>
                     </li>

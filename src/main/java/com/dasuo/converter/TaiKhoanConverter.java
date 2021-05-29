@@ -132,9 +132,10 @@ public class TaiKhoanConverter {
 		taiKhoanDTO.setLoai(loaiDTO);
 		NgheNghiepDTO nghenghiep = ngheNghiepService.getNgheNghiep(Integer.valueOf(String.valueOf(obj[13])));
 		taiKhoanDTO.setNgheNghiep(nghenghiep);
-		TinhThanhDTO tinhthanh = tinhThanhService.getTinhThanh(Integer.valueOf(String.valueOf(obj[14])));
-		taiKhoanDTO.setTinhThanh(tinhthanh);
-		
+		if(obj[14] != null) {
+			TinhThanhDTO tinhthanh = tinhThanhService.getTinhThanh(Integer.valueOf(String.valueOf(obj[14])));
+			taiKhoanDTO.setTinhThanh(tinhthanh);
+		}
 		
 		taiKhoanDTO.setBaiDangs(null);
 		List<Object[]> objs = taiKhoanRepository.taiKhoan_Mon(Integer.valueOf(String.valueOf(obj[0])));
