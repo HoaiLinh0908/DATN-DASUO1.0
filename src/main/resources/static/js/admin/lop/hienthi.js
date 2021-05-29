@@ -4,9 +4,9 @@ $(document).ready(function () {
     }else {
         var currentPage = getURLParameter("page");
     }
-    var taiKhoanList = []
+    var lopList = []
 	    $.ajax({
-		url: "http://localhost:8083/api/taikhoans?page=" + currentPage + "&limit=5",
+		url: "http://localhost:8083/api/lops?page=" + currentPage + "&limit=5",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -17,54 +17,43 @@ $(document).ready(function () {
             var index = 1;
             var page = response.page;
             var totalPage = response.totalPage;
-            var taiKhoans = response.taiKhoanDTO;
+            var lops = response.lopDTO;
 			// lap qua ket qua tra ve & tao html theo mong muon
-			taiKhoans.forEach(value => {
-				taiKhoanList.push(value)
-                var taiKhoan_Id = value.taiKhoan_Id;
-				var hoTen = value.hoTen;
-				var email = value.email;
-                var sdt = value.sdt;
-				var gioiTinht;
-				if(value.gioiTinh)
-					gioiTinht = "Nam";
-				else
-					gioiTinht = "Nữ";
-				var soDu = value.soDu;
-				var phanQuyen = value.loai.tenLoai;
-				var khoa;
-				if(value.enable)
-					khoa = "Đã bị khóa";
-				else
-					khoa = "Không khóa";
+			lops.forEach(value => {
+				lopList.push(value)
+                var lop_Id = value.lop_Id;
+				var tenLop = value.tenLop;
+				var ngayNhan = value.ngayNhan;
+                var nguoiHoc = value.nguoiHoc.hoTen;
+				var nguoiDay = value.nguoiDay.hoTen;
+				var tienHoc = value.tienHoc;
+				var gioHoc = value.gioHoc;
 				
 				
 				
 				
 				htmlStr = htmlStr + `<tr role="row" class="odd">
-										<td class="sorting_1">${taiKhoan_Id}</td>
+										<td class="sorting_1">${lop_Id}</td>
+										<td>${tenLop}</td>
+										<td>${ngayNhan}</td>
+										<td>${nguoiHoc}</td>
+										<td>${nguoiDay}</td>
+										<td>${tienHoc}</td>
+										<td>${gioHoc}</td>
+										<td><button id="btnshow" data-id=${lop_Id} type="button" class="btn btn-info" data-toggle="modal" data-target="#updateAirplaneModal"><i class="fas fa-eye"></i></button>&nbsp
 										
-										<td>${hoTen}</td>
-										<td>${email}</td>
-										<td>${sdt}</td>
-										<td>${gioiTinht}</td>
-										<td>${soDu}</td>
-										<td>${phanQuyen}</td>
-										<td>${khoa}</td>
-										<td><button id="btnshow" data-id=${taiKhoan_Id} type="button" class="btn btn-info" data-toggle="modal" data-target="#updateAirplaneModal"><i class="fas fa-eye"></i></button>&nbsp
-										
-                							<a href="/admin/khoataikhoan?id=${taiKhoan_Id} " class="btn btn-danger"><i class="fas fa-lock"></i></a></td>
+                							<a href="/admin/xoalophoc?id=${lop_Id} " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
 									</tr>`;
 
 			});
-			 console.log(taiKhoanList)
-			$("#noidung").html(htmlStr);
+			 console.log(lopList)
+			$("#bang").html(htmlStr);
             htmlPgn = htmlPgn + `<a href="#">&laquo;</a>`;
             for(index; index <= totalPage; index++) {
                 if(index == page) {
                     htmlPgn = htmlPgn + `<a class="active">${index}</a>`;
                 }else {
-                    htmlPgn = htmlPgn + `<a href="/admin/quanlytaikhoan?page=${index}">${index}</a>`;
+                    htmlPgn = htmlPgn + `<a href="/admin/quanlylophoc?page=${index}">${index}</a>`;
                 }
             }
             htmlPgn = htmlPgn + `<a href="#">&raquo;</a>`;

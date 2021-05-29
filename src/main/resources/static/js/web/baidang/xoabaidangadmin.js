@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	$('#btnDelete').click( function () {
+	function deleteBaiDang() {
 	// console.log($(this).data('id'));
 	if (confirm(`Bạn có muốn khóa bài đăng = ${$(this).data('id')}?`)) {
 		let tr = $(this).closest('tr');
@@ -19,5 +19,5 @@ $(document).ready(function () {
 			}
 		});
 	} else { }
-	});
+	};
 });

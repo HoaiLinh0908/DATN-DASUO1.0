@@ -36,6 +36,7 @@ import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.dto.GiaoTrinhDTO;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.LopDTO;
+import com.dasuo.dto.MonDTO;
 import com.dasuo.dto.NgheNghiepDTO;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.dto.TinhThanhDTO;
@@ -51,6 +52,7 @@ import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
+import com.dasuo.service.IMonService;
 import com.dasuo.service.ITaiKhoanService;
 
 
@@ -80,6 +82,8 @@ public class DasuoAdminController {
 		LopRepository lopRepository;
 		@Autowired
 		MonRepository monRepository;
+		@Autowired
+		IMonService monService;
 
 		
 
@@ -116,6 +120,13 @@ public class DasuoAdminController {
 			}
 			return "redirect:/admin/quanlytaikhoan";
 		}
+		@RequestMapping("/admin/xoalophoc")
+		public String XoaLopHocAdmin(@RequestParam("id") Integer id) {
+			LopDTO lop = lopService.getLop(id);
+			if(lop!= null)
+				lopService.delete(id);
+			return "redirect:/admin/quanlylophoc";
+		}
 		@RequestMapping("/admin/quanlybaidang")
 		public String QLBaiDangAdmin() {
 			return "admin/qlbaidang";
@@ -125,12 +136,39 @@ public class DasuoAdminController {
 			return "admin/qlgiaodich";
 		}
 		@RequestMapping("/admin/quanlymonhoc")
-		public String QLMonHocAdmin() {
+		public String QLMonHocAdmin(Model model) {
+			List<MonDTO> mons = monService.getListMon();
+			model.addAttribute("mon", mons);
 			return "admin/qlmonhoc";
 		}
 		@RequestMapping("/admin/quanlylophoc")
 		public String QLLopHocAdmin() {
 			return "admin/qllophoc";
+		}
+		@RequestMapping("/admin/quanlymonhoc/suamonhoc")
+		public String SuaLopHocAdmin(@RequestParam("id") Integer id, Model model) {
+			MonDTO mon = monService.getMon(id);
+			if(mon!= null)
+				model.addAttribute("mon", mon);
+			return "admin/themmonhoc";
+		}
+		@PostMapping("/admin/quanlymonhoc/suamonhoc")
+		public String SuaLopHocAdmin1(@RequestParam("id") Integer id,@ModelAttribute("monHocDTO") MonDTO monHocDTO) {
+			MonDTO mon = monService.getMon(id);
+			if(mon!= null)
+			{
+				mon.setTenMon(monHocDTO.getTenMon());
+				monService.save(mon);
+			}
+			return "redirect:/admin/quanlymonhoc";
+		}
+		
+		@RequestMapping("/admin/quanlymonhoc/xoamonhoc")
+		public String XoaMonHocAdmin(@RequestParam("id") Integer id) {
+			MonDTO mon = monService.getMon(id);
+			if(mon!= null)
+				monService.delete(id);
+			return "redirect:/admin/quanlymonhoc";
 		}
 	}
 

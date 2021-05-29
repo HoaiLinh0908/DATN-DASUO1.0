@@ -93,41 +93,32 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-12">
-							<table class="table table-bordered dataTable" id="dataTable"
-								width="100%" cellspacing="0" role="grid"
-								aria-describedby="dataTable_info" style="width: 100%;">
-								<thead>
-									<tr role="row">
-										<th class="sorting_asc" tabindex="0" aria-controls="dataTable"
-											rowspan="1" colspan="1" aria-sort="ascending"
-											aria-label="Name: activate to sort column descending"
-											style="width: 94px;">ID</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable"
-											rowspan="1" colspan="1"
-											aria-label="Position: activate to sort column ascending"
-											style="width: 151px;">Tên môn học</th>
-										<th class="sorting" tabindex="0" aria-controls="dataTable"
-											rowspan="1" colspan="1"
-											aria-label="Salary: activate to sort column ascending"
-											style="width: 58px;">Chức năng</th>
-									</tr>
-								</thead>
-
-								<tbody>
-									<th:block th:each="mon: ${mon}">
-										<tr role="row" class="odd">
-										<td class="sorting_1">[[${mon.mon_Id}]]</td>
-										<td>[[${mon.tenMon}]]</td>
-
-										<td>
-										<a th:href="@{'/admin/quanlymonhoc/suamonhoc?id=' + ${mon.mon_Id}}" class="btn btn-danger"><i class="fas fa-edit"></i></a>&nbsp
-										<a th:href="@{'/admin/quanlymonhoc/xoamonhoc?id=' + ${mon.mon_Id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-									</tr>
-
-									</th:block>
-									
-								</tbody>
-							</table>
+							<div class="modal-body">
+							
+							
+                                    <div style="text-align: center;">
+                                    <form th:action="@{'/admin/quanlymonhoc/suamonhoc?id=' + ${mon.mon_Id} }" id="update-profile-form" action=""  method="POST" modelattribute="monHocDTO" enctype="multipart/form-data">
+                                    
+                                    <table>
+                                    	<tr>
+                                    		<td><p>ID môn học</p></td>
+                                    		<td><input type="text" disabled  th:value="${mon.mon_Id}" name="mon_Id"></td>
+                                    	</tr>
+                                    	<tr>
+                                    		<td><p>Tên môn học</p></td>
+                                    		<td><input type="text" name="tenMon" th:value="${mon.tenMon}"></td>
+                                    	</tr>
+                                    
+                                    </table>
+                                   
+                                    
+                                    	<input type="submit" class="btn btn-success">
+                                        
+                                        </form>
+                                    </div>
+                                    
+                                    
+                                </div>
 						</div>
 					</div>
 

@@ -44,7 +44,7 @@ $(document).ready(function () {
 										<td>${sdt}</td>
 										<td>${thoiGian}</td>
 										<td><button id="btnshow" data-id=${baiDang_Id} type="button" class="btn btn-info" data-toggle="modal" data-target="#updateAirplaneModal"><i class="fas fa-eye"></i></button>&nbsp
-                <button id="btnDelete" data-id=${baiDang_Id} type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
+                <button id="btnDelete" data-id=${baiDang_Id} onclick="deleteBaiDang()" type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button></td>
 									</tr>`;
 /*				htmlStr = htmlStr + `<div style="float: left;width: 100%; height: 110px;" class="bai-dang">
                 <div style="display: flex; width: 100%;" class="hien-thi-bai-dang">
