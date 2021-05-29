@@ -63,15 +63,15 @@ $(document).ready(function(){
                                     <p class="text-tb">Không có thông báo nào.</p>
                                     <div class="detail-list">
                                         
-                                        <a  href="#"><i style="font-size: 18px;padding: 0 4px;" class="fas fa-hand-point-right"></i>    Bạn có lớp mới </a>
+                                        <a  href="/xemthongbao"><i style="font-size: 18px;padding: 0 4px;" class="fas fa-hand-point-right"></i>    Bạn có lớp mới </a>
                                     </div>
                                     <div  class="detail-list">
-                                        <a  href="#"><i style="font-size: 18px;padding: 0 4px;" class="fas fa-hand-point-right"></i>    Bạn đã đăng ký lớp</a>
+                                        <a  href="/xemthongbao"><i style="font-size: 18px;padding: 0 4px;" class="fas fa-hand-point-right"></i>    Bạn đã đăng ký lớp</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center view-all">
-                                <a href="#">Xem tất cả</a>
+                                <a href="/xemthongbao">Xem tất cả</a>
                             </div>
                         </div>
                     </li>

@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/dangky").permitAll()
 		.anyRequest()
 		.authenticated().and().formLogin().loginPage("/dangnhap").permitAll()
-		.defaultSuccessUrl("/trang-chu").failureUrl("/dangnhap")
+		.defaultSuccessUrl("/trang-chu").failureUrl("/dangnhap?incorrectAccount")
 		.loginProcessingUrl("/j_spring_security_check");
 	}
 

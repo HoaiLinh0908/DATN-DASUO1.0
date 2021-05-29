@@ -61,6 +61,10 @@
 				<p class="agileits2">Kết nối gia sư dạy và học trực tuyến .</p>
 			</div>
 			<div class="content-agile2">
+				<div class="error-alert-linh" th:if="${param.incorrectAccount != null}">
+					<span class="closebtn-linh"
+						onclick="this.parentElement.style.display='none';">&times;</span> <strong>Email hoặc mật khẩu không đúng!</strong>
+				</div>
 				<form name='f' th:action="@{/j_spring_security_check}" method='POST'>
 
 
