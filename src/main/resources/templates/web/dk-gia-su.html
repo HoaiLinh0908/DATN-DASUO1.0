@@ -28,7 +28,16 @@
             <script src="/js/web/components/header_web.js"></script>
         </div>
         <div class="content-dkgs" id="intro">
+            
             <div class="left-gt-dkgs">
+                <div class="error-alert-linh">
+                    <span class="closebtn-linh"
+                        onclick="this.parentElement.style.display='none';">&times;</span> <strong>Đăng ký thất bại!</strong>
+                </div>
+                <div class="success-alert-linh">
+                    <span class="closebtn-linh"
+                        onclick="this.parentElement.style.display='none';">&times;</span> <strong>Đăng ký gia sư thành công!</strong>
+                </div>
                 <div class="box_title">VỀ DASUO</div>
                 <span class="outline-bottom"></span>
                 <p>Dasuo là Tổ hợp Công nghệ Giáo dục thành lập từ năm 2021. Dasuo là đơn vị tiên phong trong việc áp
@@ -278,26 +287,21 @@
                         ĐĂNG KÝ GIA SƯ NGAY
                     </div>
                     <div class="input-dkgs">
-                        <input type="text" placeholder="Họ tên(*)">
+                        <input type="text" id="mota" placeholder="Mô tả bản thân(*)">
                     </div>
                     <div class="input-dkgs">
-                        <input type="text" placeholder="Số điện thoại(*)">
+                        <input type="text" id="bangcap" placeholder="Bằng cấp(*)">
                     </div>
                     <div class="input-dkgs">
-                        <input type="text" placeholder="Email(*)">
+                        <input type="text" id="socmnd" placeholder="Số chứng minh nhân dân(*)">
                     </div>
                     <div class="input-dkgs">
-                        <input type="text" placeholder="Mật khẩu(*)">
+                        <input class="btn-dkgs" type="button" id="dangky-giasu" value="Đăng ký">
                     </div>
-                    <div class="input-dkgs">
-                        <input type="text" placeholder="Nhập lại mật khẩu(*)">
-                    </div>
-                    <div class="input-dkgs">
-                        <input class="btn-dkgs" type="button" value="Nhận lớp ngay">
-                    </div>
-
+                    <input type="hidden" id="tkid" th:value="${tkid}">
                 </div>
             </div>
+            
             <!-- form đăng ký gia sư -->
 
             <!-- footer -->
@@ -311,7 +315,30 @@
             <!-- footer -->
 
         </div>
-
+        <script src="/js/web/taikhoan/dangkygiasu.js"></script>
+        <script>
+            $(document).ready(function () {
+                if(window.location.search.substring(1)!=""){
+                    if(getURLParameter("signupMsg") == "success") {
+                        $('.success-alert-linh').show();
+                        $('.error-alert-linh').hide();
+                    }else {
+                        $('.error-alert-linh').show();
+                        $('.success-alert-linh').hide();
+                    }
+                }
+            });
+            function getURLParameter(sParam) {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++) {
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam) {
+                        return sParameterName[1];
+                    }
+                }
+            }
+        </script>
 </body>
 
 </html>

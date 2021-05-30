@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.dasuo.api.output.BaiDangOutput;
 import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.repository.TaiKhoanRepository;
@@ -96,6 +95,7 @@ public class TaiKhoanAPI {
 		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
 		if(_taiKhoanDTO != null)
 		{
+			taiKhoanDTO.setMatKhau(_taiKhoanDTO.getMatKhau());
 			if(taiKhoanDTO.getLoai()==null)
 			{
 				taiKhoanDTO.setLoai(_taiKhoanDTO.getLoai());
@@ -161,12 +161,12 @@ public class TaiKhoanAPI {
 				taiKhoanDTO.setBaiDangs(_taiKhoanDTO.getBaiDangs());
 															
 			}			
-													
+	
 			if(taiKhoanDTO.isEnable()==null)
 			{
 				taiKhoanDTO.setEnable(_taiKhoanDTO.isEnable());				
 			}
-				
+			
 			taiKhoanService.save(taiKhoanDTO);
 			return new ResponseEntity<>(taiKhoanDTO,HttpStatus.OK);
 		}

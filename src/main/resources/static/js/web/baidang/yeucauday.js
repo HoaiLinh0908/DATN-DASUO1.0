@@ -14,8 +14,7 @@ $('#dangkyday-btn').click( function () {
                                 }]}),
         success: function (response) {
             alert("Gửi yêu cầu thành công!!!");
-            $("#dangkyday-btn").css({"display":"none"});
-            console.log(response);
+            window.location.href = "http://localhost:8083/chitietbaidang?id=" + $("#bdid").val();
         },
         error: function (response) {
             alert("Gửi yêu cầu thất bại!!!");

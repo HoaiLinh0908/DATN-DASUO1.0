@@ -49,6 +49,7 @@ public class TaiKhoanConverter {
 	public TaiKhoanDTO toDTO (TaiKhoan taiKhoan) {
 		TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
 		taiKhoanDTO.setTaiKhoan_Id(taiKhoan.getTaiKhoan_Id());
+		taiKhoanDTO.setMatKhau(taiKhoan.getMatKhau());
 		taiKhoanDTO.setBangCap(taiKhoan.getBangCap());
 		taiKhoanDTO.setCmnd(taiKhoan.getCmnd());
 		taiKhoanDTO.setEmail(taiKhoan.getEmail());

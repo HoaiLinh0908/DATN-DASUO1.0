@@ -239,11 +239,14 @@ public class DasuoController {
 	@RequestMapping("/chitietbaidang")
 	public String chiTietBaiDang(Model model) {
 		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		return "web/chi-tiet-bai-dang";
 	}
 
 	@RequestMapping("/dangkitrothanhgiasu")
-	public String dkLamGiaSu() {
+	public String dkLamGiaSu(Model model) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
 		return "web/dk-gia-su";
 	}
 
@@ -253,7 +256,9 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/danggiaotrinh")
-	public String dangGiaoTrinh() {
+	public String dangGiaoTrinh(Model model,  @RequestParam("id") Integer id) {
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("lopId", id);
 		return "web/up-giao-trinh";
 	}
 
@@ -275,7 +280,7 @@ public class DasuoController {
 		giaoTrinh.setThoiGian(new Date());
 		giaoTrinhService.save(giaoTrinh);
 		ra.addFlashAttribute("message", "Thêm giáo trình thành công");
-		return "redirect:/danggiaotrinh";
+		return "redirect:/danggiaotrinh?id="+idlop;
 	}
 
 	@GetMapping("/download")

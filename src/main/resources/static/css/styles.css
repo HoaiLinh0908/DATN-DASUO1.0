@@ -351,7 +351,7 @@ h2.text-logo {
  .btn-last-content .support1,
  .support2,
  .support3{
-     margin-right: 40px;
+     margin-right: 10px;
     padding: 0 30px;
     font-size: 25px;
     text-decoration: none;
@@ -1495,7 +1495,7 @@ img {vertical-align: middle;}
     margin-left: 60px;
 }
 
-.suluachon .luachon .option , .option1{
+.suluachon .luachon .option , .option1, .option3{
     text-decoration: none;
     background-color: #ff961e;
     padding: 20px 20px;
@@ -1503,6 +1503,10 @@ img {vertical-align: middle;}
 }
 .option1{
     padding: 20px 79px ;
+}
+
+.option3{
+    padding: 20px 43px;
 }
 
 /* css nháp phần list chat */

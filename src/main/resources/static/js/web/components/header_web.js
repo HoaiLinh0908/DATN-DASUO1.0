@@ -11,7 +11,7 @@ $(document).ready(function(){
                   </ul></li></ul></div>
                   <div style="width: 35%; display: flex;line-height: 54px;" class="navbar-form">
                   <div class="search-header">
-                  <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm gia sư theo môn học " class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
+                  <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm kiếm " class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
                   </div>
                   <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;height: 31px;width: 42px;" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
          	 	  </div>
