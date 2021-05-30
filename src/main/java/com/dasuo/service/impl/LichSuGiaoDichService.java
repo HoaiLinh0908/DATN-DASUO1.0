@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dasuo.converter.LichSuGiaoDichConverter;
@@ -22,8 +23,8 @@ public class LichSuGiaoDichService implements ILichSuGiaoDichService{
 	
 
 	@Override
-	public List<LichSuGiaoDichDTO> getListLichSuGiaoDich() {
-		List<LichSuGiaoDich> lichSuGiaoDichs = lichSuGiaoDichRepository.findAll();
+	public List<LichSuGiaoDichDTO> getListLichSuGiaoDich(Pageable pageable) {
+		List<LichSuGiaoDich> lichSuGiaoDichs = lichSuGiaoDichRepository.findAll(pageable).getContent();
 		List<LichSuGiaoDichDTO> lichSuGiaoDichDTOs = new ArrayList<>();
 		lichSuGiaoDichs.forEach(lichSuGiaoDich -> lichSuGiaoDichDTOs.add(lichSuGiaoDichConverter.toDTO(lichSuGiaoDich)));
 		return lichSuGiaoDichDTOs;
@@ -49,6 +50,15 @@ public class LichSuGiaoDichService implements ILichSuGiaoDichService{
 	public void delete(Integer id) {
 		lichSuGiaoDichRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public int getTotalPage(int limit) {
+		int totalItem = (int) lichSuGiaoDichRepository.count();
+		if (totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
 	}
 
 }

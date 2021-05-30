@@ -38,7 +38,7 @@
 					aria-labelledby="userDropdown">
 
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="login.html">Logout</a>
+					<a class="dropdown-item" href="/thoat">Logout</a>
 				</div></li>
 		</ul>
 	</nav>
@@ -98,8 +98,8 @@
 							
                                     <div style="text-align: center;">
                                     <form th:action="@{'/admin/quanlymonhoc/suamonhoc?id=' + ${mon.mon_Id} }" id="update-profile-form" action=""  method="POST" modelattribute="monHocDTO" enctype="multipart/form-data">
-                                    
-                                    <table>
+                                    <h2>Sửa môn học</h2>
+                                    <table style="margin-right: 100px">
                                     	<tr>
                                     		<td><p>ID môn học</p></td>
                                     		<td><input type="text" disabled  th:value="${mon.mon_Id}" name="mon_Id"></td>

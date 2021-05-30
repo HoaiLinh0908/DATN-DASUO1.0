@@ -170,6 +170,19 @@ public class DasuoAdminController {
 				monService.delete(id);
 			return "redirect:/admin/quanlymonhoc";
 		}
+		@RequestMapping("/admin/quanlymonhoc/themmonhoc")
+		public String ThemMonHocAdmin() {
+			
+			return "admin/suamonhoc";
+		}
+		@PostMapping("/admin/quanlymonhoc/themmonhoc")
+		public String ThemMonHocAdmin1(@ModelAttribute("monHocDTO") MonDTO monHocDTO) {
+			
+				if(monHocDTO.getTenMon()!= null)
+					monService.save(monHocDTO);
+			
+			return "redirect:/admin/quanlymonhoc";
+		}
 	}
 
 
