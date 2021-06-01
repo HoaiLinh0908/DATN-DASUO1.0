@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -79,6 +80,7 @@ public class DasuoController {
 	LopRepository lopRepository;
 	@Autowired
 	MonRepository monRepository;
+	
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -230,6 +232,34 @@ public class DasuoController {
 	public String viewDoiMatKhau() {
 		return "web/doimatkhau";
 	}
+	
+	@PostMapping("/doimatkhau")
+	public String doiMatKhau(HttpServletRequest request, HttpServletResponse response,
+			@ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model,RedirectAttributes ra) {
+		
+		
+		Integer id = SecurityUtils.getPrincipal().getUser_Id();
+		if (id != null && taiKhoanDTO.getMatKhau() != null && taiKhoanDTO.getMatKhauMoi() != null) {
+			TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
+			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			if(passwordEncoder.matches(taiKhoanDTO.getMatKhau(),_taiKhoanDTO.getMatKhau()))
+			{
+				
+				_taiKhoanDTO.setMatKhau(passwordEncoder.encode(taiKhoanDTO.getMatKhauMoi()));
+				taiKhoanService.save(_taiKhoanDTO);
+				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thành công");
+			}
+			else {
+				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+				ra.addFlashAttribute("alert", "error");
+			}
+		} else {
+			ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+			ra.addFlashAttribute("alert", "error");
+		}
+		return "redirect:/doimatkhau";
+	}
+
 
 	@RequestMapping("/quenmatkhau")
 	public String viewQuenMatKhau() {
