@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -162,6 +161,8 @@ public class DasuoController {
 	@RequestMapping("/hienthilichlop")
 	public String viewLichHoc(Model model) {
 		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		return "web/hienthilichlop";
 	}
 

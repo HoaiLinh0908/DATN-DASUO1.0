@@ -124,4 +124,26 @@ public class LopService implements ILopService{
 		}
 		return totalItem / limit;
 	}
+
+	@Override
+	public List<LopDTO> getLopByNguoiDay(Integer nguoiDayId, Pageable pageable) {
+		if(nguoiDayId != 0 )
+		{
+			List<Lop> lops = lopRepository.findByNguoiDay(nguoiDayId, pageable);
+			List<LopDTO> lopDTOs = lops.stream().map(l -> lopConverter.toDTO(l)).collect(Collectors.toList());
+			return lopDTOs;
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public int countByNguoiDay(Integer id, int limit) {
+		int totalItem = lopRepository.countByNguoiDay(id);
+		if (totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
+	}
 }

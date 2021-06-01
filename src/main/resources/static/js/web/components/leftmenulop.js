@@ -1,6 +1,6 @@
 $(document).ready(function(){
     if(window.location.search.substring(1)==""){
-        window.location.href = "http://localhost:8083/hienthibaidang";
+        window.location.href = "http://localhost:8083/hienthilichlop";
     }else {
         var bdid = getURLParameter("id");
         var leftMenu = `<ul id="accordion">

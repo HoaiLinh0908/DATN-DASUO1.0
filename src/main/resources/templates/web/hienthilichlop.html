@@ -41,8 +41,11 @@
                     
                 </div>
                 <hr>
-                <div style="background-color: #fff;    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" class="lich-lop-cua-toi">
+                <div style="background-color: #fff;    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" class="lich-lop-cua-toi" th:if="${role == 1}">
                     <script src="/js/web/lop/loptheonguoihoc.js"></script>
+                </div>
+                <div style="background-color: #fff;    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);" class="lich-lop-cua-toi" th:if="${role == 2}">
+                    <script src="/js/web/lop/loptheonguoiday.js"></script>
                 </div>
                 <input type="hidden" th:value="${tkid}" id="tkid">
             </div>
