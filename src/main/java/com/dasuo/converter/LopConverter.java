@@ -1,5 +1,7 @@
 package com.dasuo.converter;
 
+import java.text.SimpleDateFormat;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,7 +18,8 @@ public class LopConverter {
 		lopDTO.setLop_Id(lop.getLop_Id());
 		lopDTO.setTenLop(lop.getTenLop());
 		lopDTO.setGioHoc(lop.getGioHoc());
-		lopDTO.setNgayNhan(lop.getNgayNhan());
+		SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");
+		lopDTO.setNgayNhan(dtf.format(lop.getNgayNhan()));
 		TaiKhoanDTO nguoiDayDTO = taiKhoanConverter.toDTO(lop.getNguoiDay());
 		lopDTO.setNguoiDay(nguoiDayDTO);
 		TaiKhoanDTO nguoiHocDTO = taiKhoanConverter.toDTO(lop.getNguoiHoc());

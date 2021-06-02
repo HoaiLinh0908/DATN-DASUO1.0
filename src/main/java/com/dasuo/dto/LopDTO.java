@@ -8,7 +8,7 @@ public class LopDTO {
 	private Integer lop_Id;
 	private String tenLop;
 	
-	private Date ngayNhan;
+	private String ngayNhan;
 	
 	private TaiKhoanDTO nguoiHoc;
 	
@@ -38,11 +38,11 @@ public class LopDTO {
 		this.lop_Id = lop_Id;
 	}
 
-	public Date getNgayNhan() {
+	public String getNgayNhan() {
 		return ngayNhan;
 	}
 
-	public void setNgayNhan(Date ngayNhan) {
+	public void setNgayNhan(String ngayNhan) {
 		this.ngayNhan = ngayNhan;
 	}
 
