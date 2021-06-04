@@ -14,4 +14,6 @@ public interface ILopService {
 	public int getTotalPage(int limit);
 	public List<LopDTO> getLopByNguoiHoc(Integer nguoiHocId, Pageable pageable);
 	public int countByNguoiHoc(Integer id, int limit);
+	public List<LopDTO> getLopByNguoiDay(Integer nguoiDayId, Pageable pageable);
+	public int countByNguoiDay(Integer id, int limit);
 }

@@ -1,6 +1,9 @@
 package com.dasuo.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -67,15 +70,30 @@ public class LopService implements ILopService{
 		BaiDangDTO baiDangDTO = baiDangService.getBaiDang(lopDTO.getBaiDangId());
 		lopDTO.setTenLop("Lop" + baiDangDTO.getMon().getTenMon() + lopDTO.getNguoiDay().getTaiKhoan_Id() + "-" + lopDTO.getNguoiHoc().getTaiKhoan_Id());
 		lopDTO.setTienHoc(baiDangDTO.getHocPhi());
+		SimpleDateFormat dtf = new SimpleDateFormat("yyyy-MM-dd");  
+		Date dateNgayNhan = new Date(); 
+		lopDTO.setNgayNhan(dtf.format(dateNgayNhan));
 		Lop lop = lopRepository.save(lopConverter.toEntity(lopDTO));
 		
 		//Tao lich hoc
+		Calendar c1 = Calendar.getInstance();
+		Date date = baiDangDTO.getNgayBatDau();
+		c1.setTime(date);
+		
 		int soBuoi = baiDangDTO.getBuois().size();
 		LichHocDTO lich;
 		LopDTO lopDTO2 = new LopDTO();
 		for(int i=1; i<=soBuoi*4; i++) {
+//			for(int j=1; j<=soBuoi; j++) {
+//				
+//			}
 			lich = new LichHocDTO();
-			lich.setThoiGianBatDau("2021-04-03 00:00:00");
+			if(i==1) {
+				lich.setThoiGianBatDau(dtf.format(c1.getTime()));
+				lich.setThoiGianKetThuc("2021-04-03 02:00:00");
+			}
+			c1.add(Calendar.DATE, 7);
+			lich.setThoiGianBatDau(dtf.format(c1.getTime()));
 			lich.setThoiGianKetThuc("2021-04-03 02:00:00");
 			lopDTO2.setLop_Id(lop.getLop_Id());
 			lich.setLop(lopDTO2);
@@ -119,6 +137,28 @@ public class LopService implements ILopService{
 	@Override
 	public int countByNguoiHoc(Integer id, int limit) {
 		int totalItem = lopRepository.countByNguoiHoc(id);
+		if (totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
+	}
+
+	@Override
+	public List<LopDTO> getLopByNguoiDay(Integer nguoiDayId, Pageable pageable) {
+		if(nguoiDayId != 0 )
+		{
+			List<Lop> lops = lopRepository.findByNguoiDay(nguoiDayId, pageable);
+			List<LopDTO> lopDTOs = lops.stream().map(l -> lopConverter.toDTO(l)).collect(Collectors.toList());
+			return lopDTOs;
+		}
+		else {
+			return null;
+		}
+	}
+
+	@Override
+	public int countByNguoiDay(Integer id, int limit) {
+		int totalItem = lopRepository.countByNguoiDay(id);
 		if (totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}

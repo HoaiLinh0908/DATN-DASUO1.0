@@ -21,4 +21,12 @@ public interface LopRepository extends JpaRepository<Lop, Integer>{
 	@Query(value="SELECT count(1) FROM dasuo.lop where nguoihoc_id = ?1"
 			,nativeQuery=true)
 	int countByNguoiHoc(Integer id);
+	
+	@Query(value="SELECT * FROM dasuo.lop where nguoiday_id = ?1 order by lop_id desc"
+			,nativeQuery=true)
+	public List<Lop> findByNguoiDay(Integer nguoiDayID, Pageable pageable);
+	
+	@Query(value="SELECT count(1) FROM dasuo.lop where nguoiday_id = ?1"
+			,nativeQuery=true)
+	int countByNguoiDay(Integer id);
 }

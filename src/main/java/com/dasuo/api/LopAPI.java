@@ -35,7 +35,7 @@ public class LopAPI {
 	}
 	
 	@GetMapping("/lopstheonguoihoc/{id}")
-	public ResponseEntity<LopOutput> getLop(@PathVariable("id") Integer id,
+	public ResponseEntity<LopOutput> getLopByNguoiHoc(@PathVariable("id") Integer id,
 												@RequestParam("page") int page,@RequestParam("limit") int limit){
 		LopOutput lopOutput = new LopOutput();
 		Pageable pageable = PageRequest.of(page-1, limit);
@@ -45,8 +45,19 @@ public class LopAPI {
 			return new ResponseEntity<>(lopOutput,HttpStatus.OK);
 	}
 	
+	@GetMapping("/lopstheonguoiday/{id}")
+	public ResponseEntity<LopOutput> getLopByNguoiDay(@PathVariable("id") Integer id,
+												@RequestParam("page") int page,@RequestParam("limit") int limit){
+		LopOutput lopOutput = new LopOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		lopOutput.setPage(page);
+		lopOutput.setLopDTO(lopService.getLopByNguoiDay(id, pageable));
+		lopOutput.setTotalPage(lopService.countByNguoiDay(id, limit));
+			return new ResponseEntity<>(lopOutput,HttpStatus.OK);
+	}
+	
 	@GetMapping("/lops/{id}")
-	public ResponseEntity<LopDTO> getLopByNguoiHoc(@PathVariable("id") Integer id){
+	public ResponseEntity<LopDTO> getLop(@PathVariable("id") Integer id){
 		LopDTO lopDTO = lopService.getLop(id);
 		if (lopDTO!=null) {
 			return new ResponseEntity<>(lopDTO,HttpStatus.OK);
