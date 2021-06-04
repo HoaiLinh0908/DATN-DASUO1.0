@@ -10,6 +10,7 @@ import java.util.Optional;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -53,6 +54,7 @@ import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.ITaiKhoanService;
+import com.dasuo.service.ITinhThanhService;
 import com.dasuo.utils.SecurityUtils;
 
 @Controller
@@ -80,7 +82,8 @@ public class DasuoController {
 	LopRepository lopRepository;
 	@Autowired
 	MonRepository monRepository;
-	
+	@Autowired
+	ITinhThanhService tinhThanhService;
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -166,8 +169,35 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/suathongtin")
-	public String viewSuaThonTin() {
+	public String viewSuaThonTin(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("taiKhoan", taiKhoanDTO);
+		model.addAttribute("tinhThanh", tinhThanhService.getListTinhThanhs());
 		return "web/suathongtin";
+	}
+
+	@PostMapping("/suathongtin")
+	public String viewSuaThonTin1(HttpServletResponse response, @ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO,
+			@RequestParam("tinhThanhid") Integer id, RedirectAttributes ra) {
+		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
+		if (_taiKhoanDTO != null) {
+			_taiKhoanDTO.setHoTen(taiKhoanDTO.getHoTen());
+			_taiKhoanDTO.setMoTa(taiKhoanDTO.getMoTa());
+			_taiKhoanDTO.setGioiTinh(taiKhoanDTO.isGioiTinh());
+			TinhThanhDTO tinhThanh = tinhThanhService.getTinhThanh(id);
+			if (tinhThanh != null) {
+				_taiKhoanDTO.setTinhThanh(tinhThanh);
+			}
+			taiKhoanService.save(_taiKhoanDTO);
+			ra.addFlashAttribute("message", "Cập nhật thành công thông tin tài khoản");
+
+			return "redirect:/suathongtin";
+		} else {
+			ra.addFlashAttribute("message", "Cập nhật thất bại thông tin tài khoản");
+
+			return "redirect:/suathongtin";
+		}
+
 	}
 
 	@RequestMapping("/taobaidang")
@@ -232,24 +262,21 @@ public class DasuoController {
 	public String viewDoiMatKhau() {
 		return "web/doimatkhau";
 	}
-	
+
 	@PostMapping("/doimatkhau")
 	public String doiMatKhau(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model,RedirectAttributes ra) {
-		
-		
+			@ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model, RedirectAttributes ra) {
+
 		Integer id = SecurityUtils.getPrincipal().getUser_Id();
 		if (id != null && taiKhoanDTO.getMatKhau() != null && taiKhoanDTO.getMatKhauMoi() != null) {
 			TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
 			PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			if(passwordEncoder.matches(taiKhoanDTO.getMatKhau(),_taiKhoanDTO.getMatKhau()))
-			{
-				
+			if (passwordEncoder.matches(taiKhoanDTO.getMatKhau(), _taiKhoanDTO.getMatKhau())) {
+
 				_taiKhoanDTO.setMatKhau(passwordEncoder.encode(taiKhoanDTO.getMatKhauMoi()));
 				taiKhoanService.save(_taiKhoanDTO);
 				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thành công");
-			}
-			else {
+			} else {
 				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
 				ra.addFlashAttribute("alert", "error");
 			}
@@ -259,7 +286,6 @@ public class DasuoController {
 		}
 		return "redirect:/doimatkhau";
 	}
-
 
 	@RequestMapping("/quenmatkhau")
 	public String viewQuenMatKhau() {
@@ -286,7 +312,7 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/danggiaotrinh")
-	public String dangGiaoTrinh(Model model,  @RequestParam("id") Integer id) {
+	public String dangGiaoTrinh(Model model, @RequestParam("id") Integer id) {
 		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
 		model.addAttribute("lopId", id);
 		return "web/up-giao-trinh";
@@ -310,7 +336,7 @@ public class DasuoController {
 		giaoTrinh.setThoiGian(new Date());
 		giaoTrinhService.save(giaoTrinh);
 		ra.addFlashAttribute("message", "Thêm giáo trình thành công");
-		return "redirect:/danggiaotrinh?id="+idlop;
+		return "redirect:/danggiaotrinh?id=" + idlop;
 	}
 
 	@GetMapping("/download")
@@ -401,7 +427,7 @@ public class DasuoController {
 		outputStream.write(baiKiemTraEntity.getContent());
 		outputStream.close();
 	}
-	
+
 	@RequestMapping("/chitietlophoc")
 	public String chiTietLopHoc() {
 		return "web/chitietlophoc";

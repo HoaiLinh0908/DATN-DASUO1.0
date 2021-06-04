@@ -6,12 +6,24 @@ public class TinhThanhDTO {
 private Integer tinh_Id;
 	
 	private String tenTinh;
+	private Integer Id;
 	
 	private List<TaiKhoanDTO> taikhoan;
 
 	public TinhThanhDTO() {
 		super();
 	}
+	
+
+	public Integer getId() {
+		return Id;
+	}
+
+
+	public void setId(Integer id) {
+		Id = id;
+	}
+
 
 	public Integer getTinh_Id() {
 		return tinh_Id;

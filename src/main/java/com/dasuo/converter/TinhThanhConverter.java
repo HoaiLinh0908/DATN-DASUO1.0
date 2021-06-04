@@ -11,6 +11,7 @@ public class TinhThanhConverter {
 		TinhThanhDTO tinhThanhDTO = new TinhThanhDTO();
 		tinhThanhDTO.setTinh_Id(tinhThanh.getTinh_Id());
 		tinhThanhDTO.setTenTinh(tinhThanh.getTenTinh());
+		tinhThanhDTO.setId(tinhThanh.getTinh_Id());
 		tinhThanhDTO.setTaikhoan(null);
 		return tinhThanhDTO;
 	}

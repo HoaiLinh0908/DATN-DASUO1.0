@@ -1,76 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Document</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+	crossorigin="anonymous" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Document</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <div id="header">
-            <script src="/js/web/components/header_web.js"></script>
-        </div>
-        <div style="width: 100%;height: auto;margin-top: 54px; padding: 0px 40px;" class="container">
-            <div class="left-content">
-                <script src="/js/web/components/leftmenu.js"></script>
-            </div>
+	<div class="wrapper">
+		<div id="header">
+			<script src="/js/web/components/header_web.js"></script>
+		</div>
+		<div
+			style="width: 100%; height: auto; margin-top: 54px; padding: 0px 40px;"
+			class="container">
+			<div class="left-content">
+				<script src="/js/web/components/leftmenu.js"></script>
+			</div>
+			<form th:action="@{/suathongtin}" id="update-profile-form"
+				method="POST" modelattribute="taiKhoan"
+				enctype="multipart/form-data">
+				<div class="right-content">
+					<div class="head-block">
+						<h4
+							style="padding: 10px 8px; width: 200px; color: #fff; background-color: #069d86; font-weight: bold;">
+							CHỈNH SỬA THÔNG TIN</h4>
+						<hr style="width: 80.2%; opacity: 0.8; float: right;"
+							color="#069d86">
+					</div>
+					<div class="text-success">
+						<h3>[[${message}]]</h3>
+					</div>
 
-            <div class="right-content">
-                <div class="head-block">
-                    <h4 style="padding: 10px 8px;width: 200px;color: #fff;background-color: #069d86;font-weight: bold;">
-                        CHỈNH SỬA THÔNG TIN</h4>
-                    <hr style="width: 80.2%;opacity: 0.8;float: right;" color="#069d86">
-                </div>
+					<div class="body-block">
+						<form id="update-profile-form" action="" method="POST"
+							enctype="multipart/form-data">
+							<div class="info-step-1">
+								<h3 style="padding: 20px 8px; color: #069d86;">Thông tin cá
+									nhân</h3>
+								<div class="col-md-1">
+									<label for="">HỌ TÊN ĐẦY ĐỦ</label> <span class="teacher-alert">*</span><br>
+									<input type="text" name="hoTen" th:value="${taiKhoan.hoTen}">
+								</div>
+								<div class="col-md-1">
+									<label for="">ĐIỆN THOẠI</label> <span class="teacher-alert">*</span><br>
+									<input type="text" name="sdt" th:value="${taiKhoan.sdt}">
+								</div>
+								<div class="col-md-1">
+									<label for="">TỈNH, THÀNH PHỐ ĐANG SỐNG</label> <select
+										name="tinhThanhid" id="monhoclinh">
+										<option value="">Lựa chọn tỉnh thành</option>
+										<th:block th:each="tinhThanh: ${tinhThanh}">
+											<option th:value="${tinhThanh.Id}">[[${tinhThanh.tenTinh}]]</option>
+										</th:block>
+									</select> <span class="teacher-alert">*</span>
+								</div>
+								<div class="col-md-1">
+									<label for="">GIỚI TÍNH</label> <br> <select
+										name="gioiTinh" id="monhoclinh">
+										<option value="">Lựa chọn giới tính</option>
+										<option value="1">Nam</option>
+										<option value="0">Nữ</option>
+										</th:block>
+									</select> <span class="teacher-alert">*</span>
 
-                <div class="body-block">
-                    <form id="update-profile-form" action="" method="POST" enctype="multipart/form-data">
-                        <div class="info-step-1">
-                            <h3 style="padding: 20px 8px;color: #069d86;">Thông tin cá nhân</h3>
-                            <div class="col-md-1">
-                                <label for="">HỌ TÊN ĐẦY ĐỦ</label>
-                                <span class="teacher-alert">*</span><br>
-                                <input type="text" name="hotendaydu">
-                            </div>
-                            <div class="col-md-1">
-                                <label for="">ĐIỆN THOẠI</label>
-                                <span class="teacher-alert">*</span><br>
-                                <input type="text" name="dienthoai">
-                            </div>
-                            <div class="col-md-1">
-                                <label for="">TỈNH, THÀNH PHỐ ĐANG SỐNG</label>
-                                <span class="teacher-alert">*</span><br>
-                                <input type="text" name="noisong">
-                            </div>
-                            <div class="col-md-1">
-                                <label for="">ĐỊA CHỈ CỤ THỂ</label>
-                                <span class="teacher-alert">*</span><br>
-                                <input type="text" name="diachicuthe">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="mo-ta">
-                    <div class="col-md-12">
-                        <label for="">MÔ TẢ BẢN THÂN, KINH NGHIỆM & BẰNG CẤP </label>
-                        <span class="teacher-alert">*</span><br>
-                        <i>(Bạn cần ghi đầy đủ ưu điểm của bản thân để được nhận lớp trong thời gian sớm nhất)</i>
-                        <textarea
-                            placeholder="Mô tả bản thân, bằng cấp và kinh nghiệm của bạn (nên dài hơn 150 chữ cái)..."
-                            name="" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
-                    </div>
-                </div>
-                <!-- <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
+								</div>
+
+							</div>
+						</form>
+					</div>
+
+					<div class="mo-ta">
+						<div class="col-md-12">
+
+							<label for="">MÔ TẢ BẢN THÂN, KINH NGHIỆM & BẰNG CẤP </label> <span
+								class="teacher-alert">*</span><br> <i>(Bạn cần ghi đầy
+								đủ ưu điểm của bản thân để được nhận lớp trong thời gian sớm
+								nhất)</i>
+							<textarea
+								placeholder="Mô tả bản thân, bằng cấp và kinh nghiệm của bạn (nên dài hơn 150 chữ cái)..."
+								name="moTa" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
+						</div>
+					</div>
+					<!-- <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
                     <div class="col-md-12">
                         <h3 style="padding: 20px 8px;color: #069d86;">Hồ sơ chuyên môn</h3>
                         <div class="kieu-giao-vien">
@@ -126,48 +151,95 @@
                         <script src="/js/web/components/chonlich.js"></script>
                     </div>
                 </div> -->
-                <div class="row" style="text-align:center;padding:10px 0;">
-                    <input name="submit-info" type="button" id="dangyc-btn" class="btn-bla-big btn-yellowblacasa"
-                        style="cursor: pointer; color:#fff;font-size: 16px;font-weight:bold;border: none; background-color: orange;padding: 16px 20px;border-radius: 5px;"
-                        value="Lưu chỉnh sửa">
-                </div>
-            </div>
+					<div class="row" style="text-align: center; padding: 10px 0;">
+						<input name="submit-info" type="submit" id="dangyc-btn"
+							class="btn-bla-big btn-yellowblacasa"
+							style="cursor: pointer; color: #fff; font-size: 16px; font-weight: bold; border: none; background-color: orange; padding: 16px 20px; border-radius: 5px;"
+							value="Lưu chỉnh sửa">
+					</div>
+				</div>
+			</form>
+		</div>
+		<hr style="margin-top: 30px; color: #069d86; width: 100%;">
 
-        </div>
-        <hr style="margin-top: 30px;color: #069d86; width: 100%;">
-
-        <div class="last-content">
-            <script src="/js/web/components/httv.js"></script>
-        </div>
-        <div id="footer">
-            <script src="/js/web/components/footer_web.js"></script>
-        </div>
+		<div class="last-content">
+			<script src="/js/web/components/httv.js"></script>
+		</div>
+		<div id="footer">
+			<script src="/js/web/components/footer_web.js"></script>
+		</div>
 
 
-        <script>
-            $(document).ready(function () {
-                $('.buoihoc, .bh').click(function () {
-                    var $this = $(this);
-                    if ($this.hasClass('buoihoc')) {
-                        if ($(this).css("background-color") == "rgb(0, 128, 0)") {
-                            $(this).css("background-color", "#fff");
-                            $(this).find("input").attr("checked", false)
-                        } else {
-                            $(this).css("background-color", "#008000");
-                            $(this).find("input").attr("checked", true)
-                        }
-                    }else {
-                        if ($(this).parent().css("background-color") == "rgb(0, 128, 0)") {
-                            $(this).parent().css("background-color", "#fff");
-                            $(this).parent().find("input").attr("checked", false)
-                        } else {
-                            $(this).parent().css("background-color", "#008000");
-                            $(this).parent().find("input").attr("checked", true)
-                        }
-                    }
-                });
-            });
-        </script>
+		<script>
+			$(document)
+					.ready(
+							function() {
+								$('.buoihoc, .bh')
+										.click(
+												function() {
+													var $this = $(this);
+													if ($this
+															.hasClass('buoihoc')) {
+														if ($(this)
+																.css(
+																		"background-color") == "rgb(0, 128, 0)") {
+															$(this)
+																	.css(
+																			"background-color",
+																			"#fff");
+															$(this)
+																	.find(
+																			"input")
+																	.attr(
+																			"checked",
+																			false)
+														} else {
+															$(this)
+																	.css(
+																			"background-color",
+																			"#008000");
+															$(this)
+																	.find(
+																			"input")
+																	.attr(
+																			"checked",
+																			true)
+														}
+													} else {
+														if ($(this)
+																.parent()
+																.css(
+																		"background-color") == "rgb(0, 128, 0)") {
+															$(this)
+																	.parent()
+																	.css(
+																			"background-color",
+																			"#fff");
+															$(this)
+																	.parent()
+																	.find(
+																			"input")
+																	.attr(
+																			"checked",
+																			false)
+														} else {
+															$(this)
+																	.parent()
+																	.css(
+																			"background-color",
+																			"#008000");
+															$(this)
+																	.parent()
+																	.find(
+																			"input")
+																	.attr(
+																			"checked",
+																			true)
+														}
+													}
+												});
+							});
+		</script>
 </body>
 
 </html>
