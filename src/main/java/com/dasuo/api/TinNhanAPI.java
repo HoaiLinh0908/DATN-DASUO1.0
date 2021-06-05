@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dasuo.dto.ChatDTO;
 import com.dasuo.dto.TinNhanDTO;
 import com.dasuo.service.ITinNhanService;
 @RestController
@@ -32,7 +33,17 @@ public class TinNhanAPI {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+	@GetMapping("/tinnhangns")
+	public ResponseEntity<List<TinNhanDTO>> getListTinNhanGNs (@RequestBody ChatDTO chatDTO){
+		List<TinNhanDTO> tinNhanDTOs = tinNhanService.getListTinNhanFindByGN(chatDTO);
+		if(tinNhanDTOs!=null)
+		{
+			return new ResponseEntity<>(tinNhanDTOs,HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 	@GetMapping("/tinnhans/{id}")
 	public ResponseEntity<TinNhanDTO> getTinNhan(@PathVariable("id") Integer id){
 		TinNhanDTO tinNhanDTO = tinNhanService.getTinNhan(id);
