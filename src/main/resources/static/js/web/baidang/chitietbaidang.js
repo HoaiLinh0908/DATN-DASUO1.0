@@ -24,6 +24,7 @@ $(document).ready(function () {
 				var moTa = response.moTa;
                 var hocPhi = response.hocPhi;
                 var mon = response.mon.tenMon;
+                var soBuoi = response.soBuoi;
                 var buois = response.buois;
                 var nguoiDangId = response.taiKhoan.taiKhoan_Id;
                 var nguoiYeuCauDays = response.taiKhoans;
@@ -66,7 +67,7 @@ $(document).ready(function () {
                             Số học viên : 1					
                         </p>
                         <p><i class="fa fa-book"></i>
-                         Thời lượng: Tuần 2 buổi (2h/buổi)
+                         Thời lượng: Tuần ${soBuoi} buổi (2h/buổi)
                         </p>
                         <p>
                         <i class="fa fa-money"></i> Học phí 1 buổi: <span class="class-tutor-fee">${hocPhi}</span> 

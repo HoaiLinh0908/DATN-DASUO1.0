@@ -43,7 +43,7 @@ public class BaiDangService implements IBaiDangService {
 	@Transactional
 	public List<BaiDangDTO> getListBaiDang(Pageable pageable) {
 		List<BaiDang> baiDangs = baiDangRepository.getBaiDangs(pageable);
-
+		
 		List<BaiDangDTO> baiDangDTOs = baiDangConverter.toBaiDangDTO(baiDangs);
 		return baiDangDTOs;
 	}
@@ -57,6 +57,7 @@ public class BaiDangService implements IBaiDangService {
 
 	@Override
 	public void save(BaiDangDTO baiDangDTO) {
+		baiDangDTO.setSoBuoi(baiDangDTO.getBuois().size());
 		BaiDang baidang = baiDangRepository.save(baiDangConverter.toEntity(baiDangDTO));
 		List<Buoi> buois = baidang.getBuois();
 		buois.forEach((buoi) -> {

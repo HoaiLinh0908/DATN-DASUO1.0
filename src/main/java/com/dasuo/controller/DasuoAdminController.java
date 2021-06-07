@@ -1,47 +1,18 @@
 package com.dasuo.controller;
 
-import java.io.IOException;
-import java.security.Principal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.dasuo.dto.BaiKiemTraDTO;
-import com.dasuo.dto.BaiLamDTO;
-import com.dasuo.dto.GiaoTrinhDTO;
-import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.MonDTO;
-import com.dasuo.dto.NgheNghiepDTO;
 import com.dasuo.dto.TaiKhoanDTO;
-import com.dasuo.dto.TinhThanhDTO;
-import com.dasuo.entity.BaiKiemTra;
-import com.dasuo.entity.GiaoTrinh;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.repository.GiaoTrinhRepository;

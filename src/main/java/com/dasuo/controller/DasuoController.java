@@ -10,7 +10,6 @@ import java.util.Optional;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -224,7 +223,7 @@ public class DasuoController {
 			return "redirect:/dangnhap";
 		}
 		else {
-			if(SecurityUtils.getPrincipal().getLoai().getLoai_Id() == 1)
+			if(SecurityUtils.getPrincipal().getLoai().getLoai_Id() == 5)
 			{
 				return "redirect:/admin";
 			}

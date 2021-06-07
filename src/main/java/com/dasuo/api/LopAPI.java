@@ -70,7 +70,7 @@ public class LopAPI {
 	
 	@PostMapping("/lops")
 	public ResponseEntity<LopDTO> addLop(@RequestBody LopDTO lopDTO) {
-		if(lopDTO != null && lopDTO.getNguoiDay() != null && lopDTO.getNguoiHoc() != null)
+		if(lopDTO != null && lopDTO.getNguoiDay() != null && lopDTO.getNguoiHoc() != null && lopDTO.getNguoiDay().getTaiKhoan_Id() != null)
 		{
 			lopService.save(lopDTO);
 			return new ResponseEntity<>(lopDTO, HttpStatus.OK);

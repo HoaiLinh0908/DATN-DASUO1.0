@@ -8,7 +8,6 @@ $(document).ready(function () {
         dataType: "json",
         // du lieu truyen vao dang json 
         data: JSON.stringify({  "baiDangId": $("#bdid").val(),
-                                "ngayNhan": "2021-04-02T17:00:00.000+00:00",
                                 "gioHoc": 20,
                                 "nguoiHoc": {
                                     "taiKhoan_Id": $("#tkid").val()
