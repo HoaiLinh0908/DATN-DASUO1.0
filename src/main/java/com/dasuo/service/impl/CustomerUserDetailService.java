@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.dasuo.converter.LoaiConverter;
 import com.dasuo.dto.MyUser;
 import com.dasuo.entity.TaiKhoan;
 import com.dasuo.repository.TaiKhoanRepository;
@@ -21,6 +22,8 @@ public class CustomerUserDetailService implements UserDetailsService {
 
 	@Autowired
 	TaiKhoanRepository taiKhoanRepository;
+	@Autowired
+	LoaiConverter loaiConverter;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -36,6 +39,7 @@ public class CustomerUserDetailService implements UserDetailsService {
 			myUser.setUser_Id(taiKhoan.getTaiKhoan_Id());
 			myUser.setHinhDaiDien(taiKhoan.getHinhDaiDien());
 			myUser.setMoTa(taiKhoan.getMoTa());
+			myUser.setLoai(loaiConverter.toDTO(taiKhoan.getLoai()));
 			return myUser;
 		}
 

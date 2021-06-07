@@ -217,6 +217,22 @@ public class DasuoController {
 		model.addAttribute("ten", principal.getName());
 		return "web/trangchu";
 	}
+	@RequestMapping("/check")
+	public String check(Principal principal, Model model) {
+		if(SecurityUtils.getPrincipal().getLoai() == null)
+		{
+			return "redirect:/dangnhap";
+		}
+		else {
+			if(SecurityUtils.getPrincipal().getLoai().getLoai_Id() == 1)
+			{
+				return "redirect:/admin";
+			}
+			else {
+				return "redirect:/trang-chu";
+			}
+		}
+	}
 
 	@RequestMapping("/upbaikt")
 	public String viewUpBaiKT() {
