@@ -180,7 +180,7 @@ public class DasuoController {
 	public String viewSuaThonTin1(HttpServletResponse response, @ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO,
 			@RequestParam("tinhThanhid") Integer id, RedirectAttributes ra) {
 		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
-		if (_taiKhoanDTO != null) {
+		if (_taiKhoanDTO != null && id != null) {
 			_taiKhoanDTO.setHoTen(taiKhoanDTO.getHoTen());
 			_taiKhoanDTO.setMoTa(taiKhoanDTO.getMoTa());
 			_taiKhoanDTO.setGioiTinh(taiKhoanDTO.isGioiTinh());
@@ -239,35 +239,44 @@ public class DasuoController {
 	@PostMapping("/upbaikt")
 	public String uploadfileBaiKiemTra(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
 			@ModelAttribute("baikiemtra") BaiKiemTraDTO baiKiemTraDTO, @RequestParam("id") Integer id,
-			@RequestParam("date") String date) throws IOException, java.text.ParseException {
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		String dateInString = date.substring(0, 10);
-		System.out.println(dateInString);
-
-		Date datekiemtra = formatter.parse(dateInString);
-		System.out.println(datekiemtra);
-		if (!datekiemtra.after(new Date())) {
-			ra.addFlashAttribute("message", "Ngày nộp bài kiểm tra phải lớn hơn hôm nay");
-			String b = "redirect:/upbaikt?id=" + id;
-			return b;
-		} else {
-			String filename = StringUtils.cleanPath(file.getOriginalFilename());
-			BaiKiemTraDTO baiKiemTra = new BaiKiemTraDTO();
-			baiKiemTra.setContent(file.getBytes());
-			baiKiemTra.setFileName(filename);
-			LopDTO lopDTO = lopService.getLop(id);
-			baiKiemTra.setLop(lopDTO);
-			baiKiemTra.setNoiDung(baiKiemTraDTO.getNoiDung());
-			baiKiemTra.setTieuDe(baiKiemTraDTO.getTieuDe());
-			baiKiemTra.setThoiGianBatDau(new Date());
-			String a = date.replace('T', ' ');
-			baiKiemTra.setThoiGianNop(a);
-			baiKiemTraService.save(baiKiemTra);
-			ra.addFlashAttribute("message", "Thêm bài kiểm tra thành công");
+			@RequestParam(value = "date", required=false) String date) throws IOException, java.text.ParseException {
+		if(date.length() ==0 && StringUtils.cleanPath(file.getOriginalFilename()).length() ==0)
+		{
+			ra.addFlashAttribute("message", "Thêm bài kiểm tra thất bại");
 			String b = "redirect:/upbaikt?id=" + id;
 			return b;
 		}
-		// System.out.println(formatter.format(date));
+		else
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			String dateInString = date.substring(0, 10);
+			System.out.println(dateInString);
+
+			Date datekiemtra = formatter.parse(dateInString);
+			System.out.println(datekiemtra);
+			if (!datekiemtra.after(new Date())) {
+				ra.addFlashAttribute("message", "Ngày nộp bài kiểm tra phải lớn hơn hôm nay");
+				String b = "redirect:/upbaikt?id=" + id;
+				return b;
+			} else {
+				String filename = StringUtils.cleanPath(file.getOriginalFilename());
+				BaiKiemTraDTO baiKiemTra = new BaiKiemTraDTO();
+				baiKiemTra.setContent(file.getBytes());
+				baiKiemTra.setFileName(filename);
+				LopDTO lopDTO = lopService.getLop(id);
+				baiKiemTra.setLop(lopDTO);
+				baiKiemTra.setNoiDung(baiKiemTraDTO.getNoiDung());
+				baiKiemTra.setTieuDe(baiKiemTraDTO.getTieuDe());
+				baiKiemTra.setThoiGianBatDau(new Date());
+				String a = date.replace('T', ' ');
+				baiKiemTra.setThoiGianNop(a);
+				baiKiemTraService.save(baiKiemTra);
+				ra.addFlashAttribute("message", "Thêm bài kiểm tra thành công");
+				String b = "redirect:/upbaikt?id=" + id;
+				return b;
+			}
+		}
+		
 
 	}
 
@@ -343,6 +352,12 @@ public class DasuoController {
 	public String uploadfileGiaoTrinh(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
 			@ModelAttribute("giaotrinh") GiaoTrinhDTO giaoTrinhDTO, @RequestParam("idlop") Integer idlop)
 			throws IOException {
+		if(StringUtils.cleanPath(file.getOriginalFilename()).length() ==0 && giaoTrinhDTO.getTieuDe().length() == 0)
+		{
+			ra.addFlashAttribute("message", "Thêm giáo trình thất bại");
+			String a = "redirect:/danggiaotrinh?id=" + idlop;
+			return a;
+		}
 		// lấy ra tên file
 		String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -419,19 +434,29 @@ public class DasuoController {
 	@PostMapping("/chitietbaikiemtra")
 	public String uploadfileBaiLam(@RequestParam("document") MultipartFile file, @RequestParam("id") Integer id,
 			RedirectAttributes ra) throws IOException {
+		if(StringUtils.cleanPath(file.getOriginalFilename()).length() ==0)
+		{
+			ra.addFlashAttribute("message", "Thêm bài làm thất bại");
+			String a = "redirect:/chitietbaikiemtra?id=" + id;
+			return a;
+		}
+		else
+		{
+			String filename = StringUtils.cleanPath(file.getOriginalFilename());
 
-		String filename = StringUtils.cleanPath(file.getOriginalFilename());
+			BaiLamDTO baiLamDTO = new BaiLamDTO();
+			baiLamDTO.setContent(file.getBytes());
+			baiLamDTO.setFileName(filename);
+			BaiKiemTraDTO baiKiemTraDTO = baiKiemTraService.getBaiKiemTra(id);
+			baiLamDTO.setBaiKiemTra(baiKiemTraDTO);
+			baiLamDTO.setThoiGian(new Date());
+			baiLamService.save(baiLamDTO);
+			ra.addFlashAttribute("message", "Thêm bài làm thành công");
+			String a = "redirect:/chitietbaikiemtra?id=" + id;
+			return a;
+		}
 
-		BaiLamDTO baiLamDTO = new BaiLamDTO();
-		baiLamDTO.setContent(file.getBytes());
-		baiLamDTO.setFileName(filename);
-		BaiKiemTraDTO baiKiemTraDTO = baiKiemTraService.getBaiKiemTra(id);
-		baiLamDTO.setBaiKiemTra(baiKiemTraDTO);
-		baiLamDTO.setThoiGian(new Date());
-		baiLamService.save(baiLamDTO);
-		ra.addFlashAttribute("message", "Thêm bài làm thành công");
-		String a = "redirect:/chitietbaikiemtra?id=" + id;
-		return a;
+		
 	}
 
 	@GetMapping("/downloadbaikiemtra")
