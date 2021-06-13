@@ -33,11 +33,12 @@
 					<hr style="width: 80.2%; opacity: 0.8; float: right;"
 						color="#069d86">
 				</div>
-				<div class="text-success">
-					<h3>[[${message}]]</h3>
-				</div>
+				<div th:class="@{${alert} + '-alert-linh2'}">
+                    <span class="closebtn-linh"
+                        onclick="this.parentElement.style.display='none';">&times;</span> <strong>[[${message}]]</strong>
+                </div>
 				<div class="body-block">
-					<form th:action="@{/upbaikt?id=14}" id="update-profile-form" action=""
+					<form th:action="@{'/upbaikt?id=' + ${lopId}}" id="update-profile-form" action=""
 						method="POST" modelattribute="baikiemtra"
 						enctype="multipart/form-data">
 						<div class="info-step-1">

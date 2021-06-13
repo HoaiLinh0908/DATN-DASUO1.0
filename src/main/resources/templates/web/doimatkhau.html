@@ -50,8 +50,9 @@
 						</div>
 						
 						<div id="dasuo-account-change-pass-content">
-						<div class="text-success">
-							<h3>[[${message}]]</h3>
+						<div th:class="@{${alert} + '-alert-linh2'}">
+							<span class="closebtn-linh"
+								onclick="this.parentElement.style.display='none';">&times;</span> <strong>[[${message}]]</strong>
 						</div>
 							<form class="custom-form" th:action="@{/doimatkhau}"
 								method="post" modelattribute="taikhoan"
@@ -64,13 +65,13 @@
 										</label>
 										<!-- Chinh lai input chieu dai 60% -->
 										<input placeholder="Mật khẩu từ 6 đến 32 ký tự"
-											type="password" id="edit-pass" name="matKhau" size="60"
+											type="password" id="old-pass" name="matKhau" size="60"
 											maxlength="128" class="form-text required"
 											title="Vui lòng nhập mật khẩu củ" required="">
 									</div>
 									<div class="form-item form-type-password form-item-pass">
 										<label for="edit-pass">Nhập mật khẩu mới <span
-											class="form-required" title="This field is required.">*</span>
+											class="form-required" id="newpassword" title="This field is required.">*</span>
 										</label>
 										<!-- Chinh lai input chieu dai 60% -->
 										<input placeholder="Mật khẩu từ 6 đến 32 ký tự"
@@ -98,7 +99,21 @@
 					</div>
 				</div>
 			</div>
-
+			<script>
+				var password = document.getElementById("edit-pass")
+					  , confirm_password = document.getElementById("edit-re-pass");
+		
+				function validatePassword(){
+					  if(password.value != confirm_password.value) {
+						confirm_password.setCustomValidity("Mật khẩu nhập lại không khớp!");
+					  } else {
+						confirm_password.setCustomValidity('');
+					  }
+				}
+		
+				password.onchange = validatePassword;
+				confirm_password.onkeyup = validatePassword;
+			</script>
 		</div>
 		<hr style="color: #069d86; width: 100%;">
 		<div class="last-content">

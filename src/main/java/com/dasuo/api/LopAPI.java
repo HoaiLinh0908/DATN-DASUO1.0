@@ -93,6 +93,17 @@ public class LopAPI {
 		}
 	}
 	
+	@PutMapping("/taoroom/{id}")
+	public ResponseEntity<LopDTO> taoRoom(@RequestBody String roomID,@PathVariable("id") Integer id) {
+		if(roomID != null && roomID != "")
+		{
+			return new ResponseEntity<>(lopService.taoRoom(id, roomID),HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		}
+	}
+	
 	@DeleteMapping("/lops/{id}")
 	public ResponseEntity<HttpStatus> deleteLop(@PathVariable("id") Integer id){
 		LopDTO lopDTO= lopService.getLop(id);

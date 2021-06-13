@@ -164,4 +164,11 @@ public class LopService implements ILopService{
 		}
 		return totalItem / limit;
 	}
+
+	@Override
+	public LopDTO taoRoom(Integer id, String roomID) {
+		Lop lop = lopRepository.findById(id).orElse(null);
+		lop.setTenLop(roomID);
+		return lopConverter.toDTO(lopRepository.save(lop));
+	}
 }

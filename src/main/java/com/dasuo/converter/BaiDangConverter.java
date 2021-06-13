@@ -50,7 +50,13 @@ public class BaiDangConverter {
 		baiDangDTO.setBaiDang_Id(baiDang.getBaiDang_Id());
 		baiDangDTO.setGioiTinh(baiDang.isGioiTinh());
 		baiDangDTO.setHocPhi(baiDang.getHocPhi());
-		baiDangDTO.setMoTa(baiDang.getMoTa());
+		
+		String mota = baiDang.getMoTa();
+		if(mota.length() > 120) {
+			baiDangDTO.setMoTa(mota.substring(0, 120) + "...");
+		} else {
+			baiDangDTO.setMoTa(mota);
+		}
 		baiDangDTO.setNgayBatDau(baiDang.getNgayBatDau());
 		baiDangDTO.setSdt(baiDang.getSdt());
 		baiDangDTO.setSoBuoi(baiDang.getSoBuoi());

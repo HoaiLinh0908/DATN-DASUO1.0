@@ -231,7 +231,11 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/upbaikt")
-	public String viewUpBaiKT() {
+	public String viewUpBaiKT(@RequestParam("id") Integer id, Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("lopId", id);
 		return "web/upbaikt";
 	}
 
@@ -247,7 +251,8 @@ public class DasuoController {
 		Date datekiemtra = formatter.parse(dateInString);
 		System.out.println(datekiemtra);
 		if (!datekiemtra.after(new Date())) {
-			ra.addFlashAttribute("message", "Ngày nộp bài kiểm tra phải lớn hơn hôm nay");
+			ra.addFlashAttribute("message", "Ngày nộp bài kiểm tra phải lớn hơn hôm nay!");
+			ra.addFlashAttribute("alert", "error");
 			String b = "redirect:/upbaikt?id=" + id;
 			return b;
 		} else {
@@ -264,6 +269,7 @@ public class DasuoController {
 			baiKiemTra.setThoiGianNop(a);
 			baiKiemTraService.save(baiKiemTra);
 			ra.addFlashAttribute("message", "Thêm bài kiểm tra thành công");
+			ra.addFlashAttribute("alert", "success");
 			String b = "redirect:/upbaikt?id=" + id;
 			return b;
 		}
@@ -288,13 +294,14 @@ public class DasuoController {
 
 				_taiKhoanDTO.setMatKhau(passwordEncoder.encode(taiKhoanDTO.getMatKhauMoi()));
 				taiKhoanService.save(_taiKhoanDTO);
-				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thành công");
+				ra.addFlashAttribute("message", "Đổi mật khẩu thành công!");
+				ra.addFlashAttribute("alert", "success");
 			} else {
-				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+				ra.addFlashAttribute("message", "Mật khẩu hiện tại không đúng!");
 				ra.addFlashAttribute("alert", "error");
 			}
 		} else {
-			ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+			ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại!");
 			ra.addFlashAttribute("alert", "error");
 		}
 		return "redirect:/doimatkhau";
@@ -356,6 +363,7 @@ public class DasuoController {
 		giaoTrinh.setThoiGian(new Date());
 		giaoTrinhService.save(giaoTrinh);
 		ra.addFlashAttribute("message", "Thêm giáo trình thành công");
+		ra.addFlashAttribute("alert", "success");
 		return "redirect:/danggiaotrinh?id=" + idlop;
 	}
 
@@ -404,6 +412,10 @@ public class DasuoController {
 		List<BaiKiemTraDTO> baiKiemTraDTO = baiKiemTraService.getBaiKiemTraFindByLop(lopDTO);
 		model.addAttribute("lop", lopDTO);
 		model.addAttribute("listDoc", baiKiemTraDTO);
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("lopId", id);
 		return "web/hienthibaikt";
 	}
 
@@ -456,7 +468,9 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/lophoctructuyen")
-	public String lopHocOnl() {
+	public String lopHocOnl(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		return "web/loponline";
 	}
 }

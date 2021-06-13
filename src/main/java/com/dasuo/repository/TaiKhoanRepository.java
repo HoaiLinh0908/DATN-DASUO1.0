@@ -11,7 +11,7 @@ import com.dasuo.entity.TaiKhoan;
 @Repository
 public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Integer>{
 
-	@Query(value="SELECT taikhoan.*,count(lop.lop_id) FROM dasuo.taikhoan,dasuo.lop where tai_khoan_id = nguoiday_id group by tai_khoan_id order by count(lop.lop_id) DESC limit 4",nativeQuery=true)
+	@Query(value="SELECT taikhoan.*,count(lop.lop_id) FROM dasuo.taikhoan,dasuo.lop where tai_khoan_id = nguoiday_id and loai_id = 2 group by tai_khoan_id order by count(lop.lop_id) DESC limit 4",nativeQuery=true)
 	public List<Object[]> taiKhoanUuTu();
 	@Query(value="SELECT * FROM dasuo.taikhoan_mon where tai_khoan_id = ?",nativeQuery=true)
 	public List<Object[]> taiKhoan_Mon(Integer id);
