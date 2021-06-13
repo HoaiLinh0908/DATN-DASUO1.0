@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dasuo.config.Utility;
 import com.dasuo.entity.TaiKhoan;
@@ -31,7 +32,7 @@ public class ForgotPasswordController {
     private JavaMailSender mailSender;
 	@GetMapping("/forgot_password")
     public String showForgotPasswordForm() {
-		return "forgot_password_form";
+		return "web/quenmatkhau";
  
     }
  
@@ -52,7 +53,7 @@ public class ForgotPasswordController {
             model.addAttribute("error", "Error while sending email");
         }
              
-        return "forgot_password_form";
+        return "web/quenmatkhau";
     }
      
     private void sendEmail(String email, String resetPasswordLink) throws MessagingException, UnsupportedEncodingException{
@@ -90,12 +91,11 @@ public class ForgotPasswordController {
             return "message";
         }
          
-        return "reset_password_form";
+        return "web/taolaimatkhau";
     }
     
     @PostMapping("/reset_password")
-    public String processResetPassword(HttpServletRequest request, Model model) {
-        String token = request.getParameter("token");
+    public String processResetPassword(HttpServletRequest request, Model model,@RequestParam("token") String token) {
         String password = request.getParameter("password");
          
         TaiKhoan customer = taiKhoanService.getByResetPasswordToken(token);
@@ -109,7 +109,7 @@ public class ForgotPasswordController {
             model.addAttribute("message", "You have successfully changed your password.");
         }
          
-        return "reset_password_form";
+        return "web/taolaimatkhau";
     }
      
      

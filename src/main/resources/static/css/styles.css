@@ -987,8 +987,18 @@ body{
 }
 #tomtatyc{
     width: 100%;
-    height: 35px;
+    height: 37px;
     border: .5px solid #ccc;
+    margin-top: 16px;
+    padding: 0px 6px;
+}
+
+#idroom {
+    margin-left: 0px;
+    width: 25%;
+    height: 35px;
+    border: .5px solid rgb(22, 21, 21);
+    border-radius: 4px;
     margin-top: 16px;
     padding: 0px 6px;
 }
@@ -2087,3 +2097,29 @@ a {
   .closebtn-linh:hover {
     color: black;
   }
+
+  .btn-taoroom {
+
+     position: inherit;
+     color: #fff;
+     background-color: orange;
+     padding-left: 20px;
+     padding-right: 20px;
+     padding-bottom: 10px;
+     padding-top: 10px;
+     border-radius: 4px;
+     margin-top: 100px;
+     float: none;
+ }
+
+ .lophoctructuyen-top {
+     padding-top: 40px;
+     text-align: center;
+     height: 20%;
+ }
+
+ .loponl-conten{
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

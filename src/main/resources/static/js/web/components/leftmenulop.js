@@ -16,7 +16,7 @@ $(document).ready(function(){
                         <a href="/xemgiaotrinh?id=${bdid}"> <i class="fa fa-book icon-menu"></i>Giáo trình </a>
                     </li>
                     <li>
-                        <a style="color: #ff961e;" href="#"><i class="fas fa-flag icon-menu"></i> Lớp học online</i></a>
+                        <a style="color: #ff961e;" href="/lophoctructuyen?id=${bdid}"><i class="fas fa-flag icon-menu"></i> Lớp học online</i></a>
                     </li>
                 </ul>`
         $(".left-content").html(leftMenu);

@@ -63,6 +63,7 @@
                                 </p>
                                 <input type="text" name="tomtatyc" id="tomtatyc"
                                     placeholder="Ví dụ: Tìm gia sư tiếng anh lớp 7 Đà Nẵng" maxlength="100" value="">
+                                <p id="vali-tomtatyc" style="color: red; display: none;">Yêu cầu không để trống!</p>
                             </div>
                             <div class="col-md-6">
                                 <div class="class-field-4 class-field">
@@ -73,6 +74,7 @@
                                             <script src="\js\web\monhoc\hienthidanhsachmon.js"></script>
                                         </optgroup>
                                     </select>
+                                    <p id="vali-monhoc" style="color: red; display: none;">Yêu cầu không để trống!</p>
                                 </div>
                             </div>
                         </div>
@@ -86,25 +88,18 @@
                                         <input type="text" class="numberOnly" autocomplete="off" maxlength="13"
                                             placeholder="Ví dụ:250,000" name="price_cost" id="price_cost" value=""
                                             data-original-title="" title="">
+                                        <p id="vali-hocphi" style="color: red; display: none;">Yêu cầu không để trống!</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="class-field-6 class-field class-time">
-                                        <p class="p-create-class-title">Số giờ học 1 buổi <span
-                                                class="teacher-alert">*</span></p>
-                                        <input type="radio" name="duration" value="1"><label>1h</label>
-                                        <input type="radio" name="duration" value="1.5"><label>1.5h</label>
-                                        <input type="radio" name="duration" value="2" checked=""><label>2h</label>
-                                        <input type="radio" name="duration" value="2.5"><label>2.5h</label>
-                                    </div>
-                                </div>
+                                
                                 <div style="left: 0;" class="col-md-6">
 
                                     <div style="left: 0px;" class="class-field-5 class-field">
                                         <p class="p-create-class-title">Điện thoại liên hệ <span
                                                 class="teacher-alert">*</span></p>
-                                        <input class="numberOnly" type="text" name="phone_class" id="phone_class"
-                                            placeholder="Ví dụ: 091234567" value="0353312340">
+                                        <input class="numberOnly" type="tel" name="phone_class" id="phone_class"
+                                            placeholder="Ví dụ: 091234567" value="">
+                                        <p id="vali-sdt" style="color: red; display: none;">Yêu cầu không để trống!</p>
                                     </div>
 
                                 </div>
@@ -119,7 +114,7 @@
                             </div>
                             <p class="note-calender">Bấm để chọn lịch (<span style="color: #007e00">Màu xanh</span> là
                                 những buổi có thể học.)</p>
-
+                            <p id="vali-buois" style="color: red; display: none;">Chưa chọn buổi học!</p>
                         </div>
                         <div style="width: 100%;" class="col-md-12">
                             <div class="class-field-12 class-field">
@@ -129,6 +124,7 @@
                                 <textarea style="width: 95%;padding: 8px 10px;margin-left: 20px;" name="introduce_class"
                                     id="introduce-class" placeholder="Mô tả các nội dung muốn học tại đây... " cols="38"
                                     rows="8"></textarea>
+                                <p id="vali-mota" style="color: red; display: none;">Yêu cầu không để trống!</p>
                             </div>
                         </div>
                     </div>
@@ -138,44 +134,16 @@
                                 TIN THÊM</legend>
                             <div class="row-read-more read-more-wrap">
                                 <div class="read-more-target">
-
-                                    <!--Số buổi học 1 tuần-->
-                                    <div class="col-md-6">
-                                        <div class="class-field-6 class-field class-sum-day">
-                                            <p class="p-create-class-title">Số buổi học trong tuần</p>
-                                            <input type="radio" name="times_per_week" value="1"><label> 1 buổi</label>
-                                            <input type="radio" name="times_per_week" value="2"
-                                                checked="checked"><label> 2 buổi</label>
-                                            <input type="radio" name="times_per_week" value="3"><label> 3 buổi</label>
-                                            <input type="radio" name="times_per_week" value="4"><label> từ 4
-                                                buổi</label>
-                                        </div>
-                                    </div>
-
                                     <!--Số học viên-->
                                     <div class="col-md-6">
                                         <div class="class-field-8 class-field">
                                             <p class="p-create-class-title">Số học viên</p>
                                             <input style="padding: 8px 5px; padding-right: 220px;" type="text"
-                                                name="number_student" id="number_student" value="1">
+                                                name="number_student" id="number_student" value="1" readonly>
                                         </div>
                                     </div>
 
                                     <!--Giới tính gia sư-->
-
-                                    <div class="col-md-6">
-                                        <div class="class-field-8 class-field">
-                                            <p class="p-create-class-title">Giới tính gia sư</p>
-                                            <span style="padding-right:15px; min-width:60px;">
-                                                <input type="checkbox" name="teacher_male" id="teacher_male" value="1"
-                                                    checked=""> Nam
-                                            </span>
-                                            <span>
-                                                <input type="checkbox" name="teacher_female" id="teacher_female"
-                                                    value="0" checked=""> Nữ
-                                            </span>
-                                        </div>
-                                    </div>
 
                                     <!--Ngày học dự kiến-->
                                     <div class="col-md-6">
@@ -183,6 +151,7 @@
                                             <p class="p-create-class-title">Ngày dự kiến học</p>
                                             <input style="padding: 8px 5px; padding-right: 220px;" type="date"
                                                 name="day-start" id="day-start" value="" class="hasDatepicker">
+                                            <p id="vali-ngayhoc" style="color: red; display: none;">Yêu cầu không để trống!</p>
                                         </div>
                                     </div>
                                 </div>

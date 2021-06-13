@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/quenmatkhau.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="/css/quenmatkhau.css">
 </head>
 <body>
-    <div style="background-color: black;" class="main-quenmatkhau">
-        <div class="overlay">
-        </div>
-        <div class="quenmatkhau-form">
-            <div class="quenmatkhau-content">
-                <div class="forget-pass">
-                    <div class="box-title">Lấy lại mật khẩu</div>
-                    <a class="popup-dismiss" href="http://127.0.0.1:5500/loggin.html">x</a>
-                </div>
-                <div class="forget-pass-form">
-                    <form action="/" method="post" id="dasuo-acc-pass" accept-charset="UTF-8">
-                        <div class="form-itemt">
-                            <label for="edit-email-phone--2">Email hoặc số điện thoại * </label>
-                            <input placeholder="Nhập email hoặc số điện thoại" type="text" id="edit-email-phone--2" name="email_phone" value="" size="60" maxlength="254" class="form-text">
-                        </div>
-                        <input type="submit" id="edit-submit--6" name="op" value="Lấy mật khẩu" class="form-submit">
-                    </form>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+	<div style="background-color: black;" class="main-quenmatkhau">
+		<div class="overlay"></div>
+		<div class="quenmatkhau-form">
+			<div class="quenmatkhau-content">
+				<div th:if="${error != null}">
+					<p class="text-danger">[[${error}]]</p>
+				</div>
+				<div th:if="${message != null}">
+					<p class="text-warning">[[${message}]]</p>
+				</div>
+				<div class="forget-pass">
+					<div class="box-title">Quên mật khẩu</div>
+					<a class="popup-dismiss" href="/dangnhap">x</a>
+				</div>
+				<div class="forget-pass-form">
+					<form th:action="@{/forgot_password}" method="post" id="dasuo-acc-pass"
+						accept-charset="UTF-8">
+						<div class="form-itemt">
+							<label for="edit-email-phone--2">Nhập Email * </label>
+                            <p style="font-size: 12px;margin-bottom: 10px;">Yêu cầu đổi mật khẩu sẽ được gửi về email của bạn.</p>
+                             <input
+								placeholder="Nhập email" type="text" id="edit-email-phone--2"
+								name="email" value="" size="60" maxlength="254"
+								class="form-text">
+                            
+						</div>
+						<input type="submit" id="edit-submit--6" name="op"
+							value="Gửi yêu cầu" class="form-submit">
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div>
 </body>
 </html>

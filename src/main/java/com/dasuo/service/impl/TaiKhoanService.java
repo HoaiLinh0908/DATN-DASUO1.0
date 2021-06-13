@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.dasuo.converter.TaiKhoanConverter;
@@ -99,8 +101,8 @@ public class TaiKhoanService implements ITaiKhoanService{
 	    }
 
 	public void updatePassword(String newPassword, TaiKhoan taiKhoan) {
-		
-			taiKhoan.setMatKhau(newPassword);
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			taiKhoan.setMatKhau(passwordEncoder.encode(newPassword));
 			taiKhoan.setCode(null);
 			taiKhoanRepository.save(taiKhoan);
 	

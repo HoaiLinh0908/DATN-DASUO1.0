@@ -216,18 +216,15 @@ public class DasuoController {
 		model.addAttribute("ten", principal.getName());
 		return "web/trangchu";
 	}
+
 	@RequestMapping("/check")
 	public String check(Principal principal, Model model) {
-		if(SecurityUtils.getPrincipal().getLoai() == null)
-		{
+		if (SecurityUtils.getPrincipal().getLoai() == null) {
 			return "redirect:/dangnhap";
-		}
-		else {
-			if(SecurityUtils.getPrincipal().getLoai().getLoai_Id() == 5)
-			{
+		} else {
+			if (SecurityUtils.getPrincipal().getLoai().getLoai_Id() == 5) {
 				return "redirect:/admin";
-			}
-			else {
+			} else {
 				return "redirect:/trang-chu";
 			}
 		}
@@ -303,10 +300,17 @@ public class DasuoController {
 		return "redirect:/doimatkhau";
 	}
 
-	@RequestMapping("/quenmatkhau")
-	public String viewQuenMatKhau() {
-		return "forgot_password_form";
-	}
+//	@RequestMapping("/taolaimatkhau")
+//	public String viewQuenMatKhau() {
+//		return "web/taolaimatkhau";
+//	}
+
+	/*
+	 * @PostMapping("/quenmatkhau") public String QuenMatKhau(HttpServletRequest
+	 * request, Model model) {
+	 * 
+	 * return "web/quenmatkhau"; }
+	 */
 
 	@RequestMapping("/chitietbaidang")
 	public String chiTietBaiDang(Model model) {
@@ -375,8 +379,10 @@ public class DasuoController {
 	public String xemGiaoTrinh(@RequestParam("id") Integer id, Model model) {
 		LopDTO lopDTO = lopService.getLop(id);
 		List<GiaoTrinhDTO> giaoTrinhDTO = giaoTrinhService.getGiaoTrinhFindByLop(lopDTO);
-
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		model.addAttribute("lop", lopDTO);
+		model.addAttribute("lopId", lopDTO.getLop_Id());
 		model.addAttribute("listDoc", giaoTrinhDTO);
 		return "web/xem-giao-trinh";
 	}
@@ -447,5 +453,10 @@ public class DasuoController {
 	@RequestMapping("/chitietlophoc")
 	public String chiTietLopHoc() {
 		return "web/chitietlophoc";
+	}
+	
+	@RequestMapping("/lophoctructuyen")
+	public String lopHocOnl() {
+		return "web/loponline";
 	}
 }
