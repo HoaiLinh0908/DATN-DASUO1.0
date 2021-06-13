@@ -1204,6 +1204,11 @@ label {
     width: 100%;
 }
 
+#old-pass {
+    padding: 6px 5px;
+    width: 100%;
+}
+
 /* css cho trang tìm kiếm */
 .home-category {
     height: 1300px;
@@ -2062,6 +2067,26 @@ a {
     padding: 10px 0;
     padding-right: 220px;
 }
+
+.error-alert-linh2 {
+    padding: 20px;
+    background-color: #eb7168;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: block;
+  }
+
+  .success-alert-linh2 {
+    padding: 20px;
+    background-color: #04AA6D;
+    color: white;
+    margin-left: 25px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: block;
+  }
 
 .error-alert-linh {
     padding: 20px;

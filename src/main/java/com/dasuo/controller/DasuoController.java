@@ -231,7 +231,11 @@ public class DasuoController {
 	}
 
 	@RequestMapping("/upbaikt")
-	public String viewUpBaiKT() {
+	public String viewUpBaiKT(@RequestParam("id") Integer id, Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("lopId", id);
 		return "web/upbaikt";
 	}
 
@@ -239,10 +243,40 @@ public class DasuoController {
 	@PostMapping("/upbaikt")
 	public String uploadfileBaiKiemTra(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
 			@ModelAttribute("baikiemtra") BaiKiemTraDTO baiKiemTraDTO, @RequestParam("id") Integer id,
+<<<<<<< HEAD
 			@RequestParam(value = "date", required=false) String date) throws IOException, java.text.ParseException {
 		if(date.length() ==0 && StringUtils.cleanPath(file.getOriginalFilename()).length() ==0)
 		{
 			ra.addFlashAttribute("message", "Thêm bài kiểm tra thất bại");
+=======
+			@RequestParam("date") String date) throws IOException, java.text.ParseException {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		String dateInString = date.substring(0, 10);
+		System.out.println(dateInString);
+
+		Date datekiemtra = formatter.parse(dateInString);
+		System.out.println(datekiemtra);
+		if (!datekiemtra.after(new Date())) {
+			ra.addFlashAttribute("message", "Ngày nộp bài kiểm tra phải lớn hơn hôm nay!");
+			ra.addFlashAttribute("alert", "error");
+			String b = "redirect:/upbaikt?id=" + id;
+			return b;
+		} else {
+			String filename = StringUtils.cleanPath(file.getOriginalFilename());
+			BaiKiemTraDTO baiKiemTra = new BaiKiemTraDTO();
+			baiKiemTra.setContent(file.getBytes());
+			baiKiemTra.setFileName(filename);
+			LopDTO lopDTO = lopService.getLop(id);
+			baiKiemTra.setLop(lopDTO);
+			baiKiemTra.setNoiDung(baiKiemTraDTO.getNoiDung());
+			baiKiemTra.setTieuDe(baiKiemTraDTO.getTieuDe());
+			baiKiemTra.setThoiGianBatDau(new Date());
+			String a = date.replace('T', ' ');
+			baiKiemTra.setThoiGianNop(a);
+			baiKiemTraService.save(baiKiemTra);
+			ra.addFlashAttribute("message", "Thêm bài kiểm tra thành công");
+			ra.addFlashAttribute("alert", "success");
+>>>>>>> c7b6c43e34240bbd7563241fa659b911fbd512e0
 			String b = "redirect:/upbaikt?id=" + id;
 			return b;
 		}
@@ -297,13 +331,14 @@ public class DasuoController {
 
 				_taiKhoanDTO.setMatKhau(passwordEncoder.encode(taiKhoanDTO.getMatKhauMoi()));
 				taiKhoanService.save(_taiKhoanDTO);
-				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thành công");
+				ra.addFlashAttribute("message", "Đổi mật khẩu thành công!");
+				ra.addFlashAttribute("alert", "success");
 			} else {
-				ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+				ra.addFlashAttribute("message", "Mật khẩu hiện tại không đúng!");
 				ra.addFlashAttribute("alert", "error");
 			}
 		} else {
-			ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại");
+			ra.addFlashAttribute("message", "Bạn đã đổi mật khẩu thất bại!");
 			ra.addFlashAttribute("alert", "error");
 		}
 		return "redirect:/doimatkhau";
@@ -371,6 +406,7 @@ public class DasuoController {
 		giaoTrinh.setThoiGian(new Date());
 		giaoTrinhService.save(giaoTrinh);
 		ra.addFlashAttribute("message", "Thêm giáo trình thành công");
+		ra.addFlashAttribute("alert", "success");
 		return "redirect:/danggiaotrinh?id=" + idlop;
 	}
 
@@ -419,6 +455,10 @@ public class DasuoController {
 		List<BaiKiemTraDTO> baiKiemTraDTO = baiKiemTraService.getBaiKiemTraFindByLop(lopDTO);
 		model.addAttribute("lop", lopDTO);
 		model.addAttribute("listDoc", baiKiemTraDTO);
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
+		model.addAttribute("tkid", SecurityUtils.getPrincipal().getUser_Id());
+		model.addAttribute("lopId", id);
 		return "web/hienthibaikt";
 	}
 
@@ -481,7 +521,9 @@ public class DasuoController {
 	}
 	
 	@RequestMapping("/lophoctructuyen")
-	public String lopHocOnl() {
+	public String lopHocOnl(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
+		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		return "web/loponline";
 	}
 }
