@@ -186,9 +186,9 @@ public class DasuoController {
 
 	@PostMapping("/suathongtin")
 	public String viewSuaThonTin1(HttpServletResponse response, @ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO,
-			@RequestParam("tinhThanhid") Integer id, RedirectAttributes ra) {
+			@RequestParam(value="tinhThanhid", required=false) Integer id, RedirectAttributes ra) {
 		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
-		if (_taiKhoanDTO != null && id != null) {
+		if (_taiKhoanDTO != null && id != null && id != 0) {
 			_taiKhoanDTO.setHoTen(taiKhoanDTO.getHoTen());
 			_taiKhoanDTO.setMoTa(taiKhoanDTO.getMoTa());
 			_taiKhoanDTO.setGioiTinh(taiKhoanDTO.isGioiTinh());

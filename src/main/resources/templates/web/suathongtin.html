@@ -53,18 +53,18 @@
 									nhân</h3>
 								<div class="col-md-1">
 									<label for="">HỌ TÊN ĐẦY ĐỦ</label> <span class="teacher-alert">*</span><br>
-									<input type="text" name="hoTen" th:value="${taiKhoan.hoTen}">
+									<input type="text" name="hoTen" th:value="${taiKhoan.hoTen}" title="Please enter your First Name" required="">
 								</div>
 								<div class="col-md-1">
 									<label for="">ĐIỆN THOẠI</label> <span class="teacher-alert">*</span><br>
-									<input type="text" name="sdt" th:value="${taiKhoan.sdt}">
+									<input type="text" name="sdt" th:value="${taiKhoan.sdt}" title="Please enter your First Name" required="">
 								</div>
 								<div class="col-md-1">
 									<label for="">TỈNH, THÀNH PHỐ ĐANG SỐNG</label> <select
 										name="tinhThanhid" id="monhoclinh">
 										<option value="">Lựa chọn tỉnh thành</option>
 										<th:block th:each="tinhThanh: ${tinhThanh}">
-											<option th:value="${tinhThanh.Id}">[[${tinhThanh.tenTinh}]]</option>
+											<option th:value="${tinhThanh.Id}" title="Please enter your First Name" required="">[[${tinhThanh.tenTinh}]]</option>
 										</th:block>
 									</select> <span class="teacher-alert">*</span>
 								</div>
@@ -92,7 +92,7 @@
 								nhất)</i>
 							<textarea
 								placeholder="Mô tả bản thân, bằng cấp và kinh nghiệm của bạn (nên dài hơn 150 chữ cái)..."
-								name="moTa" id="mo-ta-ban-than" cols="30" rows="5"></textarea>
+								name="moTa" id="mo-ta-ban-than" cols="30" rows="5" title="Please enter your First Name" required=""></textarea>
 						</div>
 					</div>
 					<!-- <div style="width: 100%;margin-top: 16px;" class="ho-so-chuyen-mon">
