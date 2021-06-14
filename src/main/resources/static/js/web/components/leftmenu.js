@@ -25,16 +25,10 @@ $(document).ready(function(){
                         </ul>
                     </li>
                     <li>
-                        <a href="/hienthilichlop"><i class="fa fa-pencil-square icon-menu"></i> Lớp</a>
-                    </li>
-					<li>
-                        <a href="/naptien"><i class="fab fa-amazon-pay icon-menu"></i>Nạp tiền</a>
-                    </li>
-					<li>
-                        <a href="/ruttien"><i class="fab fa-amazon-pay icon-menu"></i>Rút tiền</a>
-                    </li>
-					<li>
                         <a href="/phanhoi"><i class="fa fa-envelope icon-menu"></i>Phản hồi</a>
+                    </li>
+                    <li>
+                        <a href="/hienthilichlop"><i class="fa fa-pencil-square icon-menu"></i> Lớp</a>
                     </li>
                 </ul>`
     $(".left-content").html(leftMenu);

@@ -25,6 +25,8 @@ public class LopDTO {
 	private List<GiaoTrinhDTO> giaoTrinh;
 	
 	private Integer baiDangId;
+	
+	private Integer sobuoi;
 
 	public LopDTO() {
 		super();
@@ -116,6 +118,14 @@ public class LopDTO {
 
 	public void setBaiDangId(Integer baiDangId) {
 		this.baiDangId = baiDangId;
+	}
+
+	public Integer getSobuoi() {
+		return sobuoi;
+	}
+
+	public void setSobuoi(Integer sobuoi) {
+		this.sobuoi = sobuoi;
 	}
 	
 	
