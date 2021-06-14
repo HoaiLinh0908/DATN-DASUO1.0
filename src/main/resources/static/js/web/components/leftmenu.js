@@ -14,7 +14,7 @@ $(document).ready(function(){
                             <li><a href="#">Giáo viên yêu thích</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
+                    <li><a href="/lichsugiaodich"> <i class="fas fa-dollar-sign icon-menu"></i> Lịch sử giao dịch</a></li>
                     <li>
                         <a href="#"><i class="fas fa-flag icon-menu"></i> Thông tin cá nhân <i
                                 class="fas fa-chevron-right show-right"></i></a>

@@ -609,7 +609,7 @@ h2.text-logo {
 
 
 
-/* css cho sua thông tin */
+/* css cho sua th么ng tin */
 body{
     background-color: #f7f7f7;
 }
@@ -650,7 +650,7 @@ body{
     position: absolute;
     background-color: #fff;
     height: auto;
-    left: 295px;
+    left: 337px;
     padding: 8px 0;
     width: 300px;
     border-bottom:1px solid rgba(0, 0, 0, 0.3);
@@ -948,7 +948,7 @@ body{
 }
 
 
-/* css cho tạo bài đăng */
+/* css cho t岷 b脿i 膽膬ng */
 
 .p-create-class-body .left-form{
     width: 67%;
@@ -1135,7 +1135,7 @@ body{
 
 
 
-/* css trang đỗi mật khẩu */
+/* css trang 膽峄梚 m岷璽 kh岷﹗ */
 .container.main-content{
     width: 100%;
    
@@ -1209,7 +1209,7 @@ label {
     width: 100%;
 }
 
-/* css cho trang tìm kiếm */
+/* css cho trang t矛m ki岷縨 */
 .home-category {
     height: 1300px;
     clear: both;
@@ -1275,7 +1275,7 @@ label {
     color: white;
   }
 
-/* css cho trang up bài kiểm tra */
+/* css cho trang up b脿i ki峄僲 tra */
 
 textarea{
     width: 100%;
@@ -1298,7 +1298,7 @@ textarea{
 
 
 
-/* css cho hiện bài đăng */
+/* css cho hi峄噉 b脿i 膽膬ng */
 .creator-name{
     margin-top: -6px;
 }
@@ -1432,7 +1432,7 @@ img {vertical-align: middle;}
   .prev, .next,.text {font-size: 11px}
 }
 
-/* css cho trang hiện lịch lớp học online */
+/* css cho trang hi峄噉 l峄媍h l峄沺 h峄峜 online */
 .container{
     width: 100%;
     margin-top: 54px; 
@@ -1479,7 +1479,7 @@ img {vertical-align: middle;}
     
 }
 
-/* css cho trang chủ */
+/* css cho trang ch峄� */
 .suluachon h2{
     padding: 30px;
 }
@@ -1524,7 +1524,7 @@ img {vertical-align: middle;}
     padding: 20px 43px;
 }
 
-/* css nháp phần list chat */
+/* css nh谩p ph岷 list chat */
 .wrapper-dkgs{
     background-color: #fff;
     width: 100%;
@@ -1639,7 +1639,7 @@ img {vertical-align: middle;}
     color: #069d86;
 }
 
-/* 5 lý do đk gia sư */
+/* 5 l媒 do 膽k gia s瓢 */
 .section_whyuss {
     padding: 24px 0;
     background: url(/assets/img/whydasuo.jpg) no-repeat top center;
@@ -1680,7 +1680,7 @@ img {vertical-align: middle;}
     border-radius: 4px;
     padding: 6px 6px;
 }
-/* 5 lý do đk gia sư */
+/* 5 l媒 do 膽k gia s瓢 */
 
 
 .section_whyus {
@@ -1774,7 +1774,7 @@ img {vertical-align: middle;}
     text-align: justify;
 }
 
-/* Form đăng ký gia sư */
+/* Form 膽膬ng k媒 gia s瓢 */
 .form-dkgs{
     width: 100%;
     height: auto;
@@ -1954,7 +1954,7 @@ a {
 }
 /* css cho trang list-chat */
 
-/* css cho trang xem giáo trình */
+/* css cho trang xem gi谩o tr矛nh */
     .file-giao-trinh{
         margin-top: 12px;
         padding: 0 12px;
@@ -1968,8 +1968,8 @@ a {
     .info-step-1 div{
         padding: 12px 12px;
     }
-/* css cho trang xem giáo trình */
-/* css cho trang gia sư online */
+/* css cho trang xem gi谩o tr矛nh */
+/* css cho trang gia s瓢 online */
 .giasuonline_right_content h3 {
     font-size: 24px ;
     margin-top: 20px;
@@ -1997,9 +1997,9 @@ a {
     padding-left: 30px;
     font-size: 14px;
 }
-/* css cho trang gia sư online */
+/* css cho trang gia s瓢 online */
 
-/* css cho trang xem thông báo */
+/* css cho trang xem th么ng b谩o */
     .title-tb{
         padding: 10px 8px;
         width: 222px;
@@ -2014,8 +2014,8 @@ a {
         text-align: center;
         margin-top: 40px;
     }
-/* css cho trang xem thông báo */
-/* css cho trang hiển thị chi tiết bài đăng */
+/* css cho trang xem th么ng b谩o */
+/* css cho trang hi峄僴 th峄� chi ti岷縯 b脿i 膽膬ng */
 .header-study-group {
     background: -webkit-linear-gradient(top,rgba(106,249,254,0.15),#fff 50%,#fff);
     padding: 5px 10px;
@@ -2057,7 +2057,7 @@ a {
 }
 
 
-/* css cho trang hiển thị chi tiết bài đăng */
+/* css cho trang hi峄僴 th峄� chi ti岷縯 b脿i 膽膬ng */
 .right-contents{
     height: auto;
 }

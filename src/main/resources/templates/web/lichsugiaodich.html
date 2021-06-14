@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" />
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Bài đăng tìm lớp</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <script src="/js/web/components/header_web.js"></script>
+        </div>
+    </div>
+    <div style="margin-top: 62px; width: 98%;height: 700px; padding: 0 120px;" class="main-wrapper">
+        <div style="background: color #f7f7f7;; padding-bottom: 10px;height: auto;" class="view">
+            <div class="view-header">
+                <h4 style="background-color: #069d86;padding: 8px 8px;width: 20%;color: #fff;">LỊCH SỬ GIAO DỊCH CỦA BẠN</h4>
+                <hr style="width: 80.2%;opacity: 0.8;;float: right;">
+            </div>
+            <div class="bg-gradient-pink">
+                <div class="page-classes-filters">
+                    <form action="/class" method="get" id="views-exposed-form-nhom-hoc-chung-page-3"
+                        accept-charset="UTF-8">
+                        <div>
+                            <div class="views-exposed-form">
+                                
+                                <div class="hien-thi-ket-qua" style="margin-top: 35px;">
+                                    <p style="font-size: 14px; margin-left: 8px; color: #970218;">
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <hr style="width: 100%;opacity: 0.8;float: right;">
+            </div>
+            <div class="view-content">
+                <div style="margin-bottom: 16px;" class="row-tittle">
+                    <div class="row">
+                        <div style="float: left;" class="col-md-2 col-sm-2">
+                            <div class="row-request-1">
+                                <h3>LỊCH SỬ GIAO DỊCH </h3>
+                            </div>
+                        </div>
+                        <div style="float: left ;margin-left: 30px;" class="col-md-6 col-sm-6">
+                            <div class="row-request-2">
+                                <h3>NỘI DUNG GIAO DỊCH</h3>
+                            </div>
+                        </div>
+                        <div style="float: left;" class="col-md-2 col-sm-2">
+                            <div class="row-request-3">
+                                <h3>SỐ TIỀN GIAO DỊCH</h3>
+                            </div>
+                        </div>
+                        <div style="float: left; margin-left: 30px;" class="col-md-2 col-sm-2">
+                            <div class="row-request-4">
+                                <h3>THỜI GIAN GIAO DỊCH</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;opacity: 0.8;;float: right;">
+                </div>
+                
+                <th:block th:each="lsgd: ${lsgd}">
+                <div class="baidang-container" style="height: auto;">
+                    <div style="float: left;width: 100%; height: 110px;" class="bai-dang">
+                <div style="display: flex; width: 100%;" class="hien-thi-bai-dang">
+                    <div style="width: 15%;text-align: center;" class="cskh">
+                        <div class="img-cskh">
+                            <h2 style="color: #333;margin-left: -2px; font-size: 30px;" class="text-logo">Dasuo
+                            </h2>
+                        </div>
+                        <div class="mo-ta-cskh">
+                            <p class="creator-name">
+                                <a href="#">Dasuo CSKH </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-left: 30px;" class="mota-baidang">
+                        <div class="mota-soluoc">
+                            
+
+                                <h2><i style="padding-right: 6px; color: chartreuse;"
+                                        class="fas fa-check"></i>[[${lsgd.noiDung}]]</h2>
+                            
+
+                            
+                        </div>
+                    </div>
+                    <div class="hocphidenghi" style="width: 150px">
+                        <div class="tienhoc" >
+                            <p style="margin-left: 45px;color: #ff961e;font-weight: 700;">[[${lsgd.soTien}]]</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-left: 60px; text-align: center;" class="phinhanlop">
+                        <div style=" text-align: center; line-height: 5px;" class="phinhanlop-ctiet">
+                            <p>
+                                <span ma>[[${lsgd.thoiGian}]]</span>
+                            </p>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+                </div>
+                </th:block>
+            </div>
+        </div>
+
+    </div>
+    <div style="margin-top: 10px;margin-bottom: 30px; text-align: center;" class="Pagination">
+        <div class="pagination">
+            
+        </div>
+    </div>
+    <hr>
+    <div class="last-content">
+        <script src="/js/web/components/httv.js"></script>
+    </div>
+    <div id="footer">
+        <script src="/js/web/components/footer_web.js"></script>
+    </div>
+
+</body>
+
+</html>

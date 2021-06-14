@@ -1,5 +1,7 @@
 package com.dasuo.api;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,14 +18,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dasuo.api.output.LopOutput;
+import com.dasuo.dto.BaiDangDTO;
+import com.dasuo.dto.LichSuGiaoDichDTO;
 import com.dasuo.dto.LopDTO;
+import com.dasuo.dto.TaiKhoanDTO;
+import com.dasuo.service.IBaiDangService;
+import com.dasuo.service.ILichSuGiaoDichService;
 import com.dasuo.service.ILopService;
+import com.dasuo.service.ITaiKhoanService;
 
 @RestController
 @RequestMapping("/api")
 public class LopAPI {
 	@Autowired
 	ILopService lopService;
+	@Autowired
+	ITaiKhoanService taiKhoanService;
+	@Autowired
+	IBaiDangService baiDangService;
+	@Autowired
+	ILichSuGiaoDichService lichSuGiaoDichService;
 	@GetMapping("/lops")
 	public ResponseEntity<LopOutput> getListLops (@RequestParam("page") int page,@RequestParam("limit") int limit){
 		LopOutput lopOutput = new LopOutput();
@@ -70,14 +84,44 @@ public class LopAPI {
 	
 	@PostMapping("/lops")
 	public ResponseEntity<LopDTO> addLop(@RequestBody LopDTO lopDTO) {
-		if(lopDTO != null && lopDTO.getNguoiDay() != null && lopDTO.getNguoiHoc() != null && lopDTO.getNguoiDay().getTaiKhoan_Id() != null)
+		TaiKhoanDTO taiKhoanDTONguoiHoc = taiKhoanService.getTaiKhoan(lopDTO.getNguoiHoc().getTaiKhoan_Id());
+		TaiKhoanDTO taiKhoanDTONguoiDay = taiKhoanService.getTaiKhoan(lopDTO.getNguoiDay().getTaiKhoan_Id());
+		BaiDangDTO baiDangDTO = baiDangService.getBaiDang(lopDTO.getBaiDangId());
+		Double tongTien = baiDangDTO.getHocPhi() * baiDangDTO.getSoBuoi() * 3;
+		if(taiKhoanDTONguoiHoc.getSoDu() < tongTien)
 		{
-			lopService.save(lopDTO);
-			return new ResponseEntity<>(lopDTO, HttpStatus.OK);
-		}
-		else {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
+		else {
+			if(lopDTO != null && lopDTO.getNguoiDay() != null && lopDTO.getNguoiHoc() != null && lopDTO.getNguoiDay().getTaiKhoan_Id() != null)
+			{
+				Double tienNguoiHocConLai = taiKhoanDTONguoiHoc.getSoDu() - tongTien;
+				taiKhoanDTONguoiDay.setSoDu(tongTien*80/100);
+				LichSuGiaoDichDTO lichSuGiaoDichNguoiDay = new LichSuGiaoDichDTO();
+				lichSuGiaoDichNguoiDay.setNoiDung("cộng tiền dạy");
+				lichSuGiaoDichNguoiDay.setSoTien(tongTien*80/100);
+				lichSuGiaoDichNguoiDay.setTaiKhoan(taiKhoanDTONguoiDay);
+				lichSuGiaoDichNguoiDay.setThoiGian(new Date());
+				taiKhoanService.save(taiKhoanDTONguoiDay);
+				lichSuGiaoDichService.save(lichSuGiaoDichNguoiDay);
+				
+				taiKhoanDTONguoiHoc.setSoDu(tienNguoiHocConLai);
+				LichSuGiaoDichDTO lichSuGiaoDichNguoiHoc = new LichSuGiaoDichDTO();
+				lichSuGiaoDichNguoiHoc.setNoiDung("trừ tiền học");
+				lichSuGiaoDichNguoiHoc.setSoTien(-tongTien);
+				lichSuGiaoDichNguoiHoc.setTaiKhoan(taiKhoanDTONguoiHoc);
+				lichSuGiaoDichNguoiHoc.setThoiGian(new Date());
+				taiKhoanService.save(taiKhoanDTONguoiHoc);
+				lichSuGiaoDichService.save(lichSuGiaoDichNguoiHoc);
+				
+				lopService.save(lopDTO);
+				return new ResponseEntity<>(lopDTO, HttpStatus.OK);
+			}
+			else {
+				return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+			}
+		}
+		
 	}
 	
 	@PutMapping("/lops/{id}")

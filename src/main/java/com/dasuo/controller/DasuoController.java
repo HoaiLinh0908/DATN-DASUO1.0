@@ -621,4 +621,11 @@ public class DasuoController {
 		outputStream.write(baiKiemTraEntity.getContent());
 		outputStream.close();
 	}
+	@RequestMapping("/lichsugiaodich")
+	public String lichSuGiaoDich(Model model) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
+		List<LichSuGiaoDichDTO> lichSuGiaoDichDTOs = lichSuGiaoDichService.getListLichSuGiaoDichFindByTK(taiKhoanDTO);
+		model.addAttribute("lsgd", lichSuGiaoDichDTOs);
+		return "web/lichsugiaodich";
+	}
 }

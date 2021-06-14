@@ -8,7 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.dasuo.converter.LichSuGiaoDichConverter;
+import com.dasuo.converter.TaiKhoanConverter;
 import com.dasuo.dto.LichSuGiaoDichDTO;
+import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.entity.LichSuGiaoDich;
 import com.dasuo.repository.LichSuGiaoDichRepository;
 import com.dasuo.service.ILichSuGiaoDichService;
@@ -20,6 +22,8 @@ public class LichSuGiaoDichService implements ILichSuGiaoDichService{
 	LichSuGiaoDichRepository lichSuGiaoDichRepository;
 	@Autowired
 	LichSuGiaoDichConverter lichSuGiaoDichConverter;
+	@Autowired
+	TaiKhoanConverter taiKhoanConverter;
 	
 
 	@Override
@@ -59,6 +63,21 @@ public class LichSuGiaoDichService implements ILichSuGiaoDichService{
 			return (totalItem / limit) + 1;
 		}
 		return totalItem / limit;
+	}
+
+	@Override
+	public List<LichSuGiaoDichDTO> getListLichSuGiaoDichFindByTK(TaiKhoanDTO taiKhoan) {
+		List<LichSuGiaoDich> lichSuGiaoDichs = lichSuGiaoDichRepository.findByTaiKhoan(taiKhoanConverter.toEntity(taiKhoan));
+		if(lichSuGiaoDichs!=null)
+		{
+			List<LichSuGiaoDichDTO> lichSuGiaoDichDTOs = new ArrayList<>();
+			lichSuGiaoDichs.forEach(lichSuGiaoDich -> lichSuGiaoDichDTOs.add(lichSuGiaoDichConverter.toDTO(lichSuGiaoDich)));
+			return lichSuGiaoDichDTOs;
+		}
+		else {
+			return null;
+		}
+		
 	}
 
 }
