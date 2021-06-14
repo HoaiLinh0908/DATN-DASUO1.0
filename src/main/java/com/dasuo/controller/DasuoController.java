@@ -34,6 +34,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.dasuo.dto.BaiKiemTraDTO;
 import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.dto.GiaoTrinhDTO;
+import com.dasuo.dto.LichSuGiaoDichDTO;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.NgheNghiepDTO;
@@ -43,6 +44,7 @@ import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.entity.BaiKiemTra;
 import com.dasuo.entity.BaiLam;
 import com.dasuo.entity.GiaoTrinh;
+import com.dasuo.entity.LichSuGiaoDich;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.repository.BaiLamRepository;
@@ -53,6 +55,8 @@ import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
+import com.dasuo.service.ILichHocService;
+import com.dasuo.service.ILichSuGiaoDichService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.IPhanHoiService;
 import com.dasuo.service.ITaiKhoanService;
@@ -90,9 +94,20 @@ public class DasuoController {
 	IPhanHoiService phanHoiService;
 	@Autowired
 	BaiLamRepository baiLamRepository;
+	@Autowired
+	ILichSuGiaoDichService lichSuGiaoDichService;
 
-	@RequestMapping("/index")
-	public String demo() {
+	@RequestMapping("/")
+	public String demo(Model model) {
+		List<TaiKhoanDTO> _taiKhoans = taiKhoanService.getListGSNoiBat();
+		_taiKhoans.forEach((taikhoan) ->{
+			if (taikhoan.getTinhThanh() == null) {
+				taikhoan.setTinhThanh(new TinhThanhDTO());
+				taikhoan.getTinhThanh().setTenTinh("Chưa cập nhật");
+			}
+		});
+		
+		model.addAttribute("taikhoan", _taiKhoans);
 		return "index";
 	}
 
@@ -507,6 +522,74 @@ public class DasuoController {
 	@RequestMapping("/phanhoi")
 	public String phanHoi() {
 		return "web/phanhoi";
+	}
+	@RequestMapping("/naptien")
+	public String napTien() {
+		return "web/naptien";
+	}
+	@PostMapping("/naptien")
+	public String napTienPost(@ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model) {
+		if(taiKhoanDTO.getSoDu()==0 && taiKhoanDTO.getSoDu()==null)
+		{
+			model.addAttribute("mess", "Nạp tiền thất bại!");
+			return "web/naptien";
+		}
+		else
+		{
+			TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
+			double tien = _taiKhoanDTO.getSoDu() + taiKhoanDTO.getSoDu();
+			_taiKhoanDTO.setSoDu(tien);
+			taiKhoanService.save(_taiKhoanDTO);
+			LichSuGiaoDichDTO lsgd = new LichSuGiaoDichDTO();
+			lsgd.setNoiDung("Nộp tiền");
+			lsgd.setSoTien(taiKhoanDTO.getSoDu());
+			lsgd.setThoiGian(new Date());
+			lsgd.setTaiKhoan(_taiKhoanDTO);
+			lichSuGiaoDichService.save(lsgd);
+			model.addAttribute("mess", "Nạp tiền thành công!");
+			return "web/naptien";
+		}
+		
+		
+	}
+	@RequestMapping("/ruttien")
+	public String rutTien() {
+		return "web/ruttien";
+	}
+	@PostMapping("/ruttien")
+	public String rutTienPost(@ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO, Model model) {
+		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
+		if(taiKhoanDTO.getSoDu() > _taiKhoanDTO.getSoDu())
+		{
+			model.addAttribute("mess", "Số tiền trong tài khoản không đủ!");
+			return "web/ruttien";
+		}
+		else
+		{
+			if(taiKhoanDTO.getSoDu()==0 && taiKhoanDTO.getSoDu()==null)
+			{
+				model.addAttribute("mess", "Rút tiền thất bại!");
+				return "web/ruttien";
+			}
+			else
+			{
+				
+				double tien = _taiKhoanDTO.getSoDu() - taiKhoanDTO.getSoDu();
+				_taiKhoanDTO.setSoDu(tien);
+				taiKhoanService.save(_taiKhoanDTO);
+				LichSuGiaoDichDTO lsgd = new LichSuGiaoDichDTO();
+				lsgd.setNoiDung("Rút tiền");
+				lsgd.setSoTien(taiKhoanDTO.getSoDu());
+				lsgd.setThoiGian(new Date());
+				lsgd.setTaiKhoan(_taiKhoanDTO);
+				lichSuGiaoDichService.save(lsgd);
+				model.addAttribute("mess", "Rút tiền thành công!");
+				return "web/ruttien";
+			}
+		}
+		
+		
+		
 	}
 	@PostMapping("/phanhoi")
 	public String addphanHoi(@ModelAttribute("phanhoi") PhanHoiDTO phanHoiDTO, Model model) {

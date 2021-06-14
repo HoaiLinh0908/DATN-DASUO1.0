@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+	crossorigin="anonymous" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<title>Gửi phản hồi</title>
+</head>
+<body>
+	<div style="background-color: #f7f7f7;" class="wrapper">
+		<div id="header">
+			<script src="/js/web/components/header_web.js"></script>
+		</div>
+		<div class="container main-content">
+			<div class="region region-content">
+				<div id="block-system-main" class="block block-system">
+
+
+					<div class="content">
+						<!-- <div class="dasuo-account-change-email">
+              <span>Thay đổi Email</span>
+            </div>
+            <div id="dasuo-account-change-email-content">
+                <form class="custom-form" action="/tannguyen-070321/settings" method="post" id="blacasa-account-change-mail-form" accept-charset="UTF-8">
+                    <div>
+        <div class="form-item form-type-textfield form-item-mail">
+        <label for="edit-mail">Email
+             <span class="form-required" title="This field is required.">*</span>
+        </label>
+        <br>
+       <input type="text" id="edit-mail" name="mail" value="nguyenminhtan2340@gmail.com" size="60" maxlength="128" class="form-text required">
+      </div>
+      <input type="submit" id="edit-submit" name="op" value="Lưu" class="form-submit"><input type="hidden" name="form_build_id" value="form-yYAcyaOdSmubLi8L7_9nJcdQrFUyW1ejOInxQ2rXnws">
+      <input type="hidden" name="form_token" value="cfJugEM-LjzWr7ikhMaUvYJWnNjG17seanTzO3rCHaA">
+      <input type="hidden" name="form_id" value="blacasa_account_change_mail_form">
+      </div>
+    </form>
+    </div> -->
+						<div class="Dasuo-account-change-pass">
+							<span>Nạp tiền</span>
+						</div>
+						
+						<div id="dasuo-account-change-pass-content">
+						<div th:class="@{${alert} + '-alert-linh2'}">
+							<span class="closebtn-linh"
+								onclick="this.parentElement.style.display='none';">&times;</span> <strong>[[${mess}]]</strong>
+						</div>
+							<form class="custom-form" th:action="@{/naptien}"
+								method="post" modelattribute="taikhoan"
+								id="blacasa-account-change-pass-form" accept-charset="UTF-8">
+
+								<div>
+									<div class="form-item form-type-password form-item-pass">
+										<label for="edit-pass">Số tiền nạp <span
+											class="form-required" title="This field is required.">*</span>
+										</label>
+										<!-- Chinh lai input chieu dai 60% -->
+										<input placeholder="Nhập số tiền nạp"
+											type="number" id="old-pass" name="soDu" size="60"
+											maxlength="128" class="form-text required"
+											title="Vui lòng nhập email" required="">
+									</div>
+									<p>Thông tin thẻ ngâng hàng</p>
+									<div class="form-item form-type-password form-item-pass">
+										<label for="edit-pass">Số thẻ<span
+											class="form-required" title="This field is required.">*</span>
+										</label>
+										<!-- Chinh lai input chieu dai 60% -->
+										<input placeholder="Nhập số tài khoản"
+											type="number" id="old-pass" name="sothe" size="60"
+											maxlength="128" class="form-text required"
+											title="Vui lòng nhập email" required="">
+									</div>
+									<div class="form-item form-type-password form-item-pass">
+										<label for="edit-pass">Tên chủ thẻ <span
+											class="form-required" title="This field is required.">*</span>
+										</label>
+										<!-- Chinh lai input chieu dai 60% -->
+										<input placeholder="Nhập tên chủ thẻ"
+											type="text" id="old-pass" name="tenchuthe" size="60"
+											maxlength="128" class="form-text required"
+											title="Vui lòng nhập email" required="">
+									</div>
+									
+									
+									<input type="submit" id="edit-submit--2" name="op" value="Nạp tiền"
+										class="form-submit"><input type="hidden"
+										name="form_build_id"
+										value="form-W2zMRrafSVeCmbpFkIFyzUbbjX4uPPqdfSisI-OaEcg">
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<hr style="color: #069d86; width: 100%;">
+		<div class="last-content">
+			<script src="/js/web/components/httv.js"></script>
+		</div>
+		<div id="footer">
+			<script src="/js/web/components/footer_web.js"></script>
+		</div>
+</body>
+</html>

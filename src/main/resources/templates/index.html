@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -164,16 +164,20 @@
                     </ul>
 
                 </div>
+                
                 <div class="inf-giasu">
+                <th:block th:each="taikhoan:${taikhoan}">
+                		<p></p>
+                
                     <div class="gia-su">
                         <a href="#"><img src="/img/user1.png"></a>
-                        <p class="name-gia-su">Phan Văn Lương</p>
-                        <p class="address">Hà Nội | Toán, Tiếng anh</p>
-                        <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 8.0 </p>
+                        <p class="name-gia-su">[[${taikhoan.hoTen}]]</p>
+                        <p class="address">[[${taikhoan.tinhThanh.tenTinh}]] | Toán, Tiếng anh</p>
+                        <p class="mo-ta">[[${taikhoan.moTa}]] </p>
                         <button href="#" class="btn-md">Mời dạy</button>
                     </div>
-
-                    <div class="gia-su">
+				</th:block>
+                    <!-- <div class="gia-su">
                         <a href="#"><img src="/img/user1.png"></a>
                         <p class="name-gia-su">Đặng Văn Thịnh</p>
                         <p class="address">Hà Nội | Toán, Tiếng anh</p>
@@ -195,7 +199,7 @@
                         <p class="address">Hà Nội | Toán, Tiếng anh</p>
                         <p class="mo-ta">Thủ khoa ĐH Duy Tân về lãnh vực toán học và Ielts 8.0 </p>
                         <button href="#" class="btn-md">Mời dạy</button>
-                    </div>
+                    </div> -->
                     <a href="#" class="see-more"> Xem thêm </a>
                 </div>
                 
