@@ -145,7 +145,7 @@
 							<th:block th:each="doc: ${listLam}">
 								<ul class="file-giao-trinh">
 									<li><a class="file-goc"
-										href="@{'/chitietbaikiemtra?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>  
+										th:href="@{'/downloadbailam?id=' + ${doc.Id}}">[[${doc.fileName}]]</a>  
 										<strong>Thời gian nạp bài:</strong> <span>[[${doc.thoiGian}]]</span>
 										</br></li>
 										

@@ -1,7 +1,5 @@
 package com.dasuo.dto;
 
-import javax.persistence.Column;
-
 public class PhanHoiDTO {
 	private Integer phanHoi_Id;
 	

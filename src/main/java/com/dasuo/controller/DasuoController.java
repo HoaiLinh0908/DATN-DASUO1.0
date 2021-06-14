@@ -41,9 +41,11 @@ import com.dasuo.dto.PhanHoiDTO;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.entity.BaiKiemTra;
+import com.dasuo.entity.BaiLam;
 import com.dasuo.entity.GiaoTrinh;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
+import com.dasuo.repository.BaiLamRepository;
 import com.dasuo.repository.GiaoTrinhRepository;
 import com.dasuo.repository.LopRepository;
 import com.dasuo.repository.MonRepository;
@@ -86,6 +88,8 @@ public class DasuoController {
 	ITinhThanhService tinhThanhService;
 	@Autowired
 	IPhanHoiService phanHoiService;
+	@Autowired
+	BaiLamRepository baiLamRepository;
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -518,5 +522,20 @@ public class DasuoController {
 			return "web/phanhoi";
 		}
 		
+	}
+	@GetMapping("/downloadbailam")
+	public void downloadFileBaiLam(@Param("id") Integer id, HttpServletResponse response) throws Exception {
+		Optional<BaiLam> resul = baiLamRepository.findById(id);
+		if (!resul.isPresent()) {
+			throw new Exception("Không tìm thấy ID" + id);
+		}
+		BaiLam baiKiemTraEntity = resul.get();
+		response.setContentType("application/octet-stream");
+		String headerKey = "Content-Disposition";
+		String headerValue = "attachment; filename=" + baiKiemTraEntity.getFileName();
+		response.setHeader(headerKey, headerValue);
+		ServletOutputStream outputStream = response.getOutputStream();
+		outputStream.write(baiKiemTraEntity.getContent());
+		outputStream.close();
 	}
 }
