@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.MonDTO;
+import com.dasuo.dto.PhanHoiDTO;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
@@ -24,6 +25,7 @@ import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.IMonService;
+import com.dasuo.service.IPhanHoiService;
 import com.dasuo.service.ITaiKhoanService;
 
 
@@ -55,7 +57,8 @@ public class DasuoAdminController {
 		MonRepository monRepository;
 		@Autowired
 		IMonService monService;
-
+		@Autowired
+		IPhanHoiService phanHoiService;
 		
 
 		
@@ -105,6 +108,12 @@ public class DasuoAdminController {
 		@RequestMapping("/admin/quanlygiaodich")
 		public String QLGiaoDichAdmin() {
 			return "admin/qlgiaodich";
+		}
+		@RequestMapping("/admin/quanlyphanhoi")
+		public String QLPhanHoiAdmin(Model model) {
+			List<PhanHoiDTO> phanHoiDTOs = phanHoiService.getAllPhanHoi();
+			model.addAttribute("phanhoi", phanHoiDTOs);
+			return "admin/qlphanhoi";
 		}
 		@RequestMapping("/admin/quanlymonhoc")
 		public String QLMonHocAdmin(Model model) {

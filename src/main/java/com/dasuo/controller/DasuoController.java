@@ -37,6 +37,7 @@ import com.dasuo.dto.GiaoTrinhDTO;
 import com.dasuo.dto.LoaiDTO;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.NgheNghiepDTO;
+import com.dasuo.dto.PhanHoiDTO;
 import com.dasuo.dto.TaiKhoanDTO;
 import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.entity.BaiKiemTra;
@@ -51,6 +52,7 @@ import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
 import com.dasuo.service.ILopService;
+import com.dasuo.service.IPhanHoiService;
 import com.dasuo.service.ITaiKhoanService;
 import com.dasuo.service.ITinhThanhService;
 import com.dasuo.utils.SecurityUtils;
@@ -82,6 +84,8 @@ public class DasuoController {
 	MonRepository monRepository;
 	@Autowired
 	ITinhThanhService tinhThanhService;
+	@Autowired
+	IPhanHoiService phanHoiService;
 
 	@RequestMapping("/index")
 	public String demo() {
@@ -495,5 +499,24 @@ public class DasuoController {
 		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getEmail());
 		model.addAttribute("role", taiKhoanDTO.getLoai().getLoai_Id());
 		return "web/loponline";
+	}
+	@RequestMapping("/phanhoi")
+	public String phanHoi() {
+		return "web/phanhoi";
+	}
+	@PostMapping("/phanhoi")
+	public String addphanHoi(@ModelAttribute("phanhoi") PhanHoiDTO phanHoiDTO, Model model) {
+		if(phanHoiDTO.getEmail().length() != 0 && phanHoiDTO.getNoiDung().length() != 0)
+		{
+			phanHoiService.save(phanHoiDTO);
+			model.addAttribute("mess", "Gửi phẩn hồi thành công");
+			return "web/phanhoi";
+		}
+		else
+		{
+			model.addAttribute("mess", "Gửi phẩn hồi thất bại");
+			return "web/phanhoi";
+		}
+		
 	}
 }
