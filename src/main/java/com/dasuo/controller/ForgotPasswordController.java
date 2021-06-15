@@ -97,21 +97,22 @@ public class ForgotPasswordController {
     @PostMapping("/reset_password")
     public String processResetPassword(HttpServletRequest request, Model model,@RequestParam("token") String token) {
         String password = request.getParameter("password");
+        String repassword = request.getParameter("repassword");
          
         TaiKhoan customer = taiKhoanService.getByResetPasswordToken(token);
         model.addAttribute("title", "Reset your password");
-        if(password.length()!=0)
+        if(password.length()!=0 && password.equals(repassword)== true)
         {
         	if (customer == null) {
                 model.addAttribute("message", "Invalid Token");
             } else {           
             	taiKhoanService.updatePassword(password, customer);
                  
-                model.addAttribute("message", "You have successfully changed your password.");
+                model.addAttribute("message", "Đổi mật khẩu thành công.");
             }
         }
         else {
-        	model.addAttribute("message", "Vui lòng nhập password");
+        	model.addAttribute("message", "Đổi mật khẩu thất bại");
 		}
          
         

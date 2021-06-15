@@ -303,7 +303,8 @@ public class DasuoController {
 	public String uploadfileBaiKiemTra(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
 			@ModelAttribute("baikiemtra") BaiKiemTraDTO baiKiemTraDTO, @RequestParam("id") Integer id,
 			@RequestParam(value = "date", required=false) String date) throws IOException, java.text.ParseException {
-		if(date.length() ==0 && StringUtils.cleanPath(file.getOriginalFilename()).length() ==0)
+		
+		if( StringUtils.cleanPath(file.getOriginalFilename()).length() < 1)
 		{
 			ra.addFlashAttribute("message", "Thêm bài kiểm tra thất bại");
 			String b = "redirect:/upbaikt?id=" + id;
@@ -416,7 +417,7 @@ public class DasuoController {
 	public String uploadfileGiaoTrinh(@RequestParam("document") MultipartFile file, RedirectAttributes ra,
 			@ModelAttribute("giaotrinh") GiaoTrinhDTO giaoTrinhDTO, @RequestParam("idlop") Integer idlop)
 			throws IOException {
-		if(StringUtils.cleanPath(file.getOriginalFilename()).length() ==0 && giaoTrinhDTO.getTieuDe().length() == 0)
+		if(StringUtils.cleanPath(file.getOriginalFilename()).length() <1 )
 		{
 			ra.addFlashAttribute("message", "Thêm giáo trình thất bại");
 			String a = "redirect:/danggiaotrinh?id=" + idlop;

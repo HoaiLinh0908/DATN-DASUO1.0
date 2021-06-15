@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dasuo.dto.BaiDangDTO;
 import com.dasuo.dto.LopDTO;
 import com.dasuo.dto.MonDTO;
 import com.dasuo.dto.PhanHoiDTO;
@@ -20,6 +21,7 @@ import com.dasuo.repository.GiaoTrinhRepository;
 import com.dasuo.repository.LopRepository;
 import com.dasuo.repository.MonRepository;
 import com.dasuo.repository.TaiKhoanRepository;
+import com.dasuo.service.IBaiDangService;
 import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
@@ -59,7 +61,8 @@ public class DasuoAdminController {
 		IMonService monService;
 		@Autowired
 		IPhanHoiService phanHoiService;
-		
+		@Autowired
+		IBaiDangService baiDangService;
 
 		
 
@@ -169,6 +172,13 @@ public class DasuoAdminController {
 					monService.save(monHocDTO);
 			
 			return "redirect:/admin/quanlymonhoc";
+		}
+		@RequestMapping("/admin/xoabaidang")
+		public String XoaBaiDangAdmin(@RequestParam("id") Integer id) {
+			BaiDangDTO baiDangDTO = baiDangService.getBaiDang(id);
+			if(baiDangDTO!= null)
+				baiDangService.delete(id);
+			return "redirect:/admin/quanlybaidang";
 		}
 	}
 
