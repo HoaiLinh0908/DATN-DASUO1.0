@@ -15,5 +15,6 @@ public interface ILichSuGiaoDichService {
 	void save (LichSuGiaoDichDTO lichSuGiaoDichDTO);
 	void delete (Integer id);
 	public int getTotalPage(int limit);
+	public int getTotalPageCountByTK(int limit, int id);
 
 }

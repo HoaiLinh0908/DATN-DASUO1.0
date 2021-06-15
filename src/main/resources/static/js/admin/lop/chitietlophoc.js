@@ -16,7 +16,7 @@ $('#btnshow').click( function () {
 				var ngayNhan = response.ngayNhan;
                 var nguoiHoc = response.nguoiHoc.hoTen;
 				var nguoiDay = response.nguoiDay.hoTen;
-				var tienHoc = response.tienHoc;
+				var tienHoc = response.tienHoc.toLocaleString();
 				var gioHoc = response.gioHoc;
 				
                 
@@ -53,7 +53,7 @@ $('#btnshow').click( function () {
 									</tr>
 									<tr>
 										<td><b>Tiền học:</b></td>
-										<td>${tienHoc}</td>
+										<td>${tienHoc} VND</td>
 									</tr>
 									<tr>
 										<td><b>Giờ học:</b></td>

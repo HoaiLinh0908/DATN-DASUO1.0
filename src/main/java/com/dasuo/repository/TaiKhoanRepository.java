@@ -2,6 +2,7 @@ package com.dasuo.repository;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,7 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Integer>{
 	@Query(value="SELECT * FROM dasuo.taikhoan_mon where tai_khoan_id = ?",nativeQuery=true)
 	public List<Object[]> taiKhoan_Mon(Integer id);
 	@Query(value="SELECT tai_khoan_id,bang_cap,cmnd,email,gioi_tinh,hinh_dai_dien,ho_ten,hoc_phi,mo_ta,mat_khau,sdt,so_du,loai_id,nghe_nghiep_id,tinh_thanh_id FROM dasuo.taikhoan WHERE taikhoan.ho_ten LIKE %?1% ",nativeQuery=true)
-	public List<Object[]> timKiemGS(String name);
+	public List<Object[]> timKiemGS(String name,Pageable pageable);
 	
 	public TaiKhoan findByEmail(String email);
 	public TaiKhoan findByCode(String code);

@@ -12,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,6 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.BaiKiemTraDTO;
 import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.dto.GiaoTrinhDTO;
@@ -96,6 +101,7 @@ public class DasuoController {
 	BaiLamRepository baiLamRepository;
 	@Autowired
 	ILichSuGiaoDichService lichSuGiaoDichService;
+	
 
 	@RequestMapping("/")
 	public String demo(Model model) {
@@ -203,7 +209,7 @@ public class DasuoController {
 	public String viewSuaThonTin1(HttpServletResponse response, @ModelAttribute("taikhoan") TaiKhoanDTO taiKhoanDTO,
 			@RequestParam(value="tinhThanhid", required=false) Integer id, RedirectAttributes ra) {
 		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(SecurityUtils.getPrincipal().getUser_Id());
-		if (_taiKhoanDTO != null && id != null && id != 0) {
+		if (_taiKhoanDTO != null && id != null && id != 0&& taiKhoanDTO.isGioiTinh()!=null) {
 			_taiKhoanDTO.setHoTen(taiKhoanDTO.getHoTen());
 			_taiKhoanDTO.setMoTa(taiKhoanDTO.getMoTa());
 			_taiKhoanDTO.setGioiTinh(taiKhoanDTO.isGioiTinh());
@@ -231,7 +237,37 @@ public class DasuoController {
 
 	@RequestMapping("/timkiem")
 	public String viewTimKiem() {
+//		(@RequestParam(value = "ten" , required = false) String ten,
+//				@RequestParam(value = "page" , required = false) Integer page,
+//				@RequestParam(value = "limit" , required = false) Integer limit ,Model model
+//		if(ten.length()==0)
+//		{
+//			model.addAttribute("mess", "Vui lòng nhập kết quả tìm kiếm");
+//			return "web/timkiem";
+//		}
+//		else
+//		{
+//			TaiKhoanOutput taiKhoanOutput = new TaiKhoanOutput();
+//			Pageable pageable = PageRequest.of(page-1, limit);
+//			taiKhoanOutput.setPage(page);
+//			taiKhoanOutput.setTaiKhoanDTO(taiKhoanService.getTimListTaiKhoan(ten,pageable));
+//			taiKhoanOutput.setTotalPage(taiKhoanService.getTotalPage(limit));
+//				model.addAttribute("taikhoan", taiKhoanOutput);
+//				return "web/timkiem";
+//			List<TaiKhoanDTO> taiKhoanDTO = taiKhoanService.getTimListTaiKhoan(ten);
+//			if(taiKhoanDTO!= null)
+//			{
+//				model.addAttribute("taikhoan", taiKhoanDTO);
+//				return "web/timkiem";
+//			}
+//			else
+//			{
+//				model.addAttribute("mess", "không tìm thấy kết quả nào");
+//				return "web/timkiem";
+//			}
+			
 		return "web/timkiem";
+		
 	}
 
 	@RequestMapping("/trang-chu")
@@ -628,4 +664,6 @@ public class DasuoController {
 		model.addAttribute("lsgd", lichSuGiaoDichDTOs);
 		return "web/lichsugiaodich";
 	}
+	
+	
 }

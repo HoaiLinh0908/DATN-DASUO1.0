@@ -46,13 +46,14 @@ public class TaiKhoanAPI {
 	}
 
 	@GetMapping("/timtaikhoans/{id}")
-	public ResponseEntity<List<TaiKhoanDTO>> getTimListGS(@PathVariable("id") String id) {
-		List<TaiKhoanDTO> _taiKhoans = taiKhoanService.getTimListTaiKhoan(id);
-		if (_taiKhoans != null) {
-			return new ResponseEntity<>(_taiKhoans, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+	public ResponseEntity<TaiKhoanOutput> getTimListGS(@PathVariable("id") String id,@RequestParam("page") int page,@RequestParam("limit") int limit) {
+		
+		TaiKhoanOutput taiKhoanOutput = new TaiKhoanOutput();
+		Pageable pageable = PageRequest.of(page-1, limit);
+		taiKhoanOutput.setPage(page);
+		taiKhoanOutput.setTaiKhoanDTO(taiKhoanService.getTimListTaiKhoan(id,pageable));
+		taiKhoanOutput.setTotalPage(taiKhoanService.getTotalPage(limit));
+			return new ResponseEntity<>(taiKhoanOutput,HttpStatus.OK);
 	}
 
 	@GetMapping("/taikhoanuutus")
@@ -205,9 +206,16 @@ public class TaiKhoanAPI {
 		TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
 		if(_taiKhoanDTO != null)
 		{
-			
-			_taiKhoanDTO.setEnable(true);	
-			taiKhoanService.save(_taiKhoanDTO);
+			if(_taiKhoanDTO.isEnable()==false)
+			{
+				_taiKhoanDTO.setEnable(true);	
+				taiKhoanService.save(_taiKhoanDTO);
+			}
+			else
+			{
+				_taiKhoanDTO.setEnable(false);	
+				taiKhoanService.save(_taiKhoanDTO);
+			}
 			return new ResponseEntity<>(_taiKhoanDTO,HttpStatus.OK);
 		}
 		else

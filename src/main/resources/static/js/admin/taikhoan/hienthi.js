@@ -30,7 +30,7 @@ $(document).ready(function () {
 					gioiTinht = "Nam";
 				else
 					gioiTinht = "Nữ";
-				var soDu = value.soDu;
+				var soDu = value.soDu.toLocaleString();
 				var phanQuyen = value.loai.tenLoai;
 				var khoa;
 				if(value.enable)
@@ -48,7 +48,7 @@ $(document).ready(function () {
 										<td>${email}</td>
 										<td>${sdt}</td>
 										<td>${gioiTinht}</td>
-										<td>${soDu}</td>
+										<td>${soDu} VND</td>
 										<td>${phanQuyen}</td>
 										<td>${khoa}</td>
 										<td><button id="btnshow" data-id=${taiKhoan_Id} type="button" class="btn btn-info" data-toggle="modal" data-target="#updateAirplaneModal"><i class="fas fa-eye"></i></button>&nbsp

@@ -100,14 +100,21 @@ public class ForgotPasswordController {
          
         TaiKhoan customer = taiKhoanService.getByResetPasswordToken(token);
         model.addAttribute("title", "Reset your password");
-         
-        if (customer == null) {
-            model.addAttribute("message", "Invalid Token");
-        } else {           
-        	taiKhoanService.updatePassword(password, customer);
-             
-            model.addAttribute("message", "You have successfully changed your password.");
+        if(password.length()!=0)
+        {
+        	if (customer == null) {
+                model.addAttribute("message", "Invalid Token");
+            } else {           
+            	taiKhoanService.updatePassword(password, customer);
+                 
+                model.addAttribute("message", "You have successfully changed your password.");
+            }
         }
+        else {
+        	model.addAttribute("message", "Vui lòng nhập password");
+		}
+         
+        
          
         return "web/taolaimatkhau";
     }

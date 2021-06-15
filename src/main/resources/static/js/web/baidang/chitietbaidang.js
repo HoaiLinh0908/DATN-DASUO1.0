@@ -22,12 +22,13 @@ $(document).ready(function () {
                 var baiDang_Id = response.baiDang_Id;
 				var tomTatYeuCau = response.tomTatYeuCau;
 				var moTa = response.moTa;
-                var hocPhi = response.hocPhi;
+                var hocPhi = response.hocPhi.toLocaleString();
                 var mon = response.mon.tenMon;
                 var soBuoi = response.soBuoi;
                 var buois = response.buois;
                 var nguoiDangId = response.taiKhoan.taiKhoan_Id;
                 var nguoiYeuCauDays = response.taiKhoans;
+				var phinhanlop = (response.hocPhi * 20 / 100).toLocaleString()
 				htmlStr = htmlStr + `<div  class="row">
                 <h1>
            
@@ -70,13 +71,13 @@ $(document).ready(function () {
                          Thời lượng: Tuần ${soBuoi} buổi (2h/buổi)
                         </p>
                         <p>
-                        <i class="fa fa-money"></i> Học phí 1 buổi: <span class="class-tutor-fee">${hocPhi}</span> 
+                        <i class="fa fa-money"></i> Học phí 1 buổi: <span class="class-tutor-fee">${hocPhi} VND</span> 
                         </p>
                     </div>
                         
                     <div class="col-md-4 col-sm-4">
                         <div class="header-study-group-right">
-                            <p>Phí nhận lớp:<span class="connection-fee"> 240,000 vnđ</span></p>
+                            <p>Phí nhận lớp:<span class="connection-fee"> ${phinhanlop} VND</span></p>
                                 (<strong style="color: #FF961E">Chuyển khoản </strong> )              
                             <div class="class-actions">
                                 <p height="30px">Người đăng ký <span style="color:red">(chọn gia sư trước khi tạo lớp)</span></p>

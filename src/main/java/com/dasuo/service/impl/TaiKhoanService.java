@@ -65,8 +65,8 @@ public class TaiKhoanService implements ITaiKhoanService{
 	}
 
 	@Override
-	public List<TaiKhoanDTO> getTimListTaiKhoan(String id) {
-		List<Object[]> objs = taiKhoanRepository.timKiemGS(id);
+	public List<TaiKhoanDTO> getTimListTaiKhoan(String id,Pageable pageable) {
+		List<Object[]> objs = taiKhoanRepository.timKiemGS(id,pageable);
 		List<TaiKhoanDTO> taiKhoanDTO = new ArrayList<>();
 		objs.forEach(taiKhoan -> taiKhoanDTO.add(taiKhoanConverter.toDTO(taiKhoan)));
 		return taiKhoanDTO;

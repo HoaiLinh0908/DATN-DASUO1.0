@@ -62,7 +62,7 @@ $(document).ready(function () {
                         <div style=" text-align: center; line-height: 5px;" class="phinhanlop-ctiet">
                             <p>
                                 <span ma>Phí:</span>
-                                ${hocPhi * 2}
+                                ${hocPhi * 20 / 100}
                                 <span>vnđ</span>
                             </p>
                             <span style="font-size: 14px;font-style: italic;">(Chỉ thu khi nhận lớp)</span>

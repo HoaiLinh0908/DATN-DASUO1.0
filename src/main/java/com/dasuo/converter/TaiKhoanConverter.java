@@ -126,7 +126,7 @@ public class TaiKhoanConverter {
 		taiKhoanDTO.setHinhDaiDien(String.valueOf(obj[5]));
 		taiKhoanDTO.setHoTen(String.valueOf(obj[6]));
 		taiKhoanDTO.setHocPhi(Double.valueOf(String.valueOf(obj[7])));
-		taiKhoanDTO.setMoTa(String.valueOf(obj[9]));
+		taiKhoanDTO.setMoTa(String.valueOf(obj[8]));
 		taiKhoanDTO.setSdt(String.valueOf(obj[10]));
 		taiKhoanDTO.setSoDu(Double.valueOf(String.valueOf(obj[11])));
 		LoaiDTO loaiDTO = loaiService.loai(Integer.valueOf(String.valueOf(obj[12])));

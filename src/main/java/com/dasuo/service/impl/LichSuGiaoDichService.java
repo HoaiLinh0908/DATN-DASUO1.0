@@ -80,4 +80,13 @@ public class LichSuGiaoDichService implements ILichSuGiaoDichService{
 		
 	}
 
+	@Override
+	public int getTotalPageCountByTK(int limit, int id) {
+		int totalItem = (int) lichSuGiaoDichRepository.countByTaiKhoan(id);
+		if (totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
+	}
+
 }

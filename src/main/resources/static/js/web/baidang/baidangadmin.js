@@ -24,7 +24,7 @@ $(document).ready(function () {
                 var baiDang_Id = value.baiDang_Id;
 				var tomTatYeuCau = value.tomTatYeuCau;
 				var moTa = value.moTa;
-                var hocPhi = value.hocPhi;
+                var hocPhi = value.hocPhi.toLocaleString();
 				var gioiTinht;
 				if(value.gioiTinh)
 					gioiTinht = "Nam";

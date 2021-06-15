@@ -12,7 +12,7 @@ public interface ITaiKhoanService {
 	public void save(TaiKhoanDTO taiKhoanDTO);
 	public void delete (Integer id);
 	List<TaiKhoanDTO> getListGSNoiBat();
-	List<TaiKhoanDTO> getTimListTaiKhoan(String id);
+	List<TaiKhoanDTO> getTimListTaiKhoan(String id,Pageable pageable);
 	public void doiMatKhau(int id, TaiKhoanDTO taiKhoanDTO);
 	TaiKhoanDTO getTaiKhoan(String email);
 	public int getTotalPage(int limit);

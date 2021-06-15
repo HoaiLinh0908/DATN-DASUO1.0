@@ -4,9 +4,9 @@ $(document).ready(function () {
     }else {
         var currentPage = getURLParameter("page");
     }
-    var lopList = []
+    var baiDangList = []
 	    $.ajax({
-		url: "http://localhost:8083/api/lops?page=" + currentPage + "&limit=5",
+		url: "http://localhost:8083/api/timtaikhoans/l?page=" + currentPage + "&limit=4",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -17,43 +17,41 @@ $(document).ready(function () {
             var index = 1;
             var page = response.page;
             var totalPage = response.totalPage;
-            var lops = response.lopDTO;
+            var taikhoans = response.taiKhoanDTO;
 			// lap qua ket qua tra ve & tao html theo mong muon
-			lops.forEach(value => {
-				lopList.push(value)
-                var lop_Id = value.lop_Id;
-				var tenLop = value.tenLop;
-				var ngayNhan = value.ngayNhan;
-                var nguoiHoc = value.nguoiHoc.hoTen;
-				var nguoiDay = value.nguoiDay.hoTen;
-				var tienHoc = value.tienHoc.toLocaleString();
-				var gioHoc = value.gioHoc;
+			taikhoans.forEach(value => {
+				baiDangList.push(value)
+				var id = value.taiKhoan_Id;
+                var ten = value.hoTen;
+				if(value.tinhThanh == null)
+				{
+					var noio = "chưa xác định";
+				}
+				else
+				{
+					var noio = value.tinhThanh.tenTinh;
+				}
+				var nghenghiep = value.ngheNghiep.tenNgheNghiep;
 				
 				
-				
-				
-				htmlStr = htmlStr + `<tr role="row" class="odd">
-										<td class="sorting_1">${lop_Id}</td>
-										<td>${tenLop}</td>
-										<td>${ngayNhan}</td>
-										<td>${nguoiHoc}</td>
-										<td>${nguoiDay}</td>
-										<td>${tienHoc} VND</td>
-										<td>${gioHoc}</td>
-										<td><button id="btnshow" data-id=${lop_Id} type="button" class="btn btn-info" data-toggle="modal" data-target="#updateAirplaneModal"><i class="fas fa-eye"></i></button>&nbsp
-										
-                							<a href="/admin/xoalophoc?id=${lop_Id} " class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
-									</tr>`;
-
+				var moTa = value.moTa;
+                
+				htmlStr = htmlStr + `<div  class="gia-su">
+                                   <a href="#"><img src="/img/user1.png"></a>
+                                   <p  class="name-gia-su"><a href="/">${ten}</a></p>
+                                   <p class="address">${noio} | ${nghenghiep}</p>
+                                   <p class="mo-ta">${moTa} </p>
+                                   <button href="#" class="btn-md">Mời dạy</button>
+                            </div>`;
 			});
-			 console.log(lopList)
-			$("#bang").html(htmlStr);
+			 console.log(baiDangList)
+			$(".inf-giasu").html(htmlStr);
             htmlPgn = htmlPgn + `<a href="#">&laquo;</a>`;
             for(index; index <= totalPage; index++) {
                 if(index == page) {
                     htmlPgn = htmlPgn + `<a class="active">${index}</a>`;
                 }else {
-                    htmlPgn = htmlPgn + `<a href="/admin/quanlylophoc?page=${index}">${index}</a>`;
+                    htmlPgn = htmlPgn + `<a href="/timkiem?page=${index}">${index}</a>`;
                 }
             }
             htmlPgn = htmlPgn + `<a href="#">&raquo;</a>`;

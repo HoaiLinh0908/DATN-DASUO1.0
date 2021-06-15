@@ -22,10 +22,10 @@ $(document).ready(function () {
 			lichSuGiaoDichs.forEach(value => {
 				lsgdList.push(value)
                 var lichSuGiaoDich_Id = value.lichSuGiaoDich_Id;
-				var taiKhoan = value.taiKhoan.taiKhoan_Id;
+				var taiKhoan = value.taiKhoan.hoTen;
 				var thoiGian = value.thoiGian;
                 var noiDung = value.noiDung;
-				var soTien = value.soTien;
+				var soTien = value.soTien.toLocaleString();
 				
 				
 				
@@ -36,7 +36,7 @@ $(document).ready(function () {
 										<td>${taiKhoan}</td>
 										<td>${thoiGian}</td>
 										<td>${noiDung}</td>
-										<td>${soTien}</td>
+										<td>${soTien} VND</td>
 										
 									</tr>`;
 
@@ -73,3 +73,5 @@ function getURLParameter(sParam)
         }
     }
 }
+
+

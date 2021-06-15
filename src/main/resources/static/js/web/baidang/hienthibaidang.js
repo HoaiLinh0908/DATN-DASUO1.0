@@ -24,7 +24,8 @@ $(document).ready(function () {
                 var baiDang_Id = value.baiDang_Id;
 				var tomTatYeuCau = value.tomTatYeuCau;
 				var moTa = value.moTa;
-                var hocPhi = value.hocPhi;
+                var hocPhi = value.hocPhi.toLocaleString();
+				var lephi = (value.hocPhi * 20 / 100).toLocaleString();
 				htmlStr = htmlStr + `<div style="float: left;width: 100%; height: 110px;" class="bai-dang">
                 <div style="display: flex; width: 100%;" class="hien-thi-bai-dang">
                     <div style="width: 15%;text-align: center;" class="cskh">
@@ -53,7 +54,7 @@ $(document).ready(function () {
                     </div>
                     <div class="hocphidenghi">
                         <div class="tienhoc">
-                            <p style="margin-left: 20px;color: #ff961e;font-weight: 700;">${hocPhi} vnđ/buổi</p>
+                            <p style="margin-left: 20px;color: #ff961e;font-weight: 700;">${hocPhi} VND/buổi</p>
                         </div>
                     </div>
 
@@ -61,7 +62,7 @@ $(document).ready(function () {
                         <div style=" text-align: center; line-height: 5px;" class="phinhanlop-ctiet">
                             <p>
                                 <span ma>Phí:</span>
-                                ${hocPhi * 2}
+                                ${lephi} VND
                                 <span>vnđ</span>
                             </p>
                             <span style="font-size: 14px;font-style: italic;">(Chỉ thu khi nhận lớp)</span>

@@ -88,9 +88,16 @@ public class DasuoAdminController {
 			TaiKhoanDTO _taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
 			if(_taiKhoanDTO != null)
 			{
-				
-				_taiKhoanDTO.setEnable(true);	
-				taiKhoanService.save(_taiKhoanDTO);
+				if(_taiKhoanDTO.isEnable()==false)
+				{
+					_taiKhoanDTO.setEnable(true);	
+					taiKhoanService.save(_taiKhoanDTO);
+				}
+				else
+				{
+					_taiKhoanDTO.setEnable(false);	
+					taiKhoanService.save(_taiKhoanDTO);
+				}
 			}
 			return "redirect:/admin/quanlytaikhoan";
 		}

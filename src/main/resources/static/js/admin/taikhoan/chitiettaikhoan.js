@@ -22,9 +22,9 @@ $('#btnshow').click( function () {
 					gioiTinht = "Nam";
 				else
 					gioiTinht = "Nữ";
-				var soDu = response.soDu;
+				var soDu = response.soDu.toLocaleString();
 				var phanQuyen = response.loai.tenLoai;
-				var hocPhi = response.hocPhi;
+				var hocPhi = response.hocPhi.toLocaleString();
 				var moTa = response.moTa;
 				var tinhThanh = response.tinhThanh.tenTinh;
 				var khoa;
@@ -61,7 +61,7 @@ $('#btnshow').click( function () {
 									</tr>
 									<tr>
 										<td><b>Học phí:</b></td>
-										<td>${hocPhi}</td>
+										<td>${hocPhi} VND</td>
 									</tr>
 									<tr>
 										<td><b>Số điện thoại:</b></td>
@@ -73,7 +73,7 @@ $('#btnshow').click( function () {
 									</tr>
 									<tr>
 										<td><b>Số dư:</b></td>
-										<td>${soDu}</td>
+										<td>${soDu} VND</td>
 									</tr>
 									<tr>
 										<td><b>Loại tài khoản:</b></td>

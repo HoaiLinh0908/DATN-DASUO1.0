@@ -1,5 +1,8 @@
 package com.dasuo.api;
 
+import java.text.DecimalFormat;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,6 +35,7 @@ public class LichSuGiaoDichAPI {
 		LichSuGiaoDichOutput lichSuGiaoDichOutput = new LichSuGiaoDichOutput();
 		Pageable pageable = PageRequest.of(page-1, limit);
 		lichSuGiaoDichOutput.setPage(page);
+		
 		lichSuGiaoDichOutput.setLichSuGiaoDichs(lichSuGiaoDichService.getListLichSuGiaoDich(pageable));
 		lichSuGiaoDichOutput.setTotalPage(lichSuGiaoDichService.getTotalPage(limit));
 			return new ResponseEntity<>(lichSuGiaoDichOutput,HttpStatus.OK);
