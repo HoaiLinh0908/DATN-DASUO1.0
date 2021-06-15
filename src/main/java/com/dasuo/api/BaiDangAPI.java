@@ -1,5 +1,7 @@
 package com.dasuo.api;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -65,7 +67,7 @@ public class BaiDangAPI {
 		if(baiDangDTO.getChuDe() != null && baiDangDTO.getMon() != null 
 				&& baiDangDTO.getTomTatYeuCau() != null && baiDangDTO.getTomTatYeuCau() != ""
 				&& !baiDangDTO.getBuois().isEmpty() && baiDangDTO.getHocPhi() != null 
-				&& baiDangDTO.getMoTa() != null && baiDangDTO.getMoTa() != "")
+				&& baiDangDTO.getMoTa() != null && baiDangDTO.getMoTa() != "" && baiDangDTO.getNgayBatDau().after(new Date()))
 		{
 			baiDangService.save(baiDangDTO);
 			return new ResponseEntity<>(baiDangDTO, HttpStatus.OK);
