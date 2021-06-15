@@ -280,13 +280,15 @@ h2.text-logo {
    float: right;
    font-size: 15px;
    cursor: pointer;
-   padding:5px 5px;
+   padding:15px 15px;
    border-radius:5px ;
    margin-top: 20px;
    margin-right: 10px;
+   background-color: darkorange;
+   color: #fff;
 }
 .gia-su .btn-md:hover{
-    background-color:darkorange;
+    background-color:rgb(221, 143, 48);
 
 }
  .see-more{
@@ -650,7 +652,7 @@ body{
     position: absolute;
     background-color: #fff;
     height: auto;
-    left: 337px;
+    left: 293px;
     padding: 8px 0;
     width: 300px;
     border-bottom:1px solid rgba(0, 0, 0, 0.3);

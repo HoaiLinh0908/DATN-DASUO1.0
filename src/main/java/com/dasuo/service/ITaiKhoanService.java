@@ -16,4 +16,5 @@ public interface ITaiKhoanService {
 	public void doiMatKhau(int id, TaiKhoanDTO taiKhoanDTO);
 	TaiKhoanDTO getTaiKhoan(String email);
 	public int getTotalPage(int limit);
+	public int getTotalPageByKey(String key, int limit);
 }

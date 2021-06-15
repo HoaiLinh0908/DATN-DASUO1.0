@@ -1,12 +1,13 @@
 $(document).ready(function () {
-    if(window.location.search.substring(1)==""){
+    if(getURLParameter("page")==""){
         var currentPage = 1;
     }else {
         var currentPage = getURLParameter("page");
     }
+    var key = getURLParameter("key");
     var baiDangList = []
 	    $.ajax({
-		url: "http://localhost:8083/api/timtaikhoans/l?page=" + currentPage + "&limit=4",
+		url: "http://localhost:8083/api/timtaikhoans?key=" + key +"&page=" + currentPage + "&limit=4",
 		contentType: "application/json; charset=utf-8",
 		async: false,
 		type: "get",
@@ -14,6 +15,7 @@ $(document).ready(function () {
 		success: function (response) {
 			var htmlStr = ``;
             var htmlPgn = ``;
+            var htmlTT = ``;
             var index = 1;
             var page = response.page;
             var totalPage = response.totalPage;
@@ -36,12 +38,12 @@ $(document).ready(function () {
 				
 				var moTa = value.moTa;
                 
-				htmlStr = htmlStr + `<div  class="gia-su">
-                                   <a href="#"><img src="/img/user1.png"></a>
+				htmlStr = htmlStr + `<div class="gia-su" style="margin-left: 20px;">
+                                   <a href="#"><img height="190px" src="/img/user-common1.png"></a>
                                    <p  class="name-gia-su"><a href="/">${ten}</a></p>
                                    <p class="address">${noio} | ${nghenghiep}</p>
                                    <p class="mo-ta">${moTa} </p>
-                                   <button href="#" class="btn-md">Mời dạy</button>
+                                   <a href="/taikhoan/trangcanhan/${id}" class="btn-md">Xem thông tin</a>
                             </div>`;
 			});
 			 console.log(baiDangList)
@@ -51,11 +53,15 @@ $(document).ready(function () {
                 if(index == page) {
                     htmlPgn = htmlPgn + `<a class="active">${index}</a>`;
                 }else {
-                    htmlPgn = htmlPgn + `<a href="/timkiem?page=${index}">${index}</a>`;
+                    htmlPgn = htmlPgn + `<a href="/timkiem?key=${key}&page=${index}">${index}</a>`;
                 }
             }
             htmlPgn = htmlPgn + `<a href="#">&raquo;</a>`;
             $(".pagination").html(htmlPgn);
+            htmlTT = `<p style="font-size:18px ;padding-bottom:0px; color: #505763;">Kết quả tìm kiếm giáo viên cho từ khóa: <strong><i>"${key}"</i></strong></p>
+                         
+            <div style="padding: 0 0 10px;font-size: 16px; color: #970218;">Có ${taikhoans.length} kết quả</div>`
+            $(".view-user-page2-filter").html(htmlTT);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(textStatus, errorThrown);
@@ -75,4 +81,5 @@ function getURLParameter(sParam)
             return sParameterName[1];
         }
     }
+    return "";
 }

@@ -45,14 +45,14 @@ public class TaiKhoanAPI {
 			return new ResponseEntity<>(taiKhoanOutput,HttpStatus.OK);
 	}
 
-	@GetMapping("/timtaikhoans/{id}")
-	public ResponseEntity<TaiKhoanOutput> getTimListGS(@PathVariable("id") String id,@RequestParam("page") int page,@RequestParam("limit") int limit) {
+	@GetMapping("/timtaikhoans")
+	public ResponseEntity<TaiKhoanOutput> getTimListGS(@RequestParam("key") String key,@RequestParam("page") int page,@RequestParam("limit") int limit) {
 		
 		TaiKhoanOutput taiKhoanOutput = new TaiKhoanOutput();
 		Pageable pageable = PageRequest.of(page-1, limit);
 		taiKhoanOutput.setPage(page);
-		taiKhoanOutput.setTaiKhoanDTO(taiKhoanService.getTimListTaiKhoan(id,pageable));
-		taiKhoanOutput.setTotalPage(taiKhoanService.getTotalPage(limit));
+		taiKhoanOutput.setTaiKhoanDTO(taiKhoanService.getTimListTaiKhoan(key,pageable));
+		taiKhoanOutput.setTotalPage(taiKhoanService.getTotalPageByKey(key, limit));
 			return new ResponseEntity<>(taiKhoanOutput,HttpStatus.OK);
 	}
 

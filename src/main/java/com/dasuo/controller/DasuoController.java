@@ -12,11 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,6 +23,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,7 +32,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.dasuo.api.output.TaiKhoanOutput;
 import com.dasuo.dto.BaiKiemTraDTO;
 import com.dasuo.dto.BaiLamDTO;
 import com.dasuo.dto.GiaoTrinhDTO;
@@ -49,7 +45,6 @@ import com.dasuo.dto.TinhThanhDTO;
 import com.dasuo.entity.BaiKiemTra;
 import com.dasuo.entity.BaiLam;
 import com.dasuo.entity.GiaoTrinh;
-import com.dasuo.entity.LichSuGiaoDich;
 import com.dasuo.repository.BaiDangRepository;
 import com.dasuo.repository.BaiKiemTraRepository;
 import com.dasuo.repository.BaiLamRepository;
@@ -60,7 +55,6 @@ import com.dasuo.repository.TaiKhoanRepository;
 import com.dasuo.service.IBaiKiemTraService;
 import com.dasuo.service.IBaiLamService;
 import com.dasuo.service.IGiaoTrinhService;
-import com.dasuo.service.ILichHocService;
 import com.dasuo.service.ILichSuGiaoDichService;
 import com.dasuo.service.ILopService;
 import com.dasuo.service.IPhanHoiService;
@@ -177,6 +171,17 @@ public class DasuoController {
 		}
 		model.addAttribute("taiKhoan", taiKhoanDTO);
 		return "web/userinformation";
+	}
+	
+	@RequestMapping("/taikhoan/trangcanhan/{id}")
+	public String xemThongTin(Model model, @PathVariable("id") Integer id) {
+		TaiKhoanDTO taiKhoanDTO = taiKhoanService.getTaiKhoan(id);
+		if (taiKhoanDTO.getTinhThanh() == null) {
+			taiKhoanDTO.setTinhThanh(new TinhThanhDTO());
+			taiKhoanDTO.getTinhThanh().setTenTinh("Chưa cập nhật");
+		}
+		model.addAttribute("taiKhoan", taiKhoanDTO);
+		return "web/thongtintaikhoan";
 	}
 
 	@RequestMapping("/trochuyen")

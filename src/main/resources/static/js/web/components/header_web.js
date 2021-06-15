@@ -13,7 +13,7 @@ $(document).ready(function(){
                   <div class="search-header">
                   <input style="padding: 6.8px 4px;border-radius: 3px;" placeholder="Tìm kiếm " class=" form-text" type="text" id="edit-key" name="key" value="" size="40" maxlength="128">
                   </div>
-                  <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;height: 31px;width: 42px;" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
+                  <button style="background-color: #f6f6f6;border-radius: 3px;border: none;cursor: pointer;margin-top: 12px;height: 31px;width: 42px;" id="btn-timkiem" title="Tìm gia sư"><i style="font-size: 20px; padding: 0 0;" class="fa fa-search"></i></button>
          	 	  </div>
          	 	  <div class="flex-row-nowrap" id="bs-example-navbar-collapse-1" style=" padding:0px; width: 30%; height: 54px;">		
 					        <ul style="display: flex; height: 54px; margin-left: 60px;" class="nav navbar-nav navbar-right">
@@ -81,6 +81,7 @@ $(document).ready(function(){
                           <div class="count"></div>
                         </a>
                       </li>
-                   </div>`;
+                   </div>
+                   <script src="/js/web/timkiem.js"></script>`;
     $("#header").html(header);
 });

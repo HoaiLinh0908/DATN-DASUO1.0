@@ -19,6 +19,8 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Integer>{
 	@Query(value="SELECT tai_khoan_id,bang_cap,cmnd,email,gioi_tinh,hinh_dai_dien,ho_ten,hoc_phi,mo_ta,mat_khau,sdt,so_du,loai_id,nghe_nghiep_id,tinh_thanh_id FROM dasuo.taikhoan WHERE taikhoan.ho_ten LIKE %?1% ",nativeQuery=true)
 	public List<Object[]> timKiemGS(String name,Pageable pageable);
 	
+	public List<TaiKhoan> findByHoTenContains(String key);
+	
 	public TaiKhoan findByEmail(String email);
 	public TaiKhoan findByCode(String code);
 	
@@ -26,4 +28,7 @@ public interface TaiKhoanRepository extends JpaRepository<TaiKhoan, Integer>{
 			,nativeQuery=true)
 	int countTaiKhoan();
 	
+	@Query(value="SELECT count(1) FROM dasuo.taikhoan WHERE taikhoan.ho_ten LIKE %?1%"
+			,nativeQuery=true)
+	int countByKey(String name);
 }

@@ -114,9 +114,19 @@ public class TaiKhoanService implements ITaiKhoanService{
 		
 		return taiKhoanConverter.toDTO(taiKhoanRepository.findByEmail(email));
 	}
+	
 	@Override
 	public int getTotalPage(int limit) {
 		int totalItem = (int) taiKhoanRepository.count();
+		if(totalItem % limit != 0) {
+			return (totalItem / limit) + 1;
+		}
+		return totalItem / limit;
+	}
+	
+	@Override
+	public int getTotalPageByKey(String key, int limit) {
+		int totalItem = (int) taiKhoanRepository.countByKey(key);
 		if(totalItem % limit != 0) {
 			return (totalItem / limit) + 1;
 		}

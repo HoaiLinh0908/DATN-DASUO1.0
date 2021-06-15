@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>dasuo hasaghi masenjo</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="header">
+             <script src="/js/web/components/header_web.js"></script>
+        </div>    
+    </div>
+
+         <div style="background-color: #f7f7f7" id="wrapHeadBlock">
+             <div class="user-container">
+                 <section class="profile-cover" style="position: relative;">
+                    <div class="cover">
+                        <input style="opacity: 0;" type="file"  name="edit_cover" class="inputfile_avt" id="edit_cover">
+                         <label style="float: right; margin-top: 150px;color: #fff;background-color: #483f34;margin-right: 15px;opacity: 0.8;;padding: 8px 15px;" for="edit_cover"><svg  xmlns="http://www.w3.org/2000/svg"  width="20" height="17" viewBox="0 0 20 17">
+                            <i class="fas fa-upload"></i>                       
+                            </svg> <span >Upload…</span></label>
+                 </div>
+                 </section>
+                 
+                 <section class="infor-main" style="width: 100%;height: 210px;">
+                     <div class="avatar" style="position: absolute;top:-100px; margin-left: 0px;padding-top: 400px;">
+                         <img  src="/img/lavatar.png" alt="" height="200px">
+                     </div>
+                     <div class="name-user">
+                        
+                         <h6 style="margin-bottom: 30px ;margin-top: 20px;margin-left: 210px;color: #069d86;font-size: 18px;">[[${taiKhoan.hoTen}]]</h6>
+                         
+                     </div>
+                     <hr style="width: 84%;opacity: 0.8;;float: right;" >
+                     <i style="margin-bottom: 10px;margin-top: 10px;margin-left: 200px;" class="fas fa-book"></i>
+                     <p style="font-weight: bold;margin-top: 0px;width: 350px;margin-left: 200px;">Vai trò: [[${taiKhoan.loai.tenLoai}]]</p>
+                     
+                     <div>
+                        <p style="width: 200px;margin-left: 200px;color:#069d86 ;margin-top: 30px;"><i class="fas fa-map-marker-alt"></i> Địa chỉ: [[${taiKhoan.tinhThanh.tenTinh}]]</p>
+
+                           
+                     </div>
+                     
+                    </section>
+                    <div style="margin-top: 20px;" class="user-decription">
+                        <h4 style="padding: 8px 8px;width: 202px;color:#ffF;font-weight: bold;background-color: #069d86;">THÔNG TIN CÁ NHÂN</h4>
+                        <hr style="width: 84%;opacity: 0.8;;float: right;" color="#069d86">
+                        <p style="margin-top: 20px;font-weight: bold;">Mô tả:</p>
+                        <p>[[${taiKhoan.moTa}]]</p>
+                       
+                        <p style="margin-top: 20px;font-weight: bold;">Số điện thoại: [[${taiKhoan.sdt}]]</p>
+                        
+                        <p style="margin-top: 20px;font-weight: bold;">Nghề nghiệp: [[${taiKhoan.ngheNghiep.tenNgheNghiep}]]</p>
+                        
+                        
+                        
+                        
+                    </div>
+                    <div style="width: 100%;height: 400px;" class="schedule">
+                        <div class="img-teacher">
+                            <h4 style="padding: 8px 8px;width: 182px;color: #fff;background-color: #069d86;font-weight: bold;">BẰNG CẤP</h4>
+                        <hr style="width: 84%;opacity: 0.8;;float: right;" color="#069d86">
+                        <p style="margin-left: 8px;width: 100%; margin-top: 20px;color: #069d86;">Upload ảnh giới thiệu về bản thân hoặc mô tả các chương trình học...</p> <br>
+                        <p style="color: #069d86;margin-left: 8px;" >Chưa có hình ảnh nào để hiển thị</p>
+                        <div style="background-image: none; height: 100px;" class="cover">
+                            
+                     </div>
+                        </div>
+                        
+                    </div>
+         </div>
+         <hr style="margin-top: 30px;color: #069d86; width: 100%;">
+         <div class="last-content">
+            <script src="/js/web/components/httv.js"></script>
+        </div>
+        <div id="footer">
+            <script src="/js/web/components/footer_web.js"></script>
+        </div>
+    
+</body>
+</html>
